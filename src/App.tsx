@@ -1,8 +1,31 @@
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { ClaimProvider } from '@/context/ClaimContext'
+import { ContactProvider } from '@/context/ContactContext'
+import { AppShell } from '@/components/layout/app-shell'
+import { ClaimsListPage } from '@/pages/claims-list-page'
+import { ClaimDetailPage } from '@/pages/claim-detail-page'
+import { DashboardPage } from '@/pages/dashboard-page'
+import { ContactsPage } from '@/pages/contacts-page'
+import { Toaster } from '@/components/ui/sonner'
+
 function App() {
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <p className="text-text-muted text-sm">Ready for new spec.</p>
-    </div>
+    <ClaimProvider>
+      <ContactProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<AppShell />}>
+              <Route index element={<Navigate to="/claims" replace />} />
+              <Route path="/claims" element={<ClaimsListPage />} />
+              <Route path="/claims/:claimId" element={<ClaimDetailPage />} />
+              <Route path="/dashboard" element={<DashboardPage />} />
+              <Route path="/contacts" element={<ContactsPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+        <Toaster position="top-right" />
+      </ContactProvider>
+    </ClaimProvider>
   )
 }
 

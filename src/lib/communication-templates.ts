@@ -97,6 +97,30 @@ const templates: Record<string, TemplateGenerator> = {
       body: `Dear ${contact?.name ?? 'Team'},\n\nThis is a reminder that the SLA for claim ${claim.id} (${vehicleDesc(claim)}) is approaching.\n\nPlease take action promptly to avoid a breach.\n\nRegards,\nClaimPilot — RTU Insurance Services`,
     }
   },
+
+  repair_started: (claim) => ({
+    trigger: 'repair_started',
+    to: claim.insured.email ?? '',
+    subject: `Claim ${claim.id} — Repair Commenced`,
+    body: `Dear ${claim.insured.name},\n\nWe are pleased to advise that repairs on your ${vehicleDesc(claim)} have commenced.\n\nClaim Reference: ${claim.id}\nPolicy: ${claim.workflow.policyNumber ?? 'N/A'}\nFinal Authorised Cost: ${formatAmount(claim.workflow.finalCostAmount)}\n\nYou will be notified once the repair is complete. Should you have any queries in the interim, please do not hesitate to contact us.\n\nRegards,\nRTU Insurance Services`,
+  }),
+
+  repair_follow_up: (claim) => {
+    const contact = claim.workflow.repairerId ? getContactById(claim.workflow.repairerId) : undefined
+    return {
+      trigger: 'repair_follow_up',
+      to: contact?.email ?? '',
+      subject: `Status Update Request — ${claim.id} | ${claim.vehicle.make} ${claim.vehicle.model}`,
+      body: `Dear ${contact?.name ?? 'Repairer'},\n\nPlease provide a status update on the repairs for claim ${claim.id}.\n\nVehicle: ${vehicleDesc(claim)}\nInsured: ${claim.insured.name}\n\nKindly advise on expected completion date.\n\nRegards,\nClaimPilot — RTU Insurance Services`,
+    }
+  },
+
+  salvage_follow_up: (claim) => ({
+    trigger: 'salvage_follow_up',
+    to: claim.insured.email ?? '',
+    subject: `Claim ${claim.id} — Salvage Status`,
+    body: `Dear ${claim.insured.name},\n\nThis is a follow-up regarding the salvage process for your ${vehicleDesc(claim)}.\n\nClaim Reference: ${claim.id}\n\nPlease confirm the current status of the salvage. Should you require any assistance, please contact us.\n\nRegards,\nRTU Insurance Services`,
+  }),
 }
 
 function formatAmount(amount: number | undefined): string {
@@ -113,13 +137,16 @@ function getAssignedContact(claim: Claim) {
 }
 
 // ── Map workflow transitions to communication triggers ────────
-const transitionTriggers: Partial<Record<WorkflowState, string>> = {
+const transitionTriggers: Partial<Record<WorkflowState, string | string[]>> = {
   ASSESSOR_APPOINTED: 'assessor_appointed',
   INVESTIGATOR_APPOINTED: 'investigator_appointed',
   GLASS_REPAIRER_APPOINTED: 'glass_repairer_appointed',
   WITHIN_EXCESS: 'within_excess',
   REJECTED: 'claim_rejected',
   INVALID: 'invalid_policy',
+  REPAIR_IN_PROGRESS: 'repair_started',
+  TOTAL_LOSS: 'claim_approved_total_loss',
+  SETTLEMENT_CONFIRMED: 'settlement_issued',
 }
 
 // ── Generate a draft communication for a state transition ────
@@ -127,7 +154,8 @@ export function generateCommunication(claim: Claim, toState: WorkflowState): Dra
   const triggerKey = transitionTriggers[toState]
   if (!triggerKey) return null
 
-  const generator = templates[triggerKey]
+  const key = Array.isArray(triggerKey) ? triggerKey[0] : triggerKey
+  const generator = templates[key]
   if (!generator) return null
 
   const draft = generator(claim)

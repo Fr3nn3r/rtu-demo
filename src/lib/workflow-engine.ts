@@ -7,6 +7,24 @@ export function getNextStates(claimType: ClaimType, currentState: WorkflowState)
   return workflowDefinitions[claimType].transitions[currentState] ?? []
 }
 
+// ── Get the previous state (reverse lookup from SLA history) ─
+export function getPreviousState(claim: Claim): WorkflowState | null {
+  if (claim.status === 'NEW') return null
+  if (claim.status === 'CLOSED') return null
+
+  // Find the most recently completed SLA record — that's where we came from
+  const completedRecords = claim.slaHistory
+    .filter(r => r.completedAt)
+    .sort((a, b) => new Date(b.completedAt!).getTime() - new Date(a.completedAt!).getTime())
+
+  if (completedRecords.length > 0) {
+    return completedRecords[0].state
+  }
+
+  // If no completed SLA records, the previous state was NEW
+  return 'NEW'
+}
+
 // ── Check if a transition is valid ───────────────────────────
 export function canTransition(claimType: ClaimType, from: WorkflowState, to: WorkflowState): boolean {
   return getNextStates(claimType, from).includes(to)
@@ -51,15 +69,27 @@ export function computeSLAStatus(slaRecord: SLARecord): SLAComputed {
 
   let timeRemaining: string
   if (remainingMs <= 0) {
-    const overdue = formatDistanceStrict(now, due, { unit: 'hour' })
-    timeRemaining = `${overdue} overdue`
+    timeRemaining = `${formatHMS(Math.abs(remainingMs))} overdue`
   } else {
-    timeRemaining = formatDistanceStrict(due, now)
+    timeRemaining = formatHMS(remainingMs)
   }
 
   if (percent >= 100) return { status: 'breached', percentElapsed: percent, timeRemaining, isActive: true }
   if (percent >= 75) return { status: 'approaching', percentElapsed: percent, timeRemaining, isActive: true }
   return { status: 'within', percentElapsed: percent, timeRemaining, isActive: true }
+}
+
+// ── Format milliseconds as DD:HH:MM:SS ───────────────────────
+function formatHMS(ms: number): string {
+  const totalSeconds = Math.floor(ms / 1000)
+  const d = Math.floor(totalSeconds / 86400)
+  const h = Math.floor((totalSeconds % 86400) / 3600)
+  const m = Math.floor((totalSeconds % 3600) / 60)
+  const s = totalSeconds % 60
+  if (d > 0) {
+    return `${String(d).padStart(2, '0')}:${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`
+  }
+  return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`
 }
 
 // ── Get the current active SLA record for a claim ────────────

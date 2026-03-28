@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer, useMemo, useEffect, useState, ty
 import type { Claim, ClaimAction, WorkflowState, DashboardStats } from '@/types'
 import { seedClaims } from '@/data/seed-claims'
 import { createAuditEntry } from '@/lib/audit'
-import { createSLARecord, completeSLARecord } from '@/lib/workflow-engine'
+import { createSLARecord, completeSLARecord, getPreviousState } from '@/lib/workflow-engine'
 import { generateCommunication } from '@/lib/communication-templates'
 import { stateLabels } from '@/data/workflow-definitions'
 
@@ -60,6 +60,44 @@ function claimReducer(state: Claim[], action: ClaimAction): Claim[] {
         }
 
         return updatedClaim
+      })
+    }
+
+    case 'REVERT_WORKFLOW': {
+      return state.map(claim => {
+        if (claim.id !== action.claimId) return claim
+
+        const prevState = getPreviousState(claim)
+        if (!prevState) return claim
+
+        const now = new Date().toISOString()
+        const fromState = claim.status
+
+        // Remove the current active SLA record (the one without completedAt)
+        let slaHistory = claim.slaHistory.filter(r => !(r.state === fromState && !r.completedAt))
+
+        // Re-open the previous SLA record (remove its completedAt)
+        slaHistory = slaHistory.map(r =>
+          r.state === prevState && r.completedAt
+            ? { ...r, completedAt: undefined }
+            : r
+        )
+
+        const auditEntry = createAuditEntry(
+          claim.assignedTo,
+          'status_changed',
+          `Status reverted from ${stateLabels[fromState]} to ${stateLabels[prevState]}`,
+          fromState,
+          prevState,
+        )
+
+        return {
+          ...claim,
+          status: prevState,
+          updatedAt: now,
+          slaHistory,
+          auditTrail: [...claim.auditTrail, auditEntry],
+        }
       })
     }
 
@@ -154,6 +192,22 @@ function claimReducer(state: Claim[], action: ClaimAction): Claim[] {
       })
     }
 
+    case 'FAST_FORWARD': {
+      // Shift all SLA timestamps back by N hours (simulates time passing)
+      const shiftMs = action.hours * 60 * 60 * 1000
+      return state.map(claim => ({
+        ...claim,
+        slaHistory: claim.slaHistory.map(r => ({
+          ...r,
+          enteredAt: new Date(new Date(r.enteredAt).getTime() - shiftMs).toISOString(),
+          dueAt: new Date(new Date(r.dueAt).getTime() - shiftMs).toISOString(),
+          completedAt: r.completedAt
+            ? new Date(new Date(r.completedAt).getTime() - shiftMs).toISOString()
+            : undefined,
+        })),
+      }))
+    }
+
     default:
       return state
   }
@@ -178,9 +232,9 @@ export function ClaimProvider({ children }: { children: ReactNode }) {
   const [claims, dispatch] = useReducer(claimReducer, seedClaims)
   const [tick, setTick] = useState(0)
 
-  // Tick every 60 seconds to refresh SLA indicators
+  // Tick every second to refresh SLA countdown timers
   useEffect(() => {
-    const interval = setInterval(() => setTick(t => t + 1), 60_000)
+    const interval = setInterval(() => setTick(t => t + 1), 1_000)
     return () => clearInterval(interval)
   }, [])
 

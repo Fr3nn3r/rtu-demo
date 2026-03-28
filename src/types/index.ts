@@ -251,6 +251,7 @@ export interface DashboardStats {
 // ── Claim Action Types (for reducer) ─────────────────────────
 export type ClaimAction =
   | { type: 'ADVANCE_WORKFLOW'; claimId: string; toState: WorkflowState; data?: Partial<WorkflowFields> }
+  | { type: 'REVERT_WORKFLOW'; claimId: string }
   | { type: 'UPDATE_CLAIM_FIELD'; claimId: string; field: string; value: unknown }
   | { type: 'ADD_CLAIM'; claim: Claim }
   | { type: 'UPDATE_DOCUMENT_STATUS'; claimId: string; docId: string; status: DocumentStatus }
@@ -258,3 +259,4 @@ export type ClaimAction =
   | { type: 'MARK_COMMUNICATION_SENT'; claimId: string; communicationId: string }
   | { type: 'ADD_AUDIT_ENTRY'; claimId: string; entry: AuditEntry }
   | { type: 'ASSIGN_CLAIM'; claimId: string; assignedTo: string }
+  | { type: 'FAST_FORWARD'; hours: number }
