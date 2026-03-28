@@ -42,7 +42,9 @@ export function RegisterOnRock({ claim }: { claim: Claim }) {
         <CopyableField label="Vehicle" value={`${claim.vehicle.year} ${claim.vehicle.make} ${claim.vehicle.model}`} />
         <CopyableField label="Registration" value={claim.vehicle.registration} />
         <CopyableField label="VIN" value={claim.vehicle.vin} />
-        <CopyableField label="Excess" value={claim.workflow.excessAmount ? formatZAR(claim.workflow.excessAmount) : '—'} />
+        {claim.type !== 'theft' && (
+          <CopyableField label="Excess" value={claim.workflow.excessAmount ? formatZAR(claim.workflow.excessAmount) : '—'} />
+        )}
       </div>
 
       <div className="border-t border-border pt-4 space-y-3">

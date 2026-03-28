@@ -202,7 +202,7 @@ const theftSteps: StepDefinition[] = [
     slaHours: 12,
     isBridgeStep: true,
     bridgeSystem: 'nimbus',
-    description: 'Look up the policy on Nimbus. Enter the policy number and excess amount, then confirm validity.',
+    description: 'Look up the policy on Nimbus. Enter the policy number, then confirm validity.',
   },
   {
     state: 'REGISTERED',
@@ -229,23 +229,7 @@ const theftSteps: StepDefinition[] = [
     shortLabel: 'Investigation',
     slaHours: 336, // 14 days
     isBridgeStep: false,
-    description: 'Enter the assessed amount from the investigation report and upload the report.',
-  },
-  {
-    state: 'WITHIN_EXCESS',
-    label: 'Within Excess',
-    shortLabel: 'Within Exc.',
-    slaHours: null,
-    isBridgeStep: false,
-    description: 'The assessed amount is within the excess. Draft notification to policyholder and broker.',
-  },
-  {
-    state: 'INTERNAL_APPROVAL',
-    label: 'Internal Approval',
-    shortLabel: 'Approval',
-    slaHours: 24,
-    isBridgeStep: false,
-    description: 'Review claim details and approve or reject.',
+    description: 'Upload the investigation report and confirm receipt.',
   },
   {
     state: 'QA_APPOINTED',
@@ -354,9 +338,7 @@ const theftTransitions: Partial<Record<WorkflowState, WorkflowState[]>> = {
   INVALID: ['CLOSED'],
   REGISTERED: ['INVESTIGATOR_APPOINTED'],
   INVESTIGATOR_APPOINTED: ['INVESTIGATION_RECEIVED'],
-  INVESTIGATION_RECEIVED: ['WITHIN_EXCESS', 'INTERNAL_APPROVAL', 'QA_APPOINTED'],
-  WITHIN_EXCESS: ['CLOSED'],
-  INTERNAL_APPROVAL: ['AOL', 'REJECTED'],
+  INVESTIGATION_RECEIVED: ['QA_APPOINTED'],
   QA_APPOINTED: ['QA_DECISION'],
   QA_DECISION: ['AOL', 'REJECTED'],
   REJECTED: ['CLOSED'],
@@ -479,7 +461,7 @@ export function getLinearPath(claimType: ClaimType): WorkflowState[] {
     ],
     theft: [
       'NEW', 'POLICY_VALIDATION', 'REGISTERED', 'INVESTIGATOR_APPOINTED',
-      'INVESTIGATION_RECEIVED', 'INTERNAL_APPROVAL', 'AOL', 'ROUTE_TYPE',
+      'INVESTIGATION_RECEIVED', 'QA_APPOINTED', 'QA_DECISION', 'AOL', 'ROUTE_TYPE',
       'INSPECTION_FINAL_COSTING', 'REPAIR_IN_PROGRESS', 'CLOSED',
     ],
     glass: [

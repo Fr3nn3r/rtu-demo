@@ -191,7 +191,6 @@ export const seedClaims: Claim[] = [
     workflow: {
       policyNumber: 'POL-NV350-2022-0456',
       spmClaimNumber: 'SPM-2026-03-1234',
-      excessAmount: 8_000,
     },
     slaHistory: [
       makeSLA('NEW', 12, 20, true),
@@ -329,7 +328,6 @@ export const seedClaims: Claim[] = [
     workflow: {
       policyNumber: 'POL-HAC-2023-0567',
       spmClaimNumber: 'SPM-2026-03-0567',
-      excessAmount: 12_000,
       investigatorId: 'CON-004',
     },
     slaHistory: [

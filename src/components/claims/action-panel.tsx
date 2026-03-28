@@ -9,6 +9,7 @@ import { PolicyValidation } from './actions/policy-validation'
 import { RegisterOnRock } from './actions/register-on-rock'
 import { AppointContact } from './actions/appoint-contact'
 import { AssessmentReceived } from './actions/assessment-received'
+import { InvestigationReceived } from './actions/investigation-received'
 import { InternalApproval } from './actions/internal-approval'
 import { QaDecision } from './actions/qa-decision'
 import { AolGenerated } from './actions/aol-generated'
@@ -96,8 +97,10 @@ function ActionContent({ claim }: { claim: Claim }) {
       )
 
     case 'ASSESSMENT_RECEIVED':
-    case 'INVESTIGATION_RECEIVED':
       return <AssessmentReceived claim={claim} />
+
+    case 'INVESTIGATION_RECEIVED':
+      return <InvestigationReceived claim={claim} />
 
     case 'WITHIN_EXCESS':
       return <WithinExcess claim={claim} />

@@ -9,6 +9,7 @@ import { useClaims } from '@/context/ClaimContext'
 
 export function PolicyValidation({ claim }: { claim: Claim }) {
   const { dispatch } = useClaims()
+  const isTheft = claim.type === 'theft'
   const [policyNumber, setPolicyNumber] = useState(claim.workflow.policyNumber ?? '')
   const [excessAmount, setExcessAmount] = useState(claim.workflow.excessAmount?.toString() ?? '')
 
@@ -19,7 +20,7 @@ export function PolicyValidation({ claim }: { claim: Claim }) {
       toState: 'REGISTERED',
       data: {
         policyNumber,
-        excessAmount: Number(excessAmount),
+        ...(isTheft ? {} : { excessAmount: Number(excessAmount) }),
       },
     })
   }
@@ -36,7 +37,10 @@ export function PolicyValidation({ claim }: { claim: Claim }) {
     <div className="space-y-4">
       <BridgeStepBanner
         system="nimbus"
-        instruction="Look up the insured on Nimbus using the details below. Verify the policy is active, then enter the policy number and excess amount."
+        instruction={isTheft
+          ? "Look up the insured on Nimbus using the details below. Verify the policy is active, then enter the policy number."
+          : "Look up the insured on Nimbus using the details below. Verify the policy is active, then enter the policy number and excess amount."
+        }
       />
 
       <div className="grid grid-cols-2 gap-2">
@@ -48,7 +52,7 @@ export function PolicyValidation({ claim }: { claim: Claim }) {
 
       <div className="border-t border-border pt-4 space-y-3">
         <h4 className="text-sm font-medium">Enter from Nimbus</h4>
-        <div className="grid grid-cols-2 gap-3">
+        <div className={`grid ${isTheft ? 'grid-cols-1 max-w-xs' : 'grid-cols-2'} gap-3`}>
           <div>
             <Label htmlFor="policyNumber">Policy Number</Label>
             <Input
@@ -58,16 +62,18 @@ export function PolicyValidation({ claim }: { claim: Claim }) {
               placeholder="POL-..."
             />
           </div>
-          <div>
-            <Label htmlFor="excessAmount">Excess Amount (ZAR)</Label>
-            <Input
-              id="excessAmount"
-              type="number"
-              value={excessAmount}
-              onChange={e => setExcessAmount(e.target.value)}
-              placeholder="e.g. 5000"
-            />
-          </div>
+          {!isTheft && (
+            <div>
+              <Label htmlFor="excessAmount">Excess Amount (ZAR)</Label>
+              <Input
+                id="excessAmount"
+                type="number"
+                value={excessAmount}
+                onChange={e => setExcessAmount(e.target.value)}
+                placeholder="e.g. 5000"
+              />
+            </div>
+          )}
         </div>
       </div>
 
@@ -75,7 +81,7 @@ export function PolicyValidation({ claim }: { claim: Claim }) {
         <Button variant="destructive" onClick={handleInvalid}>
           Mark Invalid
         </Button>
-        <Button onClick={handleValid} disabled={!policyNumber || !excessAmount}>
+        <Button onClick={handleValid} disabled={!policyNumber || (!isTheft && !excessAmount)}>
           Confirm Valid — Proceed
         </Button>
       </div>

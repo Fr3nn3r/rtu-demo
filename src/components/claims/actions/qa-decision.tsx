@@ -13,6 +13,7 @@ export function QaDecision({ claim }: { claim: Claim }) {
   const [rejecting, setRejecting] = useState(false)
   const [rejectionReason, setRejectionReason] = useState('')
 
+  const isTheft = claim.type === 'theft'
   const assessed = claim.workflow.assessedAmount ?? 0
   const excess = claim.workflow.excessAmount ?? 0
 
@@ -43,7 +44,10 @@ export function QaDecision({ claim }: { claim: Claim }) {
       )}
 
       <p className="text-sm text-text-secondary">
-        This claim exceeds R50,000 and requires QA approval. Assessed: {formatZAR(assessed)}, Excess: {formatZAR(excess)}.
+        {isTheft
+          ? 'All theft claims require QA review before approval.'
+          : `This claim exceeds R50,000 and requires QA approval. Assessed: ${formatZAR(assessed)}, Excess: ${formatZAR(excess)}.`
+        }
       </p>
 
       {!rejecting ? (
