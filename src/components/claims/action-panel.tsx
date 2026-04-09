@@ -3,6 +3,7 @@ import { getStepConfig, getPreviousState } from '@/lib/workflow-engine'
 import { stateLabels } from '@/data/workflow-definitions'
 import { useClaims } from '@/context/ClaimContext'
 import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
 import { Undo2 } from 'lucide-react'
 import { NewClaimReview } from './actions/new-claim-review'
 import { PolicyValidation } from './actions/policy-validation'
@@ -35,7 +36,7 @@ export function ActionPanel({ claim }: { claim: Claim }) {
   }
 
   return (
-    <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
+    <Card className="p-5">
       <div className="mb-4 flex items-start justify-between gap-4">
         <div>
           <h3 className="text-base font-semibold">{stepConfig?.label ?? 'Unknown Step'}</h3>
@@ -51,7 +52,7 @@ export function ActionPanel({ claim }: { claim: Claim }) {
         )}
       </div>
       <ActionContent claim={claim} />
-    </div>
+    </Card>
   )
 }
 

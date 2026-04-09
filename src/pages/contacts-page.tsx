@@ -1,6 +1,7 @@
 import { useContacts } from '@/context/ContactContext'
 import type { ContactRole } from '@/types'
 import { User, Mail, Phone } from 'lucide-react'
+import { Card } from '@/components/ui/card'
 
 const roleLabels: Record<ContactRole, string> = {
   assessor: 'Assessors',
@@ -29,7 +30,7 @@ export function ContactsPage() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
               {roleContacts.map(contact => (
-                <div key={contact.id} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
+                <Card key={contact.id} className="flex items-start gap-3 p-4">
                   <div className="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <User className="size-5" />
                   </div>
@@ -44,7 +45,7 @@ export function ContactsPage() {
                       <span>{contact.phone}</span>
                     </div>
                   </div>
-                </div>
+                </Card>
               ))}
             </div>
           </div>

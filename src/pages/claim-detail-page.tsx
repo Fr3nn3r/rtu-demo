@@ -9,6 +9,7 @@ import { DocumentsPanel } from '@/components/claims/panels/documents-panel'
 import { CommunicationsPanel } from '@/components/claims/panels/communications-panel'
 import { AuditTrailPanel } from '@/components/claims/panels/audit-trail-panel'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Card } from '@/components/ui/card'
 
 export function ClaimDetailPage() {
   const { claimId } = useParams<{ claimId: string }>()
@@ -33,7 +34,7 @@ export function ClaimDetailPage() {
 
         {/* Sidebar tabs */}
         <div className="lg:col-span-1">
-          <div className="rounded-xl border border-border bg-card shadow-sm">
+          <Card>
             <Tabs defaultValue="details">
               <TabsList className="w-full justify-start border-b border-border rounded-none bg-transparent px-1">
                 <TabsTrigger value="details" className="text-xs">Details</TabsTrigger>
@@ -67,7 +68,7 @@ export function ClaimDetailPage() {
                 </TabsContent>
               </div>
             </Tabs>
-          </div>
+          </Card>
         </div>
       </div>
     </div>

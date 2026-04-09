@@ -14,6 +14,7 @@ import { format } from 'date-fns'
 import { Search, Filter, ChevronRight, Plus } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { toast } from 'sonner'
+import { Card } from '@/components/ui/card'
 
 type FilterTab = 'all' | 'my_queue' | ClaimType
 
@@ -159,7 +160,7 @@ export function ClaimsListPage() {
       </div>
 
       {/* Claims table */}
-      <div className="rounded-xl border border-border bg-card shadow-sm overflow-hidden">
+      <Card className="overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead className="sticky top-0 z-10">
@@ -190,7 +191,7 @@ export function ClaimsListPage() {
             </tbody>
           </table>
         </div>
-      </div>
+      </Card>
 
       {/* New Claim Dialog */}
       <NewClaimDialog
