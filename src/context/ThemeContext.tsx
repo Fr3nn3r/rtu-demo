@@ -15,6 +15,8 @@ const ThemeContext = createContext<ThemeContextValue | null>(null)
 export const THEMES = [
   { id: 'supabase', name: 'Supabase' },
   { id: 'clean-slate', name: 'Clean Slate' },
+  { id: 'starry-night', name: 'Starry Night' },
+  { id: 'northern-lights', name: 'Northern Lights' },
 ] as const
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
