@@ -172,7 +172,7 @@ export function DashboardPage() {
 
       {/* ── Operator Workload + Assessor Performance ────────── */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <Card className="overflow-hidden">
+        <Card className="overflow-hidden py-0 gap-0">
           <CardHeader className="px-4 py-3 bg-muted flex-row items-center gap-2 space-y-0">
             <Users className="size-4 text-muted-foreground" />
             <CardTitle className="text-sm">Operator Workload</CardTitle>
@@ -205,7 +205,7 @@ export function DashboardPage() {
           </CardContent>
         </Card>
 
-        <Card className="overflow-hidden">
+        <Card className="overflow-hidden py-0 gap-0">
           <CardHeader className="px-4 py-3 bg-muted flex-row items-center gap-2 space-y-0">
             <BarChart3 className="size-4 text-muted-foreground" />
             <CardTitle className="text-sm">Assessor / Investigator Performance</CardTitle>
@@ -241,7 +241,7 @@ export function DashboardPage() {
 
       {/* ── Time to Close + Breached SLAs ───────────────────── */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <Card className="overflow-hidden">
+        <Card className="overflow-hidden py-0 gap-0">
           <CardHeader className="px-4 py-3 bg-muted flex-row items-center gap-2 space-y-0">
             <Clock className="size-4 text-muted-foreground" />
             <CardTitle className="text-sm">Average Time to Close</CardTitle>
@@ -269,7 +269,7 @@ export function DashboardPage() {
         </Card>
 
         {breachedClaims.length > 0 && (
-          <Card className="overflow-hidden border-destructive/20">
+          <Card className="overflow-hidden py-0 gap-0 border-destructive/20">
             <CardHeader className="px-4 py-3 bg-destructive/10 flex-row items-center gap-2 space-y-0">
               <AlertCircle className="size-4 text-destructive" />
               <CardTitle className="text-sm text-destructive">Breached SLAs ({breachedClaims.length})</CardTitle>

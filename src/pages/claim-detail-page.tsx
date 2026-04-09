@@ -35,7 +35,7 @@ export function ClaimDetailPage() {
 
         {/* Sidebar tabs */}
         <div className="lg:col-span-1">
-          <Card>
+          <Card className="py-0 gap-0">
             <Tabs defaultValue="details">
               <TabsList className="w-full justify-start border-b border-border rounded-none bg-transparent px-1">
                 <TabsTrigger value="details" className="text-xs">Details</TabsTrigger>

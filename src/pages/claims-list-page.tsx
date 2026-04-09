@@ -161,7 +161,7 @@ export function ClaimsListPage() {
       </div>
 
       {/* Claims table */}
-      <Card className="overflow-hidden">
+      <Card className="overflow-hidden py-0 gap-0">
         <Table>
           <TableHeader className="sticky top-0 z-10">
             <TableRow className="bg-muted hover:bg-muted">
