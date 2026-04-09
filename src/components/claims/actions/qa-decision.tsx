@@ -43,7 +43,7 @@ export function QaDecision({ claim }: { claim: Claim }) {
         />
       )}
 
-      <p className="text-sm text-text-secondary">
+      <p className="text-sm text-muted-foreground">
         {isTheft
           ? 'All theft claims require QA review before approval.'
           : `This claim exceeds R50,000 and requires QA approval. Assessed: ${formatZAR(assessed)}, Excess: ${formatZAR(excess)}.`
@@ -63,7 +63,7 @@ export function QaDecision({ claim }: { claim: Claim }) {
         </div>
       ) : (
         <div className="space-y-3 border-t border-border pt-4">
-          <h4 className="text-sm font-medium text-danger-700">Rejection Details</h4>
+          <h4 className="text-sm font-medium text-destructive">Rejection Details</h4>
           <div>
             <Label htmlFor="qaRejectionReason">Reason for Rejection</Label>
             <Textarea

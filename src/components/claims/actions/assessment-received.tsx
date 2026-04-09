@@ -37,14 +37,14 @@ export function AssessmentReceived({ claim }: { claim: Claim }) {
 
   return (
     <div className="space-y-4">
-      <p className="text-sm text-text-secondary">
+      <p className="text-sm text-muted-foreground">
         Enter the assessed amount from the {isInvestigation ? 'investigation' : 'assessment'} report.
         The system will auto-route the claim based on the amount.
       </p>
 
       <div className="grid grid-cols-2 gap-3 text-sm">
-        <div className="rounded-lg border border-border bg-surface-secondary p-3">
-          <div className="text-[11px] font-medium text-text-muted uppercase">Excess Amount</div>
+        <div className="rounded-lg border border-border bg-muted p-3">
+          <div className="text-[11px] font-medium text-muted-foreground uppercase">Excess Amount</div>
           <div className="text-lg font-semibold">{formatZAR(excess)}</div>
         </div>
         <div>
@@ -61,11 +61,11 @@ export function AssessmentReceived({ claim }: { claim: Claim }) {
       </div>
 
       {route && (
-        <div className="flex items-center gap-2 rounded-lg border border-primary-200 bg-primary-50/50 p-3 text-sm">
-          <ArrowRight className="size-4 text-primary-500 flex-shrink-0" />
+        <div className="flex items-center gap-2 rounded-lg border border-primary/20 bg-primary/5 p-3 text-sm">
+          <ArrowRight className="size-4 text-primary flex-shrink-0" />
           <div>
-            <span className="font-medium text-primary-700">Auto-route: </span>
-            <span className="text-text-secondary">{routeLabels[route]}</span>
+            <span className="font-medium text-primary">Auto-route: </span>
+            <span className="text-muted-foreground">{routeLabels[route]}</span>
           </div>
         </div>
       )}

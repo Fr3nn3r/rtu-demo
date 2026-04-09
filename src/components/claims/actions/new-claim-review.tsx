@@ -15,7 +15,7 @@ export function NewClaimReview({ claim }: { claim: Claim }) {
 
   return (
     <div className="space-y-4">
-      <p className="text-sm text-text-secondary">
+      <p className="text-sm text-muted-foreground">
         Review the extracted claim data below. Correct any errors and confirm the claim to proceed to policy validation.
       </p>
 
@@ -32,9 +32,9 @@ export function NewClaimReview({ claim }: { claim: Claim }) {
         <Field label="Broker" value={claim.broker.name} />
       </div>
 
-      <div className="rounded-lg border border-border bg-surface-secondary p-3 text-sm">
-        <div className="font-medium text-text-primary mb-1">Circumstances</div>
-        <p className="text-text-secondary">{claim.incident.circumstances}</p>
+      <div className="rounded-lg border border-border bg-muted p-3 text-sm">
+        <div className="font-medium text-foreground mb-1">Circumstances</div>
+        <p className="text-muted-foreground">{claim.incident.circumstances}</p>
       </div>
 
       <div className="flex justify-end">
@@ -49,8 +49,8 @@ export function NewClaimReview({ claim }: { claim: Claim }) {
 function Field({ label, value }: { label: string; value?: string }) {
   return (
     <div>
-      <div className="text-[11px] font-medium text-text-muted uppercase tracking-wide">{label}</div>
-      <div className="text-text-primary">{value || '—'}</div>
+      <div className="text-[11px] font-medium text-muted-foreground uppercase tracking-wide">{label}</div>
+      <div className="text-foreground">{value || '—'}</div>
     </div>
   )
 }

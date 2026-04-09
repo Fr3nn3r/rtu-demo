@@ -18,20 +18,20 @@ export function InvestigationReceived({ claim }: { claim: Claim }) {
 
   return (
     <div className="space-y-4">
-      <p className="text-sm text-text-secondary">
+      <p className="text-sm text-muted-foreground">
         Upload the investigation report and confirm receipt.
         All theft claims proceed to QA review.
       </p>
 
       <div
-        className="flex items-center gap-3 rounded-lg border border-dashed border-border p-4 cursor-pointer hover:bg-surface-secondary transition-colors"
+        className="flex items-center gap-3 rounded-lg border border-dashed border-border p-4 cursor-pointer hover:bg-muted transition-colors"
         onClick={() => setConfirmed(true)}
       >
-        <Upload className="size-5 text-text-muted" />
+        <Upload className="size-5 text-muted-foreground" />
         <div className="text-sm">
           {confirmed
-            ? <span className="font-medium text-success-700">Investigation report uploaded</span>
-            : <span className="text-text-secondary">Click to simulate uploading the investigation report</span>
+            ? <span className="font-medium text-primary">Investigation report uploaded</span>
+            : <span className="text-muted-foreground">Click to simulate uploading the investigation report</span>
           }
         </div>
       </div>
