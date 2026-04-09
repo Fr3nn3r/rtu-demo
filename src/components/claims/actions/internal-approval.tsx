@@ -59,7 +59,7 @@ export function InternalApproval({ claim }: { claim: Claim }) {
       ) : (
         <div className="space-y-3 border-t border-border pt-4">
           <h4 className="text-sm font-medium text-destructive">Rejection Details</h4>
-          <div>
+          <div className="space-y-2">
             <Label htmlFor="rejectionReason">Reason for Rejection</Label>
             <Textarea
               id="rejectionReason"

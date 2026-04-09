@@ -53,7 +53,7 @@ export function PolicyValidation({ claim }: { claim: Claim }) {
       <div className="border-t border-border pt-4 space-y-3">
         <h4 className="text-sm font-medium">Enter from Nimbis</h4>
         <div className={`grid ${isTheft ? 'grid-cols-1 max-w-xs' : 'grid-cols-2'} gap-3`}>
-          <div>
+          <div className="space-y-2">
             <Label htmlFor="policyNumber">Policy Number</Label>
             <Input
               id="policyNumber"
@@ -63,7 +63,7 @@ export function PolicyValidation({ claim }: { claim: Claim }) {
             />
           </div>
           {!isTheft && (
-            <div>
+            <div className="space-y-2">
               <Label htmlFor="excessAmount">Excess Amount (ZAR)</Label>
               <Input
                 id="excessAmount"

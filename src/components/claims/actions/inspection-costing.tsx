@@ -43,7 +43,7 @@ export function InspectionCosting({ claim }: { claim: Claim }) {
           <div className="text-[11px] font-medium text-muted-foreground uppercase">Original Assessment</div>
           <div className="text-lg font-semibold">{formatZAR(claim.workflow.assessedAmount ?? 0)}</div>
         </div>
-        <div>
+        <div className="space-y-2">
           <Label htmlFor="finalCost">Final Cost (ZAR)</Label>
           <Input
             id="finalCost"
@@ -51,7 +51,6 @@ export function InspectionCosting({ claim }: { claim: Claim }) {
             value={finalCost}
             onChange={e => setFinalCost(e.target.value)}
             placeholder="e.g. 42000"
-            className="mt-1"
           />
         </div>
       </div>

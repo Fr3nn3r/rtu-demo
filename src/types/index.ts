@@ -93,10 +93,13 @@ export interface AuditEntry {
 }
 
 // ── Draft Communication ──────────────────────────────────────
+export type CommunicationRecipient = 'insured' | 'broker' | 'provider'
+
 export interface DraftCommunication {
   id: string
   claimId: string
   trigger: string
+  recipient: CommunicationRecipient
   to: string
   subject: string
   body: string

@@ -11,8 +11,9 @@
 | 0–3 min | Opening | Set goals: align on claim intake, validate assumptions, define Phase 1 scope |
 | 3–23 min | Demo walkthrough | Live demo with corrected naming, SLAs, real data patterns. One accident claim end-to-end, one glass claim. Show Radx benchmark mock at assessment step. |
 | 23–35 min | Claim intake deep-dive | How does a claim arrive today? What does ClaimPilot replace? Validate proposed intake flow (manual form upload, documents added along the way). |
-| 35–50 min | Assumption validation | Walk assumption table below. Get explicit confirm/correct on each. |
-| 50–60 min | Phase 1 scope definition | In/out/deferred. Get explicit prioritization from RTU. |
+| 35–45 min | Communication plan review | Walk through proposed communication matrix ([docs/communication-matrix.md](communication-matrix.md)). Current prototype has 11 templates covering service providers and outcomes — proposed plan adds insured lifecycle updates (acknowledgment, approval, completion) and broker copies at every touchpoint. Get RTU input on: which insured notifications are expected vs nice-to-have, broker template strategy, whether combined close emails are acceptable. Key decisions in section 5 of the matrix doc. |
+| 45–55 min | Assumption validation | Walk assumption table below. Get explicit confirm/correct on each. |
+| 55–65 min | Phase 1 scope definition | In/out/deferred. Get explicit prioritization from RTU. |
 
 ---
 

@@ -213,7 +213,7 @@ export function NewClaimDialog({ type, open, onOpenChange, onCreated }: NewClaim
               setFormUploaded(true)
             }}
           />
-          <div>
+          <div className="space-y-2">
             <Label htmlFor="insuredName">Insured Name</Label>
             <Input
               id="insuredName"
@@ -224,7 +224,7 @@ export function NewClaimDialog({ type, open, onOpenChange, onCreated }: NewClaim
             />
           </div>
           <div className="grid grid-cols-2 gap-3">
-            <div>
+            <div className="space-y-2">
               <Label htmlFor="registration">Vehicle Registration</Label>
               <Input
                 id="registration"
@@ -232,7 +232,7 @@ export function NewClaimDialog({ type, open, onOpenChange, onCreated }: NewClaim
                 onChange={e => setRegistration(e.target.value)}
               />
             </div>
-            <div>
+            <div className="space-y-2">
               <Label htmlFor="vehicleDesc">Make & Model</Label>
               <Input
                 id="vehicleDesc"

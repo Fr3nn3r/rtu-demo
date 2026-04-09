@@ -40,7 +40,7 @@ export function DraftCommunicationModal({ communication, open, onOpenChange }: D
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl">
+      <DialogContent className="sm:max-w-3xl max-h-[85vh] flex flex-col">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <Mail className="size-4" />
@@ -52,7 +52,7 @@ export function DraftCommunicationModal({ communication, open, onOpenChange }: D
         </DialogHeader>
 
         {/* Email-style layout */}
-        <div className="rounded-lg border border-border overflow-hidden">
+        <div className="rounded-lg border border-border overflow-hidden flex flex-col min-h-0">
           {/* Email header */}
           <div className="bg-muted px-5 py-3 space-y-2 border-b border-border">
             <div className="flex items-center gap-3">
@@ -83,7 +83,7 @@ export function DraftCommunicationModal({ communication, open, onOpenChange }: D
           </div>
 
           {/* Email body */}
-          <ScrollArea className="px-5 py-4 bg-card min-h-[200px] max-h-[400px]">
+          <ScrollArea className="px-5 py-4 bg-card min-h-[120px] max-h-[50vh]">
             <div className="text-sm leading-relaxed whitespace-pre-wrap text-foreground">
               {communication.body}
             </div>

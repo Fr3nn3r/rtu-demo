@@ -49,7 +49,7 @@ export function RegisterOnROC({ claim }: { claim: Claim }) {
 
       <div className="border-t border-border pt-4 space-y-3">
         <h4 className="text-sm font-medium">Enter from ROC</h4>
-        <div className="max-w-xs">
+        <div className="max-w-xs space-y-2">
           <Label htmlFor="spmNumber">SPM Claim Number</Label>
           <Input
             id="spmNumber"

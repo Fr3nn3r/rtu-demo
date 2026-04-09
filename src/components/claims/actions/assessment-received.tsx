@@ -62,7 +62,7 @@ export function AssessmentReceived({ claim }: { claim: Claim }) {
           <div className="text-[11px] font-medium text-muted-foreground uppercase">Excess Amount</div>
           <div className="text-lg font-semibold">{formatZAR(excess)}</div>
         </div>
-        <div>
+        <div className="space-y-2">
           <Label htmlFor="assessedAmount">Assessed Amount (ZAR)</Label>
           <Input
             id="assessedAmount"
@@ -70,7 +70,6 @@ export function AssessmentReceived({ claim }: { claim: Claim }) {
             value={amount}
             onChange={e => setAmount(e.target.value)}
             placeholder="e.g. 35000"
-            className="mt-1"
           />
         </div>
       </div>
