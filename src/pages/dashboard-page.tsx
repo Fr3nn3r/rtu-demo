@@ -14,8 +14,12 @@ import {
   PieChart, Pie, Cell,
 } from 'recharts'
 
-const PIE_COLORS = ['#0ea5e9', '#ef4444', '#f59e0b']
-const SLA_COLORS: Record<SLAStatus, string> = { within: '#22c55e', approaching: '#f59e0b', breached: '#ef4444' }
+const PIE_COLORS = ['hsl(var(--chart-1))', 'hsl(var(--chart-2))', 'hsl(var(--chart-3))']
+const SLA_COLORS: Record<SLAStatus, string> = {
+  within: 'hsl(var(--chart-1))',
+  approaching: 'hsl(var(--chart-3))',
+  breached: 'hsl(var(--chart-2))',
+}
 
 export function DashboardPage() {
   const { claims, getDashboardStats } = useClaims()
@@ -122,19 +126,19 @@ export function DashboardPage() {
 
       {/* ── Charts row ──────────────────────────────────────── */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        <div className="rounded-xl border border-border bg-white p-4 shadow-sm">
+        <div className="rounded-xl border border-border bg-card p-4 shadow-sm">
           <h3 className="text-sm font-semibold mb-3">Active Claims by Status</h3>
           <ResponsiveContainer width="100%" height={240}>
             <BarChart data={statusData} layout="vertical" margin={{ left: 100 }}>
               <XAxis type="number" tick={{ fontSize: 11 }} />
               <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={100} />
               <RechartsTooltip />
-              <Bar dataKey="count" fill="#0ea5e9" radius={[0, 4, 4, 0]} />
+              <Bar dataKey="count" fill="hsl(var(--chart-1))" radius={[0, 4, 4, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
 
-        <div className="rounded-xl border border-border bg-white p-4 shadow-sm">
+        <div className="rounded-xl border border-border bg-card p-4 shadow-sm">
           <h3 className="text-sm font-semibold mb-3">Claims by Type</h3>
           <ResponsiveContainer width="100%" height={240}>
             <PieChart>
@@ -148,7 +152,7 @@ export function DashboardPage() {
           </ResponsiveContainer>
         </div>
 
-        <div className="rounded-xl border border-border bg-white p-4 shadow-sm">
+        <div className="rounded-xl border border-border bg-card p-4 shadow-sm">
           <h3 className="text-sm font-semibold mb-3">SLA Performance</h3>
           <ResponsiveContainer width="100%" height={240}>
             <PieChart>
@@ -165,17 +169,17 @@ export function DashboardPage() {
 
       {/* ── Operator Workload + Assessor Performance ────────── */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div className="rounded-xl border border-border bg-white shadow-sm overflow-hidden">
-          <div className="px-4 py-3 border-b border-border bg-surface-secondary flex items-center gap-2">
-            <Users className="size-4 text-text-muted" />
+        <div className="rounded-xl border border-border bg-card shadow-sm overflow-hidden">
+          <div className="px-4 py-3 border-b border-border bg-muted flex items-center gap-2">
+            <Users className="size-4 text-muted-foreground" />
             <h3 className="text-sm font-semibold">Operator Workload</h3>
           </div>
           <table className="w-full">
             <thead>
               <tr className="border-b border-border">
-                <th className="px-4 py-2 text-left text-[11px] font-semibold text-text-secondary uppercase">Operator</th>
-                <th className="px-4 py-2 text-center text-[11px] font-semibold text-text-secondary uppercase">Active</th>
-                <th className="px-4 py-2 text-center text-[11px] font-semibold text-text-secondary uppercase">Overdue</th>
+                <th className="px-4 py-2 text-left text-[11px] font-semibold text-muted-foreground uppercase">Operator</th>
+                <th className="px-4 py-2 text-center text-[11px] font-semibold text-muted-foreground uppercase">Active</th>
+                <th className="px-4 py-2 text-center text-[11px] font-semibold text-muted-foreground uppercase">Overdue</th>
               </tr>
             </thead>
             <tbody>
@@ -185,9 +189,9 @@ export function DashboardPage() {
                   <td className="px-4 py-2.5 text-sm text-center font-medium">{op.active}</td>
                   <td className="px-4 py-2.5 text-center">
                     {op.overdue > 0 ? (
-                      <span className="inline-flex items-center rounded-full bg-danger-50 px-2 py-0.5 text-xs font-bold text-danger-700">{op.overdue}</span>
+                      <span className="inline-flex items-center rounded-full bg-destructive/10 px-2 py-0.5 text-xs font-bold text-destructive">{op.overdue}</span>
                     ) : (
-                      <span className="text-sm text-text-muted">0</span>
+                      <span className="text-sm text-muted-foreground">0</span>
                     )}
                   </td>
                 </tr>
@@ -196,28 +200,28 @@ export function DashboardPage() {
           </table>
         </div>
 
-        <div className="rounded-xl border border-border bg-white shadow-sm overflow-hidden">
-          <div className="px-4 py-3 border-b border-border bg-surface-secondary flex items-center gap-2">
-            <BarChart3 className="size-4 text-text-muted" />
+        <div className="rounded-xl border border-border bg-card shadow-sm overflow-hidden">
+          <div className="px-4 py-3 border-b border-border bg-muted flex items-center gap-2">
+            <BarChart3 className="size-4 text-muted-foreground" />
             <h3 className="text-sm font-semibold">Assessor / Investigator Performance</h3>
           </div>
           <table className="w-full">
             <thead>
               <tr className="border-b border-border">
-                <th className="px-4 py-2 text-left text-[11px] font-semibold text-text-secondary uppercase">Name</th>
-                <th className="px-4 py-2 text-left text-[11px] font-semibold text-text-secondary uppercase">Role</th>
-                <th className="px-4 py-2 text-center text-[11px] font-semibold text-text-secondary uppercase">Active</th>
-                <th className="px-4 py-2 text-center text-[11px] font-semibold text-text-secondary uppercase">Completed</th>
+                <th className="px-4 py-2 text-left text-[11px] font-semibold text-muted-foreground uppercase">Name</th>
+                <th className="px-4 py-2 text-left text-[11px] font-semibold text-muted-foreground uppercase">Role</th>
+                <th className="px-4 py-2 text-center text-[11px] font-semibold text-muted-foreground uppercase">Active</th>
+                <th className="px-4 py-2 text-center text-[11px] font-semibold text-muted-foreground uppercase">Completed</th>
               </tr>
             </thead>
             <tbody>
               {assessorPerformance.length === 0 ? (
-                <tr><td colSpan={4} className="px-4 py-4 text-center text-sm text-text-muted">No assignments yet</td></tr>
+                <tr><td colSpan={4} className="px-4 py-4 text-center text-sm text-muted-foreground">No assignments yet</td></tr>
               ) : (
                 assessorPerformance.map(a => (
                   <tr key={a.name} className="border-b border-border last:border-b-0">
                     <td className="px-4 py-2.5 text-sm font-medium">{a.name}</td>
-                    <td className="px-4 py-2.5 text-xs text-text-secondary capitalize">{a.role}</td>
+                    <td className="px-4 py-2.5 text-xs text-muted-foreground capitalize">{a.role}</td>
                     <td className="px-4 py-2.5 text-sm text-center">{a.active}</td>
                     <td className="px-4 py-2.5 text-sm text-center">{a.completed}</td>
                   </tr>
@@ -230,17 +234,17 @@ export function DashboardPage() {
 
       {/* ── Time to Close + Breached SLAs ───────────────────── */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div className="rounded-xl border border-border bg-white shadow-sm overflow-hidden">
-          <div className="px-4 py-3 border-b border-border bg-surface-secondary flex items-center gap-2">
-            <Clock className="size-4 text-text-muted" />
+        <div className="rounded-xl border border-border bg-card shadow-sm overflow-hidden">
+          <div className="px-4 py-3 border-b border-border bg-muted flex items-center gap-2">
+            <Clock className="size-4 text-muted-foreground" />
             <h3 className="text-sm font-semibold">Average Time to Close</h3>
           </div>
           <table className="w-full">
             <thead>
               <tr className="border-b border-border">
-                <th className="px-4 py-2 text-left text-[11px] font-semibold text-text-secondary uppercase">Claim Type</th>
-                <th className="px-4 py-2 text-center text-[11px] font-semibold text-text-secondary uppercase">Avg Days</th>
-                <th className="px-4 py-2 text-center text-[11px] font-semibold text-text-secondary uppercase">Closed</th>
+                <th className="px-4 py-2 text-left text-[11px] font-semibold text-muted-foreground uppercase">Claim Type</th>
+                <th className="px-4 py-2 text-center text-[11px] font-semibold text-muted-foreground uppercase">Avg Days</th>
+                <th className="px-4 py-2 text-center text-[11px] font-semibold text-muted-foreground uppercase">Closed</th>
               </tr>
             </thead>
             <tbody>
@@ -248,7 +252,7 @@ export function DashboardPage() {
                 <tr key={t.type} className="border-b border-border last:border-b-0">
                   <td className="px-4 py-2.5"><ClaimTypeBadge type={t.type} /></td>
                   <td className="px-4 py-2.5 text-center text-sm font-semibold">{t.count > 0 ? `${t.avg}d` : '—'}</td>
-                  <td className="px-4 py-2.5 text-center text-sm text-text-secondary">{t.count}</td>
+                  <td className="px-4 py-2.5 text-center text-sm text-muted-foreground">{t.count}</td>
                 </tr>
               ))}
             </tbody>
@@ -256,33 +260,33 @@ export function DashboardPage() {
         </div>
 
         {breachedClaims.length > 0 && (
-          <div className="rounded-xl border border-danger-200 bg-white shadow-sm overflow-hidden">
-            <div className="px-4 py-3 bg-danger-50 border-b border-danger-200 flex items-center gap-2">
-              <AlertCircle className="size-4 text-danger-600" />
-              <h3 className="text-sm font-semibold text-danger-700">Breached SLAs ({breachedClaims.length})</h3>
+          <div className="rounded-xl border border-destructive/20 bg-card shadow-sm overflow-hidden">
+            <div className="px-4 py-3 bg-destructive/10 border-b border-destructive/20 flex items-center gap-2">
+              <AlertCircle className="size-4 text-destructive" />
+              <h3 className="text-sm font-semibold text-destructive">Breached SLAs ({breachedClaims.length})</h3>
             </div>
             <table className="w-full">
               <thead>
                 <tr className="border-b border-border">
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold text-text-secondary uppercase">Claim</th>
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold text-text-secondary uppercase">Type</th>
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold text-text-secondary uppercase">Status</th>
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold text-text-secondary uppercase">SLA</th>
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold text-text-secondary uppercase">Assigned</th>
+                  <th className="px-4 py-2 text-left text-[11px] font-semibold text-muted-foreground uppercase">Claim</th>
+                  <th className="px-4 py-2 text-left text-[11px] font-semibold text-muted-foreground uppercase">Type</th>
+                  <th className="px-4 py-2 text-left text-[11px] font-semibold text-muted-foreground uppercase">Status</th>
+                  <th className="px-4 py-2 text-left text-[11px] font-semibold text-muted-foreground uppercase">SLA</th>
+                  <th className="px-4 py-2 text-left text-[11px] font-semibold text-muted-foreground uppercase">Assigned</th>
                 </tr>
               </thead>
               <tbody>
                 {breachedClaims.map(claim => (
-                  <tr key={claim.id} className="border-b border-border last:border-b-0 bg-danger-50/30">
+                  <tr key={claim.id} className="border-b border-border last:border-b-0 bg-destructive/5">
                     <td className="px-4 py-2">
-                      <Link to={`/claims/${claim.id}`} className="text-sm font-medium text-primary-600 hover:underline">
+                      <Link to={`/claims/${claim.id}`} className="text-sm font-medium text-primary hover:underline">
                         {claim.id}
                       </Link>
                     </td>
                     <td className="px-4 py-2"><ClaimTypeBadge type={claim.type} /></td>
                     <td className="px-4 py-2"><StatusBadge status={claim.status} /></td>
                     <td className="px-4 py-2"><SlaIndicator claim={claim} /></td>
-                    <td className="px-4 py-2 text-sm text-text-secondary">{claim.assignedTo}</td>
+                    <td className="px-4 py-2 text-sm text-muted-foreground">{claim.assignedTo}</td>
                   </tr>
                 ))}
               </tbody>
@@ -301,20 +305,20 @@ function StatCard({ icon: Icon, label, value, color }: {
   color: 'primary' | 'danger' | 'success' | 'warning'
 }) {
   const colorMap = {
-    primary: 'bg-primary-50 text-primary-600',
-    danger: 'bg-danger-50 text-danger-600',
-    success: 'bg-success-50 text-success-600',
-    warning: 'bg-warning-50 text-warning-600',
+    primary: 'bg-primary/10 text-primary',
+    danger: 'bg-destructive/10 text-destructive',
+    success: 'bg-primary/10 text-primary',
+    warning: 'bg-accent text-accent-foreground',
   }
 
   return (
-    <div className="rounded-xl border border-border bg-white p-4 shadow-sm">
+    <div className="rounded-xl border border-border bg-card p-4 shadow-sm">
       <div className="flex items-center gap-3">
         <div className={`flex size-10 items-center justify-center rounded-lg ${colorMap[color]}`}>
           <Icon className="size-5" />
         </div>
         <div>
-          <div className="text-[11px] font-medium text-text-secondary uppercase tracking-wide">{label}</div>
+          <div className="text-[11px] font-medium text-muted-foreground uppercase tracking-wide">{label}</div>
           <div className="text-2xl font-bold">{value}</div>
         </div>
       </div>

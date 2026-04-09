@@ -24,22 +24,22 @@ export function ContactsPage() {
 
         return (
           <div key={role}>
-            <h2 className="text-sm font-semibold text-text-muted uppercase tracking-wide mb-2">
+            <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-2">
               {roleLabels[role]}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
               {roleContacts.map(contact => (
-                <div key={contact.id} className="flex items-start gap-3 rounded-xl border border-border bg-white p-4 shadow-sm">
-                  <div className="flex size-10 items-center justify-center rounded-full bg-primary-50 text-primary-600">
+                <div key={contact.id} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
+                  <div className="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <User className="size-5" />
                   </div>
                   <div className="min-w-0">
                     <div className="text-sm font-medium">{contact.name}</div>
-                    <div className="flex items-center gap-1 text-xs text-text-muted mt-1">
+                    <div className="flex items-center gap-1 text-xs text-muted-foreground mt-1">
                       <Mail className="size-3" />
                       <span className="truncate">{contact.email}</span>
                     </div>
-                    <div className="flex items-center gap-1 text-xs text-text-muted mt-0.5">
+                    <div className="flex items-center gap-1 text-xs text-muted-foreground mt-0.5">
                       <Phone className="size-3" />
                       <span>{contact.phone}</span>
                     </div>
