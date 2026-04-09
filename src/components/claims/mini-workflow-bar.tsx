@@ -18,9 +18,9 @@ export function MiniWorkflowBar({ claim }: { claim: Claim }) {
                 key={i}
                 className={cn(
                   'h-1.5 rounded-full transition-all',
-                  step.status === 'completed' && 'bg-success-500 w-2.5',
-                  step.status === 'current' && 'bg-primary-500 w-3.5 h-2',
-                  step.status === 'upcoming' && 'bg-border-strong w-2',
+                  step.status === 'completed' && 'bg-primary w-2.5',
+                  step.status === 'current' && 'bg-primary w-3.5 h-2',
+                  step.status === 'upcoming' && 'bg-border w-2',
                 )}
               />
             ))}

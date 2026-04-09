@@ -11,7 +11,7 @@ export function ClaimHeader({ claim }: { claim: Claim }) {
     <div className="space-y-2">
       <Link
         to="/claims"
-        className="inline-flex items-center gap-1 text-sm text-text-muted hover:text-primary-600 transition-colors"
+        className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
       >
         <ArrowLeft className="size-3.5" />
         Back to Claims
@@ -25,19 +25,19 @@ export function ClaimHeader({ claim }: { claim: Claim }) {
                 {claim.workflow.spmClaimNumber || claim.id}
               </h1>
               {claim.workflow.spmClaimNumber && (
-                <span className="text-xs text-text-muted">{claim.id}</span>
+                <span className="text-xs text-muted-foreground">{claim.id}</span>
               )}
             </div>
             <ClaimTypeBadge type={claim.type} />
             <StatusBadge status={claim.status} />
             <SlaIndicator claim={claim} />
           </div>
-          <p className="text-sm text-text-secondary">
+          <p className="text-sm text-muted-foreground">
             {claim.insured.name} — {claim.vehicle.year} {claim.vehicle.make} {claim.vehicle.model} ({claim.vehicle.registration})
           </p>
         </div>
 
-        <div className="text-right text-sm text-text-secondary space-y-0.5">
+        <div className="text-right text-sm text-muted-foreground space-y-0.5">
           <div className="flex items-center justify-end gap-1.5">
             <User className="size-3.5" />
             <span>{claim.assignedTo}</span>

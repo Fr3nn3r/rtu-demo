@@ -2,9 +2,9 @@ import type { ClaimType } from '@/types'
 import { cn } from '@/lib/utils'
 
 const typeStyles: Record<ClaimType, string> = {
-  accident: 'bg-primary-50 text-primary-700 border-primary-200',
-  theft: 'bg-danger-50 text-danger-700 border-danger-200',
-  glass: 'bg-warning-50 text-warning-600 border-warning-200',
+  accident: 'bg-primary/10 text-primary border-primary/20',
+  theft: 'bg-destructive/10 text-destructive border-destructive/20',
+  glass: 'bg-accent text-accent-foreground border-accent-foreground/20',
 }
 
 const typeLabels: Record<ClaimType, string> = {

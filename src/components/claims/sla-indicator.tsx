@@ -4,9 +4,9 @@ import { cn } from '@/lib/utils'
 import { Clock, AlertTriangle, AlertCircle } from 'lucide-react'
 
 const statusStyles = {
-  within: 'bg-success-50 text-success-700 border-success-500/30',
-  approaching: 'bg-warning-50 text-warning-600 border-warning-500/30',
-  breached: 'bg-danger-50 text-danger-700 border-danger-500/30',
+  within: 'bg-primary/10 text-primary border-primary/30',
+  approaching: 'bg-accent text-accent-foreground border-accent-foreground/30',
+  breached: 'bg-destructive/10 text-destructive border-destructive/30',
 }
 
 const statusIcons = {
@@ -17,7 +17,6 @@ const statusIcons = {
 
 export function SlaIndicator({ claim, className }: { claim: Claim; className?: string }) {
   const sla = getClaimSLAStatus(claim)
-
   if (!sla || !sla.isActive) return null
 
   const Icon = statusIcons[sla.status]

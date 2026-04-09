@@ -35,16 +35,16 @@ export function ActionPanel({ claim }: { claim: Claim }) {
   }
 
   return (
-    <div className="rounded-xl border border-border bg-white p-5 shadow-sm">
+    <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
       <div className="mb-4 flex items-start justify-between gap-4">
         <div>
           <h3 className="text-base font-semibold">{stepConfig?.label ?? 'Unknown Step'}</h3>
           {stepConfig?.description && (
-            <p className="mt-0.5 text-sm text-text-muted">{stepConfig.description}</p>
+            <p className="mt-0.5 text-sm text-muted-foreground">{stepConfig.description}</p>
           )}
         </div>
         {prevState && claim.status !== 'CLOSED' && (
-          <Button variant="ghost" size="sm" onClick={handleGoBack} className="flex-shrink-0 text-text-muted hover:text-text-primary">
+          <Button variant="ghost" size="sm" onClick={handleGoBack} className="flex-shrink-0 text-muted-foreground hover:text-foreground">
             <Undo2 className="size-3.5" data-icon="inline-start" />
             Back to {stateLabels[prevState]}
           </Button>
@@ -136,6 +136,6 @@ function ActionContent({ claim }: { claim: Claim }) {
       return <Closed claim={claim} />
 
     default:
-      return <div className="text-sm text-text-muted">No actions available for this step.</div>
+      return <div className="text-sm text-muted-foreground">No actions available for this step.</div>
   }
 }
