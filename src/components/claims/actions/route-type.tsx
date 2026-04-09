@@ -1,5 +1,4 @@
 import type { Claim } from '@/types'
-import { Button } from '@/components/ui/button'
 import { useClaims } from '@/context/ClaimContext'
 import { Wrench, AlertTriangle } from 'lucide-react'
 

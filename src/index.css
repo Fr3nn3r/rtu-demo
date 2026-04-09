@@ -450,6 +450,6 @@
 }
 
 @keyframes step-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 oklch(0.8348 0.1302 160.908 / 0.3); }
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklch, var(--primary) 30%, transparent); }
   50% { box-shadow: 0 0 0 6px transparent; }
 }

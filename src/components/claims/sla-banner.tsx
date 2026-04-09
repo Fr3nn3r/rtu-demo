@@ -1,6 +1,5 @@
 import type { Claim } from '@/types'
 import { getClaimSLAStatus } from '@/lib/workflow-engine'
-import { cn } from '@/lib/utils'
 import { Clock, AlertTriangle, AlertCircle } from 'lucide-react'
 
 export function SlaBanner({ claim }: { claim: Claim }) {
