@@ -227,7 +227,7 @@ export interface StepDefinition {
   shortLabel: string
   slaHours: number | null
   isBridgeStep: boolean
-  bridgeSystem?: 'nimbus' | 'rock'
+  bridgeSystem?: 'nimbis' | 'roc'
   description: string
   contactType?: ContactRole
 }

@@ -2,14 +2,14 @@ import { ExternalLink } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface BridgeStepBannerProps {
-  system: 'nimbus' | 'rock'
+  system: 'nimbis' | 'roc'
   instruction: string
   className?: string
 }
 
 const systemNames = {
-  nimbus: 'Nimbus',
-  rock: 'Rock',
+  nimbis: 'Nimbis',
+  roc: 'ROC',
 }
 
 export function BridgeStepBanner({ system, instruction, className }: BridgeStepBannerProps) {
