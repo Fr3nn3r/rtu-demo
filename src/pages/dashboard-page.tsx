@@ -7,7 +7,7 @@ import { StatusBadge } from '@/components/claims/status-badge'
 import { SlaIndicator } from '@/components/claims/sla-indicator'
 import { getClaimSLAStatus } from '@/lib/workflow-engine'
 import { stateLabels } from '@/data/workflow-definitions'
-import type { Claim, ClaimType, WorkflowState, SLAStatus } from '@/types'
+import type { ClaimType, WorkflowState, SLAStatus } from '@/types'
 import { FileText, AlertCircle, TrendingUp, Clock, Users, BarChart3 } from 'lucide-react'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@/components/ui/table'
@@ -418,8 +418,7 @@ export function DashboardPage() {
             <BarChart data={settlementData}>
               <XAxis dataKey="label" tick={{ fontSize: 11 }} interval="preserveStartEnd" />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={formatZAR} />
-              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-              <RechartsTooltip formatter={(value: any) => formatZAR(value as number)} />
+              <RechartsTooltip formatter={(value: unknown) => formatZAR(Number(value))} />
               <Bar dataKey="amount" fill="var(--chart-3)" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
@@ -432,8 +431,7 @@ export function DashboardPage() {
             <LineChart data={slaComplianceData}>
               <XAxis dataKey="label" tick={{ fontSize: 11 }} interval="preserveStartEnd" />
               <YAxis tick={{ fontSize: 11 }} domain={[0, 100]} unit="%" />
-              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-              <RechartsTooltip formatter={(value: any) => typeof value === 'number' ? `${value}%` : '—'} />
+              <RechartsTooltip formatter={(value: unknown) => typeof value === 'number' ? `${value}%` : '—'} />
               <ReferenceLine y={80} stroke="var(--muted-foreground)" strokeDasharray="4 4" strokeOpacity={0.5} />
               <Line type="monotone" dataKey="rate" stroke="var(--chart-1)" strokeWidth={2} dot={false} connectNulls />
             </LineChart>
