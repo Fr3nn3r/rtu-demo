@@ -180,7 +180,7 @@ export function DashboardPage() {
           <CardContent className="p-0">
             <Table>
               <TableHeader>
-                <TableRow>
+                <TableRow className="hover:bg-transparent">
                   <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Operator</TableHead>
                   <TableHead className="px-4 text-[11px] text-muted-foreground uppercase text-center">Active</TableHead>
                   <TableHead className="px-4 text-[11px] text-muted-foreground uppercase text-center">Overdue</TableHead>
@@ -213,7 +213,7 @@ export function DashboardPage() {
           <CardContent className="p-0">
             <Table>
               <TableHeader>
-                <TableRow>
+                <TableRow className="hover:bg-transparent">
                   <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Name</TableHead>
                   <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Role</TableHead>
                   <TableHead className="px-4 text-[11px] text-muted-foreground uppercase text-center">Active</TableHead>
@@ -249,7 +249,7 @@ export function DashboardPage() {
           <CardContent className="p-0">
             <Table>
               <TableHeader>
-                <TableRow>
+                <TableRow className="hover:bg-transparent">
                   <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Claim Type</TableHead>
                   <TableHead className="px-4 text-[11px] text-muted-foreground uppercase text-center">Avg Days</TableHead>
                   <TableHead className="px-4 text-[11px] text-muted-foreground uppercase text-center">Closed</TableHead>
@@ -277,7 +277,7 @@ export function DashboardPage() {
             <CardContent className="p-0">
               <Table>
                 <TableHeader>
-                  <TableRow>
+                  <TableRow className="hover:bg-transparent">
                     <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Claim</TableHead>
                     <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Type</TableHead>
                     <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Status</TableHead>

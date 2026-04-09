@@ -68,7 +68,7 @@
 }
 
 .dark,
-.theme-supabase .dark {
+.theme-supabase.dark {
   --background: oklch(0.1822 0 0);
   --foreground: oklch(0.9288 0.0126 255.5078);
   --card: oklch(0.2046 0 0);
@@ -155,7 +155,7 @@
   --spacing: 0.25rem;
 }
 
-.theme-clean-slate .dark {
+.theme-clean-slate.dark {
   --background: oklch(0.2077 0.0398 265.7549);
   --foreground: oklch(0.9288 0.0126 255.5078);
   --card: oklch(0.2795 0.0368 260.0310);

@@ -164,7 +164,7 @@ export function ClaimsListPage() {
       <Card className="overflow-hidden">
         <Table>
           <TableHeader className="sticky top-0 z-10">
-            <TableRow className="bg-muted">
+            <TableRow className="bg-muted hover:bg-muted">
               <TableHead className="px-4 py-2.5 text-[11px] text-muted-foreground uppercase tracking-wide">SPM #</TableHead>
               <TableHead className="px-4 py-2.5 text-[11px] text-muted-foreground uppercase tracking-wide">Type</TableHead>
               <TableHead className="px-4 py-2.5 text-[11px] text-muted-foreground uppercase tracking-wide">Policyholder</TableHead>
@@ -207,9 +207,9 @@ function ClaimRow({ claim }: { claim: Claim }) {
   const sla = getClaimSLAStatus(claim)
 
   const rowTint = sla?.status === 'breached'
-    ? 'bg-destructive/5'
+    ? 'bg-destructive/8'
     : sla?.status === 'approaching'
-      ? 'bg-accent/40'
+      ? 'bg-chart-4/8'
       : ''
 
   return (
