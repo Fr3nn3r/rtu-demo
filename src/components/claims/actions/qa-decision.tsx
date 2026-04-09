@@ -38,8 +38,8 @@ export function QaDecision({ claim }: { claim: Claim }) {
     <div className="space-y-4">
       {claim.status === 'QA_APPOINTED' && (
         <BridgeStepBanner
-          system="rock"
-          instruction="QA has been appointed on Rock. Awaiting the QA decision."
+          system="roc"
+          instruction="QA has been appointed on ROC. Awaiting the QA decision."
         />
       )}
 

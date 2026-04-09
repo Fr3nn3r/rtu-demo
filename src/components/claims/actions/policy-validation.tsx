@@ -36,10 +36,10 @@ export function PolicyValidation({ claim }: { claim: Claim }) {
   return (
     <div className="space-y-4">
       <BridgeStepBanner
-        system="nimbus"
+        system="nimbis"
         instruction={isTheft
-          ? "Look up the insured on Nimbus using the details below. Verify the policy is active, then enter the policy number."
-          : "Look up the insured on Nimbus using the details below. Verify the policy is active, then enter the policy number and excess amount."
+          ? "Look up the insured on Nimbis using the details below. Verify the policy is active, then enter the policy number."
+          : "Look up the insured on Nimbis using the details below. Verify the policy is active, then enter the policy number and excess amount."
         }
       />
 
@@ -51,7 +51,7 @@ export function PolicyValidation({ claim }: { claim: Claim }) {
       </div>
 
       <div className="border-t border-border pt-4 space-y-3">
-        <h4 className="text-sm font-medium">Enter from Nimbus</h4>
+        <h4 className="text-sm font-medium">Enter from Nimbis</h4>
         <div className={`grid ${isTheft ? 'grid-cols-1 max-w-xs' : 'grid-cols-2'} gap-3`}>
           <div>
             <Label htmlFor="policyNumber">Policy Number</Label>

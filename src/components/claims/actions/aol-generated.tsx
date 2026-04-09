@@ -17,12 +17,12 @@ export function AolGenerated({ claim }: { claim: Claim }) {
   return (
     <div className="space-y-4">
       <BridgeStepBanner
-        system="rock"
-        instruction="Generate the Authority of Loss (AOL) on Rock for this claim, then confirm below."
+        system="roc"
+        instruction="Generate the Authority of Loss (AOL) on ROC for this claim, then confirm below."
       />
 
       <p className="text-sm text-text-secondary">
-        Once the AOL has been generated on Rock, confirm below to proceed to the route decision (repair or total loss).
+        Once the AOL has been generated on ROC, confirm below to proceed to the route decision (repair or total loss).
       </p>
 
       <div className="flex justify-end">

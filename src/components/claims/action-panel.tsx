@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Undo2 } from 'lucide-react'
 import { NewClaimReview } from './actions/new-claim-review'
 import { PolicyValidation } from './actions/policy-validation'
-import { RegisterOnRock } from './actions/register-on-rock'
+import { RegisterOnROC } from './actions/register-on-roc'
 import { AppointContact } from './actions/appoint-contact'
 import { AssessmentReceived } from './actions/assessment-received'
 import { InvestigationReceived } from './actions/investigation-received'
@@ -64,7 +64,7 @@ function ActionContent({ claim }: { claim: Claim }) {
       return <PolicyValidation claim={claim} />
 
     case 'REGISTERED':
-      return <RegisterOnRock claim={claim} />
+      return <RegisterOnROC claim={claim} />
 
     case 'ASSESSOR_APPOINTED':
       return (

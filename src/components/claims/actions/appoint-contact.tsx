@@ -43,8 +43,8 @@ export function AppointContact({ claim, contactRole, nextState, workflowField }:
     <div className="space-y-4">
       {isBridge && (
         <BridgeStepBanner
-          system="rock"
-          instruction={`Select a ${roleLabels[contactRole].toLowerCase()} and confirm the appointment on Rock.`}
+          system="roc"
+          instruction={`Select a ${roleLabels[contactRole].toLowerCase()} and confirm the appointment on ROC.`}
         />
       )}
 

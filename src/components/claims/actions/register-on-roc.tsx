@@ -8,7 +8,7 @@ import { BridgeStepBanner } from '../bridge-step-banner'
 import { useClaims } from '@/context/ClaimContext'
 import { formatZAR } from '@/lib/utils'
 
-export function RegisterOnRock({ claim }: { claim: Claim }) {
+export function RegisterOnROC({ claim }: { claim: Claim }) {
   const { dispatch } = useClaims()
   const [spmNumber, setSpmNumber] = useState(claim.workflow.spmClaimNumber ?? '')
 
@@ -30,8 +30,8 @@ export function RegisterOnRock({ claim }: { claim: Claim }) {
   return (
     <div className="space-y-4">
       <BridgeStepBanner
-        system="rock"
-        instruction="Register this claim on Rock using the data below. Enter the SPM claim number once registration is complete."
+        system="roc"
+        instruction="Register this claim on ROC using the data below. Enter the SPM claim number once registration is complete."
       />
 
       <div className="grid grid-cols-2 gap-2">
@@ -48,7 +48,7 @@ export function RegisterOnRock({ claim }: { claim: Claim }) {
       </div>
 
       <div className="border-t border-border pt-4 space-y-3">
-        <h4 className="text-sm font-medium">Enter from Rock</h4>
+        <h4 className="text-sm font-medium">Enter from ROC</h4>
         <div className="max-w-xs">
           <Label htmlFor="spmNumber">SPM Claim Number</Label>
           <Input
