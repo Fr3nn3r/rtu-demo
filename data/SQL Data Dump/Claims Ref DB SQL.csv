@@ -1,0 +1,1001 @@
+claim_number,external_claim_number,spm,risk_number,broker_name,product_name,claim_handler,createdAt,updatedAt
+18767-18653,"SPM 406470/7/18",406470,20000,"Direct Axis SA (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+18768-18654,"SPM 406571/7/18",406571,56684,"Primak Insurance Brokers (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+18771-18656,"SPM 406661/7/18",406661,2138,"Waldo Smit Maakelaars",RTU,Nikki.Pearmain,NULL,NULL
+18773-18658,"SPM 406916/7/18",406916,6610,"First Step Life and Investment Planners (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+18774-18659,"SPM 406937/7/18",406937,7593,"Taccsure Insurance Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+18775-18660,"SPM 406986/7/18",406986,61768,"Vena Insurance Brokers CC",RTU,Gizela.Dlodlo,NULL,NULL
+18780-18664,"SPM 407361/7/18",407361,47485,"Taccsure Insurance Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18781-18665,"SPM 407373/7/18",407373,59049,"Ikhethelo Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+18783-18666,"SPM 407407/7/18",407407,3743,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+18784-18667,"SPM 407419/7/18",407419,48152,"Curnow KZN Insurance Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+18785-18668,"SPM 407551/7/18",407551,62871,"Ikhethelo Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18787-18670,"SPM 407889/7/18",407889,46603,Tele-Tech,RTU,Nikki.Pearmain,NULL,NULL
+18789-18672,"SPM 408126/7/18",408126,2139,"Waldo Smit Maakelaars",RTU,Nikki.Pearmain,NULL,NULL
+18791-18674,"SPM 408232/7/18",408232,40214,"Ikhethelo Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18792-18675,"SPM 408481/7/18",408481,7830,"Zamokuhle Property and Shareholding",RTU,Gizela.Dlodlo,NULL,NULL
+18793-18676,"SPM 408546/7/18",408546,30721,"Sihle Insurance Consultants cc",RTU,Nikki.Pearmain,NULL,NULL
+18794-18677,"SPM 408778/7/18",408778,48353,"Taccsure Insurance Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+18795-18678,"SPM 408828/7/18",408828,49343,"Ikhethelo Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+18796-18679,"SPM 409026/7/18",409026,51325,"Ikhethelo Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+18797-18680,"SPM 409038/7/18",409038,55353,"Multi Risk Brokers - sub agent of Proficient",RTU,Nikki.Pearmain,NULL,NULL
+18798-18681,"SPM 409216/7/18",409216,57887,"L and S Insurance Brokers CC",RTU,Nikki.Pearmain,NULL,NULL
+18799-18682,"SPM 409537/7/18",409537,23681,"Constellation Financial Services (Pty) Ltd ",RTU,Gizela.Dlodlo,NULL,NULL
+18800-18683,"SPM 409549/7/18",409549,23555,"Waldo Smit Maakelaars",RTU,Nikki.Pearmain,NULL,NULL
+18803-18686,"SPM 409722/7/18",409722,2252,"Craig Tunbridge & Associates (Pty) Ltd t/as CTA Insurance Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+18804-18687,"SPM 409913/7/18",409913,3640,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+18808-18690,"SPM 410375/7/18",410375,56684,"Primak Insurance Brokers (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+18810-18692,"SPM 410982/7/18",410982,15196,"Primak Insurance Brokers (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+18811-18693,"SPM 411173/7/18",411173,42214,"Synergy Risk Managers (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+18812-18694,"SPM 411196/7/18",411196,10955,"Gcwabaza Insurance Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18813-18695,"SPM 411232/7/18",411232,48160,"Synergy Risk Managers (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+18814-18696,"SPM 411409/7/18",411409,64070,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+18815-18697,"SPM 411849/7/18",411849,51325,"Ikhethelo Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+18816-18698,"SPM 411971/8/18",411971,47807,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+18817-18699,"SPM 412025/8/18",412025,55889,"Ikhethelo Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+18818-18700,"SPM 412033/8/18",412033,54619,"Ikhethelo Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+18819-18701,"SPM 412039/8/18",412039,21594,"Synergy Risk Managers (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+18821-18702,"SPM 412043/8/18",412043,21588,"Synergy Risk Managers (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+18822-18703,"SPM 412138/8/18",412138,10537,"Craig Tunbridge & Associates (Pty) Ltd t/as CTA Insurance Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18823-18704,"SPM 412245/8/18",412245,46485,Tele-Tech,RTU,Nikki.Pearmain,NULL,NULL
+18824-18705,"SPM 412359/8/18",412359,506,"KT Risk Solutions cc",RTU,Gizela.Dlodlo,NULL,NULL
+18825-18706,"SPM 412464/8/18",412464,49760,"Primak Insurance Brokers (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+18827-18708,"SPM 412748/8/18",412748,62844,"Synergy Risk Managers (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+18828-18709,"SPM 413035/8/18",413035,64088,"Pride Insurance Administrators CC",RTU,Nikki.Pearmain,NULL,NULL
+18829-18710,"SPM 413146/8/18",413146,14876,"Primak Insurance Brokers (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+18830-18711,"SPM 413378/8/18",413378,63106,"Primak Insurance Brokers (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+18831-18712,"SPM 413497/8/18",413497,61676,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+18832-18713,"SPM 413499/8/18",413499,61678,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+18833-18714,"SPM 414030/8/18",414030,52790,"Ikhethelo Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18834-18715,"SPM 414031/8/18",414031,53752,"Ikhethelo Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18835-18716,"SPM 414032/8/18",414032,52782,"Ikhethelo Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18837-18718,"SPM 414063/8/18",414063,57986,"Ikhethelo Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18838-18719,"SPM 414074/8/18",414074,21638,"Franzall Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18839-18720,"SPM 414157/8/18",414157,47893,"Taccsure Insurance Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+18840-18721,"SPM 414164/8/18",414164,55464,"Smit and Kie Brokers (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+18843-18724,"SPM 414222/8/18",414222,38200,"Curnow KZN Insurance Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18844-18725,"SPM 414276/8/18",414276,54496,"Curnow KZN Insurance Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18845-18726,"SPM 414518/8/18",414518,2299,"DirectAxis (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+18846-18727,"SPM 414657/8/18",414657,7187,"Direct Axis Broker Direct",RTU,Nikki.Pearmain,NULL,NULL
+18847-18728,"SPM 414675/8/18",414675,63439,"Ikhethelo Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+18848-18729,"SPM 414709/8/18",414709,23564,"Scottfin Pietermaritzburg",RTU,Nikki.Pearmain,NULL,NULL
+18849-18730,"SPM 414789/8/18",414789,56458,"Taccsure Brokers cc Freestate",RTU,Nikki.Pearmain,NULL,NULL
+18851-18732,"SPM 415867/8/18",415867,51516,"Eyethu Brokers cc",RTU,Gizela.Dlodlo,NULL,NULL
+18852-18733,"SPM 415886/8/18",415886,10537,"Craig Tunbridge & Associates (Pty) Ltd t/as CTA Insurance Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18853-18734,"SPM 416005/8/18",416005,50377,"LTM Sipamla Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18855-18736,"SPM 416257/8/18",416257,26696,"Direct Axis WINS",RTU,Nikki.Pearmain,NULL,NULL
+18857-18738,"SPM 416287/8/18",416287,56462,"LTM Sipamla Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18866-18746,"SPM 416513/8/18",416513,65469,"AMML Financial Services",RTU,Nikki.Pearmain,NULL,NULL
+18867-18747,"SPM 416566/8/18",416566,57600,"Taccsure Insurance Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18869-18749,"SPM 416690/8/18",416690,46644,"Primak Insurance Brokers (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+18870-18750,"SPM 416707/8/18",416707,3184,"Quicksure (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+18871-18751,"SPM 416757/8/18",416757,60398,"Primak Insurance Brokers (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+18873-18753,"SPM 416864/8/18",416864,42484,"Fosters Insurance Brokers (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+18874-18754,"SPM 416872/8/18",416872,56661,"Gcwabaza Insurance Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18876-18755,"SPM 416980/8/18",416980,48429,"Van Rensburg Insurance - Proficient",RTU,Gizela.Dlodlo,NULL,NULL
+18878-18757,"SPM 417147/8/18",417147,55244,"Primak Insurance Brokers (Pty) Ltd",RTU,Saira.Quinn,NULL,NULL
+18879-18758,"SPM 417214/8/18",417214,64860,"Blue Crane Insurance Brokers CC",RTU,Saira.Quinn,NULL,NULL
+18880-18759,"SPM 417269/8/18",417269,11492,"Direct Axis WINS",RTU,Nikki.Pearmain,NULL,NULL
+18883-18762,"SPM 417374/8/18",417374,21656,"Zamokuhle Property and Shareholding",RTU,Nikki.Pearmain,NULL,NULL
+18884-18763,"SPM 417390/8/18",417390,47559,"Primak Insurance Brokers (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+18885-18764,"SPM 417470/8/18",417470,56215,"Ikhethelo Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18886-18765,"SPM 417503/8/18",417503,57905,"Van Rensburg Insurance - Proficient",RTU,Nikki.Pearmain,NULL,NULL
+18887-18766,"SPM 417529/8/18",417529,47985,"Oyisha Financial Advisers",RTU,Nikki.Pearmain,NULL,NULL
+18888-18767,"SPM 417543/8/18",417543,54573,"Primak Insurance Brokers (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+18889-18768,"SPM 417553/8/18",417553,68196,"Palmsure Insurance Brokers (Pty) Ltd ",RTU,Saira.Quinn,NULL,NULL
+18890-18769,"SPM 417722/9/18",417722,59055,"L and S Insurance Brokers CC",RTU,Saira.Quinn,NULL,NULL
+18895-18773,"SPM 417970/9/18",417970,52834,"Ikhethelo Brokers",RTU,Saira.Quinn,NULL,NULL
+18897-18775,"SPM 418031/9/18",418031,57959,"Oyisha Financial Advisers",RTU,Nikki.Pearmain,NULL,NULL
+18899-18777,"SPM 418216/9/18",418216,59685,"Fosters Insurance Brokers (Pty) Ltd",RTU,Saira.Quinn,NULL,NULL
+18900-18778,"SPM 418457/9/18",418457,45233,"Primak Insurance Brokers (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+18901-18779,"SPM 418514/9/18",418514,15319,"Taccsure Insurance Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+18903-18782,"SPM 418696/9/18",418696,57819,"Ikhethelo Brokers",RTU,Saira.Quinn,NULL,NULL
+18906-18785,"SPM 419246/9/18",419246,56927,"Synergy Risk Managers (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+18907-18786,"SPM 419285/9/18",419285,50037,"Synergy Risk Managers (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+18908-18787,"SPM 419298/9/18",419298,24837,"Sihle Insurance Consultants cc",RTU,Saira.Quinn,NULL,NULL
+18910-18789,"SPM 419538/9/18",419538,46648,"Primak Insurance Brokers (Pty) Ltd",RTU,Saira.Quinn,NULL,NULL
+18911-18790,"SPM 419633/9/18",419633,54573,"Primak Insurance Brokers (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+18912-18791,"SPM 419913/9/18",419913,28382,"Scottfin Park Rynie",RTU,Nikki.Pearmain,NULL,NULL
+18913-18793,"SPM 419933/9/18",419933,3264,"Scottfin Pietermaritzburg",RTU,Saira.Quinn,NULL,NULL
+18915-18796,"SPM 420679/9/18",420679,14723,"Zamokuhle Property and Shareholding",RTU,Saira.Quinn,NULL,NULL
+18917-18797,"SPM 420735/9/18",420735,15196,"Primak Insurance Brokers (Pty) Ltd",RTU,Saira.Quinn,NULL,NULL
+18918-18798,"SPM 420830/9/18",420830,506,"KT Risk Solutions cc",RTU,Nikki.Pearmain,NULL,NULL
+18919-18799,"SPM 421250/9/18",421250,11393,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+18922-18802,"SPM 421694/9/18",421694,50608,"HVDW Makelaars ",RTU,Saira.Quinn,NULL,NULL
+18923-18803,"SPM 421770/9/18",421770,56645,"Gcwabaza Insurance Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18924-18804,"SPM 421805/9/18",421805,31804,"Taccsure Insurance Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18925-18805,"SPM 421832/9/18",421832,31804,"Taccsure Insurance Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18926-18806,"SPM 421901/9/18",421901,51620,"Taccsure Insurance Brokers",RTU,Nikki.Pearmain,NULL,NULL
+18927-18807,"SPM 421934/9/18",421934,47534,"Primak Insurance Brokers (Pty) Ltd",RTU,Saira.Quinn,NULL,NULL
+18929-18810,"SPM 421972/9/18",421972,52897,"Primak Insurance Brokers (Pty) Ltd",RTU,Saira.Quinn,NULL,NULL
+18930-18811,"SPM 421989/9/18",421989,54623,"AMML Financial Services",RTU,Gizela.Dlodlo,NULL,NULL
+18931-18812,"SPM 422012/9/18",422012,20078,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+18932-18813,"SPM 422024/9/18",422024,63235,"Dolphin Coast Taxi & General Insurance Brokers",RTU,Saira.Quinn,NULL,NULL
+18933-18814,"SPM 422107/9/18",422107,54446,"Primak Insurance Brokers (Pty) Ltd",RTU,Saira.Quinn,NULL,NULL
+18935-18816,"SPM 422180/9/18",422180,30806,"Ikhethelo Brokers",RTU,Saira.Quinn,NULL,NULL
+18936-18817,"SPM 422197/9/18",422197,62844,"Synergy Risk Managers (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+18938-18819,"SPM 422519/9/18",422519,68673,"Palmsure Insurance Brokers (Pty) Ltd ",RTU,Gizela.Dlodlo,NULL,NULL
+18939-18820,"SPM 422533/9/18",422533,68673,"Palmsure Insurance Brokers (Pty) Ltd ",RTU,Gizela.Dlodlo,NULL,NULL
+18940-18821,"SPM 422550/9/18",422550,23026,"UTBB At Angles Pty Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+19940-19821,"SPM 422814/10/18",422814,20000,"Direct Axis SA (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+19941-19822,"SPM 423125/10/18",423125,64070,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+19942-19823,"SPM 423133/10/18",423133,51669,"Eyethu Brokers cc",RTU,Gizela.Dlodlo,NULL,NULL
+19943-19824,"SPM 423234/10/18",423234,47713,"Tshianeo Holdings",RTU,Saira.Quinn,NULL,NULL
+19944-19825,"SPM 423378/10/18",423378,49812,"Taccsure Insurance Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+19945-19826,"SPM 423430/10/18",423430,60529,"Ikhethelo Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+19947-19828,"SPM 423520/10/18",423520,49760,"Primak Insurance Brokers (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+19948-19829,"SPM 423568/10/18",423568,14876,"Primak Insurance Brokers (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+19949-19830,"SPM 423669/10/18",423669,19517,"Scottfin Pietermaritzburg",RTU,Gizela.Dlodlo,NULL,NULL
+19951-19832,"SPM 423860/10/18",423860,64668,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+19955-19836,"SPM 424360/10/18",424360,10537,"Craig Tunbridge & Associates (Pty) Ltd t/as CTA Insurance Brokers",RTU,Saira.Quinn,NULL,NULL
+19957-19840,"SPM 424503/10/18",424503,3258,"Scottfin Pietermaritzburg",RTU,Saira.Quinn,NULL,NULL
+19958-19841,"SPM 424688/10/18",424688,76180,"Multi Broker Group",RTU,Nikki.Pearmain,NULL,NULL
+19959-19842,"SPM 424772/10/18",424772,52782,"Ikhethelo Brokers",RTU,Saira.Quinn,NULL,NULL
+19960-19843,"SPM 424892/10/18",424892,21588,"Synergy Risk Managers (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+19961-19844,"SPM 424899/10/18",424899,47966,"Taccsure Insurance Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+19962-19845,"SPM 424905/10/18",424905,47962,"Taccsure Insurance Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+19963-19846,"SPM 424955/10/18",424955,56649,"Gcwabaza Insurance Brokers",RTU,Saira.Quinn,NULL,NULL
+19964-19847,"SPM 425076/10/18",425076,65459,"Van Rensburg Insurance - Proficient",RTU,Gizela.Dlodlo,NULL,NULL
+19965-19848,"SPM 425123/10/18",425123,9854,"Hti Insurance Brokers (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+19966-19849,"SPM 425136/10/18",425136,2138,"Waldo Smit Maakelaars",RTU,Saira.Quinn,NULL,NULL
+19969-19852,"SPM 425318/10/18",425318,41630,"Synergy Risk Managers (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+19971-19854,"SPM 425344/10/18",425344,49897,Tele-Tech,RTU,Gizela.Dlodlo,NULL,NULL
+19974-19857,"SPM 425529/10/18",425529,2137,"Waldo Smit Maakelaars",RTU,Gizela.Dlodlo,NULL,NULL
+19976-19859,"SPM 425820/10/18",425820,62171,"Ikhethelo Brokers",RTU,Nikki.Pearmain,NULL,NULL
+19978-19861,"SPM 425844/10/18",425844,47713,"Tshianeo Holdings",RTU,Nikki.Pearmain,NULL,NULL
+20978-20861,"SPM 425922/10/18",425922,76176,"Multi Broker Group",RTU,Nikki.Pearmain,NULL,NULL
+20979-20862,"SPM 426110/10/18",426110,57739,"Ikhethelo Brokers",RTU,Saira.Quinn,NULL,NULL
+20980-20863,"SPM 426167/10/18",426167,28216,"Sihle Insurance Consultants cc",RTU,Saira.Quinn,NULL,NULL
+20981-20864,"SPM 426514/10/18",426514,71041,"Multi Broker Group",RTU,Nikki.Pearmain,NULL,NULL
+20982-20865,"SPM 426536/10/18",426536,56265,"Primak Insurance Brokers (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+20983-20866,"SPM 426549/10/18",426549,23255,"Taccsure Insurance Brokers",RTU,Nikki.Pearmain,NULL,NULL
+20984-20867,"SPM 426560/10/18",426560,64714,"Primak Insurance Brokers (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+20985-20868,"SPM 426622/10/18",426622,56575,"STP Insurance Brokers (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+20986-20869,"SPM 426637/10/18",426637,65519,"Eyethu Brokers cc",RTU,Gizela.Dlodlo,NULL,NULL
+20987-20870,"SPM 426672/10/18",426672,62171,"Ikhethelo Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+20988-20871,"SPM 426820/10/18",426820,41633,"Synergy Risk Managers (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+20989-20872,"SPM 426859/10/18",426859,55464,"Smit and Kie Brokers (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+20990-20873,"SPM 426966/10/18",426966,76110,"Multi Broker Group",RTU,Gizela.Dlodlo,NULL,NULL
+20991-20874,"SPM 427250/10/18",427250,55975,"Ikhethelo Brokers",RTU,Nikki.Pearmain,NULL,NULL
+20992-20875,"SPM 427248/10/18",427248,47701,"Tshianeo Holdings",RTU,Gizela.Dlodlo,NULL,NULL
+20993-20876,"SPM 427257/10/18",427257,15793,"Taccsure Insurance Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+20995-20878,"SPM 427432/10/18",427432,39414,"Synergy Risk Managers (Pty) Ltd",RTU,Saira.Quinn,NULL,NULL
+20997-20879,"SPM 427467/10/18",427467,40516,"KT Risk Solutions cc",RTU,Gizela.Dlodlo,NULL,NULL
+21001-20882,"SPM 427617/10/18",427617,49978,"PWG Short Term Advisors (Pty) Ltd ",RTU,Saira.Quinn,NULL,NULL
+21003-20884,"SPM 427633/10/18",427633,57650,"Synergy Risk Managers (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+21005-20886,"SPM 427687/10/18",427687,15793,"Taccsure Insurance Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+21006-20887,"SPM 427694/10/18",427694,40516,"KT Risk Solutions cc",RTU,Gizela.Dlodlo,NULL,NULL
+21007-20888,"SPM 427733/10/18",427733,71045,"Multi Broker Group",RTU,Saira.Quinn,NULL,NULL
+21008-20889,"SPM 427814/10/18",427814,52617,"Hti Insurance Brokers (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+21009-20890,"SPM 427875/10/18",427875,46648,"Primak Insurance Brokers (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+21010-20891,"SPM 427941/10/18",427941,57739,"Ikhethelo Brokers",RTU,Saira.Quinn,NULL,NULL
+21011-20892,"SPM 427990/10/18",427990,51330,"Sihle Insurance Consultants cc",RTU,Gizela.Dlodlo,NULL,NULL
+21012-20893,"SPM 428042/10/18",428042,11306,"Taccsure Insurance Brokers",RTU,Saira.Quinn,NULL,NULL
+21015-20896,"SPM 428136/10/18",428136,51354,"Synergy Risk Managers (Pty) Ltd",RTU,Saira.Quinn,NULL,NULL
+21016-20897,"SPM 428182/10/18",428182,51541,"Synergy Risk Managers (Pty) Ltd",RTU,Saira.Quinn,NULL,NULL
+21018-20899,"SPM 428273/10/18",428273,46338,"Ample Insurance Brokers (Pty) Ltd (Proficient)",RTU,Saira.Quinn,NULL,NULL
+21019-20900,"SPM 428337/10/18",428337,46945,"Ample Insurance Brokers (Pty) Ltd (Proficient)",RTU,Gizela.Dlodlo,NULL,NULL
+21020-20901,"SPM 428365/10/18",428365,55464,"Smit and Kie Brokers (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+21021-20902,"SPM 428395/10/18",428395,42520,"Fosters Insurance Brokers (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+21024-20905,"SPM 428529/10/18",428529,70172,"Primak Insurance Brokers (Pty) Ltd",RTU,Saira.Quinn,NULL,NULL
+21025-20906,"SPM 428557/10/18",428557,209,"Constellation Financial Services (Pty) Ltd ",RTU,Saira.Quinn,NULL,NULL
+21026-20907,"SPM 428578/10/18",428578,66129,"SSA Risk Managers cc",RTU,Saira.Quinn,NULL,NULL
+21027-20908,"SPM 428613/10/18",428613,45163,"Primak Insurance Brokers (Pty) Ltd",RTU,Saira.Quinn,NULL,NULL
+21030-20911,"SPM 429071/10/18",429071,78728,"KT Risk Solutions cc",RTU,Gizela.Dlodlo,NULL,NULL
+21031-20912,"SPM 429142/10/18",429142,6637,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+21032-20913,"SPM 429612/11/18",429612,11453,"Zamokuhle Property and Shareholding",RTU,Nikki.Pearmain,NULL,NULL
+21033-20914,"SPM 429807/11/18",429807,15319,"Taccsure Insurance Brokers",RTU,Nikki.Pearmain,NULL,NULL
+21034-20915,"SPM 429970/11/18",429970,54446,"Primak Insurance Brokers (Pty) Ltd",RTU,Saira.Quinn,NULL,NULL
+21035-20916,"SPM 429989/11/18",429989,51080,"Taccsure Insurance Brokers",RTU,Saira.Quinn,NULL,NULL
+21036-20917,"SPM 430279/11/18",430279,62995,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21037-20918,"SPM 430333/11/18",430333,64864,"Blue Crane Insurance Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21038-20919,"SPM 430393/11/18",430393,10726,"Hti Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21040-20921,"SPM 430693/11/18",430693,71401,"Multi Broker Group",RTU,Shanaaz.Smith,NULL,NULL
+21043-20922,"SPM 430762/11/18",430762,52988,"Taccsure Insurance Brokers",RTU,Nikki.Pearmain,NULL,NULL
+21044-20923,"SPM 430776/11/18",430776,67468,"AMML Financial Services",RTU,Nikki.Pearmain,NULL,NULL
+21046-20925,"SPM 430899/11/18",430899,52846,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21047-20926,"SPM 430941/11/18",430941,52790,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21049-20928,"SPM 431082/11/18",431082,66341,"Kobie Spangenberg & Genote Edms Bpk",RTU,Shanaaz.Smith,NULL,NULL
+21050-20929,"SPM 431132/11/18",431132,22976,"Curnow KZN Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21051-20930,"SPM 431135/11/18",431135,71062,"Multi Broker Group",RTU,Nikki.Pearmain,NULL,NULL
+21052-20931,"SPM 431152/11/18",431152,64672,"Eyethu Brokers cc",RTU,Nikki.Pearmain,NULL,NULL
+21053-20932,"SPM 431222/11/18",431222,43851,"Ikhethelo Brokers",RTU,Nikki.Pearmain,NULL,NULL
+21054-20933,"SPM 431518/11/18",431518,66152,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21057-20934,"SPM 431567/11/18",431567,68738,"Multi Broker Group",RTU,Shanaaz.Smith,NULL,NULL
+21058-20935,"SPM 431594/11/18",431594,49470,"Indwe Risk Services (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21060-20937,"SPM 431660/11/18",431660,54619,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21062-20939,"SPM 431729/11/18",431729,39113,"Synergy Risk Managers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21063-20940,"SPM 431792/11/18",431792,41633,"Synergy Risk Managers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21064-20941,"SPM 431870/11/18",431870,60489,"Curnow KZN Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21065-20942,"SPM 431908/11/18",431908,54248,"Versma Bestuursdienste (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21066-20943,"SPM 432020/11/18",432020,56528,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21069-20946,"SPM 432380/11/18",432380,51545,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Gizela.Dlodlo,NULL,NULL
+21070-20947,"SPM 432538/11/18",432538,506,"KT Risk Solutions cc",RTU,Gizela.Dlodlo,NULL,NULL
+21071-20948,"SPM 432558/11/18",432558,57785,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21072-20949,"SPM 432604/11/18",432604,49812,"Taccsure Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21075-20951,"SPM 432765/11/18",432765,15196,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21076-20952,"SPM 432798/11/18",432798,61649,"Ikhethelo Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+21077-20953,"SPM 432817/11/18",432817,57646,"Synergy Risk Managers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21078-20954,"SPM 433064/11/18",433064,45118,"Curnow KZN Insurance Brokers",RTU,Saira.Quinn,NULL,NULL
+21079-20955,"SPM 433385/11/18",433385,48452,"Synergy Risk Managers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21080-20956,"SPM 433480/11/18",433480,23508,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21084-20959,"SPM 433962/11/18",433962,31573,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21085-20960,"SPM 434024/11/18",434024,28213,"Sihle Insurance Consultants cc",RTU,Shanaaz.Smith,NULL,NULL
+21086-20961,"SPM 434058/11/18",434058,43255,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21088-20963,"SPM 434116/11/18",434116,49843,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21089-20964,"SPM 434170/11/18",434170,63377,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21090-20965,"SPM 434209/11/18",434209,68680,"Palmsure Insurance Brokers (Pty) Ltd ",RTU,Shanaaz.Smith,NULL,NULL
+21091-20966,"SPM 434317/11/18",434317,10865,"Oaksure Financial Services (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21092-20967,"SPM 434481/11/18",434481,52842,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21093-20968,"SPM 434504/11/18",434504,52842,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21094-20969,"SPM 434528/11/18",434528,52842,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21096-20970,"SPM 434603/11/18",434603,39390,"Fedon Immortal Group Pty Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21097-20971,"SPM 434608/11/18",434608,39390,"Fedon Immortal Group Pty Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21098-20972,"SPM 434864/11/18",434864,902,"Taccsure Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21099-20973,"SPM 434912/11/18",434912,63317,"Taccsure Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21102-20975,"SPM 435234/11/18",435234,50501,"Ikhethelo Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+21103-20976,"SPM 435270/11/18",435270,59055,"L and S Insurance Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21104-20977,"SPM 435375/11/18",435375,77557,"Versma Bestuursdienste (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21105-20978,"SPM 435398/11/18",435398,48361,"Taccsure Insurance Brokers",RTU,Nikki.Pearmain,NULL,NULL
+21106-20979,"SPM 435456/11/18",435456,71058,"Multi Broker Group",RTU,Shanaaz.Smith,NULL,NULL
+21108-20981,"SPM 435509/11/18",435509,64230,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21111-20983,"SPM 435618/11/18",435618,53752,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21112-20984,"SPM 435657/11/18",435657,54540,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21113-20985,"SPM 435697/11/18",435697,52842,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21115-20987,"SPM 435985/12/18",435985,60449,"AMML Financial Services",RTU,Nikki.Pearmain,NULL,NULL
+21116-20988,"SPM 436072/12/18",436072,39065,"Ikhethelo Brokers",RTU,Nikki.Pearmain,NULL,NULL
+21117-20989,"SPM 436249/12/18",436249,23095,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+21118-20990,"SPM 436396/12/18",436396,39065,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21119-20991,"SPM 436443/12/18",436443,81937,"Blue Crane Insurance Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21120-20992,"SPM 436466/12/18",436466,42584,"Fosters Insurance Brokers (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+21121-20993,"SPM 436469/12/18",436469,12889,"Curnow KZN Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21123-20995,"SPM 436622/12/18",436622,39065,"Ikhethelo Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+21127-20998,"SPM 436920/12/18",436920,68236,"Taccsure Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21129-20999,"SPM 437030/12/18",437030,51541,"Synergy Risk Managers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21131-21001,"SPM 437296/12/18",437296,46603,Tele-Tech,RTU,Nikki.Pearmain,NULL,NULL
+21132-21002,"SPM 437320/12/18",437320,47865,"Taccsure Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21134-21004,"SPM 437367/12/18",437367,51066,"Scottfin Pietermaritzburg",RTU,Gizela.Dlodlo,NULL,NULL
+21135-21005,"SPM 437578/12/18",437578,54500,"Curnow KZN Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21136-21006,"SPM 437603/12/18",437603,23429,"Waldo Smit Maakelaars",RTU,Nikki.Pearmain,NULL,NULL
+21137-21007,"SPM 437666/12/18",437666,66391,"Dolphin Coast Taxi & General Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21138-21008,"SPM 437698/12/18",437698,81520,"SECURITAS WINELANDS (PTY) LTD",RTU,Shanaaz.Smith,NULL,NULL
+21139-21009,"SPM 437905/12/18",437905,83549,"Blue Crane Insurance Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21140-21010,"SPM 437946/12/18",437946,3186,"Quicksure (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21144-21013,"SPM 438111/12/18",438111,46612,"Fosters Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21145-21014,"SPM 438118/12/18",438118,51409,"Synergy Risk Managers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21146-21015,"SPM 438336/12/18",438336,83553,"Blue Crane Insurance Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21147-21016,"SPM 438351/12/18",438351,78891,"Synergy Risk Managers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21148-21017,"SPM 438508/12/18",438508,68671,"Palmsure Insurance Brokers (Pty) Ltd ",RTU,Gizela.Dlodlo,NULL,NULL
+21150-21018,"SPM 438595/12/18",438595,41630,"Synergy Risk Managers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21152-21020,"SPM 438798/12/18",438798,64664,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21153-21021,"SPM 438814/12/18",438814,29599,"Scientia Optimate Financial Services (Pty.) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21154-21022,"SPM 438858/12/18",438858,56645,"Gcwabaza Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21155-21023,"SPM 438914/12/18",438914,61714,"Sihle Insurance Consultants cc",RTU,Shanaaz.Smith,NULL,NULL
+21156-21024,"SPM 438948/12/18",438948,22719,"Synergy Risk Managers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21158-21025,"SPM 439265/12/18",439265,63164,"STP Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21160-21026,"SPM 439362/12/18",439362,64242,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21161-21027,"SPM 439370/12/18",439370,40241,"Ikhethelo Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+21162-21028,"SPM 439421/12/18",439421,81209,"Van Rensburg Insurance - Proficient",RTU,Shanaaz.Smith,NULL,NULL
+21164-21030,"SPM 439474/12/18",439474,51080,"Taccsure Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21165-21031,"SPM 439576/12/18",439576,81317,"Multi Broker Group",RTU,Shanaaz.Smith,NULL,NULL
+21169-21034,"SPM 439883/12/18",439883,52842,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21170-21035,"SPM 440006/12/18",440006,80563,"Mokgoetsi Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21174-21039,"SPM 440736/1/19",440736,62179,"Curnow KZN Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21175-21040,"SPM 440792/1/19",440792,46145,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21179-21042,"SPM 441009/1/19",441009,56462,"LTM Sipamla Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21180-21043,"SPM 441399/1/19",441399,84381,"Blue Crane Insurance Brokers CC - Marysse",RTU,Shanaaz.Smith,NULL,NULL
+21181-21044,"SPM 441596/1/19",441596,80582,"Blue Crane Insurance Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21182-21045,"SPM 441610/1/19",441610,80577,"Blue Crane Insurance Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21183-21046,"SPM 441656/1/19",441656,38285,"Synergy Risk Managers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21184-21047,SPM427751/10/18,427751,71045,"Multi Broker Group",RTU,Nikki.Pearmain,NULL,NULL
+21185-21048,"SPM 441788/1/19",441788,78779,"Taccsure Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21187-21050,"SPM 442001/1/19",442001,81219,"Eyethu Brokers cc",RTU,Shanaaz.Smith,NULL,NULL
+21188-21051,"SPM 442025/1/19",442025,46725,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21189-21052,"SPM 442187/1/19",442187,48361,"Taccsure Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21191-21054,"SPM 442358/1/19",442358,77582,"Taccsure Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21192-21055,"SPM 442511/1/19",442511,81349,"Multi Broker Group",RTU,Shanaaz.Smith,NULL,NULL
+21193-21056,"SPM 442515/1/19",442515,81349,"Multi Broker Group",RTU,Shanaaz.Smith,NULL,NULL
+21194-21057,"SPM 442611/1/19",442611,3263,"Scottfin Pietermaritzburg",RTU,Shanaaz.Smith,NULL,NULL
+21195-21058,"SPM 442684/1/19",442684,6637,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21196-21059,"SPM 442794/1/19",442794,64415,"Taccsure Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21197-21060,"SPM 442888/1/19",442888,86139,"Kingdom Life Financiers CC ST Paul",RTU,Shanaaz.Smith,NULL,NULL
+21198-21061,"SPM 442946/1/19",442946,2379,"DirectAxis (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21199-21062,"SPM 443244/1/19",443244,46704,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21200-21063,"SPM 443290/1/19",443290,80804,"Gcwabaza Insurance Brokers ST Paul",RTU,Shanaaz.Smith,NULL,NULL
+21201-21064,"SPM 443334/1/19",443334,49375,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21202-21065,"SPM 443464/1/19",443464,57650,"Synergy Risk Managers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21203-21066,"SPM 443724/1/19",443724,63377,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21204-21067,"SPM 443783/1/19",443783,43005,"Fosters Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21206-21069,"SPM 444043/1/19",444043,23555,"Waldo Smit Maakelaars",RTU,Shanaaz.Smith,NULL,NULL
+21207-21070,"SPM 444153/1/19",444153,25251,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21208-21071,"SPM 444206/1/19",444206,84377,"Blue Crane Insurance Brokers CC - Marysse",RTU,Shanaaz.Smith,NULL,NULL
+21211-21074,"SPM 444509/1/19",444509,84689,"Blue Crane Insurance Brokers CC - Marysse",RTU,Shanaaz.Smith,NULL,NULL
+21213-21075,"SPM 444719/1/19",444719,80587,"Blue Crane Insurance Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21214-21076,"SPM 444895/1/19",444895,85556,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nikki.Pearmain,NULL,NULL
+21215-21077,"SPM 445050/1/19",445050,83401,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Shanaaz.Smith,NULL,NULL
+21216-21078,"SPM 445097/1/19",445097,53752,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21217-21079,"SPM 445124/1/19",445124,89593,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Shanaaz.Smith,NULL,NULL
+21219-21080,"SPM 445272/1/19",445272,62982,"AMML Financial Services",RTU,Shanaaz.Smith,NULL,NULL
+21221-21081,"SPM 445509/1/19",445509,66431,"Stapleford Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21222-21082,"SPM 445594/1/19",445594,42484,"Fosters Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21223-21083,"SPM 445604/1/19",445604,83576,"Blue Crane Insurance Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21224-21084,"SPM 445617/1/19",445617,47713,"Tshianeo Holdings",RTU,Shanaaz.Smith,NULL,NULL
+21226-21086,"SPM 445904/1/19",445904,84550,"Blue Crane Insurance Brokers CC - Marysse",RTU,Shanaaz.Smith,NULL,NULL
+21227-21087,"SPM 445972/1/19",445972,82775,"Blue Crane Insurance Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21228-21088,"SPM 445991/1/19",445991,68646,"Taccsure Insurance Brokers",RTU,Nikki.Pearmain,NULL,NULL
+21229-21089,"SPM 446075/1/19",446075,68569,"Taccsure Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21230-21090,"SPM 446126/1/19",446126,69000,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21232-21092,"SPM 446357/1/19",446357,21654,"Zamokuhle Property and Shareholding",RTU,Nikki.Pearmain,NULL,NULL
+21233-21093,"SPM 446588/1/19",446588,83553,"Blue Crane Insurance Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21234-21094,"SPM 446596/1/19",446596,85751,"Blue Crane Insurance Brokers CC - Marysse",RTU,Shanaaz.Smith,NULL,NULL
+21235-21095,"SPM 446739/1/19",446739,65459,"Van Rensburg Insurance - Proficient",RTU,Shanaaz.Smith,NULL,NULL
+21236-21096,"SPM 446913/1/19",446913,56657,"Gcwabaza Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21238-21098,"SPM 447018/1/19",447018,88964,"Goedeke Dunsdon Associates",E-Hailing,Nikki.Pearmain,NULL,NULL
+21239-21099,"SPM 447060/1/19",447060,85675,"Blue Crane Insurance Brokers CC - Marysse",RTU,Shanaaz.Smith,NULL,NULL
+21240-21100,"SPM 447131/1/19",447131,54595,"Hti Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21241-21101,"SPM 447797/1/19",447797,81093,"Multi Broker Group",RTU,Shanaaz.Smith,NULL,NULL
+21242-21102,"SPM 447864/1/19",447864,71062,"Multi Broker Group",RTU,Shanaaz.Smith,NULL,NULL
+21243-21103,"SPM 447976/1/19",447976,54002,"Sihle Insurance Consultants cc",RTU,Shanaaz.Smith,NULL,NULL
+21244-21104,"SPM 447978/1/19",447978,76422,"Versma Bestuursdienste (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21245-21105,"SPM 447979/1/19",447979,62972,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21246-21106,"SPM 448074/1/19",448074,57785,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21247-21107,"SPM 448095/1/19",448095,81881,"Eyethu Brokers cc",RTU,Shanaaz.Smith,NULL,NULL
+21248-21108,"SPM 448172/1/19",448172,88998,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nikki.Pearmain,NULL,NULL
+21249-21109,"SPM 448251/1/19",448251,57959,"Oyisha Financial Advisers",RTU,Shanaaz.Smith,NULL,NULL
+21250-21110,"SPM 448309/1/19",448309,66423,"Eyethu Brokers cc",RTU,Shanaaz.Smith,NULL,NULL
+21251-21111,"SPM 448394/2/19",448394,79999,"Taccsure Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21252-21112,"SPM 448418/2/19",448418,37318,"Synergy Risk Managers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21253-21113,"SPM 448437/2/19",448437,81349,"Multi Broker Group",RTU,Shanaaz.Smith,NULL,NULL
+21255-21115,"SPM 448521/2/19",448521,83526,"Anchor Guard Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21256-21116,"SPM 448556/2/19",448556,83292,"D and S Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21257-21117,"SPM 448799/2/19",448799,84276,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nikki.Pearmain,NULL,NULL
+21258-21118,"SPM 448831/2/19",448831,84744,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nikki.Pearmain,NULL,NULL
+21259-21119,"SPM 449005/2/19",449005,64242,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21260-21120,"SPM 449234/2/19",449234,68600,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21261-21121,"SPM 449266/2/19",449266,10726,"Hti Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21262-21122,"SPM 449381/2/19",449381,3665,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Nikki.Pearmain,NULL,NULL
+21263-21123,"SPM 449436/2/19",449436,720,"Scottfin Pietermaritzburg",RTU,Shanaaz.Smith,NULL,NULL
+21265-21125,"SPM 449473/2/19",449473,83720,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nikki.Pearmain,NULL,NULL
+21267-21127,"SPM 449496/2/19",449496,2139,"Waldo Smit Maakelaars",RTU,Shanaaz.Smith,NULL,NULL
+21269-21128,"SPM 449758",449758,89209,"Frontier Amalgamated Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21270-21129,"SPM 449857/2/19",449857,66396,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21271-21130,"SPM 449821/2/19",449821,87225,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nikki.Pearmain,NULL,NULL
+21272-21131,"SPM 449937/2/19",449937,52786,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21273-21132,"SPM 450076/2/19",450076,86358,"Oaksure PMB",E-Hailing,Shanaaz.Smith,NULL,NULL
+21274-21133,"SPM 450230/2/19",450230,90591,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Shanaaz.Smith,NULL,NULL
+21276-21134,"SPM 450318/2/19",450318,71186,"Multi Broker Group",RTU,Nikki.Pearmain,NULL,NULL
+21277-21135,"SPM 450329/2/19",450329,91740,"Proficient Solutions (Pty) Ltd",E-Hailing,Shanaaz.Smith,NULL,NULL
+21278-21136,"SPM 450392/2/19",450392,87856,"TMT Risk and Management Solutions (Pty) Ltd",E-Hailing,Shanaaz.Smith,NULL,NULL
+21279-21137,"SPM 450434/2/19",450434,89187,"AMML Financial Services",E-Hailing,Shanaaz.Smith,NULL,NULL
+21280-21138,"SPM 450483/2/19",450483,56766,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21281-21139,"SPM 450509/2/19",450509,56766,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21282-21140,"SPM 450542/2/19",450542,80826,"Gcwabaza Insurance Brokers ST Paul",RTU,Shanaaz.Smith,NULL,NULL
+21283-21141,"SPM 450595/2/19",450595,51066,"Scottfin Pietermaritzburg",RTU,Shanaaz.Smith,NULL,NULL
+21284-21142,"SPM 450661/2/19",450661,65506,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21285-21143,"SPM 450783/2/19",450783,92219,"Constellation Financial Services (Pty) Ltd ",E-Hailing,Shanaaz.Smith,NULL,NULL
+21286-21144,"SPM 450843/2/19",450843,51627,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21287-21145,"SPM 450915/2/19",450915,95809,"Constellation Financial Services (Pty) Ltd ",E-Hailing,Shanaaz.Smith,NULL,NULL
+21289-21147,"SPM 451102/2/19",451102,56766,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21290-21148,"SPM 451297/2/19",451297,65459,"Van Rensburg Insurance - Proficient",RTU,Shanaaz.Smith,NULL,NULL
+21291-21149,"SPM 451327/2/19",451327,63110,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21292-21150,"SPM 451484/2/19",451484,51616,"Synergy Risk Managers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21294-21152,"SPM 452124/2/19",452124,85731,"Blue Crane Insurance Brokers CC - Marysse",RTU,Shanaaz.Smith,NULL,NULL
+21295-21153,"SPM 452272/2/19",452272,83981,"Multi Broker Group",RTU,Shanaaz.Smith,NULL,NULL
+21296-21154,"SPM 452412/2/19",452412,94560,"Taccsure Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21297-21155,"SPM 452446/2/19",452446,84896,"Synergy Risk Managers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21298-21156,"SPM 452459/2/19",452459,68492,"Synergy Risk Managers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21299-21157,"SPM 452481/2/19",452481,84351,"Blue Crane Insurance Brokers CC - Marysse",RTU,Shanaaz.Smith,NULL,NULL
+21300-21158,"SPM 452548/2/19",452548,90318,"DIB Solutions",E-Hailing,Shanaaz.Smith,NULL,NULL
+21301-21159,"SPM 452595/2/19",452595,2138,"Waldo Smit Maakelaars",RTU,Shanaaz.Smith,NULL,NULL
+21302-21160,"SPM 452672/2/19",452672,47654,"Taccsure Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21303-21161,"SPM 452732/2/19",452732,80567,"Blue Crane Insurance Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21304-21162,"SPM 452754/2/19",452754,48152,"Curnow KZN Insurance Brokers",RTU,Nikki.Pearmain,NULL,NULL
+21307-21165,"SPM 455476/3/19",455476,87454,"Multi Risk Brokers - sub agent of Proficient",E-Hailing,"NATALIE .SLABBERT",NULL,NULL
+21308-21166,"SPM 452833/2/19",452833,85973,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21309-21167,"SPM 455695/3/19",455695,91171,"Multi Risk Brokers - sub agent of Proficient",E-Hailing,Luke.Marsden,NULL,NULL
+21310-21168,"SPM 452883/2/19",452883,7460,"Zamokuhle Property and Shareholding",RTU,Nikki.Pearmain,NULL,NULL
+21311-21169,"SPM 452915/2/19",452915,77489,"Eyethu Brokers cc",RTU,Shanaaz.Smith,NULL,NULL
+21312-21170,"SPM 452927/2/19",452927,93766,"Oaksure JHB",E-Hailing,Shanaaz.Smith,NULL,NULL
+21313-21171,"SPM 453305/2/19",453305,86066,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Shanaaz.Smith,NULL,NULL
+21314-21172,"SPM 453479/2/19",453479,98562,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Shanaaz.Smith,NULL,NULL
+21315-21173,"SPM 453485/2/19",453485,84165,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Shanaaz.Smith,NULL,NULL
+21316-21174,"SPM 453498/2/19",453498,81949,"Versma Bestuursdienste (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21317-21175,"SPM 453596/2/19",453596,89940,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nikki.Pearmain,NULL,NULL
+21318-21176,"SPM 453796/2/19",453796,83003,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21319-21177,"SPM 453836/2/19",453836,66374,"Taccsure Insurance Brokers",RTU,Gizela.Dlodlo,NULL,NULL
+21320-21178,"SPM 454151/2/19",454151,80068,"Multi Broker Group",RTU,Shanaaz.Smith,NULL,NULL
+21321-21179,"SPM 454173/2/19",454173,83774,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Luke.Marsden,NULL,NULL
+21322-21180,"SPM 454413/2/19",454413,50608,"HVDW Makelaars ",RTU,Nikki.Pearmain,NULL,NULL
+21323-21181,"SPM 454572/2/19",454572,85398,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Luke.Marsden,NULL,NULL
+21324-21182,"SPM 454583/2/19",454583,85128,"Mokgoetsi Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21325-21183,"SPM 454661/2/19",454661,71108,"Multi Broker Group",RTU,Shanaaz.Smith,NULL,NULL
+21326-21184,"SPM 454679/2/19",454679,94900,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nikki.Pearmain,NULL,NULL
+21327-21185,"SPM 454785/2/19",454785,84608,"Blue Crane Insurance Brokers CC - Marysse",RTU,Luke.Marsden,NULL,NULL
+21328-21186,"SPM 454936/2/19",454936,45163,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21329-21187,"SPM 455150/3/19",455150,87368,"SB Agency cc",RTU,Luke.Marsden,NULL,NULL
+21330-21188,"SPM 455511/3/19",455511,43040,"Fosters Insurance Brokers (Pty) Ltd",RTU,Robyn.Hyslop,NULL,NULL
+21331-21189,"SPM 455522/3/19",455522,87340,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Luke.Marsden,NULL,NULL
+21332-21190,"SPM 455757/3/19",455757,51583,"Taccsure Insurance Brokers",RTU,Luke.Marsden,NULL,NULL
+21333-21191,"SPM 455856/3/19",455856,99415,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Luke.Marsden,NULL,NULL
+21334-21192,"SPM 455886/3/19",455886,39407,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Luke.Marsden,NULL,NULL
+21335-21193,"SPM 457000/3/19",457000,90365,"DIB Solutions",E-Hailing,"Melissa.Adams ",NULL,NULL
+21336-21194,"SPM 455967/3/19",455967,56701,"Taccsure Insurance Brokers",RTU,"Melissa.Adams ",NULL,NULL
+21337-21195,"SPM 455969/3/19",455969,78855,"Synergy Risk Managers (Pty) Ltd",RTU,Luke.Marsden,NULL,NULL
+21338-21196,"SPM 456000/3/19",456000,3745,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21340-21197,"SPM 456012/3/19",456012,28352,"Sihle Insurance Consultants cc",RTU,Robyn.Hyslop,NULL,NULL
+21341-21198,"SPM 456041/3/19",456041,47534,"Primak Insurance Brokers (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21342-21199,"SPM 456116/3/19",456116,49760,"Primak Insurance Brokers (Pty) Ltd",RTU,Luke.Marsden,NULL,NULL
+21343-21200,"SPM 456119/3/19",456119,98381,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21344-21201,"SPM 456163/3/19",456163,52507,"Focus Underwriting Managers (Pty) Ltd",RTU,Robyn.Hyslop,NULL,NULL
+21345-21202,"SPM 456179/3/19",456179,81196,"Fosters Insurance Brokers (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21346-21203,"SPM 456266/3/19",456266,89125,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Robyn.Hyslop,NULL,NULL
+21347-21204,"SPM 456267/3/19",456267,90370,"DIB Solutions",E-Hailing,Luke.Marsden,NULL,NULL
+21348-21205,"SPM 456313/3/19",456313,90340,"DIB Solutions",E-Hailing,Luke.Marsden,NULL,NULL
+21349-21206,"SPM 456354/3/19",456354,85667,"Blue Crane Insurance Brokers CC - Marysse",RTU,Luke.Marsden,NULL,NULL
+21350-21207,"SPM 456358/3/19",456358,3743,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21351-21208,"SPM 456391/3/19",456391,92091,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",E-Hailing,Robyn.Hyslop,NULL,NULL
+21352-21209,"SPM 456395/3/19",456395,97099,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21353-21210,"SPM 456472/3/19",456472,46330,"Synergy Risk Managers (Pty) Ltd",RTU,Luke.Marsden,NULL,NULL
+21354-21211,"SPM 456580/3/19",456580,60504,"Vena Insurance Brokers CC",RTU,Luke.Marsden,NULL,NULL
+21355-21212,"SPM 456588/3/19",456588,15793,"Taccsure Insurance Brokers",RTU,"Melissa.Adams ",NULL,NULL
+21356-21213,"SPM 456595/3/19",456595,90419,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Luke.Marsden,NULL,NULL
+21357-21214,"SPM 456653/3/19",456653,85834,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21358-21215,"SPM 456838/3/19",456838,68196,"Palmsure Insurance Brokers (Pty) Ltd ",RTU,Luke.Marsden,NULL,NULL
+21359-21216,"SPM 456862/3/19",456862,68680,"Palmsure Insurance Brokers (Pty) Ltd ",RTU,"Melissa.Adams ",NULL,NULL
+21360-21217,"SPM 456867/3/19",456867,91816,"Constellation Financial Services (Pty) Ltd ",E-Hailing,Luke.Marsden,NULL,NULL
+21361-21218,"SPM 456897/3/19",456897,80567,"Blue Crane Insurance Brokers CC",RTU,Robyn.Hyslop,NULL,NULL
+21362-21219,"SPM 456907/3/19",456907,84562,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21363-21220,"SPM 456910/3/19",456910,100542,"Kingdom Life Financiers CC ST Paul",RTU,Luke.Marsden,NULL,NULL
+21364-21221,"SPM 456990/3/19",456990,84087,"Oaksure JHB",E-Hailing,Luke.Marsden,NULL,NULL
+21365-21222,"SPM 457027/3/19",457027,85564,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Luke.Marsden,NULL,NULL
+21366-21223,"SPM 457055/3/19",457055,100405,"Pillar Independent Brokers CC",E-Hailing,Luke.Marsden,NULL,NULL
+21367-21224,"SPM 457063/3/19",457063,61665,"Synergy Risk Managers (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21368-21225,"SPM 457167/3/19",457167,81159,"Gcwabaza Insurance Brokers",RTU,Luke.Marsden,NULL,NULL
+21369-21226,"SPM 457179/3/19",457179,101901,"One Call Insurance Brokers (Pty) Ltd(Affinity)",E-Hailing(Affinity),Luke.Marsden,NULL,NULL
+21370-21227,"SPM 457177/3/19",457177,95582,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21371-21228,"SPM 457299/3/19",457299,60529,"Ikhethelo Brokers",RTU,Luke.Marsden,NULL,NULL
+21372-21229,"SPM 457345/3/19",457345,87874,"Constellation Financial Services (Pty) Ltd ",E-Hailing,Luke.Marsden,NULL,NULL
+21373-21230,"SPM 457350/3/19",457350,53821,"Sihle Insurance Consultants cc",RTU,Robyn.Hyslop,NULL,NULL
+21375-21231,"SPM 457573/3/19",457573,88730,"DIB Solutions",E-Hailing,Robyn.Hyslop,NULL,NULL
+21376-21233,"SPM 479889/6/19",479889,94266,"FINHUB Risk Management cc",RTU,Nombuso.Ncube,NULL,NULL
+21377-21234,"SPM 457689/3/19",457689,104464,"Bower Insurance Brokers (Pty) Ltd(Affinity)",E-Hailing(Affinity),"Melissa.Adams ",NULL,NULL
+21378-21235,"SPM 457775/3/19",457775,87255,"Oaksure JHB",E-Hailing,"Melissa.Adams ",NULL,NULL
+21379-21236,"SPM 458086/3/19",458086,61732,"Fosters Insurance Brokers (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21380-21237,"SPM 458098/3/19",458098,103039,"Ample Insurance Brokers (Pty) Ltd(Affinity)",E-Hailing(Affinity),"Melissa.Adams ",NULL,NULL
+21381-21238,"SPM 458115/3/19",458115,89685,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21382-21239,"SPM 458161/3/19",458161,61728,"Ikhethelo Brokers",RTU,Luke.Marsden,NULL,NULL
+21383-21240,"SPM 458196/3/19",458196,92620,"Oaksure JHB",E-Hailing,"Melissa.Adams ",NULL,NULL
+21384-21241,"SPM 458325/3/19",458325,94617,"Eyethu Brokers cc",RTU,Luke.Marsden,NULL,NULL
+21385-21242,"SPM 458374/3/19",458374,48320,"Sihle Insurance Consultants cc",RTU,Robyn.Hyslop,NULL,NULL
+21386-21243,"SPM 458378/3/19",458378,96568,"Oaksure JHB",E-Hailing,Luke.Marsden,NULL,NULL
+21387-21244,"SPM 458413/3/19",458413,103725,"One Call Insurance Brokers (Pty) Ltd(Affinity)",E-Hailing(Affinity),Robyn.Hyslop,NULL,NULL
+21388-21245,"SPM 458419/3/19",458419,95804,"Oyisha Financial Advisers",RTU,"Melissa.Adams ",NULL,NULL
+21389-21246,"SPM 458450/3/19",458450,25250,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21390-21247,"SPM 458476/3/19",458476,57702,"Anchor Guard Insurance Brokers",RTU,Robyn.Hyslop,NULL,NULL
+21391-21248,"SPM 458504/3/19",458504,89141,Winterton,E-Hailing,"Melissa.Adams ",NULL,NULL
+21392-21249,"SPM 458562/3/19",458562,88928,"Blue Crane Insurance Brokers CC - Marysse",RTU,Luke.Marsden,NULL,NULL
+21393-21250,"SPM 458576/3/19",458576,64230,"Ikhethelo Brokers",RTU,Robyn.Hyslop,NULL,NULL
+21394-21251,"SPM 458667/3/19",458667,83659,"Taccsure Insurance Brokers",RTU,"Melissa.Adams ",NULL,NULL
+21395-21252,"SPM 458904/3/19",458904,84899,"Synergy Risk Managers (Pty) Ltd",RTU,Robyn.Hyslop,NULL,NULL
+21396-21253,"SPM 459117/3/19",459117,15440,"Waldo Smit Maakelaars",RTU,Robyn.Hyslop,NULL,NULL
+21397-21254,"SPM 459087/3/19",459087,66281,"AMML Financial Services",RTU,"Melissa.Adams ",NULL,NULL
+21398-21255,"SPM 459248/3/19",459248,95886,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21399-21256,"SPM 459288/3/19",459288,92347,"Veritas Insurance Brokers",E-Hailing,"Melissa.Adams ",NULL,NULL
+21400-21257,"SPM 459420/3/19",459420,97507,"Oaksure PMB",E-Hailing,Luke.Marsden,NULL,NULL
+21401-21258,"SPM 459416/3/19",459416,80761,"SB Agency cc",RTU,"Melissa.Adams ",NULL,NULL
+21402-21259,"SPM 459460/3/19",459460,84309,"Blue Crane Insurance Brokers CC - Marysse",RTU,Robyn.Hyslop,NULL,NULL
+21403-21260,"SPM 459461/3/19",459461,96262,"Constellation Financial Services (Pty) Ltd ",E-Hailing,"Melissa.Adams ",NULL,NULL
+21404-21261,"SPM 459515/3/19",459515,101133,"Oaksure Financial Services (Pty) Ltd(Affinity)",E-Hailing(Affinity),Luke.Marsden,NULL,NULL
+21405-21262,"SPM 459594/3/19",459594,55244,"Primak Insurance Brokers (Pty) Ltd",RTU,Luke.Marsden,NULL,NULL
+21406-21263,"SPM 459628/3/19",459628,7593,"Taccsure Insurance Brokers",RTU,Luke.Marsden,NULL,NULL
+21407-21264,"SPM 459681/3/19",459681,80587,"Blue Crane Insurance Brokers CC",RTU,Luke.Marsden,NULL,NULL
+21408-21265,"SPM 459706/3/19",459706,53987,"Fosters Insurance Brokers (Pty) Ltd",RTU,Luke.Marsden,NULL,NULL
+21409-21266,"SPM 459709/3/19",459709,61772,"Van Rensburg Insurance - Proficient",RTU,"Melissa.Adams ",NULL,NULL
+21410-21267,"SPM 459756/3/19",459756,100518,"Blue Crane Insurance Brokers CC",RTU,Luke.Marsden,NULL,NULL
+21411-21268,"SPM 459796/3/19",459796,94032,"Oaksure JHB",E-Hailing,"Melissa.Adams ",NULL,NULL
+21412-21269,"SPM 459825/3/19",459825,100707,VCASH,E-Hailing,"Melissa.Adams ",NULL,NULL
+21413-21270,"SPM 459829/3/19",459829,56372,"LTM Sipamla Brokers",RTU,Luke.Marsden,NULL,NULL
+21414-21271,"SPM 459854/3/19",459854,103513,"Oaksure Financial Services (Pty) Ltd(Affinity)",E-Hailing(Affinity),"Melissa.Adams ",NULL,NULL
+21415-21272,"SPM 459859/3/19",459859,90350,"DIB Solutions",E-Hailing,Luke.Marsden,NULL,NULL
+21416-21273,"SPM 460075/3/19",460075,61615,"Clearwater Financial Services",RTU,Luke.Marsden,NULL,NULL
+21417-21274,"SPM 460213/3/19",460213,94535,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21418-21275,"SPM 460219/3/19",460219,63486,"Fosters Insurance Brokers (Pty) Ltd",RTU,Robyn.Hyslop,NULL,NULL
+21419-21276,"SPM 460251/3/19",460251,64234,"Ikhethelo Brokers",RTU,Luke.Marsden,NULL,NULL
+21420-21277,"SPM 460265/3/19",460265,64238,"Ikhethelo Brokers",RTU,Luke.Marsden,NULL,NULL
+21421-21278,"SPM 460275/3/19",460275,81219,"Eyethu Brokers cc",RTU,Luke.Marsden,NULL,NULL
+21423-21279,"SPM 460277/3/19",460277,104563,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21424-21280,"SPM 460334/3/19",460334,85759,"Blue Crane Insurance Brokers CC - Marysse",RTU,Robyn.Hyslop,NULL,NULL
+21425-21281,"SPM 460395/3/19",460395,91740,"Proficient Solutions (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21426-21282,"SPM 460438/3/19",460438,3695,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Robyn.Hyslop,NULL,NULL
+21427-21283,"SPM 460552/3/19",460552,47755,"Primak Insurance Brokers (Pty) Ltd",RTU,Luke.Marsden,NULL,NULL
+21428-21284,"SPM 460567/3/19",460567,82619,"Blue Crane Insurance Brokers CC",RTU,Luke.Marsden,NULL,NULL
+21429-21285,"SPM 460569/3/19",460569,95714,"Bathathu Risk Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21430-21286,"SPM 460615/3/19",460615,88450,"Theo du Toit ",E-Hailing,"Melissa.Adams ",NULL,NULL
+21431-21287,"SPM 460684/3/19",460684,104237,"B-Sure Africa Insurance Brokers (Pty) Ltd(Affinity)",E-Hailing(Affinity),Luke.Marsden,NULL,NULL
+21432-21288,"SPM 460739/3/19",460739,47755,"Primak Insurance Brokers (Pty) Ltd",RTU,Luke.Marsden,NULL,NULL
+21433-21289,"SPM 460747/3/19",460747,84665,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21434-21290,"SPM 460773/3/19",460773,93887,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Luke.Marsden,NULL,NULL
+21435-21291,"SPM 460840/3/19",460840,100925,"Palmsure Insurance Brokers (Pty) Ltd ",E-Hailing,"Melissa.Adams ",NULL,NULL
+21436-21292,"SPM 460927/3/19",460927,46644,"Primak Insurance Brokers (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21437-21293,"SPM 461042/3/19",461042,66219,"Zamokuhle Property and Shareholding",RTU,Luke.Marsden,NULL,NULL
+21438-21294,"SPM 461176/3/19",461176,103187,"Friends For Life Intermediary Services (Pty) Ltd(Affinity)",E-Hailing(Affinity),"Melissa.Adams ",NULL,NULL
+21439-21295,"SPM 461200/3/19",461200,105107,"Taccsure Insurance Brokers",RTU,Robyn.Hyslop,NULL,NULL
+21440-21296,"SPM 461279/3/19",461279,76418,"Versma Bestuursdienste (Pty) Ltd",RTU,Luke.Marsden,NULL,NULL
+21441-21297,"SPM 461452/3/19",461452,60515,"Primak Insurance Brokers (Pty) Ltd",RTU,Luke.Marsden,NULL,NULL
+21442-21298,"SPM 461606/4/19",461606,105260,"Oaksure PMB",E-Hailing,Luke.Marsden,NULL,NULL
+21443-21299,"SPM 461864/4/19",461864,99286,"Van Rensburg Insurance - Proficient",RTU,"Melissa.Adams ",NULL,NULL
+21444-21300,"SPM 462040/4/19",462040,104028,"B-Sure Africa Insurance Brokers (Pty) Ltd(Affinity)",E-Hailing(Affinity),"Melissa.Adams ",NULL,NULL
+21445-21301,"SPM 462127/4/19",462127,94361,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Robyn.Hyslop,NULL,NULL
+21446-21302,"SPM 462199/4/19",462199,88429,"Theo du Toit ",E-Hailing,Robyn.Hyslop,NULL,NULL
+21447-21303,"SPM 462257/4/19",462257,98353,"Oaksure JHB",E-Hailing,Luke.Marsden,NULL,NULL
+21448-21304,"SPM 462263/4/19",462263,93651,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21449-21305,"SPM 462315/4/19",462315,82834,"Dolphin Coast Taxi & General Insurance Brokers",RTU,Robyn.Hyslop,NULL,NULL
+21450-21306,"SPM 462326/4/19",462326,86348,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Luke.Marsden,NULL,NULL
+21451-21307,"SPM 462346/4/19",462346,90190,"DIB Solutions",E-Hailing,Robyn.Hyslop,NULL,NULL
+21452-21308,"SPM 462488/4/19",462488,80105,"Multi Broker Group",RTU,"Melissa.Adams ",NULL,NULL
+21454-21309,"SPM 462572/4/19",462572,89693,"PSG Insure - Mariza Fuller-Petersen",E-Hailing,"Melissa.Adams ",NULL,NULL
+21455-21310,"SPM 463217/4/19",463217,107110,"DIB Solutions",E-Hailing,"Melissa.Adams ",NULL,NULL
+21457-21312,"SPM 462623/4/19",462623,94186,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21458-21313,"SPM 462658/4/19",462658,106680,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21459-21314,"SPM 462781/4/19",462781,104299,"Savvy Brokers (Pty) Ltd(Affinity)",E-Hailing(Affinity),Nombuso.Ncube,NULL,NULL
+21460-21315,"SPM 462812/4/19",462812,89713,"Palmsure Insurance Brokers (Pty) Ltd ",RTU,Luke.Marsden,NULL,NULL
+21461-21316,"SPM 462813/4/19",462813,85711,"Blue Crane Insurance Brokers CC - Marysse",RTU,Nombuso.Ncube,NULL,NULL
+21462-21317,"SPM 462868/4/19",462868,101967,"One Call Insurance Brokers (Pty) Ltd(Affinity)",E-Hailing(Affinity),Luke.Marsden,NULL,NULL
+21463-21318,"SPM 462872/4/19",462872,96058,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nombuso.Ncube,NULL,NULL
+21464-21319,"SPM 462885/4/19",462885,81089,"Multi Broker Group",RTU,Luke.Marsden,NULL,NULL
+21465-21320,"SPM 462946/4/19",462946,95057,"Oaksure JHB",E-Hailing,Robyn.Hyslop,NULL,NULL
+21466-21321,"SPM 463088/4/19",463088,85526,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Luke.Marsden,NULL,NULL
+21467-21322,"SPM 463089/4/19",463089,106236,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nombuso.Ncube,NULL,NULL
+21468-21323,"SPM 463151/4/19",463151,94305,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21469-21324,"SPM 463158/4/19",463158,56587,"STP Insurance Brokers (Pty) Ltd",RTU,Luke.Marsden,NULL,NULL
+21470-21325,"SPM 463186/4/19",463186,91919,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nombuso.Ncube,NULL,NULL
+21471-21326,"SPM 463247/4/19",463247,95263,"Blue Crane Insurance Brokers CC - Marysse",RTU,Luke.Marsden,NULL,NULL
+21472-21327,"SPM 463289/4/19",463289,103752,"Siyaya Insurance Brokers(Affinity)",E-Hailing(Affinity),"Melissa.Adams ",NULL,NULL
+21473-21328,"SPM 463296/4/19",463296,82716,"D and S Brokers CC",RTU,Nombuso.Ncube,NULL,NULL
+21474-21329,"SPM 463338/4/19",463338,84689,"Blue Crane Insurance Brokers CC - Marysse",RTU,Luke.Marsden,NULL,NULL
+21475-21330,"SPM 463366/4/19",463366,19856,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Luke.Marsden,NULL,NULL
+21476-21331,"SPM 463447/4/19",463447,90385,"DIB Solutions",E-Hailing,Nombuso.Ncube,NULL,NULL
+21477-21332,"SPM 463452/4/19",463452,47807,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Nombuso.Ncube,NULL,NULL
+21478-21333,"SPM 463548/4/19",463548,92633,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21479-21334,"SPM 463566/4/19",463566,89345,"PSG Insure - Mariza Fuller-Petersen",E-Hailing,Nombuso.Ncube,NULL,NULL
+21480-21335,"SPM 463595/4/19",463595,103201,"B-Sure Africa Insurance Brokers (Pty) Ltd(Affinity)",E-Hailing(Affinity),Luke.Marsden,NULL,NULL
+21481-21336,"SPM 463621/4/19",463621,97507,"Oaksure PMB",E-Hailing,Luke.Marsden,NULL,NULL
+21482-21337,"SPM 463687/4/19",463687,2137,"Waldo Smit Maakelaars",RTU,Luke.Marsden,NULL,NULL
+21483-21338,"SPM 463746/4/19",463746,83094,"Blue Crane Insurance Brokers CC",RTU,Nombuso.Ncube,NULL,NULL
+21484-21339,"SPM 463785/4/19",463785,87833,"Multi Risk Brokers - sub agent of Proficient",E-Hailing,Luke.Marsden,NULL,NULL
+21485-21340,"SPM 463810/4/19",463810,52810,"Ikhethelo Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21486-21341,"SPM 463863/4/19",463863,106419,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nombuso.Ncube,NULL,NULL
+21487-21342,"SPM 464003/4/19",464003,102772,"Rebus Brokers(Affinity)",E-Hailing(Affinity),Luke.Marsden,NULL,NULL
+21488-21343,"SPM 464062/4/19",464062,9725,"Taccsure Insurance Brokers",RTU,Luke.Marsden,NULL,NULL
+21489-21344,"SPM 464157/4/19",464157,101750,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nombuso.Ncube,NULL,NULL
+21490-21345,"SPM 464373/4/19",464373,31669,"Synergy Risk Managers (Pty) Ltd",RTU,Nombuso.Ncube,NULL,NULL
+21491-21346,"SPM 464481/4/19",464481,87052,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21492-21347,"SPM 464484/4/19",464484,94264,"FINHUB Risk Management cc",RTU,Nombuso.Ncube,NULL,NULL
+21493-21348,"SPM 464507/4/19",464507,102785,"Suretimes Insurance Administrators (Pty) Ltd(Affinity)",E-Hailing(Affinity),"Melissa.Adams ",NULL,NULL
+21494-21349,"SPM 464565/4/19",464565,87595,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21496-21350,"SPM 464647/4/19",464647,85124,"Mokgoetsi Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21497-21351,"SPM 464658/4/19",464658,91587,Winterton,E-Hailing,"Melissa.Adams ",NULL,NULL
+21498-21352,"SPM 464703/4/19",464703,106016,"Blue Crane Insurance Brokers CC",RTU,"Melissa.Adams ",NULL,NULL
+21499-21353,"SPM 464727/4/19",464727,96399,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nombuso.Ncube,NULL,NULL
+21500-21354,"SPM 464774/4/19",464774,105205,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nombuso.Ncube,NULL,NULL
+21501-21355,"SPM 464777/4/19",464777,99937,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Shanaaz.Smith,NULL,NULL
+21502-21356,"SPM 464882/4/19",464882,104849,"DIB Solutions",E-Hailing,Luke.Marsden,NULL,NULL
+21503-21357,"SPM 464932/4/19",464932,84926,"Synergy Risk Managers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21504-21358,"SPM 464993/4/19",464993,100280,"DIB Solutions",E-Hailing,Luke.Marsden,NULL,NULL
+21505-21359,"SPM 465026/4/19",465026,97572,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21506-21360,"SPM 465096/4/19",465096,92310,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21507-21361,"SPM 465175/4/19",465175,90166,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nombuso.Ncube,NULL,NULL
+21508-21362,"SPM 465183/4/19",465183,88623,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21509-21363,"SPM 465244/4/19",465244,77573,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Luke.Marsden,NULL,NULL
+21510-21364,"SPM 465254/4/19",465254,83868,"Palmsure Insurance Brokers (Pty) Ltd ",RTU,Luke.Marsden,NULL,NULL
+21511-21365,"SPM 465382/4/19",465382,96839,"Multi Risk Brokers - sub agent of Proficient",E-Hailing,Nombuso.Ncube,NULL,NULL
+21512-21366,"SPM 465321/4/19",465321,105804,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Luke.Marsden,NULL,NULL
+21513-21367,"SPM 465453/4/19",465453,106187,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21514-21368,"SPM 465531/4/19",465531,107488,"AMML Financial Services",E-Hailing,"Melissa.Adams ",NULL,NULL
+21515-21369,"SPM 465563/4/19",465563,76398,"Direct Axis Broker Direct",RTU,Luke.Marsden,NULL,NULL
+21516-21370,"SPM 465764/4/19",465764,94996,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21517-21371,"SPM 465879/4/19",465879,93859,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Luke.Marsden,NULL,NULL
+21518-21372,"SPM 465894/4/19",465894,100130,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nombuso.Ncube,NULL,NULL
+21519-21373,"SPM 465917/4/19",465917,84932,"Synergy Risk Managers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21521-21375,"SPM 465935/4/19",465935,91781,"TMT Risk and Management Solutions (Pty) Ltd",RTU,Luke.Marsden,NULL,NULL
+21522-21376,"SPM 466042/4/19",466042,64097,"Dolphin Coast Taxi & General Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21523-21377,"SPM 466127/4/19",466127,65519,"Eyethu Brokers cc",RTU,Shanaaz.Smith,NULL,NULL
+21524-21378,"SPM 466152/4/19",466152,54623,"AMML Financial Services",RTU,Shanaaz.Smith,NULL,NULL
+21525-21379,"SPM 466170/4/19",466170,68730,"Multi Broker Group",RTU,"Melissa.Adams ",NULL,NULL
+21526-21380,"SPM 466279/4/19",466279,106402,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Shanaaz.Smith,NULL,NULL
+21527-21381,"SPM 466317/4/19",466317,111094,"Oyisha Financial Advisers",RTU,Shanaaz.Smith,NULL,NULL
+21528-21382,"SPM 466356/4/19",466356,80592,"Taccsure Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21529-21383,"SPM 466472/4/19",466472,94937,"Eyethu Brokers cc",RTU,Shanaaz.Smith,NULL,NULL
+21530-21384,"SPM 466478/4/19",466478,53796,"Zamokuhle Property and Shareholding",RTU,"Melissa.Adams ",NULL,NULL
+21531-21385,"SPM 466491/4/19",466491,107369,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nombuso.Ncube,NULL,NULL
+21532-21386,"SPM 466547/4/19",466547,56701,"Taccsure Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21533-21387,"SPM 466627/4/19",466627,99878,"Proficient Solutions (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21534-21388,"SPM 466795/4/19",466795,100097,"Blue Crane Insurance Brokers CC",RTU,Luke.Marsden,NULL,NULL
+21535-21389,"SPM 466920/4/19",466920,52876,"Taccsure Insurance Brokers",RTU,Luke.Marsden,NULL,NULL
+21536-21390,"SPM 467132/4/19",467132,105205,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nombuso.Ncube,NULL,NULL
+21537-21391,"SPM 467220/4/19",467220,85751,"Blue Crane Insurance Brokers CC - Marysse",RTU,Luke.Marsden,NULL,NULL
+21538-21392,"SPM 467273/4/19",467273,23618,"Zamokuhle Property and Shareholding",RTU,Luke.Marsden,NULL,NULL
+21539-21393,"SPM 467284/4/19",467284,22736,"Zamokuhle Property and Shareholding",RTU,Luke.Marsden,NULL,NULL
+21540-21394,"SPM 467292/4/19",467292,8670,"Zamokuhle Property and Shareholding",RTU,Luke.Marsden,NULL,NULL
+21541-21395,"SPM 467299/4/19",467299,6932,"Zamokuhle Property and Shareholding",RTU,Luke.Marsden,NULL,NULL
+21542-21396,"SPM 467471/4/19",467471,63377,"Ikhethelo Brokers",RTU,Luke.Marsden,NULL,NULL
+21543-21397,"SPM 467485/4/19",467485,71138,"Multi Broker Group",RTU,"Melissa.Adams ",NULL,NULL
+21544-21398,"SPM 467522/4/19",467522,97643,"DIB Solutions",E-Hailing,Luke.Marsden,NULL,NULL
+21545-21400,"SPM 467598/4/19",467598,91978,Winterton,E-Hailing,Shanaaz.Smith,NULL,NULL
+21546-21401,"SPM 467625/4/19",467625,87233,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21547-21402,"SPM 467672/4/19",467672,38250,"Hopecare Holdings (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21548-21403,"SPM 467734/4/19",467734,22776,"KT Risk Solutions cc",RTU,Luke.Marsden,NULL,NULL
+21549-21404,"SPM 467756/4/19",467756,47559,"Primak Insurance Brokers (Pty) Ltd",RTU,Luke.Marsden,NULL,NULL
+21550-21405,"SPM 467809/4/19",467809,104180,"Siyaya Insurance Brokers(Affinity)",E-Hailing(Affinity),"Melissa.Adams ",NULL,NULL
+21551-21406,"SPM 467870/4/19",467870,103604,"Siyaya Outbound(Affinity)",E-Hailing(Affinity),Shanaaz.Smith,NULL,NULL
+21552-21407,"SPM 467879/4/19",467879,99286,"Van Rensburg Insurance - Proficient",RTU,Luke.Marsden,NULL,NULL
+21553-21408,"SPM 467910/4/19",467910,83519,"Blue Crane Insurance Brokers CC",RTU,Luke.Marsden,NULL,NULL
+21554-21409,"SPM 468018/4/19",468018,106694,"Oaksure JHB",E-Hailing,Shanaaz.Smith,NULL,NULL
+21555-21410,"SPM 468125/4/19",468125,87103,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Shanaaz.Smith,NULL,NULL
+21556-21411,"SPM 468276/4/19",468276,30721,"Sihle Insurance Consultants cc",RTU,Nombuso.Ncube,NULL,NULL
+21557-21412,"SPM 468340/4/19",468340,77638,"Ikhethelo Brokers",RTU,"Melissa.Adams ",NULL,NULL
+21558-21413,"SPM 468479/4/19",468479,103020,"Wealth Solutions Capital Insurance Broker (Pty) Ltd(Affinity)",E-Hailing(Affinity),"Melissa.Adams ",NULL,NULL
+21559-21414,"SPM 468644/5/19",468644,56247,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21560-21415,"SPM 468749/5/19",468749,99679,VCASH,E-Hailing,Shanaaz.Smith,NULL,NULL
+21561-21416,"SPM 468772/5/19",468772,102639,"Ample Insurance Brokers (Pty) Ltd(Affinity)",E-Hailing(Affinity),"Melissa.Adams ",NULL,NULL
+21562-21417,"SPM 468880/5/19",468880,81353,"Multi Broker Group",RTU,Shanaaz.Smith,NULL,NULL
+21563-21418,"SPM 468887/5/19",468887,81341,"Multi Broker Group",RTU,Shanaaz.Smith,NULL,NULL
+21564-21419,"SPM 468934/5/19",468934,37043,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21565-21420,"SPM 468979/5/19",468979,111613,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21566-21421,"SPM 469039/5/19",469039,106886,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nombuso.Ncube,NULL,NULL
+21567-21422,"SPM 469200/5/19",469200,84462,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nombuso.Ncube,NULL,NULL
+21571-21423,"SPM 469308/5/19",469308,84550,"Blue Crane Insurance Brokers CC - Marysse",RTU,Nombuso.Ncube,NULL,NULL
+21572-21424,"SPM 469335/5/19",469335,110957,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Shanaaz.Smith,NULL,NULL
+21573-21425,"SPM 469341/5/19",469341,104041,"Integricall (Pty) Ltd(Affinity)",E-Hailing(Affinity),"Melissa.Adams ",NULL,NULL
+21574-21426,"SPM 469348/5/19",469348,106928,"Taccsure Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21575-21427,"SPM 469363/5/19",469363,90564,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21576-21428,"SPM 469476/5/19",469476,96272,"DIB Solutions",E-Hailing,Robyn.Hyslop,NULL,NULL
+21577-21429,"SPM 469554/5/19",469554,105809,"Eyethu Brokers cc",RTU,Shanaaz.Smith,NULL,NULL
+21578-21430,"SPM 469635/5/19",469635,100411,"Oaksure JHB",E-Hailing,Nombuso.Ncube,NULL,NULL
+21579-21431,"SPM 469652/5/19",469652,110578,"Intersure Financial Services (Pty) Ltd(Affinity)",E-Hailing(Affinity),Shanaaz.Smith,NULL,NULL
+21580-21432,"SPM 469675/5/19",469675,96495,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Shanaaz.Smith,NULL,NULL
+21581-21433,"SPM 469706/5/19",469706,99355,"MULTI BROKER GROUP - Proficient",RTU,Robyn.Hyslop,NULL,NULL
+21582-21434,"SPM 469779/5/19",469779,2252,"Craig Tunbridge & Associates (Pty) Ltd t/as CTA Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21583-21435,"SPM 469867/5/19",469867,87028,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nombuso.Ncube,NULL,NULL
+21584-21436,"SPM 469951/5/19",469951,49486,"L and S Insurance Brokers CC",RTU,Nombuso.Ncube,NULL,NULL
+21585-21437,"SPM 470024/5/19",470024,82983,"Blue Crane Insurance Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21586-21438,"SPM 470202/5/19",470202,111918,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Shanaaz.Smith,NULL,NULL
+21587-21439,"SPM 470248/5/19",470248,96450,"Oaksure JHB",E-Hailing,"Melissa.Adams ",NULL,NULL
+21588-21440,"SPM 470295/5/19",470295,91573,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21589-21441,"SPM 470309/5/19",470309,77652,"Taccsure Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21590-21442,"SPM 470337/5/19",470337,86693,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Shanaaz.Smith,NULL,NULL
+21591-21443,"SPM 470346/5/19",470346,100554,"Kingdom Life Financiers CC ST Paul",RTU,"Melissa.Adams ",NULL,NULL
+21592-21444,"SPM 470508/5/19",470508,102247,"Siyaya Insurance Brokers(Affinity)",E-Hailing(Affinity),Nombuso.Ncube,NULL,NULL
+21593-21445,"SPM 470595/5/19",470595,85481,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21594-21446,"SPM 470617/5/19",470617,94498,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21595-21447,"SPM 470642/5/19",470642,82619,"Blue Crane Insurance Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21596-21448,"SPM 470740/5/19",470740,43951,"Versma Bestuursdienste (Pty) Ltd",RTU,Nombuso.Ncube,NULL,NULL
+21597-21449,"SPM 470741/5/19",470741,46490,Tele-Tech,RTU,Robyn.Hyslop,NULL,NULL
+21598-21450,"SPM 470764/5/19",470764,82615,"Blue Crane Insurance Brokers CC",RTU,Chantelle.Jugjiwan,NULL,NULL
+21599-21451,"SPM 470957/5/19",470957,112399,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Shanaaz.Smith,NULL,NULL
+21600-21452,"SPM 471106/5/19",471106,80563,"Mokgoetsi Insurance Brokers",RTU,Chantelle.Jugjiwan,NULL,NULL
+21601-21453,"SPM 471214/5/19",471214,80567,"Blue Crane Insurance Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21602-21454,"SPM 471229/5/19",471229,56673,"Gcwabaza Insurance Brokers",RTU,"Melissa.Adams ",NULL,NULL
+21605-21455,"SPM 471239/5/19",471239,54500,"Curnow KZN Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21607-21456,"SPM 471243/5/19",471243,88290,"DIB Solutions",E-Hailing,"Melissa.Adams ",NULL,NULL
+21608-21457,"SPM 471249/5/19",471249,111795,"Blue Crane Insurance Brokers CC",RTU,Luke.Marsden,NULL,NULL
+21609-21458,"SPM 471304/5/19",471304,63056,"Sihle Insurance Consultants cc",RTU,Nombuso.Ncube,NULL,NULL
+21610-21459,"SPM 471404/5/19",471404,85837,"Blue Crane Insurance Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21611-21460,"SPM 471406/5/19",471406,71022,"Synergy Risk Managers (Pty) Ltd",RTU,Robyn.Hyslop,NULL,NULL
+21612-21461,"SPM 471484/5/19",471484,85568,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21613-21462,"SPM 471633/5/19",471633,81138,"Taccsure Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21614-21463,"SPM 471689/5/19",471689,66285,"AMML Financial Services",RTU,Nombuso.Ncube,NULL,NULL
+21615-21464,"SPM 471729/5/19",471729,81093,"Multi Broker Group",RTU,Shanaaz.Smith,NULL,NULL
+21616-21465,"SPM 471730/5/19",471730,81101,"Multi Broker Group",RTU,"Melissa.Adams ",NULL,NULL
+21617-21466,"SPM 471741/5/19",471741,82834,"Dolphin Coast Taxi & General Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21618-21467,"SPM 471750/5/19",471750,88294,"DIB Solutions",E-Hailing,"Melissa.Adams ",NULL,NULL
+21619-21468,"SPM 471859/5/19",471859,106243,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21620-21469,"SPM 471874/5/19",471874,104407,"Constellation Financial Solutions (Pty) Ltd(Affinity)",E-Hailing(Affinity),Shanaaz.Smith,NULL,NULL
+21621-21470,"SPM 471929/5/19",471929,97475,"Synergy Risk Managers (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21622-21471,"SPM 472104/5/19",472104,92101,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21623-21472,"SPM 472140/5/19",472140,101523,"One Call Insurance Brokers (Pty) Ltd(Affinity)",E-Hailing(Affinity),"Melissa.Adams ",NULL,NULL
+21624-21473,"SPM 472161/5/19",472161,103093,"Ample Insurance Brokers (Pty) Ltd(Affinity)",E-Hailing(Affinity),Shanaaz.Smith,NULL,NULL
+21625-21474,"SPM 472303/5/19",472303,111080,Q4M,E-Hailing,Shanaaz.Smith,NULL,NULL
+21626-21475,"SPM 472373/5/19",472373,47865,"Taccsure Insurance Brokers",RTU,"Melissa.Adams ",NULL,NULL
+21627-21477,"SPM 472390/5/19",472390,99041,VCASH,E-Hailing,Nombuso.Ncube,NULL,NULL
+21628-21478,"SPM 472405/5/19",472405,28219,"Sihle Insurance Consultants cc",RTU,"Melissa.Adams ",NULL,NULL
+21629-21479,"SPM 472418/5/19",472418,53809,"Primak Insurance Brokers (Pty) Ltd",RTU,Nombuso.Ncube,NULL,NULL
+21630-21480,"SPM 472522/5/19",472522,84973,"Constellation Financial Services (Pty) Ltd ",E-Hailing,"Melissa.Adams ",NULL,NULL
+21631-21481,"SPM 472571/5/19",472571,54500,"Curnow KZN Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21632-21482,"SPM 472601/5/19",472601,88500,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21633-21483,"SPM 472769/5/19",472769,110076,"Blue Crane Insurance Brokers CC - Marysse",RTU,"Robyn.X Hyslop",NULL,NULL
+21634-21484,"SPM 472761/5/19",472761,94147,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Shanaaz.Smith,NULL,NULL
+21635-21485,"SPM 472773/5/19",472773,55427,"Multi Risk Brokers - sub agent of Proficient",RTU,Shanaaz.Smith,NULL,NULL
+21636-21487,"SPM 472944/5/19",472944,71405,"Multi Broker Group",RTU,"Melissa.Adams ",NULL,NULL
+21637-21486,"SPM 472943/5/19",472943,56628,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21638-21488,"SPM 473059/5/19",473059,100570,"Zamokuhle Property and Shareholding",RTU,Nombuso.Ncube,NULL,NULL
+21639-21489,"SPM 473024/5/19",473024,53800,"Zamokuhle Property and Shareholding",RTU,"Melissa.Adams ",NULL,NULL
+21640-21490,"SPM 473479/5/19",473479,56871,"Primak Insurance Brokers (Pty) Ltd",RTU,Nombuso.Ncube,NULL,NULL
+21641-21492,"SPM 473206/5/19",473206,113991,Winterton,E-Hailing,"Melissa.Adams ",NULL,NULL
+21642-21493,"SPM 473237/5/19",473237,103112,"One Call Insurance Brokers (Pty) Ltd(Affinity)",E-Hailing(Affinity),Nombuso.Ncube,NULL,NULL
+21644-21494,"SPM 473340/5/19",473340,43090,"Synergy Risk Managers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21645-21495,"SPM 473386/5/19",473386,87509,"Theo du Toit ",E-Hailing,"Robyn.X Hyslop",NULL,NULL
+21646-21496,"SPM 473414/5/19",473414,57785,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21648-21498,"SPM 473548/5/19",473548,76142,"Multi Broker Group",RTU,"Melissa.Adams ",NULL,NULL
+21649-21499,"SPM 473609/5/19",473609,106424,Q4M,E-Hailing,Shanaaz.Smith,NULL,NULL
+21650-21500,"SPM 473642/5/19",473642,56102,"Sihle Insurance Consultants cc",RTU,"Melissa.Adams ",NULL,NULL
+21651-21501,"SPM 473678/5/19",473678,111432,"Multi Broker Group",RTU,Shanaaz.Smith,NULL,NULL
+21652-21502,"SPM 473730/5/19",473730,110030,"Eyethu Brokers cc",RTU,"Melissa.Adams ",NULL,NULL
+21653-21503,"SPM 473758/5/19",473758,106016,"Blue Crane Insurance Brokers CC",RTU,"Melissa.Adams ",NULL,NULL
+21654-21504,"SPM 473772/5/19",473772,84762,"Blue Crane Insurance Brokers CC - Marysse",RTU,"Robyn.X Hyslop",NULL,NULL
+21655-21505,"SPM 473792/5/19",473792,110236,"Blue Crane Insurance Brokers CC - Marysse",RTU,"Robyn.X Hyslop",NULL,NULL
+21656-21506,"SPM 473825/5/19",473825,52988,"Taccsure Insurance Brokers",RTU,"Melissa.Adams ",NULL,NULL
+21657-21507,"SPM 473836/5/19",473836,84351,"Blue Crane Insurance Brokers CC - Marysse",RTU,"Robyn.X Hyslop",NULL,NULL
+21658-21508,"SPM 474059/5/19",474059,89953,"AMML Financial Services",E-Hailing,Shanaaz.Smith,NULL,NULL
+21659-21509,"SPM 474131/5/19",474131,104167,"Integricall (Pty) Ltd(Affinity)",E-Hailing(Affinity),"Melissa.Adams ",NULL,NULL
+21660-21510,"SPM 474192/5/19",474192,105264,"Eyethu Brokers cc",RTU,Shanaaz.Smith,NULL,NULL
+21661-21511,"SPM 474201/5/19",474201,57683,"Van Rensburg Insurance - Proficient",RTU,"Melissa.Adams ",NULL,NULL
+21661-21512,"SPM 475246/5/19",475246,57685,"Van Rensburg Insurance - Proficient",RTU,"Melissa.Adams ",NULL,NULL
+21662-21513,"SPM 474362/5/19",474362,105283,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21662-21514,"SPM 475239/5/19",475239,105285,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21663-21515,"SPM 474486/5/19",474486,111788,"Stepp Bella Rosa (Pty) Ltd",E-Hailing,"Robyn.X Hyslop",NULL,NULL
+21664-21516,"SPM 474487/5/19",474487,89765,"Hti Insurance Brokers (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21665-21517,"SPM 474688/5/19",474688,100359,"Blue Crane Insurance Brokers CC - Marysse",RTU,Nombuso.Ncube,NULL,NULL
+21666-21518,"SPM 474987/5/19",474987,84494,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Shanaaz.Smith,NULL,NULL
+21667-21519,"SPM 475144/5/19",475144,92014,"Nautical Mile Portfolio Managers CC",E-Hailing,"Melissa.Adams ",NULL,NULL
+21669-21520,"SPM 475326/5/19",475326,115066,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21670-21521,"SPM 475399/5/19",475399,111671,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21671-21522,"SPM 475423/5/19",475423,95118,"Oaksure JHB",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21672-21523,"SPM 475445/5/19",475445,104398,"Oaksure Financial Services (Pty) Ltd(Affinity)",E-Hailing(Affinity),"Melissa.Adams ",NULL,NULL
+21673-21524,"SPM 475465/5/19",475465,100854,"Eyethu Brokers cc",RTU,Shanaaz.Smith,NULL,NULL
+21673-21525,"SPM 475463/5/19",475463,100856,"Eyethu Brokers cc",RTU,Shanaaz.Smith,NULL,NULL
+21674-21526,"SPM 475469/5/19",475469,111427,"Multi Broker Group",RTU,"Melissa.Adams ",NULL,NULL
+21674-21527,"SPM 475470/5/19",475470,111429,"Multi Broker Group",RTU,"Melissa.Adams ",NULL,NULL
+21675-21528,"SPM 475721/6/19",475721,97246,"Versma Bestuursdienste (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21675-21529,"SPM 475723/6/19",475723,97248,"Versma Bestuursdienste (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21676-21530,"SPM 475732/6/19",475732,97610,"Blue Crane Insurance Brokers CC",RTU,Nombuso.Ncube,NULL,NULL
+21677-21531,"SPM 475778/6/19",475778,110106,"Nautical Mile Portfolio Managers CC",E-Hailing,"Melissa.Adams ",NULL,NULL
+21678-21532,"SPM 475786/6/19",475786,96874,"DIB Solutions",E-Hailing,"Robyn.X Hyslop",NULL,NULL
+21679-21533,"SPM 475798/6/19",475798,107675,"Bathathu Risk Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21680-21534,"SPM 475816/6/19",475816,61776,"Proficient Solutions (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21680-21535,"SPM 475817/6/19",475817,61778,"Proficient Solutions (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21681-21536,"SPM 475845/6/19",475845,20000,"Direct Axis SA (Pty) Ltd",RTU,Chantelle.Jugjiwan,NULL,NULL
+21682-21537,"SPM 475872/6/19",475872,113669,"Eyethu Brokers cc",RTU,"Melissa.Adams ",NULL,NULL
+21683-21538,"SPM 475876/6/19",475876,113671,"Eyethu Brokers cc",RTU,"Melissa.Adams ",NULL,NULL
+21684-21539,"SPM 475886/6/19",475886,100663,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Nombuso.Ncube,NULL,NULL
+21685-21540,"SPM 475942/6/19",475942,96142,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21686-21541,"SPM 476016/6/19",476016,81341,"Multi Broker Group",RTU,Chantelle.Jugjiwan,NULL,NULL
+21687-21542,"SPM 476113/6/19",476113,106016,"Blue Crane Insurance Brokers CC",RTU,Chantelle.Jugjiwan,NULL,NULL
+21688-21543,"SPM 476144/6/19",476144,89854,"Trafford Consulting (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21689-21544,"SPM 476240/6/19",476240,102488,"Xinix Insurance Brokers (Pty) Ltd(Affinity)",E-Hailing(Affinity),"Melissa.Adams ",NULL,NULL
+21690-21545,"SPM 476382/6/19",476382,114546,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21691-21546,"SPM 476498/6/19",476498,100558,"Kingdom Life Financiers CC ST Paul",RTU,Chantelle.Jugjiwan,NULL,NULL
+21691-21547,"SPM 476529/6/19",476529,100560,"Kingdom Life Financiers CC ST Paul",RTU,Chantelle.Jugjiwan,NULL,NULL
+21692-21548,"SPM 476523/6/19",476523,100518,"Blue Crane Insurance Brokers CC",RTU,"Melissa.Adams ",NULL,NULL
+21692-21549,"SPM 476524/6/19",476524,100520,"Blue Crane Insurance Brokers CC",RTU,"Melissa.Adams ",NULL,NULL
+21693-21550,"SPM 476643/6/19",476643,104393,"Oaksure Financial Services (Pty) Ltd(Affinity)",E-Hailing(Affinity),Chantelle.Jugjiwan,NULL,NULL
+21694-21551,"SPM 476665/6/19",476665,111323,"Oaksure JHB",E-Hailing,"Melissa.Adams ",NULL,NULL
+21695-21552,"SPM 476701/6/19",476701,111127,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21696-21553,"SPM 476763/6/19",476763,97902,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21696-21554,"SPM 476764/6/19",476764,97904,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21697-21555,"SPM 476782/6/19",476782,80800,"Gcwabaza Insurance Brokers ST Paul",RTU,"Melissa.Adams ",NULL,NULL
+21697-21556,"SPM 476783/6/19",476783,80802,"Gcwabaza Insurance Brokers ST Paul",RTU,"Melissa.Adams ",NULL,NULL
+21698-21557,"SPM 476919/6/19",476919,92734,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21699-21558,"SPM 476925/6/19",476925,47701,"Tshianeo Holdings",RTU,Nombuso.Ncube,NULL,NULL
+21700-21559,"SPM 476935/6/19",476935,107033,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21701-21560,"SPM 476994/6/19",476994,85128,"Mokgoetsi Insurance Brokers",RTU,Chantelle.Jugjiwan,NULL,NULL
+21702-21561,"SPM 477002/6/19",477002,75958,"Oyisha Financial Advisers",RTU,"Melissa.Adams ",NULL,NULL
+21702-21562,"SPM 477005/6/19",477005,75960,"Oyisha Financial Advisers",RTU,"Melissa.Adams ",NULL,NULL
+21703-21563,"SPM 477461/6/19",477461,114588,"Blue Crane Insurance Brokers CC - Marysse",RTU,"Robyn.X Hyslop",NULL,NULL
+21704-21564,"SPM 477202/6/19",477202,100053,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21705-21565,"SPM 477249/6/19",477249,106037,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21706-21566,"SPM 477335/6/19",477335,83333,"Blue Crane Insurance Brokers CC",RTU,Chantelle.Jugjiwan,NULL,NULL
+21707-21567,"SPM 477336/6/19",477336,45118,"Curnow KZN Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21708-21568,"SPM 477427/6/19",477427,101046,"Siyaya Insurance Brokers(Affinity)",E-Hailing(Affinity),"Melissa.Adams ",NULL,NULL
+21709-21569,"SPM 477560/6/19",477560,82619,"Blue Crane Insurance Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21710-21570,"SPM 477575/6/19",477575,103136,"Wealth Solutions Capital Insurance Broker (Pty) Ltd(Affinity)",E-Hailing(Affinity),"Melissa.Adams ",NULL,NULL
+21711-21571,"SPM 477599/6/19",477599,116124,"Taccsure Insurance Brokers",RTU,Chantelle.Jugjiwan,NULL,NULL
+21712-21572,"SPM 477632/6/19",477632,52313,"Taccsure Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21712-21573,"SPM 477633/6/19",477633,52314,"Taccsure Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21713-21574,"SPM 477804/6/19",477804,110219,"First National Bank (fnb)- A Division of Firstrand Bank Limited",RTU,Shanaaz.Smith,NULL,NULL
+21713-21575,"SPM 477805/6/19",477805,110221,"First National Bank (fnb)- A Division of Firstrand Bank Limited",RTU,Shanaaz.Smith,NULL,NULL
+21714-21576,"SPM 477978/6/19",477978,110224,"Blue Crane Insurance Brokers CC - Marysse",RTU,"Melissa.Adams ",NULL,NULL
+21714-21577,"SPM 477979/6/19",477979,110226,"Blue Crane Insurance Brokers CC - Marysse",RTU,"Melissa.Adams ",NULL,NULL
+21715-21578,"SPM 478010/6/19",478010,101690,"Ample Insurance Brokers (Pty) Ltd(Affinity)",E-Hailing(Affinity),Chantelle.Jugjiwan,NULL,NULL
+21716-21579,"SPM 478011/6/19",478011,90089,"Khanyisa Insurance Brokers (Pty) Ltd",E-Hailing,Nombuso.Ncube,NULL,NULL
+21717-21580,"SPM 478013/6/19",478013,91874,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Shanaaz.Smith,NULL,NULL
+21718-21581,"SPM 478108/6/19",478108,64664,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Nombuso.Ncube,NULL,NULL
+21719-21582,"SPM 478125/6/19",478125,96361,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21720-21583,"SPM 478165/6/19",478165,101497,"Oaksure Financial Services (Pty) Ltd(Affinity)",E-Hailing(Affinity),Chantelle.Jugjiwan,NULL,NULL
+21721-21584,"SPM 478224/6/19",478224,21588,"Synergy Risk Managers (Pty) Ltd",RTU,Nombuso.Ncube,NULL,NULL
+21722-21585,"SPM 478256/6/19",478256,26696,"Direct Axis WINS",RTU,"Melissa.Adams ",NULL,NULL
+21723-21586,"SPM 478287/6/19",478287,82765,"Blue Crane Insurance Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21723-21587,"SPM 478289/6/19",478289,82767,"Blue Crane Insurance Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21724-21588,"SPM 478300/6/19",478300,116076,"Constellation Financial Services (Pty) Ltd ",E-Hailing,Nombuso.Ncube,NULL,NULL
+21725-21589,"SPM 478549/6/19",478549,85759,"Blue Crane Insurance Brokers CC - Marysse",RTU,Nombuso.Ncube,NULL,NULL
+21726-21590,"SPM 478553/6/19",478553,109932,"Oaksure Financial Services (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21726-21591,"SPM 478554/6/19",478554,109934,"Oaksure Financial Services (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21727-21592,"SPM 478796/6/19",478796,87557,"Insurewise Consultants ",E-Hailing,Nombuso.Ncube,NULL,NULL
+21728-21593,"SPM 478640/6/19",478640,45118,"Curnow KZN Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21728-21594,"SPM 478641/6/19",478641,45120,"Curnow KZN Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21729-21595,"SPM 478703/6/19",478703,64316,"Scottfin East London",RTU,Shanaaz.Smith,NULL,NULL
+21730-21596,"SPM 478726/6/19",478726,64316,"Scottfin East London",RTU,Shanaaz.Smith,NULL,NULL
+21731-21597,"SPM 478784/6/19",478784,95258,"Blue Crane Insurance Brokers CC - Marysse",RTU,Shanaaz.Smith,NULL,NULL
+21732-21598,"SPM 478802/6/19",478802,84174,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21733-21600,"SPM 478835/6/19",478835,115507,"Origin Financial Risk Solutions (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21733-21601,"SPM 478836/6/19",478836,115509,"Origin Financial Risk Solutions (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21734-21602,"SPM 478878/6/19",478878,111992,"Eyethu Brokers cc",RTU,Shanaaz.Smith,NULL,NULL
+21735-21603,"SPM 478911/6/19",478911,89763,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21736-21604,"SPM 478912/6/19",478912,25160,"Accredinet Financial Solutions (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21737-21605,"SPM 478937/6/19",478937,93883,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nombuso.Ncube,NULL,NULL
+21738-21606,"SPM 478978/6/19",478978,45163,"Primak Insurance Brokers (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21738-21607,"SPM 478979/6/19",478979,45165,"Primak Insurance Brokers (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21739-21608,"SPM 479007/6/19",479007,56243,"Primak Insurance Brokers (Pty) Ltd",RTU,Chantelle.Jugjiwan,NULL,NULL
+21740-21609,"SPM 479090/6/19",479090,45261,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21741-21610,"SPM 479143/6/19",479143,26696,"Direct Axis WINS",RTU,Nombuso.Ncube,NULL,NULL
+21743-21611,"SPM 479205/6/19",479205,76144,"Multi Broker Group",RTU,"Melissa.Adams ",NULL,NULL
+21744-21612,"SPM 479229/6/19",479229,106350,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21745-21613,"SPM 479248/6/19",479248,68900,"Palmsure Insurance Brokers (Pty) Ltd ",RTU,"Melissa.Adams ",NULL,NULL
+21746-21616,"SPM 479251/6/19",479251,94395,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21747-21617,"SPM 479303/6/19",479303,61734,"Fosters Insurance Brokers (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21748-21618,"SPM 479320/6/19",479320,80461,"Ikhethelo Brokers",RTU,"Melissa.Adams ",NULL,NULL
+21749-21619,"SPM 479398/6/19",479398,115860,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21750-21620,"SPM 479369/6/19",479369,56701,"Taccsure Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21750-21622,"SPM 479891/6/19",479891,56703,"Taccsure Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21751-21623,"SPM 479437/6/19",479437,66215,"Blue Crane Insurance Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21752-21624,"SPM 479457/6/19",479457,97099,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21753-21625,"SPM 479512/6/19",479512,37043,"Primak Insurance Brokers (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21754-21626,"SPM 479586/6/19",479586,96222,"Fosters Insurance Brokers (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21754-21627,"SPM 479587/6/19",479587,96224,"Fosters Insurance Brokers (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21755-21628,"SPM 479603/6/19",479603,86576,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21756-21629,"SPM 479604/6/19",479604,113988,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21757-21630,"SPM 479653/6/19",479653,97902,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21758-21631,"SPM 479661/6/19",479661,107471,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21759-21632,"SPM 479668/6/19",479668,102243,"Siyaya Outbound(Affinity)",E-Hailing(Affinity),Shanaaz.Smith,NULL,NULL
+21760-21633,"SPM 479736/6/19",479736,91096,"Dolphin Coast Taxi & General Insurance Brokers",E-Hailing,Shanaaz.Smith,NULL,NULL
+21761-21634,"SPM 479762/6/19",479762,48357,"Taccsure Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21762-21635,"SPM 479866/6/19",479866,114471,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21763-21636,"SPM 479873/6/19",479873,46490,Tele-Tech,RTU,"Melissa.Adams ",NULL,NULL
+21763-21637,"SPM 479874/6/19",479874,46491,Tele-Tech,RTU,"Melissa.Adams ",NULL,NULL
+21763-21638,"SPM 479875/6/19",479875,46492,Tele-Tech,RTU,"Melissa.Adams ",NULL,NULL
+21764-21639,"SPM 479892/6/19",479892,78779,"Taccsure Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21764-21641,"SPM 479893/6/19",479893,78781,"Taccsure Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21765-21642,"SPM 479971/6/19",479971,63377,"Ikhethelo Brokers",RTU,"Melissa.Adams ",NULL,NULL
+21765-21643,"SPM 479974/6/19",479974,63378,"Ikhethelo Brokers",RTU,"Melissa.Adams ",NULL,NULL
+21765-21644,"SPM 479972/6/19",479972,63379,"Ikhethelo Brokers",RTU,"Melissa.Adams ",NULL,NULL
+21766-21645,"SPM 480010/6/19",480010,120692,Q4M,E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21767-21646,"SPM 480113/6/19",480113,112105,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21768-21647,"SPM 480193/6/19",480193,98135,"SSA Risk Managers cc",E-Hailing,"Melissa.Adams ",NULL,NULL
+21771-21648,"SPM 480278/6/19",480278,66427,"Stapleford Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21771-21649,"SPM 480280/6/19",480280,66429,"Stapleford Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21774-21650,"SPM 480375/6/19",480375,100041,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21775-21651,"SPM 480517/6/19",480517,115818,"4 Union Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21776-21652,"SPM 480612/6/19",480612,56701,"Taccsure Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21776-21654,"SPM 508930/11/19",508930,56703,"Taccsure Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21777-21655,"SPM 480644/6/19",480644,116989,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21778-21656,"SPM 480683/6/19",480683,89276,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21779-21657,"SPM 480700/6/19",480700,83506,"Blue Crane Insurance Brokers CC",RTU,Nombuso.Ncube,NULL,NULL
+21780-21658,"SPM 480701/6/19",480701,97866,"Oaksure JHB",E-Hailing,"Melissa.Adams ",NULL,NULL
+21781-21659,"SPM 480750/6/19",480750,111804,"Eyethu Brokers cc",RTU,Chantelle.Jugjiwan,NULL,NULL
+21782-21660,"SPM 480786/6/19",480786,102238,"One Call Insurance Brokers (Pty) Ltd(Affinity)",E-Hailing(Affinity),"Melissa.Adams ",NULL,NULL
+21783-21661,"SPM 480823/6/19",480823,105712,"Oyisha Financial Advisers",RTU,Nombuso.Ncube,NULL,NULL
+21783-21662,"SPM 484400/7/19",484400,105714,"Oyisha Financial Advisers",RTU,Nombuso.Ncube,NULL,NULL
+21784-21663,"SPM 480884/6/19",480884,83039,"Eyethu Brokers cc",RTU,Chantelle.Jugjiwan,NULL,NULL
+21785-21664,"SPM 480933/6/19",480933,61665,"Synergy Risk Managers (Pty) Ltd",RTU,Nombuso.Ncube,NULL,NULL
+21786-21665,"SPM 480965/6/19",480965,104880,"Taccsure Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21786-21667,"SPM 504461/10/19",504461,104881,"Taccsure Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21787-21668,"SPM 481085/6/19",481085,111756,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21788-21669,"SPM 481097/6/19",481097,56095,"Sihle Insurance Consultants cc",RTU,"Melissa.Adams ",NULL,NULL
+21788-21670,"SPM 481099/6/19",481099,56096,"Sihle Insurance Consultants cc",RTU,"Melissa.Adams ",NULL,NULL
+21788-21671,"SPM 481098/6/19",481098,56097,"Sihle Insurance Consultants cc",RTU,"Melissa.Adams ",NULL,NULL
+21789-21672,"SPM 481129/6/19",481129,110181,"Nautical Mile Portfolio Managers CC",E-Hailing,"Melissa.Adams ",NULL,NULL
+21790-21673,"SPM 481175/6/19",481175,101520,"One Call Insurance Brokers (Pty) Ltd(Affinity)",E-Hailing(Affinity),"Melissa.Adams ",NULL,NULL
+21791-21674,"SPM 481364/6/19",481364,46648,"Primak Insurance Brokers (Pty) Ltd",RTU,Nombuso.Ncube,NULL,NULL
+21791-21675,"SPM 483548/7/19",483548,46650,"Primak Insurance Brokers (Pty) Ltd",RTU,Nombuso.Ncube,NULL,NULL
+21792-21676,"SPM 481452/7/19",481452,82983,"Blue Crane Insurance Brokers CC",RTU,Nombuso.Ncube,NULL,NULL
+21792-21677,"SPM 481477/7/19",481477,82985,"Blue Crane Insurance Brokers CC",RTU,Nombuso.Ncube,NULL,NULL
+21793-21678,"SPM 481488/7/19",481488,99713,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21794-21679,"SPM 481587/7/19",481587,110317,"Blue Crane Insurance Brokers CC - Marysse",RTU,Nombuso.Ncube,NULL,NULL
+21795-21680,"SPM 481617/7/19",481617,103048,"One Call Insurance Brokers (Pty) Ltd(Affinity)",E-Hailing(Affinity),"Melissa.Adams ",NULL,NULL
+21796-21681,"SPM 481713/7/19",481713,100289,"AMML Financial Services",RTU,"Melissa.Adams ",NULL,NULL
+21797-21682,"SPM 481729/7/19",481729,61728,"Ikhethelo Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21797-21683,"SPM 481865/7/19",481865,61730,"Ikhethelo Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21798-21684,"SPM 481808/7/19",481808,102020,"Constellation Financial Solutions (Pty) Ltd(Affinity)",E-Hailing(Affinity),Shanaaz.Smith,NULL,NULL
+21799-21685,"SPM 481989/7/19",481989,90113,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21800-21686,"SPM 482193/7/19",482193,105022,"Taccsure Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21800-21687,"SPM 482194/7/19",482194,105024,"Taccsure Insurance Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21801-21688,"SPM 482209/7/19",482209,111307,"Oyisha Financial Advisers",RTU,"Melissa.Adams ",NULL,NULL
+21802-21689,"SPM 482217/7/19",482217,89676,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21803-21690,"SPM 482233/7/19",482233,81209,"Van Rensburg Insurance - Proficient",RTU,Shanaaz.Smith,NULL,NULL
+21804-21691,"SPM 482248/7/19",482248,120887,OutBound,E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21805-21692,"SPM 482287/7/19",482287,99415,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21806-21693,"SPM 482333/7/19",482333,83292,"D and S Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21806-21694,"SPM 482334/7/19",482334,83431,"D and S Brokers CC",RTU,Shanaaz.Smith,NULL,NULL
+21807-21695,"SPM 482398/7/19",482398,94790,"AMML Financial Services",RTU,Shanaaz.Smith,NULL,NULL
+21808-21696,"SPM 482504/7/19",482504,47679,"Primak Insurance Brokers (Pty) Ltd",RTU,Nombuso.Ncube,NULL,NULL
+21808-21697,"SPM 491380/8/19",491380,47681,"Primak Insurance Brokers (Pty) Ltd",RTU,Nombuso.Ncube,NULL,NULL
+21809-21698,"SPM 482542/7/19",482542,57905,"Van Rensburg Insurance - Proficient",RTU,"Melissa.Adams ",NULL,NULL
+21810-21699,"SPM 482543/7/19",482543,65459,"Van Rensburg Insurance - Proficient",RTU,"Melissa.Adams ",NULL,NULL
+21811-21700,"SPM 482544/7/19",482544,60386,"Van Rensburg Insurance - Proficient",RTU,"Melissa.Adams ",NULL,NULL
+21812-21701,"SPM 482546/7/19",482546,48429,"Van Rensburg Insurance - Proficient",RTU,"Melissa.Adams ",NULL,NULL
+21813-21702,"SPM 482570/7/19",482570,92552,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21814-21703,"SPM 482587/7/19",482587,56927,"Synergy Risk Managers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21814-21704,"SPM 482588/7/19",482588,56929,"Synergy Risk Managers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21815-21705,"SPM 482609/7/19",482609,111661,"Primak Insurance Brokers (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21815-21706,"SPM 482616/7/19",482616,111662,"Primak Insurance Brokers (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21815-21707,"SPM 482615/7/19",482615,111663,"Primak Insurance Brokers (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21816-21708,"SPM 482649/7/19",482649,115923,"SB Agency cc",E-Hailing,"Melissa.Adams ",NULL,NULL
+21817-21709,"SPM 482747/7/19",482747,52758,"Versma Bestuursdienste (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21817-21710,"SPM 482748/7/19",482748,52760,"Versma Bestuursdienste (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21818-21711,"SPM 482775/7/19",482775,111804,"Eyethu Brokers cc",RTU,"Melissa.Adams ",NULL,NULL
+21819-21714,"SPM 482802/7/19",482802,12928,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21820-21715,"SPM 483045/7/19",483045,77582,"Taccsure Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21821-21716,"SPM 483100/7/19",483100,104531,"Savvy Brokers (Pty) Ltd(Affinity)",E-Hailing(Affinity),Shanaaz.Smith,NULL,NULL
+21822-21717,"SPM 483111/7/19",483111,68190,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21823-21718,"SPM 483180/7/19",483180,106333,"Oaksure KZN",RTU,Chantelle.Jugjiwan,NULL,NULL
+21823-21719,"SPM 483228/7/19",483228,106335,"Oaksure KZN",RTU,Chantelle.Jugjiwan,NULL,NULL
+21824-21720,"SPM 483241/7/19",483241,107020,"Flexi-Sure Brokers (Pty) Ltd(Affinity)",E-Hailing(Affinity),"Melissa.Adams ",NULL,NULL
+21825-21721,"SPM 483253/7/19",483253,52786,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21825-21722,"SPM 483255/7/19",483255,52788,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21826-21723,"SPM 483277/7/19",483277,90051,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21827-21724,"SPM 483297/7/19",483297,117089,"AMML Financial Services",RTU,"Melissa.Adams ",NULL,NULL
+21828-21725,"SPM 483322/7/19",483322,113484,"Oaksure KZN",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21829-21726,"SPM 483373/7/19",483373,82785,"Blue Crane Insurance Brokers CC",RTU,"Melissa.Adams ",NULL,NULL
+21829-21727,"SPM 483375/7/19",483375,82786,"Blue Crane Insurance Brokers CC",RTU,"Melissa.Adams ",NULL,NULL
+21829-21728,"SPM 483374/7/19",483374,82787,"Blue Crane Insurance Brokers CC",RTU,"Melissa.Adams ",NULL,NULL
+21830-21729,"SPM 483438/7/19",483438,91611,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Nombuso.Ncube,NULL,NULL
+21831-21730,"SPM 483662/7/19",483662,56804,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21831-21731,"SPM 483663/7/19",483663,56806,"Ikhethelo Brokers",RTU,Shanaaz.Smith,NULL,NULL
+21832-21732,"SPM 483674/7/19",483674,107366,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21833-21733,"SPM 483753/7/19",483753,56102,"Sihle Insurance Consultants cc",RTU,"Melissa.Adams ",NULL,NULL
+21833-21734,"SPM 483756/7/19",483756,56103,"Sihle Insurance Consultants cc",RTU,"Melissa.Adams ",NULL,NULL
+21833-21735,"SPM 483755/7/19",483755,56104,"Sihle Insurance Consultants cc",RTU,"Melissa.Adams ",NULL,NULL
+21834-21736,"SPM 483806/7/19",483806,56102,"Sihle Insurance Consultants cc",RTU,"Melissa.Adams ",NULL,NULL
+21834-21737,"SPM 483808/7/19",483808,56103,"Sihle Insurance Consultants cc",RTU,"Melissa.Adams ",NULL,NULL
+21834-21738,"SPM 483807/7/19",483807,56104,"Sihle Insurance Consultants cc",RTU,"Melissa.Adams ",NULL,NULL
+21835-21739,"SPM 483849/7/19",483849,105712,"Oyisha Financial Advisers",RTU,Nombuso.Ncube,NULL,NULL
+21835-21740,"SPM 483853/7/19",483853,105714,"Oyisha Financial Advisers",RTU,Nombuso.Ncube,NULL,NULL
+21836-21741,"SPM 483932/7/19",483932,116596,"Friends For Life Intermediary Services (Pty) Ltd(Affinity)",E-Hailing(Affinity),Shanaaz.Smith,NULL,NULL
+21837-21742,"SPM 483968/7/19",483968,46648,"Primak Insurance Brokers (Pty) Ltd",RTU,Nombuso.Ncube,NULL,NULL
+21837-21743,"SPM 483970/7/19",483970,46650,"Primak Insurance Brokers (Pty) Ltd",RTU,Nombuso.Ncube,NULL,NULL
+21838-21744,"SPM 483986/7/19",483986,103088,"Wealth Solutions Capital Insurance Broker (Pty) Ltd(Affinity)",E-Hailing(Affinity),Shanaaz.Smith,NULL,NULL
+21839-21745,"SPM 483995/7/19",483995,48361,"Taccsure Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21840-21746,"SPM 484000/7/19",484000,45163,"Primak Insurance Brokers (Pty) Ltd",RTU,Nombuso.Ncube,NULL,NULL
+21840-21747,"SPM 484004/7/19",484004,45165,"Primak Insurance Brokers (Pty) Ltd",RTU,Nombuso.Ncube,NULL,NULL
+21841-21748,"SPM 484037/7/19",484037,71417,"Multi Broker Group",RTU,"Melissa.Adams ",NULL,NULL
+21841-21749,"SPM 484041/7/19",484041,71418,"Multi Broker Group",RTU,"Melissa.Adams ",NULL,NULL
+21841-21750,"SPM 484039/7/19",484039,71419,"Multi Broker Group",RTU,"Melissa.Adams ",NULL,NULL
+21842-21751,"SPM 484053/7/19",484053,60449,"AMML Financial Services",RTU,Shanaaz.Smith,NULL,NULL
+21843-21752,"SPM 484076/7/19",484076,10537,"Craig Tunbridge & Associates (Pty) Ltd t/as CTA Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21843-21753,"SPM 484109/7/19",484109,64540,"Craig Tunbridge & Associates (Pty) Ltd t/as CTA Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21844-21754,"SPM 484123/7/19",484123,3258,"Scottfin Pietermaritzburg",RTU,"Melissa.Adams ",NULL,NULL
+21844-21755,"SPM 484128/7/19",484128,28162,"Scottfin Pietermaritzburg",RTU,"Melissa.Adams ",NULL,NULL
+21844-21756,"SPM 484125/7/19",484125,71684,"Scottfin Pietermaritzburg",RTU,"Melissa.Adams ",NULL,NULL
+21845-21757,"SPM 484189/7/19",484189,83331,"Blue Crane Insurance Brokers CC",RTU,Nombuso.Ncube,NULL,NULL
+21846-21758,"SPM 484248/7/19",484248,83329,"Blue Crane Insurance Brokers CC",RTU,Nombuso.Ncube,NULL,NULL
+21847-21759,"SPM 484261/7/19",484261,68190,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21848-21760,"SPM 484282/7/19",484282,86757,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21849-21761,"SPM 484283/7/19",484283,117696,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21850-21762,"SPM 484330/7/19",484330,94691,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21850-21763,"SPM 484332/7/19",484332,94693,"Primak Insurance Brokers (Pty) Ltd",RTU,Shanaaz.Smith,NULL,NULL
+21851-21764,"SPM 484414/7/19",484414,81610,"Taccsure Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21851-21765,"SPM 484417/7/19",484417,81612,"Taccsure Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21852-21766,"SPM 484596/7/19",484596,123730,"Primak Insurance Brokers (Pty) Ltd",RTU,Nombuso.Ncube,NULL,NULL
+21852-21767,"SPM 484599/7/19",484599,123732,"Primak Insurance Brokers (Pty) Ltd",RTU,Nombuso.Ncube,NULL,NULL
+21853-21768,"SPM 484606/7/19",484606,110713,"Primak Insurance Brokers (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21854-21769,"SPM 484629/7/19",484629,84405,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21855-21770,"SPM 484631/7/19",484631,84405,"Oaksure Financial Services (Pty) Ltd",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21856-21771,"SPM 484671/7/19",484671,111099,"Eyethu Brokers cc",RTU,Nombuso.Ncube,NULL,NULL
+21857-21772,"SPM 484675/7/19",484675,52818,"Ikhethelo Brokers",RTU,"Melissa.Adams ",NULL,NULL
+21857-21773,"SPM 484690/7/19",484690,52819,"Ikhethelo Brokers",RTU,"Melissa.Adams ",NULL,NULL
+21857-21774,"SPM 484688/7/19",484688,52820,"Ikhethelo Brokers",RTU,"Melissa.Adams ",NULL,NULL
+21858-21775,"SPM 484725/7/19",484725,78967,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21858-21776,"SPM 484729/7/19",484729,78968,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21858-21777,"SPM 484727/7/19",484727,78969,"StopLoss Insurance Brokers Hazyview (Pty) Ltd",RTU,"Melissa.Adams ",NULL,NULL
+21859-21778,"SPM 484751/7/19",484751,78705,"Taccsure Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21860-21779,"SPM 484799/7/19",484799,113499,"SSA Risk Managers cc",RTU,"Melissa.Adams ",NULL,NULL
+21860-21780,"SPM 484806/7/19",484806,113500,"SSA Risk Managers cc",RTU,"Melissa.Adams ",NULL,NULL
+21860-21781,"SPM 484803/7/19",484803,113501,"SSA Risk Managers cc",RTU,"Melissa.Adams ",NULL,NULL
+21861-21782,"SPM 484817/7/19",484817,107335,"Eyethu Brokers cc",RTU,Nombuso.Ncube,NULL,NULL
+21861-21783,"SPM 497761/9/19",497761,107337,"Eyethu Brokers cc",RTU,Nombuso.Ncube,NULL,NULL
+21862-21784,"SPM 484930/7/19",484930,116302,"Oaksure Financial Services (Pty) Ltd",E-Hailing,"Melissa.Adams ",NULL,NULL
+21863-21785,"SPM 484985/7/19",484985,116139,"Hopecare Holdings (Pty) Ltd",E-Hailing,Nombuso.Ncube,NULL,NULL
+21864-21786,"SPM 485029/7/19",485029,110106,"Nautical Mile Portfolio Managers CC",E-Hailing,"Melissa.Adams ",NULL,NULL
+21865-21787,"SPM 485123/7/19",485123,120860,"Oaksure JHB",E-Hailing,Chantelle.Jugjiwan,NULL,NULL
+21866-21788,"SPM 485128/7/19",485128,86223,"Taccsure Insurance Brokers",RTU,Nombuso.Ncube,NULL,NULL
+21867-21790,"SPM 485142/7/19",485142,49999,"Versma Bestuursdienste (Pty) Ltd",RTU,Nombuso.Ncube,NULL,NULL

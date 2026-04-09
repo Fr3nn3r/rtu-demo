@@ -1,0 +1,101 @@
+%%{init: {'theme':'base', 'themeVariables': {
+  'primaryColor':'#E8EDF2',
+  'primaryTextColor':'#1A1A2E',
+  'primaryBorderColor':'#C8D0D8',
+  'lineColor':'#6B7280',
+  'secondaryColor':'#DBEAFE',
+  'tertiaryColor':'#FEF3C7'
+}}}%%
+flowchart TD
+    NEW([NEW<br/>Operator uploads claim form<br/>& supporting documents])
+    NEW -->|"12hr SLA"| PV
+
+    PV{POLICY VALIDATION<br/>Bridge: Nimbus}
+    PV -->|"Invalid policy"| INVALID
+    PV -->|"Valid — enter policy #<br/>& excess amount"| REG
+
+    INVALID[/"INVALID<br/>Draft notification to<br/>policyholder"/]
+    INVALID --> CLOSED_INV
+
+    REG[REGISTERED<br/>Bridge: Rock<br/>Enter SPM claim number]
+    REG -->|"12hr SLA"| ASSESS_APPT
+
+    ASSESS_APPT[ASSESSOR APPOINTED<br/>Bridge: Rock<br/>Select assessor from list]
+    ASSESS_APPT -->|"48hr SLA<br/>for report"| ASSESS_RCV
+
+    ASSESS_RCV[ASSESSMENT RECEIVED<br/>Operator enters assessed amount<br/>& uploads report]
+    ASSESS_RCV --> ROUTING
+
+    ROUTING{AUTO-ROUTING<br/>Compare assessed<br/>vs excess}
+
+    ROUTING -->|"Assessed ≤ Excess"| WITHIN_EX
+    ROUTING -->|"Assessed > Excess<br/>& ≤ R50k"| INT_APPR
+    ROUTING -->|"Assessed > R50k"| QA
+
+    WITHIN_EX[/"WITHIN EXCESS<br/>Draft notification to<br/>policyholder & broker"/]
+    WITHIN_EX --> CLOSED_EX
+
+    INT_APPR{INTERNAL APPROVAL<br/>Operator reviews claim}
+    INT_APPR -->|"Approve<br/>24hr SLA"| AOL1
+    INT_APPR -->|"Reject<br/>12hr SLA"| REJ_INT
+
+    REJ_INT[/"REJECTED<br/>Upload supporting docs<br/>Enter reason<br/>Draft notification"/]
+    REJ_INT --> CLOSED_REJ1
+
+    QA[QA APPOINTED<br/>Bridge: Rock]
+    QA -->|"6hr SLA"| QA_DEC
+
+    QA_DEC{QA DECISION}
+    QA_DEC -->|"Approve"| AOL2
+    QA_DEC -->|"Reject<br/>12hr SLA"| REJ_QA
+
+    REJ_QA[/"REJECTED<br/>Upload supporting docs<br/>Enter reason<br/>Draft notification"/]
+    REJ_QA --> CLOSED_REJ2
+
+    AOL1[AOL GENERATED<br/>Bridge: Rock]
+    AOL2[AOL GENERATED<br/>Bridge: Rock]
+    AOL1 --> ROUTE_TYPE
+    AOL2 --> ROUTE_TYPE
+
+    ROUTE_TYPE{ROUTE BY TYPE<br/>Operator selects}
+
+    ROUTE_TYPE -->|"Repair"| INSPECT
+    ROUTE_TYPE -->|"Total loss"| TOTAL_LOSS
+
+    INSPECT[INSPECTION &<br/>FINAL COSTING<br/>Confirm final cost]
+    INSPECT -->|"12hr SLA"| REPAIR
+
+    REPAIR[REPAIR IN PROGRESS<br/>Notify insured & broker<br/>Track repair]
+    REPAIR -->|"Repair complete"| CLOSED_REPAIR
+
+    TOTAL_LOSS[TOTAL LOSS<br/>Send AOL &<br/>request Natis documents]
+    TOTAL_LOSS --> SETTLE
+
+    SETTLE[SETTLEMENT CONFIRMED<br/>Insured confirms<br/>receipt of settlement]
+    SETTLE --> SALVAGE
+
+    SALVAGE[SALVAGE IN PROGRESS<br/>Track salvage process]
+    SALVAGE -->|"Salvage complete"| CLOSED_SALVAGE
+
+    %% Terminal states
+    CLOSED_INV([CLOSED])
+    CLOSED_EX([CLOSED])
+    CLOSED_REJ1([CLOSED])
+    CLOSED_REJ2([CLOSED])
+    CLOSED_REPAIR([CLOSED])
+    CLOSED_SALVAGE([CLOSED])
+
+    %% Styling
+    classDef closedState fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef rejectedState fill:#EF4444,stroke:#DC2626,color:#fff,font-weight:bold
+    classDef invalidState fill:#EF4444,stroke:#DC2626,color:#fff,font-weight:bold
+    classDef bridgeStep fill:#DBEAFE,stroke:#3B82F6,color:#1A1A2E
+    classDef decisionNode fill:#FEF3C7,stroke:#F59E0B,color:#1A1A2E
+    classDef draftStep fill:#FDE8E8,stroke:#EF4444,color:#1A1A2E
+
+    class CLOSED_INV,CLOSED_EX,CLOSED_REPAIR,CLOSED_SALVAGE closedState
+    class CLOSED_REJ1,CLOSED_REJ2 closedState
+    class INVALID,REJ_INT,REJ_QA invalidState
+    class PV,REG,ASSESS_APPT,QA,AOL1,AOL2 bridgeStep
+    class ROUTING,INT_APPR,QA_DEC,ROUTE_TYPE decisionNode
+    class WITHIN_EX draftStep

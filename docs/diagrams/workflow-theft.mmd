@@ -1,0 +1,79 @@
+%%{init: {'theme':'base', 'themeVariables': {
+  'primaryColor':'#E8EDF2',
+  'primaryTextColor':'#1A1A2E',
+  'primaryBorderColor':'#C8D0D8',
+  'lineColor':'#6B7280',
+  'secondaryColor':'#DBEAFE',
+  'tertiaryColor':'#FEF3C7'
+}}}%%
+flowchart TD
+    NEW([NEW<br/>Operator uploads claim form<br/>& supporting documents])
+    NEW -->|"12hr SLA"| PV
+
+    PV{POLICY VALIDATION<br/>Bridge: Nimbus}
+    PV -->|"Invalid policy"| INVALID
+    PV -->|"Valid — enter policy #"| REG
+
+    INVALID[/"INVALID<br/>Draft notification to<br/>policyholder"/]
+    INVALID --> CLOSED_INV
+
+    REG[REGISTERED<br/>Bridge: Rock<br/>Enter SPM claim number]
+    REG -->|"12hr SLA"| INVEST_APPT
+
+    INVEST_APPT[INVESTIGATOR APPOINTED<br/>Bridge: Rock<br/>Select investigator from list]
+    INVEST_APPT -->|"14-day SLA<br/>for report"| INVEST_RCV
+
+    INVEST_RCV[INVESTIGATION RECEIVED<br/>Operator uploads report]
+    INVEST_RCV --> QA
+
+    QA[QA APPOINTED<br/>Bridge: Rock]
+    QA -->|"6hr SLA"| QA_DEC
+
+    QA_DEC{QA DECISION}
+    QA_DEC -->|"Approve"| AOL
+    QA_DEC -->|"Reject<br/>12hr SLA"| REJ_QA
+
+    REJ_QA[/"REJECTED<br/>Upload supporting docs<br/>Enter reason<br/>Draft notification"/]
+    REJ_QA --> CLOSED_REJ
+
+    AOL[AOL GENERATED<br/>Bridge: Rock]
+    AOL --> ROUTE_TYPE
+
+    ROUTE_TYPE{ROUTE BY TYPE<br/>Operator selects}
+
+    ROUTE_TYPE -->|"Repair"| INSPECT
+    ROUTE_TYPE -->|"Total loss"| TOTAL_LOSS
+
+    INSPECT[INSPECTION &<br/>FINAL COSTING<br/>Confirm final cost]
+    INSPECT -->|"12hr SLA"| REPAIR
+
+    REPAIR[REPAIR IN PROGRESS<br/>Notify insured & broker<br/>Track repair]
+    REPAIR -->|"Repair complete"| CLOSED_REPAIR
+
+    TOTAL_LOSS[TOTAL LOSS<br/>Send AOL &<br/>request Natis documents]
+    TOTAL_LOSS --> SETTLE
+
+    SETTLE[SETTLEMENT CONFIRMED<br/>Insured confirms<br/>receipt of settlement]
+    SETTLE --> SALVAGE
+
+    SALVAGE[SALVAGE IN PROGRESS<br/>Track salvage process]
+    SALVAGE -->|"Salvage complete"| CLOSED_SALVAGE
+
+    %% Terminal states
+    CLOSED_INV([CLOSED])
+    CLOSED_REJ([CLOSED])
+    CLOSED_REPAIR([CLOSED])
+    CLOSED_SALVAGE([CLOSED])
+
+    %% Styling
+    classDef closedState fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef invalidState fill:#EF4444,stroke:#DC2626,color:#fff,font-weight:bold
+    classDef bridgeStep fill:#DBEAFE,stroke:#3B82F6,color:#1A1A2E
+    classDef decisionNode fill:#FEF3C7,stroke:#F59E0B,color:#1A1A2E
+    classDef draftStep fill:#FDE8E8,stroke:#EF4444,color:#1A1A2E
+
+    class CLOSED_INV,CLOSED_REPAIR,CLOSED_SALVAGE closedState
+    class CLOSED_REJ closedState
+    class INVALID,REJ_QA invalidState
+    class PV,REG,INVEST_APPT,QA,AOL bridgeStep
+    class QA_DEC,ROUTE_TYPE decisionNode

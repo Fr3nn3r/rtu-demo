@@ -1,0 +1,98 @@
+Radx Parts Pricing Engine — Master List,,,,,,,,,,
+Source: OEM Suppliers | Updated: 20/03/2026 | VAT Rate: 15% | Phase 1: Co-Pilot Lookup,,,,,,,,,,
+,,,,,,,,,,
+#,Part Number,Part Name,Vehicle Model,Supplier,Category,Supplier Price (R),Margin %,Radx Price Excl VAT (R),VAT (R),Total Incl VAT (R)
+1,52131WC009,Reinforcement Fr Bu,Vitz,RadX(Toyota Honeydew),OEM,"1,686.21",12.0%,"1,888.56",283.28,"2,171.84"
+2,53301WC009,Hood Sub-Assy,Vitz,RadX(Toyota Honeydew),OEM,"2,375.78",12.0%,"2,660.87",399.13,"3,060.00"
+3,53205WC009,Support Sub-Assy Ra,Vitz,RadX(Toyota Honeydew),OEM,"1,217.40",12.0%,"1,363.49",204.52,"1,568.01"
+4,57104WC004,Member Sub-Assy Fr,Vitz,RadX(Toyota Honeydew),OEM,"1,223.08",12.0%,"1,369.85",205.48,"1,575.33"
+5,52119WC012,Cover Fr Bumper,Vitz,RadX(Toyota Honeydew),OEM,"2,165.63",12.0%,"2,425.51",363.83,"2,789.33"
+6,53112WC007,Grille Radiator Lw,Vitz,RadX(Toyota Honeydew),OEM,"1,250.89",12.0%,"1,401.00",210.15,"1,611.15"
+7,53152WC001,Guide Radiator Gril,Vitz,RadX(Toyota Honeydew),OEM,299.52,12.0%,335.46,50.32,385.78
+8,53111WC012,Grille Radiator,Vitz,RadX(Toyota Honeydew),OEM,"1,382.10",12.0%,"1,547.95",232.19,"1,780.14"
+9,53811WC013,Panel Fr Fender Rh,Vitz,RadX(Toyota Honeydew),OEM,"1,868.77",12.0%,"2,093.02",313.95,"2,406.98"
+10,53812WC014,Panel Fr Fender Lh,Vitz,RadX(Toyota Honeydew),OEM,"1,868.77",12.0%,"2,093.02",313.95,"2,406.98"
+11,53875WC008,Liner Fr Fender Rh,Vitz,RadX(Toyota Honeydew),OEM,"1,315.59",12.0%,"1,473.46",221.02,"1,694.48"
+12,53876WC007,Liner Fr Fender Lh,Vitz,RadX(Toyota Honeydew),OEM,"1,315.59",12.0%,"1,473.46",221.02,"1,694.48"
+13,81130WC020,Unit Assy Headlamp,Vitz,RadX(Toyota Honeydew),OEM,"3,684.41",12.0%,"4,126.54",618.98,"4,745.52"
+14,81170WC020,Unit Assy Headlamp,Vitz,RadX(Toyota Honeydew),OEM,"3,684.41",12.0%,"4,126.54",618.98,"4,745.52"
+15,16400WC015,Radiator Assy,Vitz,RadX(Toyota Honeydew),OEM,"5,364.74",12.0%,"6,008.51",901.28,"6,909.79"
+16,88460WC010,Condenser Assy,Vitz,RadX(Toyota Honeydew),OEM,"6,326.96",12.0%,"7,086.20","1,062.93","8,149.12"
+17,53510WC021,Lock Assy Hood,Vitz,RadX(Toyota Honeydew),OEM,511.93,12.0%,573.36,86.00,659.37
+18,52159WC016,Cover Rr Bumper,Vitz,RadX(Toyota Honeydew),OEM,"2,165.63",12.0%,"2,425.51",363.83,"2,789.33"
+19,52575WC009,Retainer Rr Bumper,Vitz,RadX(Toyota Honeydew),OEM,485.64,12.0%,543.92,81.59,625.50
+20,52576WC010,Retainer Rr Bumper,Vitz,RadX(Toyota Honeydew),OEM,485.64,12.0%,543.92,81.59,625.50
+21,75125WC001,Bracket License Pla,Vitz,RadX(Toyota Honeydew),OEM,230.35,12.0%,257.99,38.70,296.69
+22,52753WC001,Moulding Rr Bumper,Vitz,RadX(Toyota Honeydew),OEM,520.45,12.0%,582.90,87.44,670.34
+23,52752WC001,Moulding Rr Bumper,Vitz,RadX(Toyota Honeydew),OEM,520.45,12.0%,582.90,87.44,670.34
+24,81561WC009,Lens Body Rr Comb,Vitz,RadX(Toyota Honeydew),OEM,"1,376.97",12.0%,"1,542.21",231.33,"1,773.54"
+25,81551WC010,Lens Body Rr Comb,Vitz,RadX(Toyota Honeydew),OEM,"1,376.97",12.0%,"1,542.21",231.33,"1,773.54"
+26,81910WC001,Reflector Assy Refl,Vitz,RadX(Toyota Honeydew),OEM,69.29,12.0%,77.60,11.64,89.25
+27,81920WC001,Reflector Assy Refl,Vitz,RadX(Toyota Honeydew),OEM,69.29,12.0%,77.60,11.64,89.25
+28,69430WC006,Striker Assy Back D,Vitz,RadX(Toyota Honeydew),OEM,187.05,12.0%,209.50,31.42,240.92
+29,69350WC002,Lock Assy Back Door,Vitz,RadX(Toyota Honeydew),OEM,"1,252.59",12.0%,"1,402.90",210.44,"1,613.34"
+30,67005WC018,Panel Sub-Assy Back,Vitz,RadX(Toyota Honeydew),OEM,"5,123.29",12.0%,"5,738.08",860.71,"6,598.80"
+31,68105WC017,Glass Sub-Assy Back,Vitz,RadX(Toyota Honeydew),OEM,"3,120.39",12.0%,"3,494.84",524.23,"4,019.06"
+32,67881WC008,Weatherstrip Back D,Vitz,RadX(Toyota Honeydew),OEM,"1,571.56",12.0%,"1,760.15",264.02,"2,024.17"
+33,58307WC012,Panel Sub-Assy Body,Vitz,RadX(Toyota Honeydew),OEM,"3,287.84",12.0%,"3,682.38",552.36,"4,234.74"
+34,68210WC019,Weatherstrip Assy F,Vitz,RadX(Toyota Honeydew),OEM,258.81,12.0%,289.87,43.48,333.35
+35,68110WC013,Glass Assy Fr Door,Vitz,RadX(Toyota Honeydew),OEM,"1,401.34",12.0%,"1,569.50",235.43,"1,804.93"
+36,67003WC012,Panel Sub-Assy Rr D,Vitz,RadX(Toyota Honeydew),OEM,"4,101.79",12.0%,"4,594.00",689.10,"5,283.11"
+37,61131WC001,Pillar Fr Body Out,Vitz,RadX(Toyota Honeydew),OEM,"2,290.08",12.0%,"2,564.89",384.73,"2,949.62"
+38,61311WC001,Pillar Ctr Body Ou,Vitz,RadX(Toyota Honeydew),OEM,"1,878.60",12.0%,"2,104.03",315.60,"2,419.64"
+39,61601WC001,Panel Sub-Assy Quar,Vitz,RadX(Toyota Honeydew),OEM,"5,176.63",12.0%,"5,797.83",869.67,"6,667.50"
+40,52159WC020,Rear Bumper,Vitz,RadX(Toyota Honeydew),OEM,"3,192.49",12.0%,"3,575.59",536.34,"4,111.93"
+41,87910WC232,Mirror,Vitz,RadX(Toyota Honeydew),OEM,"2,834.30",12.0%,"3,174.42",476.16,"3,650.58"
+42,67001WC017,Panel Sub-Assy Fr D,Vitz,RadX(Toyota Honeydew),OEM,"5,910.40",12.0%,"6,619.65",992.95,"7,612.60"
+43,71711M62SA0-5PK,Front Bumper Upr,SPresso,RadX (BB Gezina),OEM,"1,342.62",12.0%,"1,503.73",225.56,"1,729.29"
+44,71721M62S00-799,Front Bumper Lwr,SPresso,RadX (BB Gezina),OEM,"3,491.67",12.0%,"3,910.67",586.60,"4,497.27"
+45,77811M54GC0-0PG,Front Badge,SPresso,RadX (BB Gezina),OEM,93.75,12.0%,105.00,15.75,120.75
+46,71732M62S00-000,Bumper Bracket Lh,SPresso,RadX (BB Gezina),OEM,56.23,12.0%,62.98,9.45,72.42
+47,77811M54GC0-0PG,Bumper Bracket Rh,SPresso,RadX (BB Gezina),OEM,93.75,12.0%,105.00,15.75,120.75
+48,35321M62S20-000,Left Headlamp,SPresso,RadX (BB Gezina),OEM,"2,184.59",12.0%,"2,446.74",367.01,"2,813.75"
+49,35121M62S20-000,Right Headlamp,SPresso,RadX (BB Gezina),OEM,"1,603.65",12.0%,"1,796.09",269.41,"2,065.50"
+50,57300M62S00-000,Bonnet,SPresso,RadX (BB Gezina),OEM,"2,452.46",12.0%,"2,746.76",412.01,"3,158.77"
+51,17700M62SA0-000,Radiator,SPresso,RadX (BB Gezina),OEM,"2,866.38",12.0%,"3,210.35",481.55,"3,691.90"
+52,95310M53T00-000,Condensor,SPresso,RadX (BB Gezina),OEM,"2,405.95",12.0%,"2,694.66",404.20,"3,098.86"
+53,58230M62S10-000,Cradle(top piece),SPresso,RadX (BB Gezina),OEM,741.03,12.0%,829.95,124.49,954.45
+54,72380M62S10-000,Cradle(lower piece),SPresso,RadX (BB Gezina),OEM,785.91,12.0%,880.22,132.03,"1,012.25"
+55,84701M62S50-26U,Right Mirror Complete,SPresso,RadX (BB Gezina),OEM,"2,252.03",12.0%,"2,522.27",378.34,"2,900.61"
+56,84702M62S50-26U,Left Mirror Complete,SPresso,RadX (BB Gezina),OEM,"2,696.01",12.0%,"3,019.53",452.93,"3,472.46"
+57,68002M62S01-000,Left Front Door,SPresso,RadX (BB Gezina),OEM,"3,631.10",12.0%,"4,066.83",610.02,"4,676.86"
+58,68001M62S01-000,Right Front Door,SPresso,RadX (BB Gezina),OEM,"6,864.81",12.0%,"7,688.59","1,153.29","8,841.88"
+59,68004M62S01-000,Left Rear Door,SPresso,RadX (BB Gezina),OEM,"4,737.68",12.0%,"5,306.20",795.93,"6,102.13"
+60,68003M62S01-000,Right Rear Door,SPresso,RadX (BB Gezina),OEM,"6,300.00",12.0%,"7,056.00","1,058.40","8,114.40"
+61,57711M62S00-000,Left Fender,SPresso,RadX (BB Gezina),OEM,"1,188.93",12.0%,"1,331.60",199.74,"1,531.34"
+62,57611M62S00-000,Right Fender,SPresso,RadX (BB Gezina),OEM,"1,419.66",12.0%,"1,590.02",238.50,"1,828.52"
+63,58270M62S10-000,Bumper Support,SPresso,RadX (BB Gezina),OEM,518.17,12.0%,580.35,87.05,667.40
+64,57420M62S00-000,Left Bonnet Hinge,SPresso,RadX (BB Gezina),OEM,133.03,12.0%,148.99,22.35,171.34
+65,57410M62S00-000,Right Bonnet Hinge,SPresso,RadX (BB Gezina),OEM,145.02,12.0%,162.42,24.36,186.79
+66,72322M62S00-000,Left Fender Liner,SPresso,RadX (BB Gezina),OEM,277.87,12.0%,311.21,46.68,357.90
+67,72321M62S00-000,Right Fender Liner,SPresso,RadX (BB Gezina),OEM,249.98,12.0%,279.98,42.00,321.97
+68,17100M62SA0-000,Radiator Fan,SPresso,RadX (BB Gezina),OEM,"2,468.36",12.0%,"2,764.56",414.68,"3,179.25"
+69,84510M62S02-000,Front Windscreen,SPresso,RadX (BB Gezina),OEM,"3,365.31",12.0%,"3,769.15",565.37,"4,334.52"
+70,45202M62S01-000,Control Arm Left,SPresso,RadX (BB Gezina),OEM,860.26,12.0%,963.49,144.52,"1,108.01"
+71,45201M62S01-000,Control Arm Right,SPresso,RadX (BB Gezina),OEM,957.98,12.0%,"1,072.94",160.94,"1,233.88"
+72,48810M62S00-000,Tie Rod Left,SPresso,RadX (BB Gezina),OEM,212.05,12.0%,237.50,35.62,273.12
+73,48810M62S00-000,Tie Rod Right,SPresso,RadX (BB Gezina),OEM,212.05,12.0%,237.50,35.62,273.12
+74,48830M62S00-000,Rack Ends,SPresso,RadX (BB Gezina),OEM,273.57,12.0%,306.40,45.96,352.36
+75,71089M62S10-5PK,Rear Bumper,SPresso,RadX (BB Gezina),OEM,"1,051.54",12.0%,"1,177.72",176.66,"1,354.38"
+76,71831M62S00-000,Bumper Brackets,SPresso,RadX (BB Gezina),OEM,62.13,12.0%,69.59,10.44,80.02
+77,64511M62S00-P31,Left Rear QTR Panel,SPresso,RadX (BB Gezina),OEM,"3,825.48",12.0%,"4,284.54",642.68,"4,927.22"
+78,64111M62S00-P31,Right Rear QTR Panel,SPresso,RadX (BB Gezina),OEM,"4,425.33",12.0%,"4,956.37",743.46,"5,699.83"
+79,35750M62S00-000,LHS tail lamp otr,SPresso,RadX (BB Gezina),OEM,698.17,12.0%,781.95,117.29,899.24
+80,35650M62S00-000,RHS tail lamp otr,SPresso,RadX (BB Gezina),OEM,721.45,12.0%,808.02,121.20,929.23
+81,35820M62S00-000,Lamp assy center,SPresso,RadX (BB Gezina),OEM,51.55,12.0%,57.74,8.66,66.40
+82,35950M55K01-000,Left Rear Reflector,SPresso,RadX (BB Gezina),OEM,59.81,12.0%,66.99,10.05,77.04
+83,35970M55K01-000,Right Rear Reflector,SPresso,RadX (BB Gezina),OEM,78.34,12.0%,87.74,13.16,100.90
+84,69100M62S00-000,Tailgate,SPresso,RadX (BB Gezina),OEM,"3,865.60",12.0%,"4,329.47",649.42,"4,978.89"
+85,77811M63J00-0PG,"Badges ""S""",SPresso,RadX (BB Gezina),OEM,71.27,12.0%,79.82,11.97,91.80
+86,77831M62S00-0PG,"Badges ""S-Presso""",SPresso,RadX (BB Gezina),OEM,90.86,12.0%,101.76,15.26,117.03
+87,77831M54GB0-0PG,"Badges ""Suzuki""",SPresso,RadX (BB Gezina),OEM,61.88,12.0%,69.31,10.40,79.70
+88,65400M62S10-000,Rear Valence,SPresso,RadX (BB Gezina),OEM,"1,309.94",12.0%,"1,467.13",220.07,"1,687.20"
+89,84570M62S00-000,Rear Glass Window,SPresso,RadX (BB Gezina),OEM,"2,388.48",12.0%,"2,675.10",401.26,"3,076.36"
+90,61513M62S00-000,Hinged Floor Rubberized,SPresso,RadX (BB Gezina),OEM,"1,419.03",12.0%,"1,589.31",238.40,"1,827.71"
+91,88910M62S00-GMY,Cargo area Partition,SPresso,RadX (BB Gezina),OEM,705.35,12.0%,789.99,118.50,908.49
+,,,,,,,,,,
+,,,,,TOTALS,"164,197.69",,"183,901.41",,"211,486.62"
+Total parts: 91 | This file seeds the Radx Parts Pricing Engine database,,,,,,,,,,

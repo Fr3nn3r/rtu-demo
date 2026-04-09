@@ -1,0 +1,6 @@
+Meeting transcript: True Aim - Meeting (Matthew Rosenberg) - 2026_03_09 10_58 CET - Notes by Gemini
+Input doc from RTU: True_Aim_RTUSA_Phase_0_Working_Document
+"C:\Users\fbrun\Documents\GitHub\rtu-demo\docs\specs\RTU Optimised Claims Flow  - Claims Flow.pdf"
+"C:\Users\fbrun\Documents\GitHub\rtu-demo\docs\specs\rtusa-form-accident.md"
+"C:\Users\fbrun\Documents\GitHub\rtu-demo\docs\specs\rtusa-form-glass.md"
+"C:\Users\fbrun\Documents\GitHub\rtu-demo\docs\specs\rtusa-form-theft.md"

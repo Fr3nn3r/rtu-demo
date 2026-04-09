@@ -1,0 +1,41 @@
+%%{init: {'theme':'base', 'themeVariables': {
+  'primaryColor':'#E8EDF2',
+  'primaryTextColor':'#1A1A2E',
+  'primaryBorderColor':'#C8D0D8',
+  'lineColor':'#6B7280',
+  'secondaryColor':'#DBEAFE',
+  'tertiaryColor':'#FEF3C7'
+}}}%%
+flowchart TD
+    NEW([NEW<br/>Operator uploads claim form<br/>& supporting documents])
+    NEW -->|"12hr SLA"| PV
+
+    PV{POLICY VALIDATION<br/>Bridge: Nimbus}
+    PV -->|"Invalid policy"| INVALID
+    PV -->|"Valid — enter policy #<br/>& excess amount"| REG
+
+    INVALID[/"INVALID<br/>Draft notification to<br/>policyholder"/]
+    INVALID --> CLOSED_INV
+
+    REG[REGISTERED<br/>Bridge: Rock<br/>Enter SPM claim number]
+    REG -->|"12hr SLA"| GLASS_APPT
+
+    GLASS_APPT[GLASS REPAIRER APPOINTED<br/>Select from repairer list<br/>Dispatch to vehicle location]
+    GLASS_APPT --> REPAIR_DONE
+
+    REPAIR_DONE[REPAIR COMPLETE<br/>Operator confirms<br/>glass replacement done]
+    REPAIR_DONE --> CLOSED_REPAIR
+
+    %% Terminal states
+    CLOSED_INV([CLOSED])
+    CLOSED_REPAIR([CLOSED])
+
+    %% Styling
+    classDef closedState fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef invalidState fill:#EF4444,stroke:#DC2626,color:#fff,font-weight:bold
+    classDef bridgeStep fill:#DBEAFE,stroke:#3B82F6,color:#1A1A2E
+    classDef decisionNode fill:#FEF3C7,stroke:#F59E0B,color:#1A1A2E
+
+    class CLOSED_INV,CLOSED_REPAIR closedState
+    class INVALID invalidState
+    class PV,REG bridgeStep
