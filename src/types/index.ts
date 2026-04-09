@@ -248,6 +248,24 @@ export interface DashboardStats {
   avgDaysToClose: number
 }
 
+// ── Historical Claim (for trend charts) ─────────────────────
+export type HistoricalClaimStatus = 'settled' | 'rejected' | 'not_taken_up' | 'within_excess' | 'no_cover' | 'open'
+
+export type TimePeriod = '1W' | '1M' | '1Y'
+
+export interface HistoricalClaim {
+  id: string
+  type: ClaimType
+  createdAt: string
+  closedAt: string | null
+  daysToClose: number | null
+  settlementAmount: number
+  handler: string
+  province: string
+  status: HistoricalClaimStatus
+  slaCompliant: boolean
+}
+
 // ── Claim Action Types (for reducer) ─────────────────────────
 export type ClaimAction =
   | { type: 'ADVANCE_WORKFLOW'; claimId: string; toState: WorkflowState; data?: Partial<WorkflowFields> }
