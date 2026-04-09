@@ -1,42 +1,36 @@
+import { useEffect } from 'react'
 import type { Claim } from '@/types'
-import { Button } from '@/components/ui/button'
 import { useClaims } from '@/context/ClaimContext'
 import { formatZAR } from '@/lib/utils'
-import { Info } from 'lucide-react'
+import { CheckCircle2 } from 'lucide-react'
 
 export function WithinExcess({ claim }: { claim: Claim }) {
   const { dispatch } = useClaims()
 
-  function handleClose() {
-    dispatch({
-      type: 'ADVANCE_WORKFLOW',
-      claimId: claim.id,
-      toState: 'CLOSED',
-    })
-  }
+  useEffect(() => {
+    // Auto-close: dispatch after a brief delay so the user sees the info card
+    const timer = setTimeout(() => {
+      dispatch({
+        type: 'ADVANCE_WORKFLOW',
+        claimId: claim.id,
+        toState: 'CLOSED',
+      })
+    }, 1500)
+    return () => clearTimeout(timer)
+  }, [claim.id, dispatch])
 
   return (
     <div className="space-y-4">
-      <div className="flex items-start gap-3 rounded-lg border border-warning-200 bg-warning-50/50 p-4">
-        <Info className="mt-0.5 size-5 text-warning-500 flex-shrink-0" />
+      <div className="flex items-start gap-3 rounded-lg border border-success-200 bg-success-50/50 p-4">
+        <CheckCircle2 className="mt-0.5 size-5 text-success-500 flex-shrink-0" />
         <div>
-          <div className="text-sm font-medium text-warning-700">Claim Within Excess</div>
+          <div className="text-sm font-medium text-success-700">Auto-Closing — Within Excess</div>
           <p className="mt-1 text-sm text-text-secondary">
             The assessed amount of {formatZAR(claim.workflow.assessedAmount ?? 0)} is within the
             policy excess of {formatZAR(claim.workflow.excessAmount ?? 0)}.
-            No further action will be taken.
+            This claim is being auto-closed. A draft notification has been generated for the policyholder and broker.
           </p>
         </div>
-      </div>
-
-      <p className="text-sm text-text-secondary">
-        A draft notification has been generated for the policyholder and broker. Review and send the notification, then close the claim.
-      </p>
-
-      <div className="flex justify-end">
-        <Button onClick={handleClose}>
-          Close Claim
-        </Button>
       </div>
     </div>
   )
