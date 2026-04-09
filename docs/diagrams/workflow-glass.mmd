@@ -10,14 +10,14 @@ flowchart TD
     NEW([NEW<br/>Operator uploads claim form<br/>& supporting documents])
     NEW -->|"12hr SLA"| PV
 
-    PV{POLICY VALIDATION<br/>Bridge: Nimbus}
+    PV{POLICY VALIDATION<br/>Bridge: Nimbis}
     PV -->|"Invalid policy"| INVALID
     PV -->|"Valid — enter policy #<br/>& excess amount"| REG
 
     INVALID[/"INVALID<br/>Draft notification to<br/>policyholder"/]
     INVALID --> CLOSED_INV
 
-    REG[REGISTERED<br/>Bridge: Rock<br/>Enter SPM claim number]
+    REG[REGISTERED<br/>Bridge: ROC<br/>Enter SPM claim number]
     REG -->|"12hr SLA"| GLASS_APPT
 
     GLASS_APPT[GLASS REPAIRER APPOINTED<br/>Select from repairer list<br/>Dispatch to vehicle location]

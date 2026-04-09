@@ -10,24 +10,24 @@ flowchart TD
     NEW([NEW<br/>Operator uploads claim form<br/>& supporting documents])
     NEW -->|"12hr SLA"| PV
 
-    PV{POLICY VALIDATION<br/>Bridge: Nimbus}
+    PV{POLICY VALIDATION<br/>Bridge: Nimbis}
     PV -->|"Invalid policy"| INVALID
     PV -->|"Valid — enter policy #"| REG
 
     INVALID[/"INVALID<br/>Draft notification to<br/>policyholder"/]
     INVALID --> CLOSED_INV
 
-    REG[REGISTERED<br/>Bridge: Rock<br/>Enter SPM claim number]
+    REG[REGISTERED<br/>Bridge: ROC<br/>Enter SPM claim number]
     REG -->|"12hr SLA"| INVEST_APPT
 
-    INVEST_APPT[INVESTIGATOR APPOINTED<br/>Bridge: Rock<br/>Select investigator from list]
+    INVEST_APPT[INVESTIGATOR APPOINTED<br/>Bridge: ROC<br/>Select investigator from list]
     INVEST_APPT -->|"14-day SLA<br/>for report"| INVEST_RCV
 
     INVEST_RCV[INVESTIGATION RECEIVED<br/>Operator uploads report]
     INVEST_RCV --> QA
 
-    QA[QA APPOINTED<br/>Bridge: Rock]
-    QA -->|"6hr SLA"| QA_DEC
+    QA[QA APPOINTED<br/>Bridge: ROC]
+    QA -->|"48hr SLA"| QA_DEC
 
     QA_DEC{QA DECISION}
     QA_DEC -->|"Approve"| AOL
@@ -36,7 +36,7 @@ flowchart TD
     REJ_QA[/"REJECTED<br/>Upload supporting docs<br/>Enter reason<br/>Draft notification"/]
     REJ_QA --> CLOSED_REJ
 
-    AOL[AOL GENERATED<br/>Bridge: Rock]
+    AOL[AOL GENERATED<br/>Bridge: ROC]
     AOL --> ROUTE_TYPE
 
     ROUTE_TYPE{ROUTE BY TYPE<br/>Operator selects}
