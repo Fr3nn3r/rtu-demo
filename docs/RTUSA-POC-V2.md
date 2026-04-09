@@ -2,13 +2,23 @@
 
 ## RTU Insurance Services (RTUSA)
 
-**Version:** 2.3
-**Date:** 2026-03-29
+**Version:** 2.4
+**Date:** 2026-04-09
 **Author:** TrueAim.ai
 **Status:** Draft
 **Previous version:** V2.2 (2026-03-28), V2.1 (2026-03-27), V2.0 (2026-03-27), V1 (2026-03-26)
 
 ### Change log
+
+**V2.4 (2026-04-09)** — RTU working document alignment
+
+- **System naming corrected throughout.** Nimbus → Nimbis, Rock → ROC to match RTU's actual system names.
+- **SLA timings updated from RTU working document (section 6).** ROC submission: added 4-hour SLA (was bundled with policy validation). Internal approval: 24h → 4h. QA appointment: 6h → 4h. QA decision: 6h → 48h.
+- **Within-excess auto-close (section 5.6.6).** Per Steve Cory's direction, claims within excess now auto-close with policyholder/broker notification — no operator confirmation required.
+- **Radx parts benchmark preview (section 5.6.5).** Mock comparison of assessor quotes against Radx OEM pricing shown at assessment received step for accident claims. Read-only preview; functional integration deferred.
+- **Seed data aligned to real RTU data patterns.** Claim type distribution (52% glass, 47% accident, <1% theft), real broker names, real vehicle models, realistic ZAR amounts.
+- **SPM claim number promoted to primary identifier** in claim headers and list views.
+- **New assumptions added for workshop validation (section 15).** Towing-triggered claims, fraud routing, broker entity model, Radx functional integration, reminder cadence model.
 
 **V2.3 (2026-03-29)** — Prototype alignment and feature documentation
 
@@ -36,11 +46,11 @@ ClaimPilot is a multi-tenant SaaS workflow tool for insurance claims management.
 
 ### 1.2 Context
 
-RTU Insurance Services (RTUSA) is an underwriting management agency handling motor claims for taxis insured through Renasa. Their current process spans three disconnected systems (Zoho for CRM, Nimbus for policy admin, Rock for insurer claims admin) with claims tracked manually on Google Sheets. There is no workflow management, no SLA visibility, no automated communications, and no proactive follow-up with assessors, investigators, or repairers.
+RTU Insurance Services (RTUSA) is an underwriting management agency handling motor claims for taxis insured through Renasa. Their current process spans three disconnected systems (Zoho for CRM, Nimbis for policy admin, ROC for insurer claims admin) with claims tracked manually on Google Sheets. There is no workflow management, no SLA visibility, no automated communications, and no proactive follow-up with assessors, investigators, or repairers.
 
 ### 1.3 MVP objective
 
-Replace the Google Sheets tracking with a workflow tool. ClaimPilot manages the claim lifecycle, enforces SLA tracking, generates draft communications, and gives management operational visibility. No integration to Rock, Nimbus, or other external systems in MVP.
+Replace the Google Sheets tracking with a workflow tool. ClaimPilot manages the claim lifecycle, enforces SLA tracking, generates draft communications, and gives management operational visibility. No integration to ROC, Nimbis, or other external systems in MVP.
 
 ### 1.4 Success criteria
 
@@ -60,7 +70,7 @@ ClaimPilot is a multi-tenant platform. RTU is the first tenant. All tenant-speci
 
 ### 2.2 No external integrations (MVP)
 
-Rock and Nimbus interactions are modelled as manual bridge steps. The system prompts the operator to perform an action in the external system, provides the necessary data with copy buttons, and the operator confirms completion and enters any return data (e.g. SPM claim number, policy number). Bridge steps are structured so they can be replaced with API calls later without changing the workflow.
+ROC and Nimbis interactions are modelled as manual bridge steps. The system prompts the operator to perform an action in the external system, provides the necessary data with copy buttons, and the operator confirms completion and enters any return data (e.g. SPM claim number, policy number). Bridge steps are structured so they can be replaced with API calls later without changing the workflow.
 
 ### 2.3 Tech stack
 
@@ -92,7 +102,7 @@ Assessors, investigators, repairers, policyholders, and brokers do not log into 
 
 ### 4.1 Claim record
 
-The claim record maps to the fields required by Rock for claim registration. Three claim form types exist (accident, theft, glass), each with different field requirements. Full field specs are in `docs/poc/specs/`.
+The claim record maps to the fields required by ROC for claim registration. Three claim form types exist (accident, theft, glass), each with different field requirements. Full field specs are in `docs/poc/specs/`.
 
 #### Core fields (all claim types)
 
@@ -171,7 +181,7 @@ Pre-filled from insured details by default. Operator overrides if the driver is 
 | Outstanding amount (ZAR) | Extracted | No |
 | Type of agreement | Extracted | Yes |
 
-Captured for Rock registration. ClaimPilot does not act on finance details (no communications to finance companies, no settlement splitting). See Assumptions section.
+Captured for ROC registration. ClaimPilot does not act on finance details (no communications to finance companies, no settlement splitting). See Assumptions section.
 
 #### Incident details
 
@@ -192,9 +202,9 @@ Captured for Rock registration. ClaimPilot does not act on finance details (no c
 
 | Field | Source | Notes |
 |---|---|---|
-| Policy number | Manual entry | Operator enters after Nimbus lookup |
-| SPM claim number (Rock) | Manual entry | Operator enters after Rock registration |
-| Excess amount | Manual entry | Operator enters from policy on Nimbus (accident/glass only; not collected for theft — field is hidden) |
+| Policy number | Manual entry | Operator enters after Nimbis lookup |
+| SPM claim number (ROC) | Manual entry | Operator enters after ROC registration |
+| Excess amount | Manual entry | Operator enters from policy on Nimbis (accident/glass only; not collected for theft — field is hidden) |
 | Assessed amount | Manual entry | Operator enters from assessor report (accident only; theft and glass do not enter an assessed amount) |
 | Assessor / investigator | Selected from list | Name, contact details |
 | Rejection reason | Manual entry | Free text, only on rejected claims |
@@ -214,7 +224,7 @@ Captured for Rock registration. ClaimPilot does not act on finance details (no c
 
 #### Field editability
 
-All fields are editable at any workflow stage. Every change is logged in the audit trail. If a field changes after Rock registration, the operator is responsible for updating Rock manually (same as today).
+All fields are editable at any workflow stage. Every change is logged in the audit trail. If a field changes after ROC registration, the operator is responsible for updating ROC manually (same as today).
 
 ### 4.2 Documents
 
@@ -265,17 +275,17 @@ flowchart TD
     NEW([NEW<br/>Operator uploads claim form<br/>& supporting documents])
     NEW -->|"12hr SLA"| PV
 
-    PV{POLICY VALIDATION<br/>Bridge: Nimbus}
+    PV{POLICY VALIDATION<br/>Bridge: Nimbis}
     PV -->|"Invalid policy"| INVALID
     PV -->|"Valid — enter policy #<br/>& excess amount"| REG
 
     INVALID[/"INVALID<br/>Draft notification to<br/>policyholder"/]
     INVALID --> CLOSED_INV
 
-    REG[REGISTERED<br/>Bridge: Rock<br/>Enter SPM claim number]
+    REG[REGISTERED<br/>Bridge: ROC<br/>Enter SPM claim number]
     REG -->|"12hr SLA"| ASSESS_APPT
 
-    ASSESS_APPT[ASSESSOR APPOINTED<br/>Bridge: Rock<br/>Select assessor from list]
+    ASSESS_APPT[ASSESSOR APPOINTED<br/>Bridge: ROC<br/>Select assessor from list]
     ASSESS_APPT -->|"48hr SLA<br/>for report"| ASSESS_RCV
 
     ASSESS_RCV[ASSESSMENT RECEIVED<br/>Operator enters assessed amount<br/>& uploads report]
@@ -297,7 +307,7 @@ flowchart TD
     REJ_INT[/"REJECTED<br/>Upload supporting docs<br/>Enter reason<br/>Draft notification"/]
     REJ_INT --> CLOSED_REJ1
 
-    QA[QA APPOINTED<br/>Bridge: Rock]
+    QA[QA APPOINTED<br/>Bridge: ROC]
     QA -->|"6hr SLA"| QA_DEC
 
     QA_DEC{QA DECISION}
@@ -307,8 +317,8 @@ flowchart TD
     REJ_QA[/"REJECTED<br/>Upload supporting docs<br/>Enter reason<br/>Draft notification"/]
     REJ_QA --> CLOSED_REJ2
 
-    AOL1[AOL GENERATED<br/>Bridge: Rock]
-    AOL2[AOL GENERATED<br/>Bridge: Rock]
+    AOL1[AOL GENERATED<br/>Bridge: ROC]
+    AOL2[AOL GENERATED<br/>Bridge: ROC]
     AOL1 --> ROUTE_TYPE
     AOL2 --> ROUTE_TYPE
 
@@ -370,23 +380,23 @@ flowchart TD
     NEW([NEW<br/>Operator uploads claim form<br/>& supporting documents])
     NEW -->|"12hr SLA"| PV
 
-    PV{POLICY VALIDATION<br/>Bridge: Nimbus}
+    PV{POLICY VALIDATION<br/>Bridge: Nimbis}
     PV -->|"Invalid policy"| INVALID
     PV -->|"Valid — enter policy #"| REG
 
     INVALID[/"INVALID<br/>Draft notification to<br/>policyholder"/]
     INVALID --> CLOSED_INV
 
-    REG[REGISTERED<br/>Bridge: Rock<br/>Enter SPM claim number]
+    REG[REGISTERED<br/>Bridge: ROC<br/>Enter SPM claim number]
     REG -->|"12hr SLA"| INVEST_APPT
 
-    INVEST_APPT[INVESTIGATOR APPOINTED<br/>Bridge: Rock<br/>Select investigator from list]
+    INVEST_APPT[INVESTIGATOR APPOINTED<br/>Bridge: ROC<br/>Select investigator from list]
     INVEST_APPT -->|"14-day SLA<br/>for report"| INVEST_RCV
 
     INVEST_RCV[INVESTIGATION RECEIVED<br/>Operator uploads report]
     INVEST_RCV --> QA
 
-    QA[QA APPOINTED<br/>Bridge: Rock]
+    QA[QA APPOINTED<br/>Bridge: ROC]
     QA -->|"6hr SLA"| QA_DEC
 
     QA_DEC{QA DECISION}
@@ -396,7 +406,7 @@ flowchart TD
     REJ_QA[/"REJECTED<br/>Upload supporting docs<br/>Enter reason<br/>Draft notification"/]
     REJ_QA --> CLOSED_REJ
 
-    AOL[AOL GENERATED<br/>Bridge: Rock]
+    AOL[AOL GENERATED<br/>Bridge: ROC]
     AOL --> ROUTE_TYPE
 
     ROUTE_TYPE{ROUTE BY TYPE<br/>Operator selects}
@@ -455,14 +465,14 @@ flowchart TD
     NEW([NEW<br/>Operator uploads claim form<br/>& supporting documents])
     NEW -->|"12hr SLA"| PV
 
-    PV{POLICY VALIDATION<br/>Bridge: Nimbus}
+    PV{POLICY VALIDATION<br/>Bridge: Nimbis}
     PV -->|"Invalid policy"| INVALID
     PV -->|"Valid — enter policy #<br/>& excess amount"| REG
 
     INVALID[/"INVALID<br/>Draft notification to<br/>policyholder"/]
     INVALID --> CLOSED_INV
 
-    REG[REGISTERED<br/>Bridge: Rock<br/>Enter SPM claim number]
+    REG[REGISTERED<br/>Bridge: ROC<br/>Enter SPM claim number]
     REG -->|"12hr SLA"| GLASS_APPT
 
     GLASS_APPT[GLASS REPAIRER APPOINTED<br/>Select from repairer list<br/>Dispatch to vehicle location]
@@ -517,25 +527,25 @@ The three claim types share a common workflow skeleton but differ significantly 
 
 #### 5.6.2 Policy validation
 
-- Type: manual bridge step (Nimbus)
-- System: display policyholder and vehicle details with copy buttons for Nimbus lookup
-- Operator: check policy validity on Nimbus, return to ClaimPilot, enter policy number and excess amount (accident/glass only — theft claims do not collect excess), confirm valid or mark invalid
+- Type: manual bridge step (Nimbis)
+- System: display policyholder and vehicle details with copy buttons for Nimbis lookup
+- Operator: check policy validity on Nimbis, return to ClaimPilot, enter policy number and excess amount (accident/glass only — theft claims do not collect excess), confirm valid or mark invalid
 - SLA: configurable (default: 12 hours)
 - Invalid path: status set to INVALID, draft notification to policyholder, claim closed
 
 #### 5.6.3 Registered
 
-- Type: manual bridge step (Rock)
-- System: display claim data with copy buttons for Rock registration
-- Operator: register claim on Rock, enter SPM claim number into ClaimPilot, confirm
+- Type: manual bridge step (ROC)
+- System: display claim data with copy buttons for ROC registration
+- Operator: register claim on ROC, enter SPM claim number into ClaimPilot, confirm
 - SLA: included in the 12-hour policy validation SLA (combined step)
 - Outcome: claim moves to assessor/investigator/repairer appointment
 
 #### 5.6.4 Assessor / investigator / glass repairer appointed
 
-- Type: manual bridge step (Rock, except glass repairer which is direct)
+- Type: manual bridge step (ROC, except glass repairer which is direct)
 - System: display claim details, operator selects external party from managed list
-- Operator: appoint on Rock (accident/theft) or contact directly (glass), confirm in ClaimPilot
+- Operator: appoint on ROC (accident/theft) or contact directly (glass), confirm in ClaimPilot
 - SLA for appointment: configurable (default: 12 hours from registration)
 - SLA for report: configurable (default: 48 hours from appointment; glass: N/A)
 - Reminders: draft email reminders at configurable intervals approaching and after SLA breach
@@ -565,17 +575,17 @@ The three claim types share a common workflow skeleton but differ significantly 
 - Applies to: accident claims only (theft claims go directly to QA, skipping internal approval)
 - Operator: review and approve or reject
 - SLA: configurable (default: 24 hours)
-- Approved: AOL generated on Rock (bridge step), then routes to repair or total loss (operator selects)
+- Approved: AOL generated on ROC (bridge step), then routes to repair or total loss (operator selects)
 - Rejected: operator uploads supporting documents justifying rejection, enters rejection reason, system drafts notification to insured and broker, claim closed
 - Rejection SLA: configurable (default: 12 hours from flagging potential rejection to final decision)
 
 #### 5.6.8 QA appointed
 
-- Type: manual bridge step (Rock)
-- Operator: appoint QA on Rock, confirm in ClaimPilot, await decision
+- Type: manual bridge step (ROC)
+- Operator: appoint QA on ROC, confirm in ClaimPilot, await decision
 - SLA: configurable (default: 6 hours)
 - Reminders: draft reminders surfaced to operator
-- Approved: AOL generated on Rock (bridge step), then routes to repair or total loss
+- Approved: AOL generated on ROC (bridge step), then routes to repair or total loss
 - Rejected: operator uploads supporting documents justifying rejection, enters rejection reason, system drafts notification, claim closed (12-hour SLA)
 
 **How claims reach QA differs by type:**
@@ -678,12 +688,14 @@ Per-tenant configurable values:
 
 | Workflow step | Default SLA | Configurable |
 |---|---|---|
-| Policy validation + registration | 12 hours | Yes |
+| Policy validation | 12 hours | Yes |
+| ROC submission (registration) | 4 hours | Yes |
 | Assessor/investigator appointment | 12 hours | Yes |
 | Assessor report | 48 hours | Yes |
 | Investigator report | 14 days (336 hours) | Yes |
-| Internal approval decision | 24 hours | Yes |
-| QA decision | 6 hours | Yes |
+| Internal approval decision | 4 hours | Yes |
+| QA appointment | 4 hours | Yes |
+| QA decision | 48 hours | Yes |
 | Rejection process (flag to decision) | 12 hours | Yes |
 | Inspection and final costing | 12 hours | Yes |
 | Repair completion | TBD | Yes |
@@ -866,7 +878,7 @@ When the operator uploads a claim form, ClaimPilot runs it through the extractio
 
 ### 11.2 Extraction review
 
-The operator reviews extracted data on a confirmation screen, corrects errors, and completes fields that come from other sources (excess amount, policy number from Nimbus, SPM number from Rock). Extraction populates what it can; the operator fills the rest.
+The operator reviews extracted data on a confirmation screen, corrects errors, and completes fields that come from other sources (excess amount, policy number from Nimbis, SPM number from ROC). Extraction populates what it can; the operator fills the rest.
 
 ### 11.3 Extraction failures
 
@@ -892,13 +904,13 @@ Per-tenant settings managed by TrueAim admin (and eventually by tenant admins):
 
 | Item | Status | Notes |
 |---|---|---|
-| Rock integration | Out | Manual bridge steps only |
-| Nimbus integration | Out | Manual bridge steps only |
+| ROC integration | Out | Manual bridge steps only |
+| Nimbis integration | Out | Manual bridge steps only |
 | Zoho integration | Out | Not used |
 | RTU Assist / towing trigger | Deferred | Pre-populated claim forms from RTU Assist exist but excluded from MVP |
 | Incomplete claim form holding state | Out | Operator manages outside system; ClaimPilot assumes complete forms |
 | Radics / parts sourcing | Out | No automated parts lookup |
-| AOL document generation | Out | Tracked as manual step on Rock |
+| AOL document generation | Out | Tracked as manual step on ROC |
 | Fraud detection | Out | Post-MVP |
 | Document completeness checking | Out | Human responsibility |
 | Claims analytics (cost trending, leakage) | Out | Post-MVP |
@@ -918,8 +930,8 @@ Per-tenant settings managed by TrueAim admin (and eventually by tenant admins):
 
 Not built in MVP, but the data model and workflow structure support adding them later:
 
-- Rock API integration: replace bridge steps with direct API calls
-- Nimbus API integration: automate policy validation once API is available
+- ROC API integration: replace bridge steps with direct API calls
+- Nimbis API integration: automate policy validation once API is available
 - Automated email sending: plug draft engine into an email service
 - Fraud detection: add fraud analysis on top of existing document storage and extraction
 - Parts sourcing / Radics integration: use assessed amount and repair data for price comparison
@@ -936,16 +948,21 @@ Not built in MVP, but the data model and workflow structure support adding them 
 
 These decisions were made during scoping. They should be validated in the next RTU workshop.
 
-| # | Assumption | If wrong |
-|---|---|---|
-| 1 | All required Zoho form fields are required by Rock for claim registration | Need a separate Rock field mapping; some form fields may be optional |
-| 2 | Driver and insured are usually the same person for taxi claims | May need a more prominent driver entity and separate driver management |
-| 3 | Finance details are captured for Rock but ClaimPilot does not act on them (no finance company communications) | Need finance company as a communication recipient on the total loss path |
-| 4 | Glass claims: registered on Rock, no assessor via Rock, no total loss path | Need glass-specific assessment or total loss workflow variant |
-| 5 | Closed claims are not reopened in MVP | Need a reopen workflow |
-| 6 | Clean cut-over: new claims go into ClaimPilot, old claims stay on Google Sheets until closed | Need a data migration plan |
-| 7 | SLAs run on calendar hours, 7 days/week (RTU and external systems operate daily) | Need business-hours SLA mode with weekend/holiday exclusions |
-| 8 | All communications are in English | Need multilingual template support |
+| # | Assumption | If wrong | Action |
+|---|---|---|---|
+| 1 | All required Zoho form fields are required by ROC for claim registration | Need a separate ROC field mapping; some form fields may be optional | |
+| 2 | Driver and insured are usually the same person for taxi claims | May need a more prominent driver entity and separate driver management | |
+| 3 | Finance details are captured for ROC but ClaimPilot does not act on them (no finance company communications) | Need finance company as a communication recipient on the total loss path | |
+| 4 | Glass claims: registered on ROC, no assessor via ROC, no total loss path | Need glass-specific assessment or total loss workflow variant | |
+| 5 | Closed claims are not reopened in MVP | Need a reopen workflow | |
+| 6 | Clean cut-over: new claims go into ClaimPilot, old claims stay on Google Sheets until closed | Need a data migration plan | |
+| 7 | SLAs run on calendar hours, 7 days/week (RTU and external systems operate daily) | Need business-hours SLA mode with weekend/holiday exclusions | |
+| 8 | All communications are in English | Need multilingual template support | |
+| 9 | Towing-triggered claims follow the same workflow as form-submitted claims | May need separate intake path and different initial data | Confirm towing claim process with Mike |
+| 10 | Fraud routing is post-MVP (no fraud module in Phase 1) | If RTU expects fraud flagging in Phase 1, scope changes significantly | Confirm fraud module timeline expectations |
+| 11 | Broker is a field on the claim, not a first-class entity with its own views | 20+ active brokers may need filtered dashboards or portal access | Confirm broker reporting needs |
+| 12 | Radx parts integration is read-only preview in Phase 1 | If RTU expects actionable cost intervention, scope increases | Confirm Radx integration expectations |
+| 13 | SLA reminders use percentage-based thresholds (75%, 90%, 100%) | RTU working doc suggests absolute countdowns (36hr, 24hr before breach); model may need to change | Confirm preferred reminder model |
 
 ---
 
@@ -960,7 +977,7 @@ Clean cut-over on go-live date. All new claims are created in ClaimPilot. Existi
 | Item | Owner | Status |
 |---|---|---|
 | RTU to complete and return the detailed word document | RTU (Mike/Vassen) | Pending |
-| RTU to provide video walkthrough of operator managing claims on Rock/Nimbus | RTU (Vassen) | Pending |
+| RTU to provide video walkthrough of operator managing claims on ROC/Nimbis | RTU (Vassen) | Pending |
 | ~~RTU to provide the three claim form templates (accident, theft, glass)~~ | ~~RTU (Mike)~~ | Done: captured in docs/poc/specs/ |
 | RTU to provide fixed list of assessors and investigators with contact details | RTU (Mike) | Pending |
 | RTU to expand workflow to include Radics part sourcing process | RTU (Mike/Vassen) | Pending (post-MVP scoping) |
