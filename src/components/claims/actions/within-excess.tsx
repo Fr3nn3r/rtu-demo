@@ -21,11 +21,11 @@ export function WithinExcess({ claim }: { claim: Claim }) {
 
   return (
     <div className="space-y-4">
-      <div className="flex items-start gap-3 rounded-lg border border-success-200 bg-success-50/50 p-4">
-        <CheckCircle2 className="mt-0.5 size-5 text-success-500 flex-shrink-0" />
+      <div className="flex items-start gap-3 rounded-lg border border-primary/20 bg-primary/5 p-4">
+        <CheckCircle2 className="mt-0.5 size-5 text-primary flex-shrink-0" />
         <div>
-          <div className="text-sm font-medium text-success-700">Auto-Closing — Within Excess</div>
-          <p className="mt-1 text-sm text-text-secondary">
+          <div className="text-sm font-medium text-primary">Auto-Closing — Within Excess</div>
+          <p className="mt-1 text-sm text-muted-foreground">
             The assessed amount of {formatZAR(claim.workflow.assessedAmount ?? 0)} is within the
             policy excess of {formatZAR(claim.workflow.excessAmount ?? 0)}.
             This claim is being auto-closed. A draft notification has been generated for the policyholder and broker.

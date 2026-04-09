@@ -15,15 +15,15 @@ const systemNames = {
 export function BridgeStepBanner({ system, instruction, className }: BridgeStepBannerProps) {
   return (
     <div className={cn(
-      'flex items-start gap-3 rounded-lg border-l-4 border-l-primary-400 bg-primary-50/50 px-4 py-3',
+      'flex items-start gap-3 rounded-lg border-l-4 border-l-primary/50 bg-primary/5 px-4 py-3',
       className,
     )}>
-      <ExternalLink className="mt-0.5 size-4 flex-shrink-0 text-primary-500" />
+      <ExternalLink className="mt-0.5 size-4 flex-shrink-0 text-primary" />
       <div>
-        <div className="text-xs font-semibold text-primary-700 uppercase tracking-wide">
+        <div className="text-xs font-semibold text-primary uppercase tracking-wide">
           Bridge Step — {systemNames[system]}
         </div>
-        <p className="mt-0.5 text-sm text-text-secondary">{instruction}</p>
+        <p className="mt-0.5 text-sm text-muted-foreground">{instruction}</p>
       </div>
     </div>
   )

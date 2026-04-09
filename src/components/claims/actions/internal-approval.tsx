@@ -35,7 +35,7 @@ export function InternalApproval({ claim }: { claim: Claim }) {
 
   return (
     <div className="space-y-4">
-      <p className="text-sm text-text-secondary">
+      <p className="text-sm text-muted-foreground">
         Review the claim details and decide to approve or reject.
       </p>
 
@@ -58,7 +58,7 @@ export function InternalApproval({ claim }: { claim: Claim }) {
         </div>
       ) : (
         <div className="space-y-3 border-t border-border pt-4">
-          <h4 className="text-sm font-medium text-danger-700">Rejection Details</h4>
+          <h4 className="text-sm font-medium text-destructive">Rejection Details</h4>
           <div>
             <Label htmlFor="rejectionReason">Reason for Rejection</Label>
             <Textarea
@@ -85,9 +85,9 @@ export function InternalApproval({ claim }: { claim: Claim }) {
 
 function SummaryCard({ label, value, highlight }: { label: string; value: string; highlight?: boolean }) {
   return (
-    <div className={`rounded-lg border p-3 ${highlight ? 'border-primary-200 bg-primary-50/50' : 'border-border bg-surface-secondary'}`}>
-      <div className="text-[11px] font-medium text-text-muted uppercase">{label}</div>
-      <div className={`text-lg font-semibold ${highlight ? 'text-primary-700' : ''}`}>{value}</div>
+    <div className={`rounded-lg border p-3 ${highlight ? 'border-primary/20 bg-primary/5' : 'border-border bg-muted'}`}>
+      <div className="text-[11px] font-medium text-muted-foreground uppercase">{label}</div>
+      <div className={`text-lg font-semibold ${highlight ? 'text-primary' : ''}`}>{value}</div>
     </div>
   )
 }

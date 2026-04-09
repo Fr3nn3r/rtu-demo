@@ -9,9 +9,9 @@ export function StatusBadge({ status, className }: { status: WorkflowState; clas
   return (
     <span className={cn(
       'inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-medium',
-      isClosed && 'bg-success-50 text-success-700 border-success-500/30',
-      isRejected && 'bg-danger-50 text-danger-700 border-danger-500/30',
-      !isClosed && !isRejected && 'bg-surface-secondary text-text-secondary border-border-strong',
+      isClosed && 'bg-primary/10 text-primary border-primary/30',
+      isRejected && 'bg-destructive/10 text-destructive border-destructive/30',
+      !isClosed && !isRejected && 'bg-muted text-muted-foreground border-border',
       className,
     )}>
       {stateLabels[status]}

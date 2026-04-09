@@ -2,8 +2,7 @@ import type { Claim } from '@/types'
 import { formatZAR } from '@/lib/utils'
 import { useContacts } from '@/context/ContactContext'
 import { ChevronDown } from 'lucide-react'
-import { useState } from 'react'
-import { cn } from '@/lib/utils'
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from '@/components/ui/collapsible'
 
 export function ClaimDetailsPanel({ claim }: { claim: Claim }) {
   return (
@@ -76,20 +75,16 @@ function WorkflowSection({ claim }: { claim: Claim }) {
 }
 
 function Section({ title, defaultOpen, children }: { title: string; defaultOpen?: boolean; children: React.ReactNode }) {
-  const [open, setOpen] = useState(defaultOpen ?? false)
-
   return (
-    <div className="border-b border-border last:border-b-0">
-      <button
-        type="button"
-        onClick={() => setOpen(!open)}
-        className="flex w-full items-center justify-between py-2 text-xs font-semibold text-text-muted uppercase tracking-wide hover:text-text-primary"
-      >
+    <Collapsible defaultOpen={defaultOpen} className="border-b border-border last:border-b-0">
+      <CollapsibleTrigger className="flex w-full items-center justify-between py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wide hover:text-foreground data-[panel-open]:[&>svg]:rotate-180">
         {title}
-        <ChevronDown className={cn('size-3.5 transition-transform', open && 'rotate-180')} />
-      </button>
-      {open && <div className="pb-2 space-y-1.5">{children}</div>}
-    </div>
+        <ChevronDown className="size-3.5 transition-transform" />
+      </CollapsibleTrigger>
+      <CollapsibleContent className="pb-2 space-y-1.5">
+        {children}
+      </CollapsibleContent>
+    </Collapsible>
   )
 }
 
@@ -97,8 +92,8 @@ function Field({ label, value }: { label: string; value?: string | null }) {
   if (!value) return null
   return (
     <div className="flex items-start gap-2 text-xs">
-      <span className="w-28 flex-shrink-0 text-text-muted">{label}</span>
-      <span className="text-text-primary">{value}</span>
+      <span className="w-28 flex-shrink-0 text-muted-foreground">{label}</span>
+      <span className="text-foreground">{value}</span>
     </div>
   )
 }

@@ -36,24 +36,24 @@ export function ProgressStatus({ claim }: { claim: Claim }) {
 
   return (
     <div className="space-y-4">
-      <div className="rounded-lg border border-border bg-surface-secondary p-4">
-        <div className="text-sm font-medium text-text-primary mb-3">{stateLabels[claim.status]}</div>
+      <div className="rounded-lg border border-border bg-muted p-4">
+        <div className="text-sm font-medium text-foreground mb-3">{stateLabels[claim.status]}</div>
         <div className="grid grid-cols-2 gap-3 text-sm">
           {claim.workflow.assessedAmount != null && (
             <div>
-              <div className="text-[11px] font-medium text-text-muted uppercase">Assessed Amount</div>
+              <div className="text-[11px] font-medium text-muted-foreground uppercase">Assessed Amount</div>
               <div>{formatZAR(claim.workflow.assessedAmount)}</div>
             </div>
           )}
           {claim.workflow.finalCostAmount != null && (
             <div>
-              <div className="text-[11px] font-medium text-text-muted uppercase">Final Cost</div>
+              <div className="text-[11px] font-medium text-muted-foreground uppercase">Final Cost</div>
               <div>{formatZAR(claim.workflow.finalCostAmount)}</div>
             </div>
           )}
           {claim.workflow.routeType && (
             <div>
-              <div className="text-[11px] font-medium text-text-muted uppercase">Route</div>
+              <div className="text-[11px] font-medium text-muted-foreground uppercase">Route</div>
               <div className="capitalize">{claim.workflow.routeType.replace('_', ' ')}</div>
             </div>
           )}

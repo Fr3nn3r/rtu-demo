@@ -9,13 +9,20 @@ import { getClaimSLAStatus } from '@/lib/workflow-engine'
 import { stateLabels } from '@/data/workflow-definitions'
 import type { Claim, ClaimType, WorkflowState, SLAStatus } from '@/types'
 import { FileText, AlertCircle, TrendingUp, Clock, Users, BarChart3 } from 'lucide-react'
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@/components/ui/table'
+import { Badge } from '@/components/ui/badge'
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip as RechartsTooltip, ResponsiveContainer,
   PieChart, Pie, Cell,
 } from 'recharts'
 
-const PIE_COLORS = ['#0ea5e9', '#ef4444', '#f59e0b']
-const SLA_COLORS: Record<SLAStatus, string> = { within: '#22c55e', approaching: '#f59e0b', breached: '#ef4444' }
+const PIE_COLORS = ['var(--chart-1)', 'var(--chart-2)', 'var(--chart-3)']
+const SLA_COLORS: Record<SLAStatus, string> = {
+  within: 'var(--chart-1)',
+  approaching: 'var(--chart-3)',
+  breached: 'var(--chart-2)',
+}
 
 export function DashboardPage() {
   const { claims, getDashboardStats } = useClaims()
@@ -122,19 +129,19 @@ export function DashboardPage() {
 
       {/* ── Charts row ──────────────────────────────────────── */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        <div className="rounded-xl border border-border bg-white p-4 shadow-sm">
+        <Card className="p-4">
           <h3 className="text-sm font-semibold mb-3">Active Claims by Status</h3>
           <ResponsiveContainer width="100%" height={240}>
             <BarChart data={statusData} layout="vertical" margin={{ left: 100 }}>
               <XAxis type="number" tick={{ fontSize: 11 }} />
               <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={100} />
               <RechartsTooltip />
-              <Bar dataKey="count" fill="#0ea5e9" radius={[0, 4, 4, 0]} />
+              <Bar dataKey="count" fill="var(--chart-1)" radius={[0, 4, 4, 0]} />
             </BarChart>
           </ResponsiveContainer>
-        </div>
+        </Card>
 
-        <div className="rounded-xl border border-border bg-white p-4 shadow-sm">
+        <Card className="p-4">
           <h3 className="text-sm font-semibold mb-3">Claims by Type</h3>
           <ResponsiveContainer width="100%" height={240}>
             <PieChart>
@@ -146,9 +153,9 @@ export function DashboardPage() {
               <RechartsTooltip />
             </PieChart>
           </ResponsiveContainer>
-        </div>
+        </Card>
 
-        <div className="rounded-xl border border-border bg-white p-4 shadow-sm">
+        <Card className="p-4">
           <h3 className="text-sm font-semibold mb-3">SLA Performance</h3>
           <ResponsiveContainer width="100%" height={240}>
             <PieChart>
@@ -160,134 +167,142 @@ export function DashboardPage() {
               <RechartsTooltip />
             </PieChart>
           </ResponsiveContainer>
-        </div>
+        </Card>
       </div>
 
       {/* ── Operator Workload + Assessor Performance ────────── */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div className="rounded-xl border border-border bg-white shadow-sm overflow-hidden">
-          <div className="px-4 py-3 border-b border-border bg-surface-secondary flex items-center gap-2">
-            <Users className="size-4 text-text-muted" />
-            <h3 className="text-sm font-semibold">Operator Workload</h3>
-          </div>
-          <table className="w-full">
-            <thead>
-              <tr className="border-b border-border">
-                <th className="px-4 py-2 text-left text-[11px] font-semibold text-text-secondary uppercase">Operator</th>
-                <th className="px-4 py-2 text-center text-[11px] font-semibold text-text-secondary uppercase">Active</th>
-                <th className="px-4 py-2 text-center text-[11px] font-semibold text-text-secondary uppercase">Overdue</th>
-              </tr>
-            </thead>
-            <tbody>
-              {operatorWorkload.map(op => (
-                <tr key={op.name} className="border-b border-border last:border-b-0">
-                  <td className="px-4 py-2.5 text-sm">{op.name}</td>
-                  <td className="px-4 py-2.5 text-sm text-center font-medium">{op.active}</td>
-                  <td className="px-4 py-2.5 text-center">
-                    {op.overdue > 0 ? (
-                      <span className="inline-flex items-center rounded-full bg-danger-50 px-2 py-0.5 text-xs font-bold text-danger-700">{op.overdue}</span>
-                    ) : (
-                      <span className="text-sm text-text-muted">0</span>
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <Card className="overflow-hidden py-0 gap-0">
+          <CardHeader className="px-4 py-3 bg-muted flex-row items-center gap-2 space-y-0">
+            <Users className="size-4 text-muted-foreground" />
+            <CardTitle className="text-sm">Operator Workload</CardTitle>
+          </CardHeader>
+          <CardContent className="p-0">
+            <Table>
+              <TableHeader>
+                <TableRow className="hover:bg-transparent">
+                  <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Operator</TableHead>
+                  <TableHead className="px-4 text-[11px] text-muted-foreground uppercase text-center">Active</TableHead>
+                  <TableHead className="px-4 text-[11px] text-muted-foreground uppercase text-center">Overdue</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {operatorWorkload.map(op => (
+                  <TableRow key={op.name}>
+                    <TableCell className="px-4 py-2.5 text-sm">{op.name}</TableCell>
+                    <TableCell className="px-4 py-2.5 text-sm text-center font-medium">{op.active}</TableCell>
+                    <TableCell className="px-4 py-2.5 text-center">
+                      {op.overdue > 0 ? (
+                        <Badge variant="destructive" className="font-bold">{op.overdue}</Badge>
+                      ) : (
+                        <span className="text-sm text-muted-foreground">0</span>
+                      )}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
 
-        <div className="rounded-xl border border-border bg-white shadow-sm overflow-hidden">
-          <div className="px-4 py-3 border-b border-border bg-surface-secondary flex items-center gap-2">
-            <BarChart3 className="size-4 text-text-muted" />
-            <h3 className="text-sm font-semibold">Assessor / Investigator Performance</h3>
-          </div>
-          <table className="w-full">
-            <thead>
-              <tr className="border-b border-border">
-                <th className="px-4 py-2 text-left text-[11px] font-semibold text-text-secondary uppercase">Name</th>
-                <th className="px-4 py-2 text-left text-[11px] font-semibold text-text-secondary uppercase">Role</th>
-                <th className="px-4 py-2 text-center text-[11px] font-semibold text-text-secondary uppercase">Active</th>
-                <th className="px-4 py-2 text-center text-[11px] font-semibold text-text-secondary uppercase">Completed</th>
-              </tr>
-            </thead>
-            <tbody>
-              {assessorPerformance.length === 0 ? (
-                <tr><td colSpan={4} className="px-4 py-4 text-center text-sm text-text-muted">No assignments yet</td></tr>
-              ) : (
-                assessorPerformance.map(a => (
-                  <tr key={a.name} className="border-b border-border last:border-b-0">
-                    <td className="px-4 py-2.5 text-sm font-medium">{a.name}</td>
-                    <td className="px-4 py-2.5 text-xs text-text-secondary capitalize">{a.role}</td>
-                    <td className="px-4 py-2.5 text-sm text-center">{a.active}</td>
-                    <td className="px-4 py-2.5 text-sm text-center">{a.completed}</td>
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
-        </div>
+        <Card className="overflow-hidden py-0 gap-0">
+          <CardHeader className="px-4 py-3 bg-muted flex-row items-center gap-2 space-y-0">
+            <BarChart3 className="size-4 text-muted-foreground" />
+            <CardTitle className="text-sm">Assessor / Investigator Performance</CardTitle>
+          </CardHeader>
+          <CardContent className="p-0">
+            <Table>
+              <TableHeader>
+                <TableRow className="hover:bg-transparent">
+                  <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Name</TableHead>
+                  <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Role</TableHead>
+                  <TableHead className="px-4 text-[11px] text-muted-foreground uppercase text-center">Active</TableHead>
+                  <TableHead className="px-4 text-[11px] text-muted-foreground uppercase text-center">Completed</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {assessorPerformance.length === 0 ? (
+                  <TableRow><TableCell colSpan={4} className="px-4 py-4 text-center text-sm text-muted-foreground">No assignments yet</TableCell></TableRow>
+                ) : (
+                  assessorPerformance.map(a => (
+                    <TableRow key={a.name}>
+                      <TableCell className="px-4 py-2.5 text-sm font-medium">{a.name}</TableCell>
+                      <TableCell className="px-4 py-2.5 text-xs text-muted-foreground capitalize">{a.role}</TableCell>
+                      <TableCell className="px-4 py-2.5 text-sm text-center">{a.active}</TableCell>
+                      <TableCell className="px-4 py-2.5 text-sm text-center">{a.completed}</TableCell>
+                    </TableRow>
+                  ))
+                )}
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
       </div>
 
       {/* ── Time to Close + Breached SLAs ───────────────────── */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div className="rounded-xl border border-border bg-white shadow-sm overflow-hidden">
-          <div className="px-4 py-3 border-b border-border bg-surface-secondary flex items-center gap-2">
-            <Clock className="size-4 text-text-muted" />
-            <h3 className="text-sm font-semibold">Average Time to Close</h3>
-          </div>
-          <table className="w-full">
-            <thead>
-              <tr className="border-b border-border">
-                <th className="px-4 py-2 text-left text-[11px] font-semibold text-text-secondary uppercase">Claim Type</th>
-                <th className="px-4 py-2 text-center text-[11px] font-semibold text-text-secondary uppercase">Avg Days</th>
-                <th className="px-4 py-2 text-center text-[11px] font-semibold text-text-secondary uppercase">Closed</th>
-              </tr>
-            </thead>
-            <tbody>
-              {timeToClose.map(t => (
-                <tr key={t.type} className="border-b border-border last:border-b-0">
-                  <td className="px-4 py-2.5"><ClaimTypeBadge type={t.type} /></td>
-                  <td className="px-4 py-2.5 text-center text-sm font-semibold">{t.count > 0 ? `${t.avg}d` : '—'}</td>
-                  <td className="px-4 py-2.5 text-center text-sm text-text-secondary">{t.count}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <Card className="overflow-hidden py-0 gap-0">
+          <CardHeader className="px-4 py-3 bg-muted flex-row items-center gap-2 space-y-0">
+            <Clock className="size-4 text-muted-foreground" />
+            <CardTitle className="text-sm">Average Time to Close</CardTitle>
+          </CardHeader>
+          <CardContent className="p-0">
+            <Table>
+              <TableHeader>
+                <TableRow className="hover:bg-transparent">
+                  <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Claim Type</TableHead>
+                  <TableHead className="px-4 text-[11px] text-muted-foreground uppercase text-center">Avg Days</TableHead>
+                  <TableHead className="px-4 text-[11px] text-muted-foreground uppercase text-center">Closed</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {timeToClose.map(t => (
+                  <TableRow key={t.type}>
+                    <TableCell className="px-4 py-2.5"><ClaimTypeBadge type={t.type} /></TableCell>
+                    <TableCell className="px-4 py-2.5 text-center text-sm font-semibold">{t.count > 0 ? `${t.avg}d` : '—'}</TableCell>
+                    <TableCell className="px-4 py-2.5 text-center text-sm text-muted-foreground">{t.count}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
 
         {breachedClaims.length > 0 && (
-          <div className="rounded-xl border border-danger-200 bg-white shadow-sm overflow-hidden">
-            <div className="px-4 py-3 bg-danger-50 border-b border-danger-200 flex items-center gap-2">
-              <AlertCircle className="size-4 text-danger-600" />
-              <h3 className="text-sm font-semibold text-danger-700">Breached SLAs ({breachedClaims.length})</h3>
-            </div>
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold text-text-secondary uppercase">Claim</th>
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold text-text-secondary uppercase">Type</th>
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold text-text-secondary uppercase">Status</th>
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold text-text-secondary uppercase">SLA</th>
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold text-text-secondary uppercase">Assigned</th>
-                </tr>
-              </thead>
-              <tbody>
-                {breachedClaims.map(claim => (
-                  <tr key={claim.id} className="border-b border-border last:border-b-0 bg-danger-50/30">
-                    <td className="px-4 py-2">
-                      <Link to={`/claims/${claim.id}`} className="text-sm font-medium text-primary-600 hover:underline">
-                        {claim.id}
-                      </Link>
-                    </td>
-                    <td className="px-4 py-2"><ClaimTypeBadge type={claim.type} /></td>
-                    <td className="px-4 py-2"><StatusBadge status={claim.status} /></td>
-                    <td className="px-4 py-2"><SlaIndicator claim={claim} /></td>
-                    <td className="px-4 py-2 text-sm text-text-secondary">{claim.assignedTo}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <Card className="overflow-hidden py-0 gap-0 border-destructive/20">
+            <CardHeader className="px-4 py-3 bg-destructive/10 flex-row items-center gap-2 space-y-0">
+              <AlertCircle className="size-4 text-destructive" />
+              <CardTitle className="text-sm text-destructive">Breached SLAs ({breachedClaims.length})</CardTitle>
+            </CardHeader>
+            <CardContent className="p-0">
+              <Table>
+                <TableHeader>
+                  <TableRow className="hover:bg-transparent">
+                    <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Claim</TableHead>
+                    <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Type</TableHead>
+                    <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Status</TableHead>
+                    <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">SLA</TableHead>
+                    <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Assigned</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {breachedClaims.map(claim => (
+                    <TableRow key={claim.id} className="bg-destructive/5">
+                      <TableCell className="px-4 py-2">
+                        <Link to={`/claims/${claim.id}`} className="text-sm font-medium text-primary hover:underline">
+                          {claim.id}
+                        </Link>
+                      </TableCell>
+                      <TableCell className="px-4 py-2"><ClaimTypeBadge type={claim.type} /></TableCell>
+                      <TableCell className="px-4 py-2"><StatusBadge status={claim.status} /></TableCell>
+                      <TableCell className="px-4 py-2"><SlaIndicator claim={claim} /></TableCell>
+                      <TableCell className="px-4 py-2 text-sm text-muted-foreground">{claim.assignedTo}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </CardContent>
+          </Card>
         )}
       </div>
     </div>
@@ -301,23 +316,23 @@ function StatCard({ icon: Icon, label, value, color }: {
   color: 'primary' | 'danger' | 'success' | 'warning'
 }) {
   const colorMap = {
-    primary: 'bg-primary-50 text-primary-600',
-    danger: 'bg-danger-50 text-danger-600',
-    success: 'bg-success-50 text-success-600',
-    warning: 'bg-warning-50 text-warning-600',
+    primary: 'bg-primary/10 text-primary',
+    danger: 'bg-destructive/10 text-destructive',
+    success: 'bg-primary/10 text-primary',
+    warning: 'bg-accent text-accent-foreground',
   }
 
   return (
-    <div className="rounded-xl border border-border bg-white p-4 shadow-sm">
+    <Card className="p-4 bg-gradient-to-t from-primary/5 to-card">
       <div className="flex items-center gap-3">
         <div className={`flex size-10 items-center justify-center rounded-lg ${colorMap[color]}`}>
           <Icon className="size-5" />
         </div>
         <div>
-          <div className="text-[11px] font-medium text-text-secondary uppercase tracking-wide">{label}</div>
+          <div className="text-[11px] font-medium text-muted-foreground uppercase tracking-wide">{label}</div>
           <div className="text-2xl font-bold">{value}</div>
         </div>
       </div>
-    </div>
+    </Card>
   )
 }

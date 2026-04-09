@@ -58,16 +58,16 @@ export function AppointContact({ claim, contactRole, nextState, workflowField }:
               onClick={() => setSelectedId(contact.id)}
               className={`w-full flex items-start gap-3 rounded-lg border p-3 text-left transition-colors ${
                 selectedId === contact.id
-                  ? 'border-primary-400 bg-primary-50/50 ring-1 ring-primary-400'
-                  : 'border-border hover:border-border-strong'
+                  ? 'border-primary/50 bg-primary/5 ring-1 ring-primary/50'
+                  : 'border-border hover:border-border'
               }`}
             >
-              <div className="mt-0.5 flex size-8 items-center justify-center rounded-full bg-surface-secondary">
-                <User className="size-4 text-text-muted" />
+              <div className="mt-0.5 flex size-8 items-center justify-center rounded-full bg-muted">
+                <User className="size-4 text-muted-foreground" />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="text-sm font-medium">{contact.name}</div>
-                <div className="flex items-center gap-3 mt-0.5 text-xs text-text-muted">
+                <div className="flex items-center gap-3 mt-0.5 text-xs text-muted-foreground">
                   <span className="flex items-center gap-1"><Mail className="size-3" />{contact.email}</span>
                   <span className="flex items-center gap-1"><Phone className="size-3" />{contact.phone}</span>
                 </div>
@@ -78,7 +78,7 @@ export function AppointContact({ claim, contactRole, nextState, workflowField }:
       </div>
 
       {selected && (
-        <div className="rounded-lg border border-success-500/30 bg-success-50 p-3 text-sm">
+        <div className="rounded-lg border border-primary/30 bg-primary/10 p-3 text-sm">
           Selected: <span className="font-medium">{selected.name}</span> ({selected.email})
         </div>
       )}

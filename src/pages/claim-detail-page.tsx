@@ -9,6 +9,8 @@ import { DocumentsPanel } from '@/components/claims/panels/documents-panel'
 import { CommunicationsPanel } from '@/components/claims/panels/communications-panel'
 import { AuditTrailPanel } from '@/components/claims/panels/audit-trail-panel'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Card } from '@/components/ui/card'
+import { ScrollArea } from '@/components/ui/scroll-area'
 
 export function ClaimDetailPage() {
   const { claimId } = useParams<{ claimId: string }>()
@@ -33,26 +35,26 @@ export function ClaimDetailPage() {
 
         {/* Sidebar tabs */}
         <div className="lg:col-span-1">
-          <div className="rounded-xl border border-border bg-white shadow-sm">
+          <Card className="py-0 gap-0">
             <Tabs defaultValue="details">
               <TabsList className="w-full justify-start border-b border-border rounded-none bg-transparent px-1">
                 <TabsTrigger value="details" className="text-xs">Details</TabsTrigger>
                 <TabsTrigger value="documents" className="text-xs">
                   Documents
                   {claim.documents.some(d => d.status === 'pending') && (
-                    <span className="ml-1 size-1.5 rounded-full bg-warning-500 inline-block" />
+                    <span className="ml-1 size-1.5 rounded-full bg-accent-foreground inline-block" />
                   )}
                 </TabsTrigger>
                 <TabsTrigger value="communications" className="text-xs">
                   Communications
                   {claim.communications.some(c => !c.sentAt) && (
-                    <span className="ml-1 size-1.5 rounded-full bg-primary-500 inline-block" />
+                    <span className="ml-1 size-1.5 rounded-full bg-primary inline-block" />
                   )}
                 </TabsTrigger>
                 <TabsTrigger value="audit" className="text-xs">Audit</TabsTrigger>
               </TabsList>
 
-              <div className="p-3 max-h-[600px] overflow-y-auto">
+              <ScrollArea className="p-3 max-h-[600px]">
                 <TabsContent value="details" className="mt-0">
                   <ClaimDetailsPanel claim={claim} />
                 </TabsContent>
@@ -65,9 +67,9 @@ export function ClaimDetailPage() {
                 <TabsContent value="audit" className="mt-0">
                   <AuditTrailPanel claim={claim} />
                 </TabsContent>
-              </div>
+              </ScrollArea>
             </Tabs>
-          </div>
+          </Card>
         </div>
       </div>
     </div>

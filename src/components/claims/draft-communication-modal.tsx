@@ -6,6 +6,8 @@ import { useClaims } from '@/context/ClaimContext'
 import { Copy, Send, Mail, User, FileText } from 'lucide-react'
 import { toast } from 'sonner'
 import { format } from 'date-fns'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { Badge } from '@/components/ui/badge'
 
 interface DraftCommunicationModalProps {
   communication: DraftCommunication | null
@@ -44,9 +46,7 @@ export function DraftCommunicationModal({ communication, open, onOpenChange }: D
             <Mail className="size-4" />
             Draft Communication
             {isSent && (
-              <span className="ml-2 inline-flex items-center gap-1 rounded-full bg-success-50 px-2 py-0.5 text-xs font-medium text-success-700">
-                Sent
-              </span>
+              <Badge variant="outline" className="ml-2">Sent</Badge>
             )}
           </DialogTitle>
         </DialogHeader>
@@ -54,16 +54,16 @@ export function DraftCommunicationModal({ communication, open, onOpenChange }: D
         {/* Email-style layout */}
         <div className="rounded-lg border border-border overflow-hidden">
           {/* Email header */}
-          <div className="bg-surface-secondary px-5 py-3 space-y-2 border-b border-border">
+          <div className="bg-muted px-5 py-3 space-y-2 border-b border-border">
             <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2 w-16 text-xs font-medium text-text-muted">
+              <div className="flex items-center gap-2 w-16 text-xs font-medium text-muted-foreground">
                 <User className="size-3.5" />
                 To
               </div>
               <span className="text-sm font-medium">{communication.to}</span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2 w-16 text-xs font-medium text-text-muted">
+              <div className="flex items-center gap-2 w-16 text-xs font-medium text-muted-foreground">
                 <FileText className="size-3.5" />
                 Subject
               </div>
@@ -71,11 +71,11 @@ export function DraftCommunicationModal({ communication, open, onOpenChange }: D
             </div>
             {communication.sentAt && (
               <div className="flex items-center gap-3">
-                <div className="flex items-center gap-2 w-16 text-xs font-medium text-text-muted">
+                <div className="flex items-center gap-2 w-16 text-xs font-medium text-muted-foreground">
                   <Send className="size-3.5" />
                   Sent
                 </div>
-                <span className="text-xs text-success-600 font-medium">
+                <span className="text-xs text-primary font-medium">
                   {format(new Date(communication.sentAt), 'dd MMM yyyy, HH:mm')}
                 </span>
               </div>
@@ -83,16 +83,16 @@ export function DraftCommunicationModal({ communication, open, onOpenChange }: D
           </div>
 
           {/* Email body */}
-          <div className="px-5 py-4 bg-white min-h-[200px] max-h-[400px] overflow-y-auto">
-            <div className="text-sm leading-relaxed whitespace-pre-wrap text-text-primary">
+          <ScrollArea className="px-5 py-4 bg-card min-h-[200px] max-h-[400px]">
+            <div className="text-sm leading-relaxed whitespace-pre-wrap text-foreground">
               {communication.body}
             </div>
-          </div>
+          </ScrollArea>
         </div>
 
         {/* Actions */}
         <div className="flex justify-between items-center pt-1">
-          <span className="text-xs text-text-muted">
+          <span className="text-xs text-muted-foreground">
             Created {format(new Date(communication.createdAt), 'dd MMM yyyy, HH:mm')}
           </span>
           <div className="flex gap-2">

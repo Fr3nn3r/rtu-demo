@@ -21,7 +21,7 @@ export function AolGenerated({ claim }: { claim: Claim }) {
         instruction="Generate the Authority of Loss (AOL) on ROC for this claim, then confirm below."
       />
 
-      <p className="text-sm text-text-secondary">
+      <p className="text-sm text-muted-foreground">
         Once the AOL has been generated on ROC, confirm below to proceed to the route decision (repair or total loss).
       </p>
 
