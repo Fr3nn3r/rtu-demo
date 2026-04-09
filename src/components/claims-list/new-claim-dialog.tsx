@@ -94,6 +94,7 @@ export function NewClaimDialog({ type, open, onOpenChange, onCreated }: NewClaim
   const [insuredName, setInsuredName] = useState('')
   const [registration, setRegistration] = useState('')
   const [vehicleDesc, setVehicleDesc] = useState('')
+  const [formUploaded, setFormUploaded] = useState(false)
 
   // Regenerate defaults when dialog opens
   useEffect(() => {
@@ -167,12 +168,12 @@ export function NewClaimDialog({ type, open, onOpenChange, onCreated }: NewClaim
       slaHistory: [],
       documents: type === 'glass'
         ? [
-            { id: `D-${Date.now()}-1`, type: 'claim_form', label: 'Glass Claim Form', status: 'pending', updatedAt: now },
+            { id: `D-${Date.now()}-1`, type: 'claim_form', label: 'Glass Claim Form', status: formUploaded ? 'received' : 'pending', updatedAt: now },
             { id: `D-${Date.now()}-2`, type: 'drivers_license', label: "Driver's License", status: 'pending', updatedAt: now },
             { id: `D-${Date.now()}-3`, type: 'damage_photos', label: 'Damage Photos', status: 'pending', updatedAt: now },
           ]
         : [
-            { id: `D-${Date.now()}-1`, type: 'claim_form', label: 'Claim Form', status: 'pending', updatedAt: now },
+            { id: `D-${Date.now()}-1`, type: 'claim_form', label: 'Claim Form', status: formUploaded ? 'received' : 'pending', updatedAt: now },
             { id: `D-${Date.now()}-2`, type: 'police_report', label: 'Police Report', status: 'pending', updatedAt: now },
             { id: `D-${Date.now()}-3`, type: 'id_copy', label: "Owner's ID Copy", status: 'pending', updatedAt: now },
             { id: `D-${Date.now()}-4`, type: 'license_disk', label: 'License Disk', status: 'pending', updatedAt: now },
@@ -182,7 +183,7 @@ export function NewClaimDialog({ type, open, onOpenChange, onCreated }: NewClaim
       auditTrail: [{
         id: `AUD-NEW-${Date.now()}`,
         timestamp: now,
-        user: 'Vincent Pillay',
+        user: 'Nikki Pearmain',
         actionType: 'claim_created',
         description: 'Claim created from uploaded form',
       }],
@@ -202,12 +203,14 @@ export function NewClaimDialog({ type, open, onOpenChange, onCreated }: NewClaim
         <div className="space-y-3">
           <DocumentDropZone
             label="Upload Claim Form"
+            fileName={`${typeLabels[type]} Claim Form.pdf`}
             onProcessed={() => {
               const d = generateDefaults()
               setDefaults(d)
               setInsuredName(d.name)
               setRegistration(d.reg)
               setVehicleDesc(`${d.vehicle.make} ${d.vehicle.model}`)
+              setFormUploaded(true)
             }}
           />
           <div>

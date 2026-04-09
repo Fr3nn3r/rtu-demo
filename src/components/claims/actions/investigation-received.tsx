@@ -25,7 +25,14 @@ export function InvestigationReceived({ claim }: { claim: Claim }) {
 
       <DocumentDropZone
         label="Upload Investigation Report"
-        onProcessed={() => setConfirmed(true)}
+        fileName="Investigation Report.pdf"
+        onProcessed={() => {
+          setConfirmed(true)
+          const doc = claim.documents.find(d => d.type === 'investigation_report')
+          if (doc) {
+            dispatch({ type: 'UPDATE_DOCUMENT_STATUS', claimId: claim.id, docId: doc.id, status: 'received' })
+          }
+        }}
       />
 
       <div className="flex justify-end">

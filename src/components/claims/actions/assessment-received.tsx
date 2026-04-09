@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { Claim } from '@/types'
+import type { Claim, DocumentType } from '@/types'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -45,9 +45,15 @@ export function AssessmentReceived({ claim }: { claim: Claim }) {
 
       <DocumentDropZone
         label={`Upload ${isInvestigation ? 'Investigation' : 'Assessment'} Report`}
+        fileName={`${isInvestigation ? 'Investigation' : 'Assessment'} Report.pdf`}
         onProcessed={() => {
           const randomAmount = 8000 + Math.floor(Math.random() * 37000)
           setAmount(String(randomAmount))
+          const docType: DocumentType = isInvestigation ? 'investigation_report' : 'assessment_report'
+          const doc = claim.documents.find(d => d.type === docType)
+          if (doc) {
+            dispatch({ type: 'UPDATE_DOCUMENT_STATUS', claimId: claim.id, docId: doc.id, status: 'received' })
+          }
         }}
       />
 

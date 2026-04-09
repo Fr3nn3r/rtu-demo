@@ -28,6 +28,7 @@ export function InspectionCosting({ claim }: { claim: Claim }) {
 
       <DocumentDropZone
         label="Upload Repairer Quote"
+        fileName="Repairer Final Quote.pdf"
         onProcessed={() => {
           const assessed = claim.workflow.assessedAmount
           const cost = assessed && assessed > 0

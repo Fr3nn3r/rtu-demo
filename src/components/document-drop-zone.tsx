@@ -1,10 +1,11 @@
 import { useState, useEffect, useCallback } from 'react'
-import { Upload, FileText, CheckCircle2 } from 'lucide-react'
+import { Upload, FileText, CheckCircle2, ExternalLink } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface DocumentDropZoneProps {
   label: string
   onProcessed: () => void
+  fileName?: string
 }
 
 type DropZoneState = 'idle' | 'processing' | 'complete'
@@ -15,14 +16,17 @@ function getStageLabel(progress: number): string {
   return 'Populating data...'
 }
 
-export function DocumentDropZone({ label, onProcessed }: DocumentDropZoneProps) {
+export function DocumentDropZone({ label, onProcessed, fileName }: DocumentDropZoneProps) {
   const [state, setState] = useState<DropZoneState>('idle')
   const [isDragOver, setIsDragOver] = useState(false)
   const [progress, setProgress] = useState(0)
-  const [collapsed, setCollapsed] = useState(false)
+  const [droppedFileName, setDroppedFileName] = useState<string | null>(null)
 
-  const startProcessing = useCallback(() => {
+  const displayName = droppedFileName || fileName || label
+
+  const startProcessing = useCallback((name?: string) => {
     if (state !== 'idle') return
+    if (name) setDroppedFileName(name)
     setState('processing')
     setProgress(0)
   }, [state])
@@ -44,13 +48,6 @@ export function DocumentDropZone({ label, onProcessed }: DocumentDropZoneProps) 
     return () => clearInterval(interval)
   }, [state, onProcessed])
 
-  // Auto-collapse after complete
-  useEffect(() => {
-    if (state !== 'complete') return
-    const timeout = setTimeout(() => setCollapsed(true), 1500)
-    return () => clearTimeout(timeout)
-  }, [state])
-
   function handleDragOver(e: React.DragEvent) {
     e.preventDefault()
     e.stopPropagation()
@@ -67,10 +64,9 @@ export function DocumentDropZone({ label, onProcessed }: DocumentDropZoneProps) 
     e.preventDefault()
     e.stopPropagation()
     setIsDragOver(false)
-    startProcessing()
+    const file = e.dataTransfer.files[0]
+    startProcessing(file?.name)
   }
-
-  if (collapsed) return null
 
   return (
     <div>
@@ -82,7 +78,7 @@ export function DocumentDropZone({ label, onProcessed }: DocumentDropZoneProps) 
               ? 'border-primary bg-primary/5'
               : 'border-border hover:bg-muted',
           )}
-          onClick={startProcessing}
+          onClick={() => startProcessing()}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
@@ -111,11 +107,17 @@ export function DocumentDropZone({ label, onProcessed }: DocumentDropZoneProps) 
       )}
 
       {state === 'complete' && (
-        <div className="rounded-lg border border-primary/20 bg-primary/5 p-4 transition-all duration-500">
-          <div className="flex items-center gap-2.5">
-            <CheckCircle2 className="size-5 text-primary" />
-            <span className="text-sm font-medium text-primary">Document processed</span>
-          </div>
+        <div className="flex items-center gap-2 rounded-lg border border-primary/20 bg-primary/5 px-3 py-2">
+          <CheckCircle2 className="size-4 text-primary flex-shrink-0" />
+          <span className="flex-1 text-sm text-foreground truncate">{displayName}</span>
+          <button
+            type="button"
+            className="flex items-center gap-1 text-xs font-medium text-primary hover:underline"
+            onClick={() => {/* mock view action */}}
+          >
+            <ExternalLink className="size-3" />
+            View
+          </button>
         </div>
       )}
     </div>
