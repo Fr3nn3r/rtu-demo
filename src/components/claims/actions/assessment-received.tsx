@@ -8,6 +8,7 @@ import { resolveAutoRoute } from '@/lib/workflow-engine'
 import { formatZAR } from '@/lib/utils'
 import { ArrowRight } from 'lucide-react'
 import { RadxBenchmark } from './radx-benchmark'
+import { DocumentDropZone } from '@/components/document-drop-zone'
 
 const routeLabels = {
   WITHIN_EXCESS: 'Within Excess — claim will be closed',
@@ -41,6 +42,14 @@ export function AssessmentReceived({ claim }: { claim: Claim }) {
         Enter the assessed amount from the {isInvestigation ? 'investigation' : 'assessment'} report.
         The system will auto-route the claim based on the amount.
       </p>
+
+      <DocumentDropZone
+        label={`Upload ${isInvestigation ? 'Investigation' : 'Assessment'} Report`}
+        onProcessed={() => {
+          const randomAmount = 8000 + Math.floor(Math.random() * 37000)
+          setAmount(String(randomAmount))
+        }}
+      />
 
       <div className="grid grid-cols-2 gap-3 text-sm">
         <div className="rounded-lg border border-border bg-muted p-3">

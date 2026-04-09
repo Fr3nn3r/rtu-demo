@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useClaims } from '@/context/ClaimContext'
 import { formatZAR } from '@/lib/utils'
+import { DocumentDropZone } from '@/components/document-drop-zone'
 
 export function InspectionCosting({ claim }: { claim: Claim }) {
   const { dispatch } = useClaims()
@@ -24,6 +25,17 @@ export function InspectionCosting({ claim }: { claim: Claim }) {
       <p className="text-sm text-muted-foreground">
         Confirm the final cost from the repairer/assessor after inspection.
       </p>
+
+      <DocumentDropZone
+        label="Upload Repairer Quote"
+        onProcessed={() => {
+          const assessed = claim.workflow.assessedAmount
+          const cost = assessed && assessed > 0
+            ? Math.round(assessed * (0.85 + Math.random() * 0.13))
+            : 5000 + Math.floor(Math.random() * 35000)
+          setFinalCost(String(cost))
+        }}
+      />
 
       <div className="grid grid-cols-2 gap-3 text-sm">
         <div className="rounded-lg border border-border bg-muted p-3">

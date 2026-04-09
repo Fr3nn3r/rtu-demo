@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useClaims } from '@/context/ClaimContext'
 import { generateId } from '@/lib/utils'
+import { DocumentDropZone } from '@/components/document-drop-zone'
 
 const typeLabels: Record<ClaimType, string> = {
   accident: 'Accident',
@@ -120,7 +121,7 @@ export function NewClaimDialog({ type, open, onOpenChange, onCreated }: NewClaim
       id: claimId,
       type: type!,
       status: 'NEW',
-      assignedTo: 'Vincent Pillay',
+      assignedTo: 'Nikki Pearmain',
       createdAt: now,
       updatedAt: now,
       insured: {
@@ -199,6 +200,16 @@ export function NewClaimDialog({ type, open, onOpenChange, onCreated }: NewClaim
         </DialogHeader>
 
         <div className="space-y-3">
+          <DocumentDropZone
+            label="Upload Claim Form"
+            onProcessed={() => {
+              const d = generateDefaults()
+              setDefaults(d)
+              setInsuredName(d.name)
+              setRegistration(d.reg)
+              setVehicleDesc(`${d.vehicle.make} ${d.vehicle.model}`)
+            }}
+          />
           <div>
             <Label htmlFor="insuredName">Insured Name</Label>
             <Input
