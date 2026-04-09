@@ -38,7 +38,9 @@ A section header "Portfolio Trends" with a time period toggle, followed by a 2-c
 - Toggle group with three options: `1W` | `1M` | `1Y`
 - Default selection: **1M**
 - State: `useState<'1W' | '1M' | '1Y'>('1M')` in the dashboard page
-- Filtering: `filterByPeriod(claims, period)` filters `HistoricalClaim[]` by `createdAt` relative to current date
+- Filtering: `filterByPeriod(claims, period, dateField)` filters `HistoricalClaim[]` relative to current date
+  - Intake charts (Claims Volume, Claims by Type, Handler Workload) filter by `createdAt`
+  - Outcome charts (Avg Days to Close, Settlement Amounts, SLA Compliance) filter by `closedAt`
 - Aggregation granularity adapts to the period:
   - **1W**: daily buckets (7 data points)
   - **1M**: daily buckets (~30 data points)
