@@ -7,6 +7,7 @@ import { useClaims } from '@/context/ClaimContext'
 import { resolveAutoRoute } from '@/lib/workflow-engine'
 import { formatZAR } from '@/lib/utils'
 import { ArrowRight } from 'lucide-react'
+import { RadxBenchmark } from './radx-benchmark'
 
 const routeLabels = {
   WITHIN_EXCESS: 'Within Excess — claim will be closed',
@@ -68,6 +69,8 @@ export function AssessmentReceived({ claim }: { claim: Claim }) {
           </div>
         </div>
       )}
+
+      {claim.type === 'accident' && <RadxBenchmark />}
 
       <div className="flex justify-end">
         <Button onClick={handleSubmit} disabled={!amount || assessedNum <= 0}>
