@@ -10,6 +10,7 @@ import { CommunicationsPanel } from '@/components/claims/panels/communications-p
 import { AuditTrailPanel } from '@/components/claims/panels/audit-trail-panel'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Card } from '@/components/ui/card'
+import { ScrollArea } from '@/components/ui/scroll-area'
 
 export function ClaimDetailPage() {
   const { claimId } = useParams<{ claimId: string }>()
@@ -53,7 +54,7 @@ export function ClaimDetailPage() {
                 <TabsTrigger value="audit" className="text-xs">Audit</TabsTrigger>
               </TabsList>
 
-              <div className="p-3 max-h-[600px] overflow-y-auto">
+              <ScrollArea className="p-3 max-h-[600px]">
                 <TabsContent value="details" className="mt-0">
                   <ClaimDetailsPanel claim={claim} />
                 </TabsContent>
@@ -66,7 +67,7 @@ export function ClaimDetailPage() {
                 <TabsContent value="audit" className="mt-0">
                   <AuditTrailPanel claim={claim} />
                 </TabsContent>
-              </div>
+              </ScrollArea>
             </Tabs>
           </Card>
         </div>

@@ -10,6 +10,8 @@ import { stateLabels } from '@/data/workflow-definitions'
 import type { Claim, ClaimType, WorkflowState, SLAStatus } from '@/types'
 import { FileText, AlertCircle, TrendingUp, Clock, Users, BarChart3 } from 'lucide-react'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@/components/ui/table'
+import { Badge } from '@/components/ui/badge'
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip as RechartsTooltip, ResponsiveContainer,
   PieChart, Pie, Cell,
@@ -176,30 +178,30 @@ export function DashboardPage() {
             <CardTitle className="text-sm">Operator Workload</CardTitle>
           </CardHeader>
           <CardContent className="p-0">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold text-muted-foreground uppercase">Operator</th>
-                  <th className="px-4 py-2 text-center text-[11px] font-semibold text-muted-foreground uppercase">Active</th>
-                  <th className="px-4 py-2 text-center text-[11px] font-semibold text-muted-foreground uppercase">Overdue</th>
-                </tr>
-              </thead>
-              <tbody>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Operator</TableHead>
+                  <TableHead className="px-4 text-[11px] text-muted-foreground uppercase text-center">Active</TableHead>
+                  <TableHead className="px-4 text-[11px] text-muted-foreground uppercase text-center">Overdue</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
                 {operatorWorkload.map(op => (
-                  <tr key={op.name} className="border-b border-border last:border-b-0">
-                    <td className="px-4 py-2.5 text-sm">{op.name}</td>
-                    <td className="px-4 py-2.5 text-sm text-center font-medium">{op.active}</td>
-                    <td className="px-4 py-2.5 text-center">
+                  <TableRow key={op.name}>
+                    <TableCell className="px-4 py-2.5 text-sm">{op.name}</TableCell>
+                    <TableCell className="px-4 py-2.5 text-sm text-center font-medium">{op.active}</TableCell>
+                    <TableCell className="px-4 py-2.5 text-center">
                       {op.overdue > 0 ? (
-                        <span className="inline-flex items-center rounded-full bg-destructive/10 px-2 py-0.5 text-xs font-bold text-destructive">{op.overdue}</span>
+                        <Badge variant="destructive" className="font-bold">{op.overdue}</Badge>
                       ) : (
                         <span className="text-sm text-muted-foreground">0</span>
                       )}
-                    </td>
-                  </tr>
+                    </TableCell>
+                  </TableRow>
                 ))}
-              </tbody>
-            </table>
+              </TableBody>
+            </Table>
           </CardContent>
         </Card>
 
@@ -209,30 +211,30 @@ export function DashboardPage() {
             <CardTitle className="text-sm">Assessor / Investigator Performance</CardTitle>
           </CardHeader>
           <CardContent className="p-0">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold text-muted-foreground uppercase">Name</th>
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold text-muted-foreground uppercase">Role</th>
-                  <th className="px-4 py-2 text-center text-[11px] font-semibold text-muted-foreground uppercase">Active</th>
-                  <th className="px-4 py-2 text-center text-[11px] font-semibold text-muted-foreground uppercase">Completed</th>
-                </tr>
-              </thead>
-              <tbody>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Name</TableHead>
+                  <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Role</TableHead>
+                  <TableHead className="px-4 text-[11px] text-muted-foreground uppercase text-center">Active</TableHead>
+                  <TableHead className="px-4 text-[11px] text-muted-foreground uppercase text-center">Completed</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
                 {assessorPerformance.length === 0 ? (
-                  <tr><td colSpan={4} className="px-4 py-4 text-center text-sm text-muted-foreground">No assignments yet</td></tr>
+                  <TableRow><TableCell colSpan={4} className="px-4 py-4 text-center text-sm text-muted-foreground">No assignments yet</TableCell></TableRow>
                 ) : (
                   assessorPerformance.map(a => (
-                    <tr key={a.name} className="border-b border-border last:border-b-0">
-                      <td className="px-4 py-2.5 text-sm font-medium">{a.name}</td>
-                      <td className="px-4 py-2.5 text-xs text-muted-foreground capitalize">{a.role}</td>
-                      <td className="px-4 py-2.5 text-sm text-center">{a.active}</td>
-                      <td className="px-4 py-2.5 text-sm text-center">{a.completed}</td>
-                    </tr>
+                    <TableRow key={a.name}>
+                      <TableCell className="px-4 py-2.5 text-sm font-medium">{a.name}</TableCell>
+                      <TableCell className="px-4 py-2.5 text-xs text-muted-foreground capitalize">{a.role}</TableCell>
+                      <TableCell className="px-4 py-2.5 text-sm text-center">{a.active}</TableCell>
+                      <TableCell className="px-4 py-2.5 text-sm text-center">{a.completed}</TableCell>
+                    </TableRow>
                   ))
                 )}
-              </tbody>
-            </table>
+              </TableBody>
+            </Table>
           </CardContent>
         </Card>
       </div>
@@ -245,24 +247,24 @@ export function DashboardPage() {
             <CardTitle className="text-sm">Average Time to Close</CardTitle>
           </CardHeader>
           <CardContent className="p-0">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="px-4 py-2 text-left text-[11px] font-semibold text-muted-foreground uppercase">Claim Type</th>
-                  <th className="px-4 py-2 text-center text-[11px] font-semibold text-muted-foreground uppercase">Avg Days</th>
-                  <th className="px-4 py-2 text-center text-[11px] font-semibold text-muted-foreground uppercase">Closed</th>
-                </tr>
-              </thead>
-              <tbody>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Claim Type</TableHead>
+                  <TableHead className="px-4 text-[11px] text-muted-foreground uppercase text-center">Avg Days</TableHead>
+                  <TableHead className="px-4 text-[11px] text-muted-foreground uppercase text-center">Closed</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
                 {timeToClose.map(t => (
-                  <tr key={t.type} className="border-b border-border last:border-b-0">
-                    <td className="px-4 py-2.5"><ClaimTypeBadge type={t.type} /></td>
-                    <td className="px-4 py-2.5 text-center text-sm font-semibold">{t.count > 0 ? `${t.avg}d` : '—'}</td>
-                    <td className="px-4 py-2.5 text-center text-sm text-muted-foreground">{t.count}</td>
-                  </tr>
+                  <TableRow key={t.type}>
+                    <TableCell className="px-4 py-2.5"><ClaimTypeBadge type={t.type} /></TableCell>
+                    <TableCell className="px-4 py-2.5 text-center text-sm font-semibold">{t.count > 0 ? `${t.avg}d` : '—'}</TableCell>
+                    <TableCell className="px-4 py-2.5 text-center text-sm text-muted-foreground">{t.count}</TableCell>
+                  </TableRow>
                 ))}
-              </tbody>
-            </table>
+              </TableBody>
+            </Table>
           </CardContent>
         </Card>
 
@@ -273,32 +275,32 @@ export function DashboardPage() {
               <CardTitle className="text-sm text-destructive">Breached SLAs ({breachedClaims.length})</CardTitle>
             </CardHeader>
             <CardContent className="p-0">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b border-border">
-                    <th className="px-4 py-2 text-left text-[11px] font-semibold text-muted-foreground uppercase">Claim</th>
-                    <th className="px-4 py-2 text-left text-[11px] font-semibold text-muted-foreground uppercase">Type</th>
-                    <th className="px-4 py-2 text-left text-[11px] font-semibold text-muted-foreground uppercase">Status</th>
-                    <th className="px-4 py-2 text-left text-[11px] font-semibold text-muted-foreground uppercase">SLA</th>
-                    <th className="px-4 py-2 text-left text-[11px] font-semibold text-muted-foreground uppercase">Assigned</th>
-                  </tr>
-                </thead>
-                <tbody>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Claim</TableHead>
+                    <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Type</TableHead>
+                    <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Status</TableHead>
+                    <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">SLA</TableHead>
+                    <TableHead className="px-4 text-[11px] text-muted-foreground uppercase">Assigned</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
                   {breachedClaims.map(claim => (
-                    <tr key={claim.id} className="border-b border-border last:border-b-0 bg-destructive/5">
-                      <td className="px-4 py-2">
+                    <TableRow key={claim.id} className="bg-destructive/5">
+                      <TableCell className="px-4 py-2">
                         <Link to={`/claims/${claim.id}`} className="text-sm font-medium text-primary hover:underline">
                           {claim.id}
                         </Link>
-                      </td>
-                      <td className="px-4 py-2"><ClaimTypeBadge type={claim.type} /></td>
-                      <td className="px-4 py-2"><StatusBadge status={claim.status} /></td>
-                      <td className="px-4 py-2"><SlaIndicator claim={claim} /></td>
-                      <td className="px-4 py-2 text-sm text-muted-foreground">{claim.assignedTo}</td>
-                    </tr>
+                      </TableCell>
+                      <TableCell className="px-4 py-2"><ClaimTypeBadge type={claim.type} /></TableCell>
+                      <TableCell className="px-4 py-2"><StatusBadge status={claim.status} /></TableCell>
+                      <TableCell className="px-4 py-2"><SlaIndicator claim={claim} /></TableCell>
+                      <TableCell className="px-4 py-2 text-sm text-muted-foreground">{claim.assignedTo}</TableCell>
+                    </TableRow>
                   ))}
-                </tbody>
-              </table>
+                </TableBody>
+              </Table>
             </CardContent>
           </Card>
         )}

@@ -6,6 +6,8 @@ import { useClaims } from '@/context/ClaimContext'
 import { Copy, Send, Mail, User, FileText } from 'lucide-react'
 import { toast } from 'sonner'
 import { format } from 'date-fns'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { Badge } from '@/components/ui/badge'
 
 interface DraftCommunicationModalProps {
   communication: DraftCommunication | null
@@ -44,9 +46,7 @@ export function DraftCommunicationModal({ communication, open, onOpenChange }: D
             <Mail className="size-4" />
             Draft Communication
             {isSent && (
-              <span className="ml-2 inline-flex items-center gap-1 rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">
-                Sent
-              </span>
+              <Badge variant="outline" className="ml-2">Sent</Badge>
             )}
           </DialogTitle>
         </DialogHeader>
@@ -83,11 +83,11 @@ export function DraftCommunicationModal({ communication, open, onOpenChange }: D
           </div>
 
           {/* Email body */}
-          <div className="px-5 py-4 bg-card min-h-[200px] max-h-[400px] overflow-y-auto">
+          <ScrollArea className="px-5 py-4 bg-card min-h-[200px] max-h-[400px]">
             <div className="text-sm leading-relaxed whitespace-pre-wrap text-foreground">
               {communication.body}
             </div>
-          </div>
+          </ScrollArea>
         </div>
 
         {/* Actions */}

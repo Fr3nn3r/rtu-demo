@@ -15,6 +15,7 @@ import { Search, Filter, ChevronRight, Plus } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { toast } from 'sonner'
 import { Card } from '@/components/ui/card'
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@/components/ui/table'
 
 type FilterTab = 'all' | 'my_queue' | ClaimType
 
@@ -161,36 +162,34 @@ export function ClaimsListPage() {
 
       {/* Claims table */}
       <Card className="overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead className="sticky top-0 z-10">
-              <tr className="border-b border-border bg-muted">
-                <th className="px-4 py-2.5 text-left text-[11px] font-semibold text-muted-foreground uppercase tracking-wide">SPM #</th>
-                <th className="px-4 py-2.5 text-left text-[11px] font-semibold text-muted-foreground uppercase tracking-wide">Type</th>
-                <th className="px-4 py-2.5 text-left text-[11px] font-semibold text-muted-foreground uppercase tracking-wide">Policyholder</th>
-                <th className="px-4 py-2.5 text-left text-[11px] font-semibold text-muted-foreground uppercase tracking-wide">Vehicle</th>
-                <th className="px-4 py-2.5 text-left text-[11px] font-semibold text-muted-foreground uppercase tracking-wide">Progress</th>
-                <th className="px-4 py-2.5 text-left text-[11px] font-semibold text-muted-foreground uppercase tracking-wide">Status</th>
-                <th className="px-4 py-2.5 text-left text-[11px] font-semibold text-muted-foreground uppercase tracking-wide">SLA</th>
-                <th className="px-4 py-2.5 text-left text-[11px] font-semibold text-muted-foreground uppercase tracking-wide">Assigned</th>
-                <th className="px-4 py-2.5 text-left text-[11px] font-semibold text-muted-foreground uppercase tracking-wide">Updated</th>
-                <th className="w-8"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {filtered.map(claim => (
-                <ClaimRow key={claim.id} claim={claim} />
-              ))}
-              {filtered.length === 0 && (
-                <tr>
-                  <td colSpan={10} className="px-4 py-8 text-center text-sm text-muted-foreground">
-                    No claims match your filters.
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
+        <Table>
+          <TableHeader className="sticky top-0 z-10">
+            <TableRow className="bg-muted">
+              <TableHead className="px-4 py-2.5 text-[11px] text-muted-foreground uppercase tracking-wide">SPM #</TableHead>
+              <TableHead className="px-4 py-2.5 text-[11px] text-muted-foreground uppercase tracking-wide">Type</TableHead>
+              <TableHead className="px-4 py-2.5 text-[11px] text-muted-foreground uppercase tracking-wide">Policyholder</TableHead>
+              <TableHead className="px-4 py-2.5 text-[11px] text-muted-foreground uppercase tracking-wide">Vehicle</TableHead>
+              <TableHead className="px-4 py-2.5 text-[11px] text-muted-foreground uppercase tracking-wide">Progress</TableHead>
+              <TableHead className="px-4 py-2.5 text-[11px] text-muted-foreground uppercase tracking-wide">Status</TableHead>
+              <TableHead className="px-4 py-2.5 text-[11px] text-muted-foreground uppercase tracking-wide">SLA</TableHead>
+              <TableHead className="px-4 py-2.5 text-[11px] text-muted-foreground uppercase tracking-wide">Assigned</TableHead>
+              <TableHead className="px-4 py-2.5 text-[11px] text-muted-foreground uppercase tracking-wide">Updated</TableHead>
+              <TableHead className="w-8"></TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {filtered.map(claim => (
+              <ClaimRow key={claim.id} claim={claim} />
+            ))}
+            {filtered.length === 0 && (
+              <TableRow>
+                <TableCell colSpan={10} className="px-4 py-8 text-center text-sm text-muted-foreground">
+                  No claims match your filters.
+                </TableCell>
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
       </Card>
 
       {/* New Claim Dialog */}
@@ -214,43 +213,40 @@ function ClaimRow({ claim }: { claim: Claim }) {
       : ''
 
   return (
-    <tr className={cn(
-      'border-b border-border last:border-b-0 hover:bg-muted/50 transition-colors',
-      rowTint,
-    )}>
-      <td className="px-4 py-2.5">
+    <TableRow className={cn(rowTint)}>
+      <TableCell className="px-4 py-2.5">
         <Link to={`/claims/${claim.id}`} className="text-sm font-medium text-primary hover:underline">
           {claim.workflow.spmClaimNumber || claim.id}
         </Link>
         {claim.workflow.spmClaimNumber && (
           <div className="text-[11px] text-muted-foreground">{claim.id}</div>
         )}
-      </td>
-      <td className="px-4 py-2.5">
+      </TableCell>
+      <TableCell className="px-4 py-2.5">
         <ClaimTypeBadge type={claim.type} />
-      </td>
-      <td className="px-4 py-2.5 text-sm">{claim.insured.name}</td>
-      <td className="px-4 py-2.5 text-sm text-muted-foreground">
+      </TableCell>
+      <TableCell className="px-4 py-2.5 text-sm">{claim.insured.name}</TableCell>
+      <TableCell className="px-4 py-2.5 text-sm text-muted-foreground">
         {claim.vehicle.registration}
-      </td>
-      <td className="px-4 py-2.5">
+      </TableCell>
+      <TableCell className="px-4 py-2.5">
         <MiniWorkflowBar claim={claim} />
-      </td>
-      <td className="px-4 py-2.5">
+      </TableCell>
+      <TableCell className="px-4 py-2.5">
         <span className="text-xs text-muted-foreground">{stateLabels[claim.status]}</span>
-      </td>
-      <td className="px-4 py-2.5">
+      </TableCell>
+      <TableCell className="px-4 py-2.5">
         <SlaIndicator claim={claim} />
-      </td>
-      <td className="px-4 py-2.5 text-sm text-muted-foreground">{claim.assignedTo}</td>
-      <td className="px-4 py-2.5 text-xs text-muted-foreground">
+      </TableCell>
+      <TableCell className="px-4 py-2.5 text-sm text-muted-foreground">{claim.assignedTo}</TableCell>
+      <TableCell className="px-4 py-2.5 text-xs text-muted-foreground">
         {format(new Date(claim.updatedAt), 'dd MMM HH:mm')}
-      </td>
-      <td className="px-4 py-2.5">
+      </TableCell>
+      <TableCell className="px-4 py-2.5">
         <Link to={`/claims/${claim.id}`}>
           <ChevronRight className="size-4 text-muted-foreground" />
         </Link>
-      </td>
-    </tr>
+      </TableCell>
+    </TableRow>
   )
 }
