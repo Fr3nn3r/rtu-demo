@@ -83,7 +83,7 @@ function Section({ title, defaultOpen, children }: { title: string; defaultOpen?
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="flex w-full items-center justify-between py-2 text-xs font-semibold text-text-muted uppercase tracking-wide hover:text-text-primary"
+        className="flex w-full items-center justify-between py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wide hover:text-foreground"
       >
         {title}
         <ChevronDown className={cn('size-3.5 transition-transform', open && 'rotate-180')} />
@@ -97,8 +97,8 @@ function Field({ label, value }: { label: string; value?: string | null }) {
   if (!value) return null
   return (
     <div className="flex items-start gap-2 text-xs">
-      <span className="w-28 flex-shrink-0 text-text-muted">{label}</span>
-      <span className="text-text-primary">{value}</span>
+      <span className="w-28 flex-shrink-0 text-muted-foreground">{label}</span>
+      <span className="text-foreground">{value}</span>
     </div>
   )
 }
