@@ -25,7 +25,7 @@ export function ClaimsListPage() {
   const [statusFilter, setStatusFilter] = useState<'all' | 'active' | 'closed'>('all')
   const [newClaimType, setNewClaimType] = useState<ClaimType | null>(null)
 
-  const currentUser = 'Vincent Pillay'
+  const currentUser = 'Nikki Pearmain'
 
   const filtered = useMemo(() => {
     let result = [...claims]
@@ -139,7 +139,7 @@ export function ClaimsListPage() {
           <Input
             value={search}
             onChange={e => setSearch(e.target.value)}
-            placeholder="Search by ID, name, registration, policy..."
+            placeholder="Search by SPM #, name, registration, policy..."
             className="pl-8"
           />
         </div>
@@ -164,7 +164,7 @@ export function ClaimsListPage() {
           <table className="w-full">
             <thead className="sticky top-0 z-10">
               <tr className="border-b border-border bg-surface-secondary">
-                <th className="px-4 py-2.5 text-left text-[11px] font-semibold text-text-secondary uppercase tracking-wide">Claim</th>
+                <th className="px-4 py-2.5 text-left text-[11px] font-semibold text-text-secondary uppercase tracking-wide">SPM #</th>
                 <th className="px-4 py-2.5 text-left text-[11px] font-semibold text-text-secondary uppercase tracking-wide">Type</th>
                 <th className="px-4 py-2.5 text-left text-[11px] font-semibold text-text-secondary uppercase tracking-wide">Policyholder</th>
                 <th className="px-4 py-2.5 text-left text-[11px] font-semibold text-text-secondary uppercase tracking-wide">Vehicle</th>
@@ -219,8 +219,11 @@ function ClaimRow({ claim }: { claim: Claim }) {
     )}>
       <td className="px-4 py-2.5">
         <Link to={`/claims/${claim.id}`} className="text-sm font-medium text-primary-600 hover:underline">
-          {claim.id}
+          {claim.workflow.spmClaimNumber || claim.id}
         </Link>
+        {claim.workflow.spmClaimNumber && (
+          <div className="text-[11px] text-text-muted">{claim.id}</div>
+        )}
       </td>
       <td className="px-4 py-2.5">
         <ClaimTypeBadge type={claim.type} />
