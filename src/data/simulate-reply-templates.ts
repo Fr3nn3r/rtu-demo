@@ -3,16 +3,10 @@ import type { Claim, MessageAttachment, MessageRole, WorkflowState } from '@/typ
 export type ReplyTemplate = {
   subjectPrefix: string
   body: (claim: Claim) => string
-  attachments?: (claim: Claim) => MessageAttachment[]
+  attachments?: (claim: Claim) => Omit<MessageAttachment, 'id'>[]
 }
 
 type RoleStateKey = string // `${MessageRole}:${WorkflowState | '*'}`
-
-let attachmentCounter = 5000
-function nextAttachmentId(): string {
-  attachmentCounter++
-  return `ATT-${attachmentCounter}`
-}
 
 function formatAmount(amount: number | undefined): string {
   if (amount === undefined) return 'R0.00'
@@ -30,7 +24,7 @@ export const replyTemplates: Record<RoleStateKey, ReplyTemplate> = {
     subjectPrefix: 'Re: ',
     body: (claim) =>
       `Report and photos attached. Recommend settlement at ${formatAmount(claim.workflow.assessedAmount)}.\n\nRegards,\nAssigned Assessor`,
-    attachments: () => [{ id: nextAttachmentId(), name: 'assessment_report.pdf' }],
+    attachments: () => [{ name: 'assessment_report.pdf' }],
   },
   'assessor:*': {
     subjectPrefix: 'Re: ',
@@ -47,7 +41,7 @@ export const replyTemplates: Record<RoleStateKey, ReplyTemplate> = {
     subjectPrefix: 'Re: ',
     body: (claim) =>
       `Investigation report attached. No fraud indicators identified. Recommend proceeding with claim ${claim.id}.\n\nRegards,\nAssigned Investigator`,
-    attachments: () => [{ id: nextAttachmentId(), name: 'investigation_report.pdf' }],
+    attachments: () => [{ name: 'investigation_report.pdf' }],
   },
   'investigator:*': {
     subjectPrefix: 'Re: ',
@@ -78,7 +72,7 @@ export const replyTemplates: Record<RoleStateKey, ReplyTemplate> = {
     subjectPrefix: 'Re: ',
     body: (claim) =>
       `Final costing confirmed for vehicle ${claim.vehicle.registration}. Quote attached.\n\nRegards,\nRepair Centre`,
-    attachments: () => [{ id: nextAttachmentId(), name: 'final_quote.pdf' }],
+    attachments: () => [{ name: 'final_quote.pdf' }],
   },
   'repairer:*': {
     subjectPrefix: 'Re: ',

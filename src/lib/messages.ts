@@ -91,6 +91,12 @@ function nextInboundId(): string {
   return `MSG-IN-${inboundCounter}`
 }
 
+let attachmentCounter = 5000
+function nextAttachmentId(): string {
+  attachmentCounter++
+  return `ATT-${attachmentCounter}`
+}
+
 function buildFromParticipant(claim: Claim, fromRole: MessageRole): MessageParticipant {
   switch (fromRole) {
     case 'insured':
@@ -164,6 +170,8 @@ export function generateSimulatedReply(claim: Claim, fromRole: MessageRole): Inb
   const baseSubject = latestOutbound?.subject.replace(/^(Re:|FW:)\s*/, '') ?? `Claim ${claim.id}`
   const threadToken = latestOutbound?.threadToken ?? buildThreadToken(claim)
 
+  // Jitter forward 0-90s so simulated replies appear to arrive "just now"
+  // relative to the click — not retroactively dated.
   const jitterMs = Math.floor(Math.random() * 90 * 1000)
   const receivedAt = new Date(Date.now() + jitterMs).toISOString()
 
@@ -178,7 +186,10 @@ export function generateSimulatedReply(claim: Claim, fromRole: MessageRole): Inb
     to: ['claims@rtusa.co.za'],
     subject: `${template.subjectPrefix}${baseSubject}`,
     body: template.body(claim),
-    attachments: template.attachments?.(claim) ?? [],
+    attachments: (template.attachments?.(claim) ?? []).map(a => ({
+      ...a,
+      id: nextAttachmentId(),
+    })),
     receivedAt,
   }
 }
