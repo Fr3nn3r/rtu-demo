@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 screenshot
+
+# Brainstorming visual companion working directory
+.superpowers/
