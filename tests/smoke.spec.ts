@@ -38,10 +38,15 @@ test.describe('Route smoke', () => {
       // At least one heading is visible.
       await expect(page.getByRole('heading').first()).toBeVisible()
 
-      // Error Boundary fallback is not visible.
-      await expect(page.getByText('Something went wrong')).toHaveCount(0)
+      // Error Boundary fallback is not visible. Match by heading role so we
+      // don't get false positives from user content that mentions this phrase.
+      await expect(
+        page.getByRole('heading', { name: 'Something went wrong' })
+      ).toHaveCount(0)
 
-      // No console errors or uncaught exceptions during load.
+      // No console errors or uncaught exceptions during load. Note: React
+      // dev-mode warnings (missing keys, invalid props, etc.) also arrive as
+      // console.error and will trip this assertion — that's intentional.
       expect(errors, 'no console errors during page load').toEqual([])
     })
   }
