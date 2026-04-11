@@ -27,3 +27,8 @@ screenshot
 
 # Brainstorming visual companion working directory
 .superpowers/
+
+# Playwright
+playwright-report/
+test-results/
+playwright/.cache/
