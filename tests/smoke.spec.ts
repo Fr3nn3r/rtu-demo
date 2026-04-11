@@ -110,7 +110,11 @@ test.describe('Happy path: Accident', () => {
     await page.getByRole('button', { name: /Confirm Appointment/i }).click()
     await expect(page.getByRole('heading', { name: 'Assessment Received' })).toBeVisible()
 
-    // ASSESSMENT_RECEIVED → INTERNAL_APPROVAL (auto-routed because 30000 > 5000 and ≤ 50000)
+    // ASSESSMENT_RECEIVED → INTERNAL_APPROVAL
+    // resolveAutoRoute(assessed=30000, excess=5000) returns INTERNAL_APPROVAL:
+    //   assessed(30000) > excess(5000)       → not WITHIN_EXCESS
+    //   assessed(30000) ≤ threshold(50000)   → not QA_APPOINTED
+    // If src/lib/workflow-engine.ts's threshold changes, update this value.
     await page.getByLabel('Assessed Amount (ZAR)').fill('30000')
     await page.getByRole('button', { name: /Submit Assessment/i }).click()
     await expect(page.getByRole('heading', { name: 'Internal Approval' })).toBeVisible()
@@ -124,11 +128,13 @@ test.describe('Happy path: Accident', () => {
     await expect(page.getByRole('heading', { name: 'Route Decision' })).toBeVisible()
 
     // ROUTE_TYPE → INSPECTION_FINAL_COSTING (repair branch)
-    // RouteType renders two large card-buttons; the first contains "Repair".
-    await page.locator('button:has-text("Repair")').first().click()
+    // RouteType renders two <button> card options; pick the one whose
+    // accessible name starts with "Repair" (the other starts with "Total Loss").
+    await page.getByRole('button').filter({ hasText: /^Repair/ }).click()
     await expect(page.getByRole('heading', { name: 'Inspection & Costing' })).toBeVisible()
 
     // INSPECTION_FINAL_COSTING → REPAIR_IN_PROGRESS
+    // 28000 is an arbitrary plausible value — no routing significance.
     await page.getByLabel('Final Cost (ZAR)').fill('28000')
     await page.getByRole('button', { name: /Confirm Final Cost/i }).click()
     await expect(page.getByRole('heading', { name: 'Repair in Progress' })).toBeVisible()
