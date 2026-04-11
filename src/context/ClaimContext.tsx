@@ -57,15 +57,15 @@ function claimReducer(state: Claim[], action: ClaimAction): Claim[] {
           auditTrail: [...claim.auditTrail, auditEntry],
         }
 
-        const comms = generateCommunication(updatedClaim, toState)
-        if (comms.length > 0) {
-          const commAudits = comms.map(c => createAuditEntry(
+        const msgs = generateCommunication(updatedClaim, toState)
+        if (msgs.length > 0) {
+          const msgAudits = msgs.map(m => createAuditEntry(
             claim.assignedTo,
-            'communication_generated',
-            `Draft communication generated (${c.recipient}): ${c.subject}`,
+            'message_generated',
+            `Draft generated (${m.from.role} → ${m.to.join(', ')}): ${m.subject}`,
           ))
-          updatedClaim.communications = [...updatedClaim.communications, ...comms]
-          updatedClaim.auditTrail = [...updatedClaim.auditTrail, ...commAudits]
+          updatedClaim.messages = [...updatedClaim.messages, ...msgs]
+          updatedClaim.auditTrail = [...updatedClaim.auditTrail, ...msgAudits]
         }
 
         return updatedClaim
