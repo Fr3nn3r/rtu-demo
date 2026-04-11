@@ -1,9 +1,18 @@
 import { createContext, useContext, useReducer, useMemo, useEffect, useState, type ReactNode } from 'react'
-import type { Claim, ClaimAction, WorkflowState, DashboardStats } from '@/types'
+import type {
+  Claim,
+  ClaimAction,
+  ClaimDocument,
+  DashboardStats,
+  InboundMessage,
+  WorkflowState,
+} from '@/types'
 import { seedClaims } from '@/data/seed-claims'
+import { seedUnmatched } from '@/data/seed-unmatched'
 import { createAuditEntry } from '@/lib/audit'
 import { createSLARecord, completeSLARecord, getPreviousState } from '@/lib/workflow-engine'
 import { generateCommunication } from '@/lib/communication-templates'
+import { generateSimulatedReply, buildThreadToken } from '@/lib/messages'
 import { stateLabels } from '@/data/workflow-definitions'
 
 // ── Reducer ──────────────────────────────────────────────────
@@ -208,8 +217,147 @@ function claimReducer(state: Claim[], action: ClaimAction): Claim[] {
       }))
     }
 
+    case 'ADD_MESSAGE': {
+      return state.map(claim => {
+        if (claim.id !== action.claimId) return claim
+        const auditEntry = createAuditEntry(
+          claim.assignedTo,
+          action.message.direction === 'outbound' ? 'message_generated' : 'message_received',
+          action.message.direction === 'outbound'
+            ? `Draft generated: ${action.message.subject}`
+            : `Inbound received: ${action.message.subject}`,
+        )
+        return {
+          ...claim,
+          updatedAt: new Date().toISOString(),
+          messages: [...claim.messages, action.message],
+          auditTrail: [...claim.auditTrail, auditEntry],
+        }
+      })
+    }
+
+    case 'MARK_MESSAGE_SENT': {
+      return state.map(claim => {
+        if (claim.id !== action.claimId) return claim
+        const now = new Date().toISOString()
+        const target = claim.messages.find(m => m.id === action.messageId)
+        if (!target || target.direction !== 'outbound') return claim
+        const auditEntry = createAuditEntry(
+          claim.assignedTo,
+          'message_sent',
+          `Message sent via Gmail: ${target.subject}`,
+        )
+        return {
+          ...claim,
+          updatedAt: now,
+          messages: claim.messages.map(m =>
+            m.id === action.messageId && m.direction === 'outbound'
+              ? { ...m, state: 'sent' as const, sentAt: now }
+              : m
+          ),
+          auditTrail: [...claim.auditTrail, auditEntry],
+        }
+      })
+    }
+
+    case 'SIMULATE_INBOUND_REPLY': {
+      return state.map(claim => {
+        if (claim.id !== action.claimId) return claim
+        const inbound = generateSimulatedReply(claim, action.fromRole)
+
+        // Auto-attach inbound attachments to claim.documents
+        const newDocs: ClaimDocument[] = inbound.attachments.map(att => ({
+          id: `DOC-${att.id}`,
+          type: 'other' as const,
+          label: att.name,
+          status: 'received' as const,
+          updatedAt: new Date().toISOString(),
+        }))
+
+        // Stamp each attachment with the matching document id
+        const inboundWithDocLinks: InboundMessage = {
+          ...inbound,
+          attachments: inbound.attachments.map((att, i) => ({
+            ...att,
+            documentId: newDocs[i]?.id,
+          })),
+        }
+
+        const auditEntry = createAuditEntry(
+          claim.assignedTo,
+          'message_received',
+          `Simulated inbound reply: ${inboundWithDocLinks.subject}`,
+        )
+
+        return {
+          ...claim,
+          updatedAt: new Date().toISOString(),
+          messages: [...claim.messages, inboundWithDocLinks],
+          documents: [...claim.documents, ...newDocs],
+          auditTrail: [...claim.auditTrail, auditEntry],
+        }
+      })
+    }
+
     default:
       return state
+  }
+}
+
+// ── Provider-level combined state shape ──────────────────────
+
+type ProviderState = {
+  claims: Claim[]
+  unmatchedMessages: InboundMessage[]
+}
+
+function providerReducer(state: ProviderState, action: ClaimAction): ProviderState {
+  switch (action.type) {
+    case 'ASSIGN_UNMATCHED_TO_CLAIM': {
+      const msg = state.unmatchedMessages.find(m => m.id === action.messageId)
+      if (!msg) return state
+      const targetClaim = state.claims.find(c => c.id === action.targetClaimId)
+      if (!targetClaim) return state
+
+      const threadToken = buildThreadToken(targetClaim)
+      const assigned: InboundMessage = {
+        ...msg,
+        claimId: action.targetClaimId,
+        threadToken,
+        source: 'unmatched_assigned',
+      }
+      const auditEntry = createAuditEntry(
+        targetClaim.assignedTo,
+        'message_assigned',
+        `Inbound message assigned from unmatched tray: ${msg.subject}`,
+      )
+      return {
+        ...state,
+        unmatchedMessages: state.unmatchedMessages.filter(m => m.id !== action.messageId),
+        claims: state.claims.map(c =>
+          c.id !== action.targetClaimId ? c : {
+            ...c,
+            updatedAt: new Date().toISOString(),
+            messages: [...c.messages, assigned],
+            auditTrail: [...c.auditTrail, auditEntry],
+          }
+        ),
+      }
+    }
+
+    case 'DISMISS_UNMATCHED': {
+      return {
+        ...state,
+        unmatchedMessages: state.unmatchedMessages.filter(m => m.id !== action.messageId),
+      }
+    }
+
+    default:
+      // Every other action is claim-scoped — delegate to claimReducer
+      return {
+        ...state,
+        claims: claimReducer(state.claims, action),
+      }
   }
 }
 
@@ -223,13 +371,20 @@ interface ClaimContextValue {
   getBreachedClaims: () => Claim[]
   getDashboardStats: () => DashboardStats
   tick: number // increments every 60s to force SLA re-renders
+  // NEW:
+  unmatchedMessages: InboundMessage[]
+  getUnmatchedCount: () => number
 }
 
 const ClaimContext = createContext<ClaimContextValue | null>(null)
 
 // ── Provider ─────────────────────────────────────────────────
 export function ClaimProvider({ children }: { children: ReactNode }) {
-  const [claims, dispatch] = useReducer(claimReducer, seedClaims)
+  const [providerState, dispatch] = useReducer(providerReducer, {
+    claims: seedClaims,
+    unmatchedMessages: seedUnmatched,
+  })
+  const { claims, unmatchedMessages } = providerState
   const [tick, setTick] = useState(0)
 
   // Tick every second to refresh SLA countdown timers
@@ -242,6 +397,8 @@ export function ClaimProvider({ children }: { children: ReactNode }) {
     claims,
     dispatch,
     tick,
+    unmatchedMessages,
+    getUnmatchedCount: () => unmatchedMessages.length,
 
     getClaimById: (id: string) => claims.find(c => c.id === id),
 
@@ -284,7 +441,7 @@ export function ClaimProvider({ children }: { children: ReactNode }) {
         avgDaysToClose: Math.round(avgDaysToClose * 10) / 10,
       }
     },
-  }), [claims, tick])
+  }), [claims, unmatchedMessages, tick])
 
   return (
     <ClaimContext.Provider value={value}>
