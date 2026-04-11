@@ -81,3 +81,62 @@ test.describe('Sidebar navigation smoke', () => {
     expect(errors, 'no console errors during sidebar navigation').toEqual([])
   })
 })
+
+test.describe('Happy path: Accident', () => {
+  test('CLM-10001 walks from NEW to CLOSED', async ({ page }) => {
+    const errors = captureConsoleErrors(page)
+
+    await page.goto('/claims/CLM-10001')
+    await expect(page.getByRole('heading', { name: 'New Claim' })).toBeVisible()
+
+    // NEW → POLICY_VALIDATION
+    await page.getByRole('button', { name: /Confirm & Proceed to Policy Validation/i }).click()
+    await expect(page.getByRole('heading', { name: 'Policy Validation' })).toBeVisible()
+
+    // POLICY_VALIDATION → REGISTERED
+    await page.getByLabel('Policy Number').fill('POL-TEST-001')
+    await page.getByLabel('Excess Amount (ZAR)').fill('5000')
+    await page.getByRole('button', { name: /Confirm Valid/i }).click()
+    await expect(page.getByRole('heading', { name: 'Registered' })).toBeVisible()
+
+    // REGISTERED → ASSESSOR_APPOINTED
+    await page.getByLabel('SPM Claim Number').fill('SPM-TEST-001')
+    await page.getByRole('button', { name: /Confirm Registration/i }).click()
+    await expect(page.getByRole('heading', { name: 'Assessor Appointed' })).toBeVisible()
+
+    // ASSESSOR_APPOINTED → ASSESSMENT_RECEIVED
+    // Pick the first seeded assessor (CON-001: Pieter van der Merwe).
+    await page.getByRole('button', { name: /Pieter van der Merwe/ }).click()
+    await page.getByRole('button', { name: /Confirm Appointment/i }).click()
+    await expect(page.getByRole('heading', { name: 'Assessment Received' })).toBeVisible()
+
+    // ASSESSMENT_RECEIVED → INTERNAL_APPROVAL (auto-routed because 30000 > 5000 and ≤ 50000)
+    await page.getByLabel('Assessed Amount (ZAR)').fill('30000')
+    await page.getByRole('button', { name: /Submit Assessment/i }).click()
+    await expect(page.getByRole('heading', { name: 'Internal Approval' })).toBeVisible()
+
+    // INTERNAL_APPROVAL → AOL
+    await page.getByRole('button', { name: 'Approve', exact: true }).click()
+    await expect(page.getByRole('heading', { name: 'AOL Generated' })).toBeVisible()
+
+    // AOL → ROUTE_TYPE
+    await page.getByRole('button', { name: /Confirm AOL Generated/i }).click()
+    await expect(page.getByRole('heading', { name: 'Route Decision' })).toBeVisible()
+
+    // ROUTE_TYPE → INSPECTION_FINAL_COSTING (repair branch)
+    // RouteType renders two large card-buttons; the first contains "Repair".
+    await page.locator('button:has-text("Repair")').first().click()
+    await expect(page.getByRole('heading', { name: 'Inspection & Costing' })).toBeVisible()
+
+    // INSPECTION_FINAL_COSTING → REPAIR_IN_PROGRESS
+    await page.getByLabel('Final Cost (ZAR)').fill('28000')
+    await page.getByRole('button', { name: /Confirm Final Cost/i }).click()
+    await expect(page.getByRole('heading', { name: 'Repair in Progress' })).toBeVisible()
+
+    // REPAIR_IN_PROGRESS → CLOSED
+    await page.getByRole('button', { name: /Mark Repair Complete/i }).click()
+    await expect(page.getByRole('heading', { name: 'Closed' })).toBeVisible()
+
+    expect(errors, 'no console errors during accident happy path').toEqual([])
+  })
+})
