@@ -265,22 +265,23 @@ function claimReducer(state: Claim[], action: ClaimAction): Claim[] {
         if (claim.id !== action.claimId) return claim
         const inbound = generateSimulatedReply(claim, action.fromRole)
 
-        // Auto-attach inbound attachments to claim.documents
-        const newDocs: ClaimDocument[] = inbound.attachments.map(att => ({
-          id: `DOC-${att.id}`,
-          type: 'other' as const,
-          label: att.name,
-          status: 'received' as const,
-          updatedAt: new Date().toISOString(),
-        }))
-
-        // Stamp each attachment with the matching document id
+        // Single pass: for each inbound attachment, build both a ClaimDocument and
+        // a linked MessageAttachment stamped with the new doc id.
+        const newDocs: ClaimDocument[] = []
+        const linkedAttachments = inbound.attachments.map(att => {
+          const docId = `DOC-${att.id}`
+          newDocs.push({
+            id: docId,
+            type: 'other' as const,
+            label: att.name,
+            status: 'received' as const,
+            updatedAt: new Date().toISOString(),
+          })
+          return { ...att, documentId: docId }
+        })
         const inboundWithDocLinks: InboundMessage = {
           ...inbound,
-          attachments: inbound.attachments.map((att, i) => ({
-            ...att,
-            documentId: newDocs[i]?.id,
-          })),
+          attachments: linkedAttachments,
         }
 
         const auditEntry = createAuditEntry(
@@ -352,12 +353,11 @@ function providerReducer(state: ProviderState, action: ClaimAction): ProviderSta
       }
     }
 
-    default:
-      // Every other action is claim-scoped — delegate to claimReducer
-      return {
-        ...state,
-        claims: claimReducer(state.claims, action),
-      }
+    default: {
+      const nextClaims = claimReducer(state.claims, action)
+      if (nextClaims === state.claims) return state
+      return { ...state, claims: nextClaims }
+    }
   }
 }
 
@@ -371,7 +371,6 @@ interface ClaimContextValue {
   getBreachedClaims: () => Claim[]
   getDashboardStats: () => DashboardStats
   tick: number // increments every 60s to force SLA re-renders
-  // NEW:
   unmatchedMessages: InboundMessage[]
   getUnmatchedCount: () => number
 }
