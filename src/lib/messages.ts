@@ -82,10 +82,12 @@ export function sortMessagesChronologically(messages: ClaimMessage[]): ClaimMess
 
 // ── Simulate reply (stub — full impl in Task 3) ──────────────
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 export function generateSimulatedReply(
-  _claim: Claim,
-  _fromRole: MessageRole,
+  claim: Claim,
+  fromRole: MessageRole,
 ): InboundMessage {
+  /* eslint-enable @typescript-eslint/no-unused-vars */
   // Placeholder — filled in Task 3 once simulate-reply-templates exists.
   throw new Error('generateSimulatedReply: not yet implemented (see Task 3)')
 }
