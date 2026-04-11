@@ -51,3 +51,34 @@ test.describe('Route smoke', () => {
     })
   }
 })
+
+test.describe('Sidebar navigation smoke', () => {
+  test('walks through all sidebar links without errors', async ({ page }) => {
+    const errors = captureConsoleErrors(page)
+
+    await page.goto('/claims')
+    await expect(page.getByRole('heading').first()).toBeVisible()
+
+    const linkSequence: { label: string | RegExp; urlPattern: RegExp }[] = [
+      { label: /^Inbox/, urlPattern: /\/inbox$/ },
+      { label: 'Dashboard', urlPattern: /\/dashboard$/ },
+      { label: 'Contacts', urlPattern: /\/contacts$/ },
+      { label: 'Claims', urlPattern: /\/claims$/ },
+    ]
+
+    for (const step of linkSequence) {
+      const linkLocator =
+        typeof step.label === 'string'
+          ? page.getByRole('link', { name: step.label, exact: true })
+          : page.getByRole('link', { name: step.label })
+      await linkLocator.click()
+      await expect(page).toHaveURL(step.urlPattern)
+      await expect(page.getByRole('heading').first()).toBeVisible()
+      await expect(
+        page.getByRole('heading', { name: 'Something went wrong' })
+      ).toHaveCount(0)
+    }
+
+    expect(errors, 'no console errors during sidebar navigation').toEqual([])
+  })
+})
