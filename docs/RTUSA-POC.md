@@ -879,15 +879,16 @@ At workflow milestones, the system generates a draft email pre-populated with cl
 
 ### 7.2 Draft email lifecycle
 
-Each draft email follows a three-stage lifecycle:
+Each draft follows a four-stage lifecycle:
 
-1. **Auto-generated:** When the claim advances to a state with a communication trigger (see 7.3), the system creates a draft pre-populated with claim context. A stable thread token in the form `[CP-{ClaimID}]` is inserted into the Subject line — this token is how inbound replies are threaded back to the claim (see §7.6). An audit trail entry records the generation.
-2. **Review and copy:** The claims consultant opens the draft from the Communications tab on the claim detail page. A modal displays the To, Subject, and Body fields in an email-style layout. The consultant clicks "Copy to clipboard" to copy the full email content (To + Subject + Body) into their email client.
-3. **Mark as sent:** After sending the email externally, the consultant clicks "Mark as sent" in ClaimPilot. This timestamps the communication and logs it in the audit trail. The communications list shows sent items with a green checkmark and timestamp, and pending drafts with an orange indicator.
+1. **Auto-generated.** When the claim advances to a state with a communication trigger (see 7.3), the system creates a draft pre-populated with claim context. A stable thread token in the form `[CP-{ClaimID}]` is inserted into the Subject line — this token is how inbound replies are threaded back to the claim (see §7.6). The draft appears as a pending bubble in the claim's conversation view. An audit trail entry records the generation.
+2. **Review.** The claims consultant opens the draft from the Conversation tab on the claim detail page. A modal displays the From / To / Bcc / Subject / Body fields in a read-only email-style layout. `BCC: claims@rtusa.co.za` is pre-populated and visible.
+3. **Open in Gmail.** The consultant clicks "Open in Gmail." Gmail web opens in a new browser tab with all fields prefilled including the BCC. The consultant sends from Gmail.
+4. **Ingestion-driven sent state.** ClaimPilot's ingestion worker (polling the shared mailbox) sees the sent message and flips the draft's state from `pending` to `sent` in the claim's conversation view. The consultant never clicks a "Mark as sent" button — the state transition is always driven by ingestion seeing the message land in `claims@`.
 
-**Outbound practice:** consultants are asked to BCC `claims@rtusa.co.za` on all claim-related outbound so that the outbound message is captured by the conversation view (§7.6). Gmail "Send as" delegation is an acceptable alternative. Neither is enforced by ClaimPilot in MVP — it's a process convention.
+**There is no "Mark as sent" click in ClaimPilot.** The button was removed in V3 because it was duplicated ceremony — ingestion already knows. The conversation view is the single source of truth for message state.
 
-No email integration or auto-send in MVP. The consultant sends all emails manually from their email client. See §14 for the deferred "Option B" Gmail API send path.
+No email integration or auto-send in MVP. The consultant sends all emails manually from Gmail. See §14 for the deferred "Option B" Gmail API send path.
 
 ### 7.3 Communication triggers and templates
 
@@ -964,8 +965,9 @@ Quoting Mike on the requirement: *"If a client calls in following up on a claim 
 
 **Integration with §7.2 draft lifecycle.**
 
-- The consultant still copies drafts to clipboard and sends from Gmail as today. Nothing about the draft generation or mark-as-sent flow changes.
-- The only additional practice is the BCC discipline (or Send-As delegate). If the BCC is missing, the outbound message will not be captured in the conversation view — ClaimPilot will still mark-as-sent based on the consultant's click, but the conversation thread will be missing the message. The dashboard surfaces claims with marked-as-sent drafts that never appeared in the ingestion tray as a data-quality signal.
+- The consultant reviews drafts generated at workflow triggers, but the handoff to Gmail is explicit (Open in Gmail) and the sent-state transition is driven by ingestion, not by a consultant click.
+- The conversation view is the single source of truth for message state — nothing in the UI can mark a message as sent independently of what the ingestion worker sees.
+- The Gmail compose URL pre-populates `BCC: claims@rtusa.co.za` — consultants only need to not remove it for the ingestion worker to capture the outbound message. ClaimPilot does not enforce this at MVP (see assumption #25 in §15).
 
 **MVP scope summary for §7.6:**
 
@@ -979,6 +981,7 @@ Quoting Mike on the requirement: *"If a client calls in following up on a claim 
 | Inbound attachments auto-attached to claim | **Yes** |
 | Last-inbound-from-party indicator | **Yes** |
 | Auto-pause reminders on inbound reply | **Yes** |
+| Draft lifecycle is ingestion-driven, not click-driven | **Yes** |
 | Compose-from-UI | No — deferred (see §14, Option B) |
 | Send-from-UI via Gmail API | No — deferred (see §14, Option B) |
 | Reply button on inbound messages | No — deferred |
@@ -1200,7 +1203,7 @@ Per-tenant settings managed by TrueAim admin (and eventually by tenant admins):
 | Policyholder-facing portal | Out | No external user access |
 | Role-based permissions | Out | Full access for all users |
 | SSO | Out | Email/password auth |
-| Compose / send email from ClaimPilot | **Out (Option B deferred)** | Draft-only + read-only inbound ingestion per §7.6. Gmail API send is the "Option B" deferred path, see §14. |
+| Compose / send email from ClaimPilot | **Out (Option B deferred)** | ClaimPilot generates drafts and hands the consultant off to Gmail via a prefilled compose URL. Sent state is driven by ingestion seeing the BCC'd message, not by a ClaimPilot click. Gmail API send is the "Option B" deferred path, see §14. |
 | Cross-claim mailbox / inbox view | **Out (structural)** | ClaimPilot is not an email client. Conversation view is scoped per-claim only. |
 | Broker portal or distinct broker role | Out | Broker = secondary contact |
 | Claim reopening | Out | Closed is terminal in MVP |
@@ -1261,6 +1264,7 @@ These decisions were made during scoping. Workshop resolutions from 2026-04-10 a
 | 22 | **Embedded TrueAim web form replaces Zoho glass claim hyperlink on rtusa.co.za** | If RTU prefers to keep the Zoho form and only forward submissions, intake path A is simpler but requires Zoho-to-ClaimPilot webhook | Open — Mike indicated the RTU-embedded form is his preference |
 | 23 | **Dashboard export = PDF + CSV, synchronous for small ranges, async for large** | If Matthew wants scheduled/recurring or white-labelled exports | ✅ Confirmed for MVP on 2026-04-10; extensions deferred to §14 |
 | 24 | **Draft generation triggers and the reminder cadence model will be defined in the Reuben-owned comms follow-up session** | This is a known gap; no assumption locked in | Open — follow-up session scheduled |
+| 25 | **BCC discipline (or Send-As delegate) is a hard prerequisite for the conversation view to work** — if the consultant forgets to BCC `claims@`, the ingestion worker will not see the outbound message and the draft will remain visually pending. ClaimPilot does not enforce this at MVP. | Consultants' sent messages would not appear in the conversation view, breaking the audit trail for that specific message | Open — mitigation is the Gmail compose URL pre-populating the BCC field; confirm with Mike this is sufficient |
 
 ---
 
