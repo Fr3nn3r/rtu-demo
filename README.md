@@ -71,3 +71,32 @@ export default defineConfig([
   },
 ])
 ```
+
+## Pre-demo verification
+
+Before demoing to a customer, run the full verification gate:
+
+```bash
+npm run verify
+```
+
+This runs TypeScript type check (`tsc -b`), ESLint (`eslint .`), and Playwright smoke tests (`playwright test`) against a Playwright-managed dev server. If any step fails, **do not demo** — investigate and fix before proceeding.
+
+### Smoke test scope
+
+The smoke suite (`tests/smoke.spec.ts`) covers:
+
+- **Route smoke** — Every top-level route renders without console errors: `/`, `/claims`, `/claims/:id`, `/inbox`, `/dashboard`, `/contacts`.
+- **Sidebar navigation** — Clicking through every sidebar link in sequence without a full reload.
+- **Happy paths** — One full workflow walk per claim type:
+  - Accident: `CLM-10001` (NEW → ... → CLOSED via Internal Approval branch)
+  - Theft: `CLM-10008` (INVESTIGATOR_APPOINTED → ... → CLOSED)
+  - Glass: `CLM-10009` (NEW → ... → CLOSED)
+
+### Debugging failures
+
+- `npm run smoke:headed` — watch the tests run in a real Chrome window.
+- `npm run smoke:ui` — Playwright's time-travel debugger.
+- Screenshots, videos, and traces for failed tests are saved under `test-results/`.
+
+Any render error in the app is caught by the route-level Error Boundary (`src/components/layout/error-boundary.tsx`) and surfaced as a visible fallback card with the error message and stack — no more blank screens.
