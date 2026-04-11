@@ -57,8 +57,12 @@ export type AuditActionType =
   | 'field_updated'
   | 'document_updated'
   | 'contact_assigned'
-  | 'communication_sent'
-  | 'communication_generated'
+  | 'communication_sent'       // KEEP — removed in cleanup task
+  | 'communication_generated'  // KEEP — removed in cleanup task
+  | 'message_generated'        // NEW
+  | 'message_sent'             // NEW
+  | 'message_received'         // NEW
+  | 'message_assigned'         // NEW
   | 'sla_warning'
   | 'sla_breached'
   | 'note_added'
@@ -106,6 +110,83 @@ export interface DraftCommunication {
   sentAt?: string
   createdAt: string
 }
+
+// ── Thread tokens ────────────────────────────────────────────
+// Every message carries a stable token matching the pattern CP-{ClaimID}
+// e.g. "CP-CLM-10001". Outbound drafts embed this in the Subject line;
+// simulated inbound replies preserve it (threading); seeded unmatched
+// messages deliberately lack it (that's why they are unmatched).
+export type ThreadToken = string
+
+// ── Message participants ─────────────────────────────────────
+export type MessageRole =
+  | 'consultant'
+  | 'insured'
+  | 'broker'
+  | 'assessor'
+  | 'investigator'
+  | 'repairer'
+  | 'glass_repairer'
+  | 'insurer'
+  | 'unknown'
+
+export interface MessageParticipant {
+  name: string
+  email: string
+  role: MessageRole
+}
+
+// ── Message attachments ──────────────────────────────────────
+export interface MessageAttachment {
+  id: string
+  name: string
+  documentId?: string // set when auto-attached to claim.documents
+}
+
+// ── Outbound message ─────────────────────────────────────────
+export interface OutboundMessage {
+  id: string
+  claimId: string
+  direction: 'outbound'
+  state: 'pending' | 'sent'
+  source: 'draft_generated'
+  threadToken: ThreadToken
+  trigger: string
+
+  from: MessageParticipant
+  to: string[]
+  cc?: string[]
+  bcc: string[] // includes claims@rtusa.co.za
+
+  subject: string // includes [${threadToken}] prefix
+  body: string
+  attachments: MessageAttachment[]
+
+  generatedAt: string
+  sentAt?: string
+}
+
+// ── Inbound message ──────────────────────────────────────────
+export interface InboundMessage {
+  id: string
+  claimId: string | null // null when in unmatched tray
+  direction: 'inbound'
+  state: 'received'
+  source: 'seeded' | 'simulated' | 'unmatched_assigned'
+  threadToken: ThreadToken | null
+
+  from: MessageParticipant
+  to: string[]
+
+  subject: string
+  body: string
+  attachments: MessageAttachment[]
+
+  receivedAt: string
+}
+
+// ── Discriminated union ──────────────────────────────────────
+export type ClaimMessage = OutboundMessage | InboundMessage
 
 // ── Insured Details ──────────────────────────────────────────
 export interface InsuredDetails {
