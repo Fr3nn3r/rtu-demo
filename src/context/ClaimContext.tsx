@@ -140,37 +140,6 @@ function claimReducer(state: Claim[], action: ClaimAction): Claim[] {
       })
     }
 
-    case 'ADD_COMMUNICATION': {
-      return state.map(claim => {
-        if (claim.id !== action.claimId) return claim
-        return {
-          ...claim,
-          communications: [...claim.communications, action.communication],
-        }
-      })
-    }
-
-    case 'MARK_COMMUNICATION_SENT': {
-      return state.map(claim => {
-        if (claim.id !== action.claimId) return claim
-        const now = new Date().toISOString()
-        const comm = claim.communications.find(c => c.id === action.communicationId)
-        const auditEntry = createAuditEntry(
-          claim.assignedTo,
-          'communication_sent',
-          `Communication marked as sent: ${comm?.subject ?? 'Unknown'}`,
-        )
-        return {
-          ...claim,
-          updatedAt: now,
-          communications: claim.communications.map(c =>
-            c.id === action.communicationId ? { ...c, sentAt: now } : c
-          ),
-          auditTrail: [...claim.auditTrail, auditEntry],
-        }
-      })
-    }
-
     case 'ADD_AUDIT_ENTRY': {
       return state.map(claim => {
         if (claim.id !== action.claimId) return claim

@@ -57,12 +57,10 @@ export type AuditActionType =
   | 'field_updated'
   | 'document_updated'
   | 'contact_assigned'
-  | 'communication_sent'       // KEEP — removed in cleanup task
-  | 'communication_generated'  // KEEP — removed in cleanup task
-  | 'message_generated'        // NEW
-  | 'message_sent'             // NEW
-  | 'message_received'         // NEW
-  | 'message_assigned'         // NEW
+  | 'message_generated'
+  | 'message_sent'
+  | 'message_received'
+  | 'message_assigned'
   | 'sla_warning'
   | 'sla_breached'
   | 'note_added'
@@ -94,21 +92,6 @@ export interface AuditEntry {
   description: string
   oldValue?: string
   newValue?: string
-}
-
-// ── Draft Communication ──────────────────────────────────────
-export type CommunicationRecipient = 'insured' | 'broker' | 'provider'
-
-export interface DraftCommunication {
-  id: string
-  claimId: string
-  trigger: string
-  recipient: CommunicationRecipient
-  to: string
-  subject: string
-  body: string
-  sentAt?: string
-  createdAt: string
 }
 
 // ── Thread tokens ────────────────────────────────────────────
@@ -300,7 +283,6 @@ export interface Claim {
   workflow: WorkflowFields
   slaHistory: SLARecord[]
   documents: ClaimDocument[]
-  communications: DraftCommunication[]
   messages: ClaimMessage[]
   auditTrail: AuditEntry[]
 }
@@ -358,8 +340,6 @@ export type ClaimAction =
   | { type: 'UPDATE_CLAIM_FIELD'; claimId: string; field: string; value: unknown }
   | { type: 'ADD_CLAIM'; claim: Claim }
   | { type: 'UPDATE_DOCUMENT_STATUS'; claimId: string; docId: string; status: DocumentStatus }
-  | { type: 'ADD_COMMUNICATION'; claimId: string; communication: DraftCommunication }
-  | { type: 'MARK_COMMUNICATION_SENT'; claimId: string; communicationId: string }
   | { type: 'ADD_AUDIT_ENTRY'; claimId: string; entry: AuditEntry }
   | { type: 'ASSIGN_CLAIM'; claimId: string; assignedTo: string }
   | { type: 'FAST_FORWARD'; hours: number }

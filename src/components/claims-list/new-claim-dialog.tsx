@@ -179,7 +179,6 @@ export function NewClaimDialog({ type, open, onOpenChange, onCreated }: NewClaim
             { id: `D-${Date.now()}-4`, type: 'license_disk', label: 'License Disk', status: 'pending', updatedAt: now },
             { id: `D-${Date.now()}-5`, type: 'drivers_license', label: "Driver's License", status: 'pending', updatedAt: now },
           ],
-      communications: [],
       messages: [],
       auditTrail: [{
         id: `AUD-NEW-${Date.now()}`,

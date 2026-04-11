@@ -141,7 +141,6 @@ export const seedClaims: Claim[] = [
     workflow: {},
     slaHistory: [],
     documents: makeDocs('accident'),
-    communications: [],
     messages: [],
     auditTrail: [
       {
@@ -197,7 +196,6 @@ export const seedClaims: Claim[] = [
       makeSLA('POLICY_VALIDATION', 12, 10), // 10h into 12h = approaching
     ],
     documents: makeDocs('accident'),
-    communications: [],
     messages: [
       makeOutbound({
         claimId: 'CLM-10002',
@@ -279,19 +277,6 @@ export const seedClaims: Claim[] = [
       makeSLA('ASSESSOR_APPOINTED', 48, 54),         // 54h into 48h report SLA = breached
     ],
     documents: makeDocs('accident'),
-    communications: [
-      {
-        id: 'COM-10003',
-        claimId: 'CLM-10003',
-        trigger: 'assessor_appointed',
-        recipient: 'provider',
-        to: 'pieter@assessments.co.za',
-        subject: 'Assessment Required — CLM-10003 | Nissan Almera 1.5 Acenta',
-        body: 'Dear Pieter van der Merwe,\n\nPlease note that claim CLM-10003 requires your assessment.\n\nVehicle: 2020 Nissan Almera 1.5 Acenta (GP 78 TKL)\nIncident: Side collision on R21 Highway near OR Tambo\nInsured: Lwandile Nkosi\n\nPlease submit your report within 48 hours.\n\nRegards,\nRTU Insurance Services',
-        sentAt: new Date(Date.now() - hours(53)).toISOString(),
-        createdAt: new Date(Date.now() - hours(54)).toISOString(),
-      },
-    ],
     messages: [
       makeOutbound({
         claimId: 'CLM-10003',
@@ -397,7 +382,6 @@ export const seedClaims: Claim[] = [
       ...makeDocs('accident'),
       { id: 'DOC-7', type: 'assessment_report', label: 'Assessment Report — Brandon Stein', status: 'received', updatedAt: new Date(Date.now() - hours(10)).toISOString() },
     ],
-    communications: [],
     messages: [
       makeOutbound({
         claimId: 'CLM-10004',
@@ -507,7 +491,6 @@ export const seedClaims: Claim[] = [
       ...makeDocs('accident'),
       { id: 'DOC-7', type: 'assessment_report', label: 'Assessment Report — Thandiwe Nkosi', status: 'received', updatedAt: new Date(Date.now() - hours(30)).toISOString() },
     ],
-    communications: [],
     messages: [
       makeOutbound({
         claimId: 'CLM-10005',
@@ -618,7 +601,6 @@ export const seedClaims: Claim[] = [
       makeSLA('INSPECTION_FINAL_COSTING', 12, 6), // 6h into 12h = within
     ],
     documents: makeDocs('accident'),
-    communications: [],
     messages: [
       makeOutbound({
         claimId: 'CLM-10006',
@@ -732,7 +714,6 @@ export const seedClaims: Claim[] = [
       makeSLA('REPAIR_IN_PROGRESS', 168, 200, true),
     ],
     documents: makeDocs('accident'),
-    communications: [],
     messages: [
       makeOutbound({
         claimId: 'CLM-10007',
@@ -814,19 +795,6 @@ export const seedClaims: Claim[] = [
       makeSLA('INVESTIGATOR_APPOINTED', 336, 72), // 72h into 336h = within (~21%)
     ],
     documents: makeDocs('theft'),
-    communications: [
-      {
-        id: 'COM-10008',
-        claimId: 'CLM-10008',
-        trigger: 'investigator_appointed',
-        recipient: 'provider',
-        to: 'sipho@investigate.co.za',
-        subject: 'Investigation Required — CLM-10008 | Toyota Quantum 2.5D-4D GL',
-        body: 'Dear Sipho Dlamini,\n\nPlease investigate claim CLM-10008 (vehicle theft/hijacking).\n\nVehicle: 2023 Toyota Quantum 2.5D-4D GL (ND 56 RST)\nIncident: Hijacking at Pietermaritzburg taxi rank\nInsured: Thulani Zulu\n\nPlease submit your report within 14 days.\n\nRegards,\nRTU Insurance Services',
-        sentAt: new Date(Date.now() - hours(71)).toISOString(),
-        createdAt: new Date(Date.now() - hours(72)).toISOString(),
-      },
-    ],
     messages: [
       makeOutbound({
         claimId: 'CLM-10008',
@@ -908,7 +876,6 @@ export const seedClaims: Claim[] = [
     workflow: {},
     slaHistory: [],
     documents: makeDocs('glass'),
-    communications: [],
     messages: [],
     auditTrail: [
       {
@@ -962,7 +929,6 @@ export const seedClaims: Claim[] = [
       makeSLA('POLICY_VALIDATION', 12, 6), // 6h into 12h = within
     ],
     documents: makeDocs('glass'),
-    communications: [],
     messages: [
       makeOutbound({
         claimId: 'CLM-10010',
@@ -1031,7 +997,6 @@ export const seedClaims: Claim[] = [
       makeSLA('REGISTERED', 4, 2), // 2h into 4h = within
     ],
     documents: makeDocs('glass'),
-    communications: [],
     messages: [
       makeOutbound({
         claimId: 'CLM-10011',
@@ -1113,19 +1078,6 @@ export const seedClaims: Claim[] = [
       makeSLA('GLASS_REPAIRER_APPOINTED', 12, 18), // 18h into 12h = breached
     ],
     documents: makeDocs('glass'),
-    communications: [
-      {
-        id: 'COM-10012',
-        claimId: 'CLM-10012',
-        trigger: 'glass_repairer_appointed',
-        recipient: 'provider',
-        to: 'claims@autoglasssa.co.za',
-        subject: 'Glass Replacement Required — CLM-10012 | Toyota Quantum 2.5D-4D GL',
-        body: 'Dear Autoglass Centurion,\n\nPlease attend to windscreen replacement for claim CLM-10012.\n\nVehicle: 2021 Toyota Quantum 2.5D-4D GL (GP 21 ABF)\nGlass: Windscreen\nVehicle Location: Centurion — 102 Jean Avenue\n\nPlease complete within 12 hours.\n\nRegards,\nRTU Insurance Services',
-        sentAt: new Date(Date.now() - hours(17)).toISOString(),
-        createdAt: new Date(Date.now() - hours(18)).toISOString(),
-      },
-    ],
     messages: [
       makeOutbound({
         claimId: 'CLM-10012',
@@ -1213,19 +1165,6 @@ export const seedClaims: Claim[] = [
       makeSLA('GLASS_REPAIRER_APPOINTED', 12, 4), // 4h into 12h = within
     ],
     documents: makeDocs('glass'),
-    communications: [
-      {
-        id: 'COM-10013',
-        claimId: 'CLM-10013',
-        trigger: 'glass_repairer_appointed',
-        recipient: 'provider',
-        to: 'claims@pgglass.co.za',
-        subject: 'Glass Replacement Required — CLM-10013 | Toyota Corolla Quest 1.6',
-        body: 'Dear PG Glass Illovo,\n\nPlease attend to glass replacement for claim CLM-10013.\n\nVehicle: 2022 Toyota Corolla Quest 1.6 (GP 55 TLK)\nGlass: Rear windscreen\nVehicle Location: Illovo — 22 Oxford Road\n\nPlease complete within 12 hours.\n\nRegards,\nRTU Insurance Services',
-        sentAt: new Date(Date.now() - hours(3.5)).toISOString(),
-        createdAt: new Date(Date.now() - hours(4)).toISOString(),
-      },
-    ],
     messages: [
       makeOutbound({
         claimId: 'CLM-10013',
@@ -1313,7 +1252,6 @@ export const seedClaims: Claim[] = [
       makeSLA('GLASS_REPAIRER_APPOINTED', 12, 20, true),
     ],
     documents: makeDocs('glass'),
-    communications: [],
     messages: [
       makeOutbound({
         claimId: 'CLM-10014',
@@ -1414,7 +1352,6 @@ export const seedClaims: Claim[] = [
       makeSLA('GLASS_REPAIRER_APPOINTED', 12, 200, true),
     ],
     documents: makeDocs('glass'),
-    communications: [],
     messages: [
       makeOutbound({
         claimId: 'CLM-10015',
@@ -1494,7 +1431,6 @@ export const seedClaims: Claim[] = [
       makeSLA('GLASS_REPAIRER_APPOINTED', 12, 290, true),
     ],
     documents: makeDocs('glass'),
-    communications: [],
     messages: [
       makeOutbound({
         claimId: 'CLM-10016',
