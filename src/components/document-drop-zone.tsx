@@ -47,13 +47,19 @@ export function DocumentDropZone({ label, onProcessed, fileName }: DocumentDropZ
     return () => clearInterval(interval)
   }, [state])
 
-  // Fire onProcessed once, after the state transition to 'complete' is committed.
+  // React 19 flags calling setState inside a functional state updater as
+  // "setState during render". The previous code called onProcessed() inside
+  // setProgress(prev => { ... setState('complete') ... onProcessed() ... }),
+  // which triggered the warning because onProcessed dispatches into context.
+  // This effect moves the call to after the 'complete' render is committed.
+  //
+  // onProcessed identity may change each render (inline arrow in parent);
+  // omitting it from deps prevents re-firing when state is already 'complete'.
+  // Safe here because callers always mount a fresh DropZone per workflow step.
   useEffect(() => {
     if (state === 'complete') {
       onProcessed()
     }
-    // onProcessed identity may change each render (inline arrow in parent);
-    // intentionally omit it from deps so this fires exactly once per completion.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state])
 
