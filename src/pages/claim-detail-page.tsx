@@ -6,7 +6,6 @@ import { ActionPanel } from '@/components/claims/action-panel'
 import { SlaBanner } from '@/components/claims/sla-banner'
 import { ClaimDetailsPanel } from '@/components/claims/panels/claim-details-panel'
 import { DocumentsPanel } from '@/components/claims/panels/documents-panel'
-import { CommunicationsPanel } from '@/components/claims/panels/communications-panel'
 import { AuditTrailPanel } from '@/components/claims/panels/audit-trail-panel'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Card } from '@/components/ui/card'
@@ -45,12 +44,6 @@ export function ClaimDetailPage() {
                     <span className="ml-1 size-1.5 rounded-full bg-accent-foreground inline-block" />
                   )}
                 </TabsTrigger>
-                <TabsTrigger value="communications" className="text-xs">
-                  Communications
-                  {claim.communications.some(c => !c.sentAt) && (
-                    <span className="ml-1 size-1.5 rounded-full bg-primary inline-block" />
-                  )}
-                </TabsTrigger>
                 <TabsTrigger value="audit" className="text-xs">Audit</TabsTrigger>
               </TabsList>
 
@@ -60,9 +53,6 @@ export function ClaimDetailPage() {
                 </TabsContent>
                 <TabsContent value="documents" className="mt-0">
                   <DocumentsPanel claim={claim} />
-                </TabsContent>
-                <TabsContent value="communications" className="mt-0">
-                  <CommunicationsPanel claim={claim} />
                 </TabsContent>
                 <TabsContent value="audit" className="mt-0">
                   <AuditTrailPanel claim={claim} />
