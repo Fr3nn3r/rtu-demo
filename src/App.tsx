@@ -6,6 +6,7 @@ import { ClaimsListPage } from '@/pages/claims-list-page'
 import { ClaimDetailPage } from '@/pages/claim-detail-page'
 import { DashboardPage } from '@/pages/dashboard-page'
 import { ContactsPage } from '@/pages/contacts-page'
+import { InboxPage } from '@/pages/inbox-page'
 import { Toaster } from '@/components/ui/sonner'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
               <Route index element={<Navigate to="/claims" replace />} />
               <Route path="/claims" element={<ClaimsListPage />} />
               <Route path="/claims/:claimId" element={<ClaimDetailPage />} />
+              <Route path="/inbox" element={<InboxPage />} />
               <Route path="/dashboard" element={<DashboardPage />} />
               <Route path="/contacts" element={<ContactsPage />} />
             </Route>

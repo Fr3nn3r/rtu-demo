@@ -1,19 +1,25 @@
 import { NavLink } from 'react-router-dom'
-import { FileText, LayoutDashboard, Users } from 'lucide-react'
+import { FileText, LayoutDashboard, Users, Inbox } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { useClaims } from '@/context/ClaimContext'
 
 const navItems = [
-  { to: '/claims', label: 'Claims', icon: FileText },
-  { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { to: '/contacts', label: 'Contacts', icon: Users },
+  { to: '/claims', label: 'Claims', icon: FileText, showBadge: false },
+  { to: '/inbox', label: 'Inbox', icon: Inbox, showBadge: true },
+  { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard, showBadge: false },
+  { to: '/contacts', label: 'Contacts', icon: Users, showBadge: false },
 ]
 
 export function Sidebar() {
+  const { getUnmatchedCount } = useClaims()
+  const unmatchedCount = getUnmatchedCount()
+
   return (
     <div className="flex w-[220px] flex-col shrink-0 border-r border-sidebar-border bg-sidebar">
       <nav className="flex flex-col gap-1 px-3 pt-3 flex-1">
         {navItems.map(item => {
           const Icon = item.icon
+          const showBadge = item.showBadge && unmatchedCount > 0
           return (
             <NavLink
               key={item.to}
@@ -28,7 +34,12 @@ export function Sidebar() {
               }
             >
               <Icon className="size-5 shrink-0" />
-              <span>{item.label}</span>
+              <span className="flex-1">{item.label}</span>
+              {showBadge && (
+                <span className="inline-flex items-center justify-center rounded-full bg-sidebar-primary/20 text-sidebar-primary-foreground text-[10px] font-semibold px-1.5 min-w-[20px] h-5">
+                  {unmatchedCount}
+                </span>
+              )}
             </NavLink>
           )
         })}
