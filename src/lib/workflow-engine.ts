@@ -1,4 +1,4 @@
-import { differenceInMinutes, addHours, formatDistanceStrict } from 'date-fns'
+import { addHours, formatDistanceStrict } from 'date-fns'
 import type { Claim, ClaimType, SLARecord, SLAStatus, StepDefinition, WorkflowState } from '@/types'
 import { workflowDefinitions, getStepDef, getLinearPath } from '@/data/workflow-definitions'
 
@@ -159,13 +159,11 @@ export function getStepperSteps(claim: Claim): StepperStep[] {
 
   // Start with the linear path, but substitute actual route where diverged
   const actualPath: WorkflowState[] = []
-  let i = 0
 
   // Add completed states in order of the linear path
   for (const pathState of linearPath) {
     if (completedStates.includes(pathState)) {
       actualPath.push(pathState)
-      i++
     } else if (visitedStates.has(pathState)) {
       // Current state found on the linear path
       break

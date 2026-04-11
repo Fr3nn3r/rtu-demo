@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import type { ClaimType, Claim } from '@/types'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
@@ -91,21 +91,10 @@ interface NewClaimDialogProps {
 export function NewClaimDialog({ type, open, onOpenChange, onCreated }: NewClaimDialogProps) {
   const { dispatch } = useClaims()
   const [defaults, setDefaults] = useState(generateDefaults)
-  const [insuredName, setInsuredName] = useState('')
-  const [registration, setRegistration] = useState('')
-  const [vehicleDesc, setVehicleDesc] = useState('')
+  const [insuredName, setInsuredName] = useState(() => defaults.name)
+  const [registration, setRegistration] = useState(() => defaults.reg)
+  const [vehicleDesc, setVehicleDesc] = useState(() => `${defaults.vehicle.make} ${defaults.vehicle.model}`)
   const [formUploaded, setFormUploaded] = useState(false)
-
-  // Regenerate defaults when dialog opens
-  useEffect(() => {
-    if (open) {
-      const d = generateDefaults()
-      setDefaults(d)
-      setInsuredName(d.name)
-      setRegistration(d.reg)
-      setVehicleDesc(`${d.vehicle.make} ${d.vehicle.model}`)
-    }
-  }, [open])
 
   if (!type) return null
 

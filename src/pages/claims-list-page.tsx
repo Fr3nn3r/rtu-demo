@@ -192,8 +192,9 @@ export function ClaimsListPage() {
         </Table>
       </Card>
 
-      {/* New Claim Dialog */}
+      {/* New Claim Dialog — key forces remount on open so lazy initialisers produce fresh defaults */}
       <NewClaimDialog
+        key={newClaimType ?? 'closed'}
         type={newClaimType}
         open={newClaimType !== null}
         onOpenChange={open => { if (!open) setNewClaimType(null) }}

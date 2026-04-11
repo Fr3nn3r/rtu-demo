@@ -30,6 +30,7 @@ export function ContactProvider({ children }: { children: ReactNode }) {
   )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useContacts(): ContactContextValue {
   const ctx = useContext(ContactContext)
   if (!ctx) throw new Error('useContacts must be used within ContactProvider')

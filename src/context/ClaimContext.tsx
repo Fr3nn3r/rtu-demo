@@ -433,6 +433,7 @@ export function ClaimProvider({ children }: { children: ReactNode }) {
 }
 
 // ── Hook ─────────────────────────────────────────────────────
+// eslint-disable-next-line react-refresh/only-export-components
 export function useClaims(): ClaimContextValue {
   const ctx = useContext(ClaimContext)
   if (!ctx) throw new Error('useClaims must be used within ClaimProvider')
