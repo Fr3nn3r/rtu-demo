@@ -183,6 +183,20 @@ function claimReducer(state: Claim[], action: ClaimAction): Claim[] {
             ? new Date(new Date(r.completedAt).getTime() - shiftMs).toISOString()
             : undefined,
         })),
+        messages: claim.messages.map(m =>
+          m.direction === 'outbound'
+            ? {
+                ...m,
+                generatedAt: new Date(new Date(m.generatedAt).getTime() - shiftMs).toISOString(),
+                sentAt: m.sentAt
+                  ? new Date(new Date(m.sentAt).getTime() - shiftMs).toISOString()
+                  : undefined,
+              }
+            : {
+                ...m,
+                receivedAt: new Date(new Date(m.receivedAt).getTime() - shiftMs).toISOString(),
+              }
+        ),
       }))
     }
 
