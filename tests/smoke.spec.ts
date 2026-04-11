@@ -146,3 +146,55 @@ test.describe('Happy path: Accident', () => {
     expect(errors, 'no console errors during accident happy path').toEqual([])
   })
 })
+
+test.describe('Happy path: Theft', () => {
+  test('CLM-10008 walks from INVESTIGATOR_APPOINTED to CLOSED', async ({ page }) => {
+    const errors = captureConsoleErrors(page)
+
+    await page.goto('/claims/CLM-10008')
+    await expect(page.getByRole('heading', { name: 'Investigator Appointed' })).toBeVisible()
+
+    // INVESTIGATOR_APPOINTED → INVESTIGATION_RECEIVED
+    // Pick the first seeded investigator (CON-004: Sipho Dlamini).
+    await page.getByRole('button', { name: /Sipho Dlamini/ }).click()
+    await page.getByRole('button', { name: /Confirm Appointment/i }).click()
+    await expect(page.getByRole('heading', { name: 'Investigation Received' })).toBeVisible()
+
+    // INVESTIGATION_RECEIVED → QA_APPOINTED
+    // The submit button is disabled until the DocumentDropZone onProcessed fires.
+    // Click the idle dropzone to start it; processing takes ~3.5s
+    // (100 ticks × 35ms in document-drop-zone.tsx). Wait for the button
+    // to become enabled before clicking.
+    await page.getByText(/Upload Investigation Report/i).click()
+    const proceedToQa = page.getByRole('button', { name: /Confirm Investigation Received/i })
+    await expect(proceedToQa).toBeEnabled({ timeout: 10_000 })
+    await proceedToQa.click()
+    await expect(page.getByRole('heading', { name: 'QA Appointed' })).toBeVisible()
+
+    // QA_APPOINTED → (QA_DECISION →) AOL
+    // QaDecision handles both QA_APPOINTED and QA_DECISION states; clicking
+    // QA Approve at QA_APPOINTED advances directly to AOL.
+    await page.getByRole('button', { name: /QA Approve/i }).click()
+    await expect(page.getByRole('heading', { name: 'AOL Generated' })).toBeVisible()
+
+    // AOL → ROUTE_TYPE
+    await page.getByRole('button', { name: /Confirm AOL Generated/i }).click()
+    await expect(page.getByRole('heading', { name: 'Route Decision' })).toBeVisible()
+
+    // ROUTE_TYPE → INSPECTION_FINAL_COSTING (repair branch)
+    await page.getByRole('button').filter({ hasText: /^Repair/ }).click()
+    await expect(page.getByRole('heading', { name: 'Inspection & Costing' })).toBeVisible()
+
+    // INSPECTION_FINAL_COSTING → REPAIR_IN_PROGRESS
+    // 25000 is an arbitrary plausible value — no routing significance.
+    await page.getByLabel('Final Cost (ZAR)').fill('25000')
+    await page.getByRole('button', { name: /Confirm Final Cost/i }).click()
+    await expect(page.getByRole('heading', { name: 'Repair in Progress' })).toBeVisible()
+
+    // REPAIR_IN_PROGRESS → CLOSED
+    await page.getByRole('button', { name: /Mark Repair Complete/i }).click()
+    await expect(page.getByRole('heading', { name: 'Closed' })).toBeVisible()
+
+    expect(errors, 'no console errors during theft happy path').toEqual([])
+  })
+})

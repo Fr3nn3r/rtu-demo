@@ -39,14 +39,23 @@ export function DocumentDropZone({ label, onProcessed, fileName }: DocumentDropZ
         if (prev >= 100) {
           clearInterval(interval)
           setState('complete')
-          onProcessed()
           return 100
         }
         return prev + 1
       })
     }, 35)
     return () => clearInterval(interval)
-  }, [state, onProcessed])
+  }, [state])
+
+  // Fire onProcessed once, after the state transition to 'complete' is committed.
+  useEffect(() => {
+    if (state === 'complete') {
+      onProcessed()
+    }
+    // onProcessed identity may change each render (inline arrow in parent);
+    // intentionally omit it from deps so this fires exactly once per completion.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state])
 
   function handleDragOver(e: React.DragEvent) {
     e.preventDefault()
