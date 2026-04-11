@@ -2,10 +2,13 @@ import type {
   Claim,
   ClaimMessage,
   InboundMessage,
+  MessageParticipant,
   MessageRole,
   OutboundMessage,
   ThreadToken,
 } from '@/types'
+import { resolveReplyTemplate } from '@/data/simulate-reply-templates'
+import { getContactById } from '@/data/seed-contacts'
 
 // ── Thread token helpers ─────────────────────────────────────
 
@@ -80,14 +83,102 @@ export function sortMessagesChronologically(messages: ClaimMessage[]): ClaimMess
   })
 }
 
-// ── Simulate reply (stub — full impl in Task 3) ──────────────
+// ── Simulate reply ───────────────────────────────────────────
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
-export function generateSimulatedReply(
-  claim: Claim,
-  fromRole: MessageRole,
-): InboundMessage {
-  /* eslint-enable @typescript-eslint/no-unused-vars */
-  // Placeholder — filled in Task 3 once simulate-reply-templates exists.
-  throw new Error('generateSimulatedReply: not yet implemented (see Task 3)')
+let inboundCounter = 2000
+function nextInboundId(): string {
+  inboundCounter++
+  return `MSG-IN-${inboundCounter}`
+}
+
+function buildFromParticipant(claim: Claim, fromRole: MessageRole): MessageParticipant {
+  switch (fromRole) {
+    case 'insured':
+      return {
+        name: claim.insured.name,
+        email: claim.insured.email ?? 'insured@example.co.za',
+        role: 'insured',
+      }
+    case 'broker':
+      return {
+        name: claim.broker.name,
+        email: claim.broker.email,
+        role: 'broker',
+      }
+    case 'assessor': {
+      const c = claim.workflow.assessorId ? getContactById(claim.workflow.assessorId) : undefined
+      return {
+        name: c?.name ?? 'Assessor',
+        email: c?.email ?? 'assessor@example.co.za',
+        role: 'assessor',
+      }
+    }
+    case 'investigator': {
+      const c = claim.workflow.investigatorId ? getContactById(claim.workflow.investigatorId) : undefined
+      return {
+        name: c?.name ?? 'Investigator',
+        email: c?.email ?? 'investigator@example.co.za',
+        role: 'investigator',
+      }
+    }
+    case 'repairer': {
+      const c = claim.workflow.repairerId ? getContactById(claim.workflow.repairerId) : undefined
+      return {
+        name: c?.name ?? 'Repairer',
+        email: c?.email ?? 'repairer@example.co.za',
+        role: 'repairer',
+      }
+    }
+    case 'glass_repairer': {
+      const c = claim.workflow.glassRepairerId ? getContactById(claim.workflow.glassRepairerId) : undefined
+      return {
+        name: c?.name ?? 'Glass Repairer',
+        email: c?.email ?? 'glass@example.co.za',
+        role: 'glass_repairer',
+      }
+    }
+    case 'insurer':
+      return {
+        name: 'Renasa Claims Desk',
+        email: 'claims@renasa.co.za',
+        role: 'insurer',
+      }
+    default:
+      return { name: 'Unknown Sender', email: 'unknown@example.co.za', role: 'unknown' }
+  }
+}
+
+function getLatestOutboundForThread(claim: Claim): OutboundMessage | undefined {
+  const sorted = claim.messages
+    .filter((m): m is OutboundMessage => m.direction === 'outbound' && m.state === 'sent')
+    .sort((a, b) =>
+      new Date(b.sentAt ?? b.generatedAt).getTime() -
+      new Date(a.sentAt ?? a.generatedAt).getTime()
+    )
+  return sorted[0]
+}
+
+export function generateSimulatedReply(claim: Claim, fromRole: MessageRole): InboundMessage {
+  const template = resolveReplyTemplate(fromRole, claim.status)
+  const latestOutbound = getLatestOutboundForThread(claim)
+  const baseSubject = latestOutbound?.subject.replace(/^(Re:|FW:)\s*/, '') ?? `Claim ${claim.id}`
+  const threadToken = latestOutbound?.threadToken ?? buildThreadToken(claim)
+
+  const jitterMs = Math.floor(Math.random() * 90 * 1000)
+  const receivedAt = new Date(Date.now() + jitterMs).toISOString()
+
+  return {
+    id: nextInboundId(),
+    claimId: claim.id,
+    direction: 'inbound',
+    state: 'received',
+    source: 'simulated',
+    threadToken,
+    from: buildFromParticipant(claim, fromRole),
+    to: ['claims@rtusa.co.za'],
+    subject: `${template.subjectPrefix}${baseSubject}`,
+    body: template.body(claim),
+    attachments: template.attachments?.(claim) ?? [],
+    receivedAt,
+  }
 }
