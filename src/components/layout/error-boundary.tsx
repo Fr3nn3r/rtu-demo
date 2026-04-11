@@ -20,7 +20,7 @@ export class ErrorBoundary extends Component<Props, State> {
 
   componentDidCatch(error: Error, info: ErrorInfo) {
     // Surface to console so it shows up in dev tools and Playwright's console listener.
-    console.error('[ErrorBoundary] caught render error', error, info.componentStack)
+    console.error('[ErrorBoundary] caught render error', error, info.componentStack ?? '(no component stack)')
   }
 
   handleReset = () => {
@@ -34,7 +34,7 @@ export class ErrorBoundary extends Component<Props, State> {
     return (
       <Card className="mx-auto mt-8 max-w-2xl p-6">
         <div className="flex items-start gap-3">
-          <AlertTriangle className="size-6 flex-shrink-0 text-destructive" />
+          <AlertTriangle className="size-6 shrink-0 text-destructive" />
           <div className="flex-1 space-y-3">
             <div>
               <h2 className="text-lg font-semibold text-foreground">Something went wrong</h2>
