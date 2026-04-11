@@ -180,6 +180,7 @@ export function NewClaimDialog({ type, open, onOpenChange, onCreated }: NewClaim
             { id: `D-${Date.now()}-5`, type: 'drivers_license', label: "Driver's License", status: 'pending', updatedAt: now },
           ],
       communications: [],
+      messages: [],
       auditTrail: [{
         id: `AUD-NEW-${Date.now()}`,
         timestamp: now,

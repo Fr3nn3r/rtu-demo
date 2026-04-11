@@ -78,6 +78,7 @@ export const seedClaims: Claim[] = [
     slaHistory: [],
     documents: makeDocs('accident'),
     communications: [],
+    messages: [],
     auditTrail: [
       {
         id: 'AUD-10001',
@@ -132,6 +133,7 @@ export const seedClaims: Claim[] = [
     ],
     documents: makeDocs('accident'),
     communications: [],
+    messages: [],
     auditTrail: [
       {
         id: 'AUD-10002',
@@ -214,6 +216,7 @@ export const seedClaims: Claim[] = [
         createdAt: new Date(Date.now() - hours(54)).toISOString(),
       },
     ],
+    messages: [],
     auditTrail: [
       {
         id: 'AUD-10004',
@@ -288,6 +291,7 @@ export const seedClaims: Claim[] = [
       { id: 'DOC-7', type: 'assessment_report', label: 'Assessment Report — Brandon Stein', status: 'received', updatedAt: new Date(Date.now() - hours(10)).toISOString() },
     ],
     communications: [],
+    messages: [],
     auditTrail: [
       {
         id: 'AUD-10006',
@@ -356,6 +360,7 @@ export const seedClaims: Claim[] = [
       { id: 'DOC-7', type: 'assessment_report', label: 'Assessment Report — Thandiwe Nkosi', status: 'received', updatedAt: new Date(Date.now() - hours(30)).toISOString() },
     ],
     communications: [],
+    messages: [],
     auditTrail: [
       {
         id: 'AUD-10007',
@@ -425,6 +430,7 @@ export const seedClaims: Claim[] = [
     ],
     documents: makeDocs('accident'),
     communications: [],
+    messages: [],
     auditTrail: [
       {
         id: 'AUD-10008',
@@ -497,6 +503,7 @@ export const seedClaims: Claim[] = [
     ],
     documents: makeDocs('accident'),
     communications: [],
+    messages: [],
     auditTrail: [
       {
         id: 'AUD-10009',
@@ -579,6 +586,7 @@ export const seedClaims: Claim[] = [
         createdAt: new Date(Date.now() - hours(72)).toISOString(),
       },
     ],
+    messages: [],
     auditTrail: [
       {
         id: 'AUD-10011',
@@ -629,6 +637,7 @@ export const seedClaims: Claim[] = [
     slaHistory: [],
     documents: makeDocs('glass'),
     communications: [],
+    messages: [],
     auditTrail: [
       {
         id: 'AUD-10012',
@@ -682,6 +691,7 @@ export const seedClaims: Claim[] = [
     ],
     documents: makeDocs('glass'),
     communications: [],
+    messages: [],
     auditTrail: [
       {
         id: 'AUD-10013',
@@ -739,6 +749,7 @@ export const seedClaims: Claim[] = [
     ],
     documents: makeDocs('glass'),
     communications: [],
+    messages: [],
     auditTrail: [
       {
         id: 'AUD-10014',
@@ -811,6 +822,7 @@ export const seedClaims: Claim[] = [
         createdAt: new Date(Date.now() - hours(18)).toISOString(),
       },
     ],
+    messages: [],
     auditTrail: [
       {
         id: 'AUD-10015',
@@ -889,6 +901,7 @@ export const seedClaims: Claim[] = [
         createdAt: new Date(Date.now() - hours(4)).toISOString(),
       },
     ],
+    messages: [],
     auditTrail: [
       {
         id: 'AUD-10017',
@@ -955,6 +968,7 @@ export const seedClaims: Claim[] = [
     ],
     documents: makeDocs('glass'),
     communications: [],
+    messages: [],
     auditTrail: [
       {
         id: 'AUD-10019',
@@ -1024,6 +1038,7 @@ export const seedClaims: Claim[] = [
     ],
     documents: makeDocs('glass'),
     communications: [],
+    messages: [],
     auditTrail: [
       {
         id: 'AUD-10021',
@@ -1092,6 +1107,7 @@ export const seedClaims: Claim[] = [
     ],
     documents: makeDocs('glass'),
     communications: [],
+    messages: [],
     auditTrail: [
       {
         id: 'AUD-10023',

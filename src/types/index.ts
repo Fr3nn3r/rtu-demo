@@ -301,6 +301,7 @@ export interface Claim {
   slaHistory: SLARecord[]
   documents: ClaimDocument[]
   communications: DraftCommunication[]
+  messages: ClaimMessage[]
   auditTrail: AuditEntry[]
 }
 
