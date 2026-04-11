@@ -4,6 +4,8 @@ import { stateLabels } from '@/data/workflow-definitions'
 import { useClaims } from '@/context/ClaimContext'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
+import { Badge } from '@/components/ui/badge'
 import { Undo2 } from 'lucide-react'
 import { NewClaimReview } from './actions/new-claim-review'
 import { PolicyValidation } from './actions/policy-validation'
@@ -19,8 +21,40 @@ import { InspectionCosting } from './actions/inspection-costing'
 import { WithinExcess } from './actions/within-excess'
 import { ProgressStatus } from './actions/progress-status'
 import { Closed } from './actions/closed'
+import { ConversationView } from './conversation/conversation-view'
 
 export function ActionPanel({ claim }: { claim: Claim }) {
+  const messageCount = claim.messages.length
+  const hasPendingDraft = claim.messages.some(
+    m => m.direction === 'outbound' && m.state === 'pending'
+  )
+
+  return (
+    <Card className="p-0 gap-0 overflow-hidden">
+      <Tabs defaultValue="action">
+        <TabsList className="w-full justify-start border-b border-border rounded-none bg-transparent px-1">
+          <TabsTrigger value="action" className="text-xs">Action</TabsTrigger>
+          <TabsTrigger value="conversation" className="text-xs">
+            Conversation
+            {messageCount > 0 && (
+              <Badge variant={hasPendingDraft ? 'default' : 'secondary'} className="ml-1.5 text-[10px] h-4 px-1.5">
+                {messageCount}
+              </Badge>
+            )}
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value="action" className="mt-0 p-5">
+          <ActionTabContent claim={claim} />
+        </TabsContent>
+        <TabsContent value="conversation" className="mt-0 p-5">
+          <ConversationView claim={claim} />
+        </TabsContent>
+      </Tabs>
+    </Card>
+  )
+}
+
+function ActionTabContent({ claim }: { claim: Claim }) {
   const { dispatch } = useClaims()
   const stepConfig = getStepConfig(claim.type, claim.status)
   const prevState = getPreviousState(claim)
@@ -36,7 +70,7 @@ export function ActionPanel({ claim }: { claim: Claim }) {
   }
 
   return (
-    <Card className="p-5">
+    <>
       <div className="mb-4 flex items-start justify-between gap-4">
         <div>
           <h3 className="text-base font-semibold">{stepConfig?.label ?? 'Unknown Step'}</h3>
@@ -52,7 +86,7 @@ export function ActionPanel({ claim }: { claim: Claim }) {
         )}
       </div>
       <ActionContent claim={claim} />
-    </Card>
+    </>
   )
 }
 
