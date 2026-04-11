@@ -2,7 +2,10 @@ import { defineConfig, devices } from '@playwright/test'
 
 export default defineConfig({
   testDir: './tests',
-  fullyParallel: true,
+  // Single worker keeps runs predictable while the suite is small. Each test
+  // already has its own `page` context, so React in-memory state is isolated
+  // per test — bumping workers later is safe, but unnecessary at this size.
+  fullyParallel: false,
   forbidOnly: false,
   retries: 0,
   workers: 1,
