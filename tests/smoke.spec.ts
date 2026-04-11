@@ -59,19 +59,18 @@ test.describe('Sidebar navigation smoke', () => {
     await page.goto('/claims')
     await expect(page.getByRole('heading').first()).toBeVisible()
 
-    const linkSequence: { label: string | RegExp; urlPattern: RegExp }[] = [
-      { label: /^Inbox/, urlPattern: /\/inbox$/ },
-      { label: 'Dashboard', urlPattern: /\/dashboard$/ },
-      { label: 'Contacts', urlPattern: /\/contacts$/ },
-      { label: 'Claims', urlPattern: /\/claims$/ },
+    // All labels are regex — Inbox needs it for the optional badge suffix,
+    // and anchoring the others with `\b` keeps them equally strict while
+    // letting the loop body stay uniform.
+    const linkSequence: { label: RegExp; urlPattern: RegExp }[] = [
+      { label: /^Inbox\b/, urlPattern: /\/inbox$/ },
+      { label: /^Dashboard\b/, urlPattern: /\/dashboard$/ },
+      { label: /^Contacts\b/, urlPattern: /\/contacts$/ },
+      { label: /^Claims\b/, urlPattern: /\/claims$/ },
     ]
 
     for (const step of linkSequence) {
-      const linkLocator =
-        typeof step.label === 'string'
-          ? page.getByRole('link', { name: step.label, exact: true })
-          : page.getByRole('link', { name: step.label })
-      await linkLocator.click()
+      await page.getByRole('link', { name: step.label }).click()
       await expect(page).toHaveURL(step.urlPattern)
       await expect(page.getByRole('heading').first()).toBeVisible()
       await expect(
