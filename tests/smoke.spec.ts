@@ -198,3 +198,39 @@ test.describe('Happy path: Theft', () => {
     expect(errors, 'no console errors during theft happy path').toEqual([])
   })
 })
+
+test.describe('Happy path: Glass', () => {
+  test('CLM-10009 walks from NEW to CLOSED', async ({ page }) => {
+    const errors = captureConsoleErrors(page)
+
+    await page.goto('/claims/CLM-10009')
+    await expect(page.getByRole('heading', { name: 'New Claim' })).toBeVisible()
+
+    // NEW → POLICY_VALIDATION
+    await page.getByRole('button', { name: /Confirm & Proceed to Policy Validation/i }).click()
+    await expect(page.getByRole('heading', { name: 'Policy Validation' })).toBeVisible()
+
+    // POLICY_VALIDATION → REGISTERED
+    await page.getByLabel('Policy Number').fill('POL-GLASS-001')
+    await page.getByLabel('Excess Amount (ZAR)').fill('2500')
+    await page.getByRole('button', { name: /Confirm Valid/i }).click()
+    await expect(page.getByRole('heading', { name: 'Registered' })).toBeVisible()
+
+    // REGISTERED → GLASS_REPAIRER_APPOINTED
+    await page.getByLabel('SPM Claim Number').fill('SPM-GLASS-001')
+    await page.getByRole('button', { name: /Confirm Registration/i }).click()
+    await expect(page.getByRole('heading', { name: 'Glass Repairer Appointed' })).toBeVisible()
+
+    // GLASS_REPAIRER_APPOINTED → REPAIR_COMPLETE
+    // Pick the first seeded glass repairer (CON-008: PG Glass Johannesburg).
+    await page.getByRole('button', { name: /PG Glass Johannesburg/ }).click()
+    await page.getByRole('button', { name: /Confirm Appointment/i }).click()
+    await expect(page.getByRole('heading', { name: 'Repair Complete' })).toBeVisible()
+
+    // REPAIR_COMPLETE → CLOSED
+    await page.getByRole('button', { name: /Close Claim/i }).click()
+    await expect(page.getByRole('heading', { name: 'Closed' })).toBeVisible()
+
+    expect(errors, 'no console errors during glass happy path').toEqual([])
+  })
+})
