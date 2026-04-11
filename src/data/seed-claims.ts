@@ -1,4 +1,4 @@
-import type { Claim, ClaimDocument, SLARecord, WorkflowState } from '@/types'
+import type { Claim, ClaimDocument, ClaimMessage, InboundMessage, OutboundMessage, SLARecord, WorkflowState } from '@/types'
 import { addHours, subHours } from 'date-fns'
 
 const operators = ['Nikki Pearmain', 'Nombuso Ncube', 'Shanaaz Smith']
@@ -35,6 +35,70 @@ function makeDocs(type: 'accident' | 'theft' | 'glass'): ClaimDocument[] {
     { id: 'DOC-5', type: 'vehicle_registration', label: 'Vehicle Registration', status: 'pending', updatedAt: now },
     { id: 'DOC-6', type: 'drivers_license', label: "Driver's License", status: 'received', updatedAt: now },
   ]
+}
+
+let msgCounter = 1000
+function nextMsgId(prefix: 'OUT' | 'IN'): string {
+  msgCounter++
+  return `MSG-${prefix}-${msgCounter}`
+}
+
+function makeOutbound(args: {
+  claimId: string
+  trigger: string
+  to: string[]
+  subject: string
+  body: string
+  hoursAfterCreation: number
+  claimCreatedAt: string
+  sent: boolean
+}): OutboundMessage {
+  const generatedAt = new Date(new Date(args.claimCreatedAt).getTime() + args.hoursAfterCreation * 60 * 60 * 1000).toISOString()
+  return {
+    id: nextMsgId('OUT'),
+    claimId: args.claimId,
+    direction: 'outbound',
+    state: args.sent ? 'sent' : 'pending',
+    source: 'draft_generated',
+    threadToken: `CP-${args.claimId}`,
+    trigger: args.trigger,
+    from: { name: 'Nikki Pearmain', email: 'nikki@rtusa.co.za', role: 'consultant' },
+    to: args.to,
+    bcc: ['claims@rtusa.co.za'],
+    subject: `[CP-${args.claimId}] ${args.subject}`,
+    body: args.body,
+    attachments: [],
+    generatedAt,
+    sentAt: args.sent ? generatedAt : undefined,
+  }
+}
+
+function makeInbound(args: {
+  claimId: string
+  fromName: string
+  fromEmail: string
+  fromRole: 'insured' | 'broker' | 'assessor' | 'investigator' | 'repairer' | 'glass_repairer' | 'insurer'
+  subject: string
+  body: string
+  hoursAfterCreation: number
+  claimCreatedAt: string
+  attachments?: { id: string; name: string }[]
+}): InboundMessage {
+  const receivedAt = new Date(new Date(args.claimCreatedAt).getTime() + args.hoursAfterCreation * 60 * 60 * 1000).toISOString()
+  return {
+    id: nextMsgId('IN'),
+    claimId: args.claimId,
+    direction: 'inbound',
+    state: 'received',
+    source: 'seeded',
+    threadToken: `CP-${args.claimId}`,
+    from: { name: args.fromName, email: args.fromEmail, role: args.fromRole },
+    to: ['claims@rtusa.co.za'],
+    subject: `Re: [CP-${args.claimId}] ${args.subject}`,
+    body: args.body,
+    attachments: args.attachments ?? [],
+    receivedAt,
+  }
 }
 
 export const seedClaims: Claim[] = [
@@ -91,6 +155,7 @@ export const seedClaims: Claim[] = [
   },
 
   // ── 2. Accident — POLICY_VALIDATION — Approaching SLA (10 of 12 hours) ────
+  // messages: POLICY_VALIDATION → 1 outbound ack to insured (sent)
   {
     id: 'CLM-10002',
     type: 'accident',
@@ -133,7 +198,18 @@ export const seedClaims: Claim[] = [
     ],
     documents: makeDocs('accident'),
     communications: [],
-    messages: [],
+    messages: [
+      makeOutbound({
+        claimId: 'CLM-10002',
+        trigger: 'claim_acknowledged',
+        to: ['thandeka@sowetostartaxis.co.za'],
+        subject: 'Acknowledgement of Receipt',
+        body: 'Dear Thandeka Mthembu,\n\nThank you for submitting your claim. We confirm receipt and have assigned it reference number CLM-10002.\n\nWe are currently verifying your policy details and will be in touch shortly.\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 1,
+        claimCreatedAt: new Date(Date.now() - hours(14)).toISOString(),
+        sent: true,
+      }),
+    ] satisfies ClaimMessage[],
     auditTrail: [
       {
         id: 'AUD-10002',
@@ -216,7 +292,38 @@ export const seedClaims: Claim[] = [
         createdAt: new Date(Date.now() - hours(54)).toISOString(),
       },
     ],
-    messages: [],
+    messages: [
+      makeOutbound({
+        claimId: 'CLM-10003',
+        trigger: 'claim_acknowledged',
+        to: ['lwandile@ttc.co.za'],
+        subject: 'Acknowledgement of Receipt',
+        body: 'Dear Lwandile Nkosi,\n\nThank you for submitting your claim. We confirm receipt and have assigned it reference number CLM-10003.\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 1,
+        claimCreatedAt: new Date(Date.now() - hours(80)).toISOString(),
+        sent: true,
+      }),
+      makeOutbound({
+        claimId: 'CLM-10003',
+        trigger: 'broker_acknowledged',
+        to: ['claims@ikhethelo.co.za'],
+        subject: 'New Claim Registered',
+        body: 'Dear Ikhethelo Brokers,\n\nWe have registered a new accident claim for your client Lwandile Nkosi. Reference: CLM-10003.\n\nVehicle: 2020 Nissan Almera 1.5 Acenta (GP 78 TKL)\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 1,
+        claimCreatedAt: new Date(Date.now() - hours(80)).toISOString(),
+        sent: true,
+      }),
+      makeOutbound({
+        claimId: 'CLM-10003',
+        trigger: 'assessor_appointed',
+        to: ['pieter@assessments.co.za'],
+        subject: 'Assessment Required — 2020 Nissan Almera 1.5 Acenta',
+        body: 'Dear Pieter,\n\nWe have appointed you to assess the damage to a 2020 Nissan Almera 1.5 Acenta, registration GP 78 TKL. Please attend within 48 hours and revert with the report.\n\nInsured: Lwandile Nkosi\nIncident: Side collision on R21 Highway near OR Tambo International Airport\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 3,
+        claimCreatedAt: new Date(Date.now() - hours(80)).toISOString(),
+        sent: true,
+      }),
+    ] satisfies ClaimMessage[],
     auditTrail: [
       {
         id: 'AUD-10004',
@@ -291,7 +398,48 @@ export const seedClaims: Claim[] = [
       { id: 'DOC-7', type: 'assessment_report', label: 'Assessment Report — Brandon Stein', status: 'received', updatedAt: new Date(Date.now() - hours(10)).toISOString() },
     ],
     communications: [],
-    messages: [],
+    messages: [
+      makeOutbound({
+        claimId: 'CLM-10004',
+        trigger: 'claim_acknowledged',
+        to: ['bongani@phoenixtaxi.co.za'],
+        subject: 'Acknowledgement of Receipt',
+        body: 'Dear Bongani Sithole,\n\nThank you for submitting your claim. We confirm receipt and have assigned it reference number CLM-10004.\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 1,
+        claimCreatedAt: new Date(Date.now() - hours(120)).toISOString(),
+        sent: true,
+      }),
+      makeOutbound({
+        claimId: 'CLM-10004',
+        trigger: 'broker_acknowledged',
+        to: ['claims@taccsure.co.za'],
+        subject: 'New Claim Registered',
+        body: 'Dear Taccsure Insurance Brokers,\n\nWe have registered a new accident claim for your client Bongani Sithole. Reference: CLM-10004.\n\nVehicle: 2021 Toyota Etios 1.5 Xi (ND 33 PKL)\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 1,
+        claimCreatedAt: new Date(Date.now() - hours(120)).toISOString(),
+        sent: true,
+      }),
+      makeOutbound({
+        claimId: 'CLM-10004',
+        trigger: 'assessor_appointed',
+        to: ['thandiwe@motorassess.co.za'],
+        subject: 'Assessment Required — 2021 Toyota Etios 1.5 Xi',
+        body: 'Dear Thandiwe,\n\nWe have appointed you to assess the damage to a 2021 Toyota Etios 1.5 Xi, registration ND 33 PKL. Please attend within 48 hours and revert with the report.\n\nInsured: Bongani Sithole\nIncident: Rear collision on M7 Higginson Highway, Chatsworth\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 3,
+        claimCreatedAt: new Date(Date.now() - hours(120)).toISOString(),
+        sent: true,
+      }),
+      makeInbound({
+        claimId: 'CLM-10004',
+        fromName: 'Thandiwe Nkosi',
+        fromEmail: 'thandiwe@motorassess.co.za',
+        fromRole: 'assessor',
+        subject: 'Assessment Required — 2021 Toyota Etios 1.5 Xi',
+        body: 'Hi,\n\nConfirmed. I will be on-site tomorrow morning. Will send through the full assessment report by end of day.\n\nRegards,\nThandiwe',
+        hoursAfterCreation: 6,
+        claimCreatedAt: new Date(Date.now() - hours(120)).toISOString(),
+      }),
+    ] satisfies ClaimMessage[],
     auditTrail: [
       {
         id: 'AUD-10006',
@@ -360,7 +508,48 @@ export const seedClaims: Claim[] = [
       { id: 'DOC-7', type: 'assessment_report', label: 'Assessment Report — Thandiwe Nkosi', status: 'received', updatedAt: new Date(Date.now() - hours(30)).toISOString() },
     ],
     communications: [],
-    messages: [],
+    messages: [
+      makeOutbound({
+        claimId: 'CLM-10005',
+        trigger: 'claim_acknowledged',
+        to: ['patricia@tshwaneminibus.co.za'],
+        subject: 'Acknowledgement of Receipt',
+        body: 'Dear Patricia Mokoena,\n\nThank you for submitting your claim. We confirm receipt and have assigned it reference number CLM-10005.\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 1,
+        claimCreatedAt: new Date(Date.now() - hours(200)).toISOString(),
+        sent: true,
+      }),
+      makeOutbound({
+        claimId: 'CLM-10005',
+        trigger: 'broker_acknowledged',
+        to: ['claims@synergyriskmgrs.co.za'],
+        subject: 'New Claim Registered',
+        body: 'Dear Synergy Risk Managers,\n\nWe have registered a new accident claim for your client Patricia Mokoena. Reference: CLM-10005.\n\nVehicle: 2019 VW Caddy 2.0TDI (GP 99 UVB)\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 1,
+        claimCreatedAt: new Date(Date.now() - hours(200)).toISOString(),
+        sent: true,
+      }),
+      makeOutbound({
+        claimId: 'CLM-10005',
+        trigger: 'assessor_appointed',
+        to: ['thandiwe@motorassess.co.za'],
+        subject: 'Assessment Required — 2019 VW Caddy 2.0TDI',
+        body: 'Dear Thandiwe,\n\nWe have appointed you to assess the damage to a 2019 VW Caddy 2.0TDI, registration GP 99 UVB. Please attend within 48 hours and revert with the report.\n\nInsured: Patricia Mokoena\nIncident: T-bone collision at intersection on Hendrik Verwoerd Drive, Centurion\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 3,
+        claimCreatedAt: new Date(Date.now() - hours(200)).toISOString(),
+        sent: true,
+      }),
+      makeInbound({
+        claimId: 'CLM-10005',
+        fromName: 'Thandiwe Nkosi',
+        fromEmail: 'thandiwe@motorassess.co.za',
+        fromRole: 'assessor',
+        subject: 'Assessment Required — 2019 VW Caddy 2.0TDI',
+        body: 'Hi,\n\nNoted. I will attend the vehicle tomorrow and submit the assessment report by close of business.\n\nRegards,\nThandiwe',
+        hoursAfterCreation: 6,
+        claimCreatedAt: new Date(Date.now() - hours(200)).toISOString(),
+      }),
+    ] satisfies ClaimMessage[],
     auditTrail: [
       {
         id: 'AUD-10007',
@@ -430,7 +619,48 @@ export const seedClaims: Claim[] = [
     ],
     documents: makeDocs('accident'),
     communications: [],
-    messages: [],
+    messages: [
+      makeOutbound({
+        claimId: 'CLM-10006',
+        trigger: 'claim_acknowledged',
+        to: ['abdul@gatewayshuttle.co.za'],
+        subject: 'Acknowledgement of Receipt',
+        body: 'Dear Abdul Moosa,\n\nThank you for submitting your claim. We confirm receipt and have assigned it reference number CLM-10006.\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 1,
+        claimCreatedAt: new Date(Date.now() - hours(300)).toISOString(),
+        sent: true,
+      }),
+      makeOutbound({
+        claimId: 'CLM-10006',
+        trigger: 'broker_acknowledged',
+        to: ['claims@oaksure.co.za'],
+        subject: 'New Claim Registered',
+        body: 'Dear Oaksure Financial Services,\n\nWe have registered a new accident claim for your client Abdul Moosa. Reference: CLM-10006.\n\nVehicle: 2022 Toyota Quantum 2.5D-4D GL (GP 34 XYZ)\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 1,
+        claimCreatedAt: new Date(Date.now() - hours(300)).toISOString(),
+        sent: true,
+      }),
+      makeOutbound({
+        claimId: 'CLM-10006',
+        trigger: 'assessor_appointed',
+        to: ['rajesh@autoassess.co.za'],
+        subject: 'Assessment Required — 2022 Toyota Quantum 2.5D-4D GL',
+        body: 'Dear Rajesh,\n\nWe have appointed you to assess the damage to a 2022 Toyota Quantum 2.5D-4D GL, registration GP 34 XYZ. Please attend within 48 hours and revert with the report.\n\nInsured: Abdul Moosa\nIncident: Collision on William Nicol Drive, Sandton\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 3,
+        claimCreatedAt: new Date(Date.now() - hours(300)).toISOString(),
+        sent: true,
+      }),
+      makeInbound({
+        claimId: 'CLM-10006',
+        fromName: 'Rajesh Govender',
+        fromEmail: 'rajesh@autoassess.co.za',
+        fromRole: 'assessor',
+        subject: 'Assessment Required — 2022 Toyota Quantum 2.5D-4D GL',
+        body: 'Hi,\n\nConfirmed. I will inspect the vehicle tomorrow and submit my report within 24 hours of inspection.\n\nRegards,\nRajesh',
+        hoursAfterCreation: 6,
+        claimCreatedAt: new Date(Date.now() - hours(300)).toISOString(),
+      }),
+    ] satisfies ClaimMessage[],
     auditTrail: [
       {
         id: 'AUD-10008',
@@ -503,7 +733,18 @@ export const seedClaims: Claim[] = [
     ],
     documents: makeDocs('accident'),
     communications: [],
-    messages: [],
+    messages: [
+      makeOutbound({
+        claimId: 'CLM-10007',
+        trigger: 'claim_closed',
+        to: ['lwazi@ethekwini-transport.co.za'],
+        subject: 'Claim Closed — Repair Completed',
+        body: 'Dear Lwazi Mkhize,\n\nWe are pleased to confirm that your claim CLM-10007 has been closed. The repair to your 2020 Nissan NV350 Impendulo (ND 01 GHI) has been completed and the vehicle returned.\n\nThank you for your patience throughout this process.\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 1,
+        claimCreatedAt: new Date(Date.now() - hours(504)).toISOString(),
+        sent: true,
+      }),
+    ] satisfies ClaimMessage[],
     auditTrail: [
       {
         id: 'AUD-10009',
@@ -586,7 +827,38 @@ export const seedClaims: Claim[] = [
         createdAt: new Date(Date.now() - hours(72)).toISOString(),
       },
     ],
-    messages: [],
+    messages: [
+      makeOutbound({
+        claimId: 'CLM-10008',
+        trigger: 'claim_acknowledged',
+        to: ['thulani@kznexpress.co.za'],
+        subject: 'Acknowledgement of Receipt',
+        body: 'Dear Thulani Zulu,\n\nThank you for submitting your theft claim. We confirm receipt and have assigned it reference number CLM-10008.\n\nWe are sorry to hear about the hijacking and are treating this matter urgently.\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 1,
+        claimCreatedAt: new Date(Date.now() - hours(120)).toISOString(),
+        sent: true,
+      }),
+      makeOutbound({
+        claimId: 'CLM-10008',
+        trigger: 'broker_acknowledged',
+        to: ['claims@ikhethelo.co.za'],
+        subject: 'New Theft Claim Registered',
+        body: 'Dear Ikhethelo Brokers,\n\nWe have registered a new theft/hijacking claim for your client Thulani Zulu. Reference: CLM-10008.\n\nVehicle: 2023 Toyota Quantum 2.5D-4D GL (ND 56 RST)\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 1,
+        claimCreatedAt: new Date(Date.now() - hours(120)).toISOString(),
+        sent: true,
+      }),
+      makeOutbound({
+        claimId: 'CLM-10008',
+        trigger: 'investigator_appointed',
+        to: ['sipho@investigate.co.za'],
+        subject: 'Investigation Required — 2023 Toyota Quantum 2.5D-4D GL',
+        body: 'Dear Sipho,\n\nWe have appointed you to investigate a vehicle hijacking. Please contact the insured and submit your report within 14 days.\n\nInsured: Thulani Zulu\nVehicle: 2023 Toyota Quantum 2.5D-4D GL (ND 56 RST)\nIncident: Hijacking at Pietermaritzburg CBD Taxi Rank on Church Street\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 3,
+        claimCreatedAt: new Date(Date.now() - hours(120)).toISOString(),
+        sent: true,
+      }),
+    ] satisfies ClaimMessage[],
     auditTrail: [
       {
         id: 'AUD-10011',
@@ -691,7 +963,18 @@ export const seedClaims: Claim[] = [
     ],
     documents: makeDocs('glass'),
     communications: [],
-    messages: [],
+    messages: [
+      makeOutbound({
+        claimId: 'CLM-10010',
+        trigger: 'claim_acknowledged',
+        to: ['nkosi.mthethwa@gmail.com'],
+        subject: 'Acknowledgement of Receipt',
+        body: 'Dear Nkosi Mthethwa,\n\nThank you for submitting your glass claim. We confirm receipt and have assigned it reference number CLM-10010.\n\nWe are currently verifying your policy details and will be in touch shortly.\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 1,
+        claimCreatedAt: new Date(Date.now() - hours(16)).toISOString(),
+        sent: true,
+      }),
+    ] satisfies ClaimMessage[],
     auditTrail: [
       {
         id: 'AUD-10013',
@@ -749,7 +1032,28 @@ export const seedClaims: Claim[] = [
     ],
     documents: makeDocs('glass'),
     communications: [],
-    messages: [],
+    messages: [
+      makeOutbound({
+        claimId: 'CLM-10011',
+        trigger: 'claim_acknowledged',
+        to: ['reshma.naidoo@gmail.com'],
+        subject: 'Acknowledgement of Receipt',
+        body: 'Dear Reshma Naidoo,\n\nThank you for submitting your glass claim. We confirm receipt and have assigned it reference number CLM-10011.\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 1,
+        claimCreatedAt: new Date(Date.now() - hours(36)).toISOString(),
+        sent: true,
+      }),
+      makeOutbound({
+        claimId: 'CLM-10011',
+        trigger: 'broker_acknowledged',
+        to: ['claims@primak.co.za'],
+        subject: 'New Glass Claim Registered',
+        body: 'Dear Primak Insurance Brokers,\n\nWe have registered a new glass claim for your client Reshma Naidoo. Reference: CLM-10011.\n\nVehicle: 2020 Nissan Almera 1.5 Acenta (ND 88 KLM)\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 1,
+        claimCreatedAt: new Date(Date.now() - hours(36)).toISOString(),
+        sent: true,
+      }),
+    ] satisfies ClaimMessage[],
     auditTrail: [
       {
         id: 'AUD-10014',
@@ -822,7 +1126,28 @@ export const seedClaims: Claim[] = [
         createdAt: new Date(Date.now() - hours(18)).toISOString(),
       },
     ],
-    messages: [],
+    messages: [
+      makeOutbound({
+        claimId: 'CLM-10012',
+        trigger: 'claim_acknowledged',
+        to: ['jferreira@centurioncourier.co.za'],
+        subject: 'Acknowledgement of Receipt',
+        body: 'Dear Johannes Ferreira,\n\nThank you for submitting your glass claim. We confirm receipt and have assigned it reference number CLM-10012.\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 1,
+        claimCreatedAt: new Date(Date.now() - hours(56)).toISOString(),
+        sent: true,
+      }),
+      makeOutbound({
+        claimId: 'CLM-10012',
+        trigger: 'glass_repairer_dispatched',
+        to: ['claims@pgglass.co.za'],
+        subject: 'Glass Replacement Required — 2021 Toyota Quantum 2.5D-4D GL',
+        body: 'Dear PG Glass Johannesburg,\n\nWe have appointed you for a windscreen replacement for claim CLM-10012.\n\nVehicle: 2021 Toyota Quantum 2.5D-4D GL (GP 21 ABF)\nVehicle Location: Centurion — 102 Jean Avenue\nInsured: Johannes Ferreira\n\nPlease complete within 12 hours and confirm.\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 3,
+        claimCreatedAt: new Date(Date.now() - hours(56)).toISOString(),
+        sent: true,
+      }),
+    ] satisfies ClaimMessage[],
     auditTrail: [
       {
         id: 'AUD-10015',
@@ -901,7 +1226,28 @@ export const seedClaims: Claim[] = [
         createdAt: new Date(Date.now() - hours(4)).toISOString(),
       },
     ],
-    messages: [],
+    messages: [
+      makeOutbound({
+        claimId: 'CLM-10013',
+        trigger: 'claim_acknowledged',
+        to: ['anele.khumalo@gmail.com'],
+        subject: 'Acknowledgement of Receipt',
+        body: 'Dear Anele Khumalo,\n\nThank you for submitting your glass claim. We confirm receipt and have assigned it reference number CLM-10013.\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 1,
+        claimCreatedAt: new Date(Date.now() - hours(40)).toISOString(),
+        sent: true,
+      }),
+      makeOutbound({
+        claimId: 'CLM-10013',
+        trigger: 'glass_repairer_dispatched',
+        to: ['service@autoglass.co.za'],
+        subject: 'Glass Replacement Required — 2022 Toyota Corolla Quest 1.6',
+        body: 'Dear Autoglass Durban,\n\nWe have appointed you for a rear windscreen replacement for claim CLM-10013.\n\nVehicle: 2022 Toyota Corolla Quest 1.6 (GP 55 TLK)\nVehicle Location: Illovo — 22 Oxford Road\nInsured: Anele Khumalo\n\nPlease complete within 12 hours and confirm.\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 3,
+        claimCreatedAt: new Date(Date.now() - hours(40)).toISOString(),
+        sent: true,
+      }),
+    ] satisfies ClaimMessage[],
     auditTrail: [
       {
         id: 'AUD-10017',
@@ -968,7 +1314,38 @@ export const seedClaims: Claim[] = [
     ],
     documents: makeDocs('glass'),
     communications: [],
-    messages: [],
+    messages: [
+      makeOutbound({
+        claimId: 'CLM-10014',
+        trigger: 'claim_acknowledged',
+        to: ['maryam.vanwyk@gmail.com'],
+        subject: 'Acknowledgement of Receipt',
+        body: 'Dear Maryam van Wyk,\n\nThank you for submitting your glass claim. We confirm receipt and have assigned it reference number CLM-10014.\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 1,
+        claimCreatedAt: new Date(Date.now() - hours(72)).toISOString(),
+        sent: true,
+      }),
+      makeOutbound({
+        claimId: 'CLM-10014',
+        trigger: 'glass_repairer_dispatched',
+        to: ['service@autoglass.co.za'],
+        subject: 'Glass Replacement Required — 2020 Toyota Etios 1.5 Xi',
+        body: 'Dear Autoglass Durban,\n\nWe have appointed you for a windscreen replacement for claim CLM-10014.\n\nVehicle: 2020 Toyota Etios 1.5 Xi (CA 44 LKP)\nVehicle Location: Mouille Point — 15 Beach Road\nInsured: Maryam van Wyk\n\nPlease complete within 12 hours and confirm.\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 3,
+        claimCreatedAt: new Date(Date.now() - hours(72)).toISOString(),
+        sent: true,
+      }),
+      makeInbound({
+        claimId: 'CLM-10014',
+        fromName: 'Autoglass Durban',
+        fromEmail: 'service@autoglass.co.za',
+        fromRole: 'glass_repairer',
+        subject: 'Glass Replacement Required — 2020 Toyota Etios 1.5 Xi',
+        body: 'Hi,\n\nWindscreen replacement for CLM-10014 has been completed. Vehicle CA 44 LKP is ready for collection at Mouille Point.\n\nRegards,\nAutoglass Durban',
+        hoursAfterCreation: 4,
+        claimCreatedAt: new Date(Date.now() - hours(72)).toISOString(),
+      }),
+    ] satisfies ClaimMessage[],
     auditTrail: [
       {
         id: 'AUD-10019',
@@ -1038,7 +1415,18 @@ export const seedClaims: Claim[] = [
     ],
     documents: makeDocs('glass'),
     communications: [],
-    messages: [],
+    messages: [
+      makeOutbound({
+        claimId: 'CLM-10015',
+        trigger: 'claim_closed',
+        to: ['pieter@duplessisdeliveries.co.za'],
+        subject: 'Claim Closed — Glass Repair Completed',
+        body: 'Dear Pieter du Plessis,\n\nWe are pleased to confirm that your claim CLM-10015 has been closed. The windscreen replacement on your 2019 Toyota Corolla Quest 1.6 (GP 19 PRK) has been completed.\n\nThank you for your patience.\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 1,
+        claimCreatedAt: new Date(Date.now() - hours(240)).toISOString(),
+        sent: true,
+      }),
+    ] satisfies ClaimMessage[],
     auditTrail: [
       {
         id: 'AUD-10021',
@@ -1107,7 +1495,18 @@ export const seedClaims: Claim[] = [
     ],
     documents: makeDocs('glass'),
     communications: [],
-    messages: [],
+    messages: [
+      makeOutbound({
+        claimId: 'CLM-10016',
+        trigger: 'claim_closed',
+        to: ['sunita.pillay@gmail.com'],
+        subject: 'Claim Closed — Glass Repair Completed',
+        body: 'Dear Sunita Pillay,\n\nWe are pleased to confirm that your claim CLM-10016 has been closed. The windscreen replacement on your 2021 Nissan Almera 1.5 Acenta (ND 21 FGH) has been completed.\n\nThank you for your patience.\n\nRegards,\nRTU Insurance Services',
+        hoursAfterCreation: 1,
+        claimCreatedAt: new Date(Date.now() - hours(336)).toISOString(),
+        sent: true,
+      }),
+    ] satisfies ClaimMessage[],
     auditTrail: [
       {
         id: 'AUD-10023',
