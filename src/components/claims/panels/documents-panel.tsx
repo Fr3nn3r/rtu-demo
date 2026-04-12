@@ -1,4 +1,4 @@
-import type { Claim, DocumentStatus, DocumentType } from '@/types'
+import type { Claim, DocumentStatus } from '@/types'
 import { useClaims } from '@/context/ClaimContext'
 import { FileText, Check, Clock, Minus, FileCheck } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -25,19 +25,8 @@ export function DocumentsPanel({ claim }: { claim: Claim }) {
     t => !claim.documents.some(d => d.type === t),
   )
 
-  function markReceived(docId: string, docLabel: string) {
+  function markReceived(docId: string) {
     dispatch({ type: 'UPDATE_DOCUMENT_STATUS', claimId: claim.id, docId, status: 'received' })
-    dispatch({
-      type: 'ADD_AUDIT_ENTRY',
-      claimId: claim.id,
-      entry: {
-        id: `AUD-DOC-${Date.now()}`,
-        timestamp: new Date().toISOString(),
-        user: claim.assignedTo,
-        actionType: 'document_updated',
-        description: `Document received: ${docLabel}`,
-      },
-    })
   }
 
   const progressPercent = completeness.required > 0
@@ -92,7 +81,7 @@ export function DocumentsPanel({ claim }: { claim: Claim }) {
               {doc.status === 'pending' ? (
                 <button
                   type="button"
-                  onClick={() => markReceived(doc.id, doc.label)}
+                  onClick={() => markReceived(doc.id)}
                   className="text-[11px] font-medium text-accent-foreground hover:text-primary transition-colors px-2 py-0.5 rounded hover:bg-muted"
                 >
                   Mark received
