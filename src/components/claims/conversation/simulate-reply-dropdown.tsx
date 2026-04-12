@@ -3,6 +3,7 @@ import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -88,18 +89,20 @@ export function SimulateReplyDropdown({ claim }: SimulateReplyDropdownProps) {
       />
       {!disabled && (
         <DropdownMenuContent align="end" className="w-56">
-          <DropdownMenuLabel>From which participant?</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          {participants.map(p => (
-            <DropdownMenuItem
-              key={p.role}
-              onClick={() => handlePick(p.role, p.label)}
-              className="flex flex-col items-start"
-            >
-              <span className="text-xs font-medium">{p.label}</span>
-              {p.sublabel && <span className="text-[11px] text-muted-foreground">{p.sublabel}</span>}
-            </DropdownMenuItem>
-          ))}
+          <DropdownMenuGroup>
+            <DropdownMenuLabel>From which participant?</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            {participants.map(p => (
+              <DropdownMenuItem
+                key={p.role}
+                onClick={() => handlePick(p.role, p.label)}
+                className="flex flex-col items-start"
+              >
+                <span className="text-xs font-medium">{p.label}</span>
+                {p.sublabel && <span className="text-[11px] text-muted-foreground">{p.sublabel}</span>}
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuGroup>
         </DropdownMenuContent>
       )}
     </DropdownMenu>

@@ -234,3 +234,32 @@ test.describe('Happy path: Glass', () => {
     expect(errors, 'no console errors during glass happy path').toEqual([])
   })
 })
+
+test.describe('Simulate reply dropdown', () => {
+  test('CLM-10002 opens the simulate-reply dropdown without crashing', async ({ page }) => {
+    const errors = captureConsoleErrors(page)
+
+    // CLM-10002 has a sent outbound message to the insured, so
+    // the simulate-reply button will be enabled.
+    await page.goto('/claims/CLM-10002')
+
+    // Switch to the Conversation tab.
+    await page.getByRole('tab', { name: /Conversation/i }).click()
+
+    // Click the Simulate reply dropdown trigger.
+    await page.getByRole('button', { name: /Simulate reply/i }).click()
+
+    // The dropdown should render its menu items without the ErrorBoundary firing.
+    await expect(
+      page.getByRole('heading', { name: 'Something went wrong' })
+    ).toHaveCount(0)
+
+    // At least one participant option should be visible in the open dropdown.
+    // Scope to the menu role to avoid matching the name in claim details/messages.
+    await expect(
+      page.getByRole('menu').getByText('Thandeka Mthembu')
+    ).toBeVisible()
+
+    expect(errors, 'no console errors when opening simulate-reply dropdown').toEqual([])
+  })
+})
