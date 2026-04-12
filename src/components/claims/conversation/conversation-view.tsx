@@ -4,7 +4,6 @@ import { MessageBubble } from './message-bubble'
 import { DraftModal } from './draft-modal'
 import { SimulateReplyDropdown } from './simulate-reply-dropdown'
 import { sortMessagesChronologically } from '@/lib/messages'
-import { ScrollArea } from '@/components/ui/scroll-area'
 import { Mail } from 'lucide-react'
 import { formatDistanceStrict } from 'date-fns'
 
@@ -56,7 +55,7 @@ export function ConversationView({ claim }: ConversationViewProps) {
           <div className="text-[11px] mt-1">Drafts and inbound replies will appear here as the claim progresses.</div>
         </div>
       ) : (
-        <ScrollArea className="flex-1 max-h-[550px] pr-2">
+        <div className="flex-1 max-h-[60vh] overflow-y-auto pr-2">
           {sortedMessages.map(message => (
             <MessageBubble
               key={message.id}
@@ -64,7 +63,7 @@ export function ConversationView({ claim }: ConversationViewProps) {
               onClickPendingDraft={handleClickPendingDraft}
             />
           ))}
-        </ScrollArea>
+        </div>
       )}
 
       {/* Draft modal */}
