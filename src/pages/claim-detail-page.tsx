@@ -1,5 +1,6 @@
 import { useParams, Navigate } from 'react-router-dom'
 import { useClaims } from '@/context/ClaimContext'
+import { getDocumentCompleteness } from '@/lib/documents'
 import { ClaimHeader } from '@/components/claims/claim-header'
 import { WorkflowStepper } from '@/components/claims/workflow-stepper'
 import { ActionPanel } from '@/components/claims/action-panel'
@@ -19,6 +20,8 @@ export function ClaimDetailPage() {
   if (!claim) {
     return <Navigate to="/claims" replace />
   }
+
+  const docCompleteness = getDocumentCompleteness(claim)
 
   return (
     <div className="space-y-5">
@@ -40,8 +43,10 @@ export function ClaimDetailPage() {
                 <TabsTrigger value="details" className="text-xs">Details</TabsTrigger>
                 <TabsTrigger value="documents" className="text-xs">
                   Documents
-                  {claim.documents.some(d => d.status === 'pending') && (
-                    <span className="ml-1 size-1.5 rounded-full bg-accent-foreground inline-block" />
+                  {docCompleteness.missing.length > 0 && (
+                    <span className="ml-1 rounded-full bg-accent-foreground/20 px-1.5 text-[10px] font-medium text-accent-foreground">
+                      {docCompleteness.received}/{docCompleteness.required}
+                    </span>
                   )}
                 </TabsTrigger>
                 <TabsTrigger value="audit" className="text-xs">Audit</TabsTrigger>

@@ -1,12 +1,17 @@
 import { Link } from 'react-router-dom'
-import { ArrowLeft, User } from 'lucide-react'
+import { ArrowLeft, User, FileCheck } from 'lucide-react'
 import type { Claim } from '@/types'
 import { ClaimTypeBadge } from './claim-type-badge'
 import { StatusBadge } from './status-badge'
 import { SlaIndicator } from './sla-indicator'
+import { getDocumentCompleteness } from '@/lib/documents'
+import { cn } from '@/lib/utils'
 import { format } from 'date-fns'
 
 export function ClaimHeader({ claim }: { claim: Claim }) {
+  const docCompleteness = getDocumentCompleteness(claim)
+  const isDocComplete = docCompleteness.missing.length === 0
+
   return (
     <div className="space-y-2">
       <Link
@@ -31,6 +36,17 @@ export function ClaimHeader({ claim }: { claim: Claim }) {
             <ClaimTypeBadge type={claim.type} />
             <StatusBadge status={claim.status} />
             <SlaIndicator claim={claim} />
+            <span
+              className={cn(
+                'inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-xs font-medium',
+                isDocComplete
+                  ? 'bg-primary/10 text-primary'
+                  : 'bg-accent/50 text-accent-foreground',
+              )}
+            >
+              <FileCheck className="size-3" />
+              {docCompleteness.received}/{docCompleteness.required}
+            </span>
           </div>
           <p className="text-sm text-muted-foreground">
             {claim.insured.name} — {claim.vehicle.year} {claim.vehicle.make} {claim.vehicle.model} ({claim.vehicle.registration})
