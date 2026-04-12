@@ -20,7 +20,7 @@ export function DocCompletenessChart() {
           <YAxis tick={{ fontSize: 11 }} allowDecimals={false} />
           <RechartsTooltip
             formatter={(value: unknown) => [`${value} claims`, 'Incomplete']}
-            labelFormatter={(label: string) => `Date: ${label}`}
+            labelFormatter={(label: unknown) => `Date: ${label}`}
           />
           <Bar dataKey="claimsWithIncomplete" fill="var(--chart-3)" radius={[4, 4, 0, 0]} />
         </BarChart>
