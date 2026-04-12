@@ -8,6 +8,7 @@ import {
   Cell, AreaChart, Area, LineChart, Line, ReferenceLine,
 } from 'recharts'
 import { historicalClaims } from '@/data/seed-historical-claims'
+import { DocCompletenessChart } from '@/components/dashboard/doc-completeness-chart'
 import {
   filterByPeriod,
   aggregateVolume,
@@ -206,6 +207,9 @@ export function DashboardPage() {
           </BarChart>
         </ResponsiveContainer>
       </Card>
+
+      {/* ── Document Completeness ──────────────────────────── */}
+      <DocCompletenessChart />
 
     </div>
   )
