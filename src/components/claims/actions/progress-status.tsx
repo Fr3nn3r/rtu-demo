@@ -1,9 +1,12 @@
+import { useState } from 'react'
 import type { Claim, WorkflowState } from '@/types'
 import { Button } from '@/components/ui/button'
 import { useClaims } from '@/context/ClaimContext'
 import { formatZAR } from '@/lib/utils'
 import { stateLabels } from '@/data/workflow-definitions'
 import { CheckCircle } from 'lucide-react'
+import { getDocumentCompleteness, isGatedTransition } from '@/lib/documents'
+import { SettlementGateDialog } from './settlement-gate-dialog'
 
 const nextStateMap: Partial<Record<WorkflowState, WorkflowState>> = {
   REPAIR_IN_PROGRESS: 'CLOSED',
@@ -23,15 +26,54 @@ const actionLabels: Partial<Record<WorkflowState, string>> = {
 
 export function ProgressStatus({ claim }: { claim: Claim }) {
   const { dispatch } = useClaims()
+  const [gateOpen, setGateOpen] = useState(false)
   const nextState = nextStateMap[claim.status]
+
+  const shouldGate = nextState != null && isGatedTransition(claim.status, nextState)
+  const completeness = getDocumentCompleteness(claim)
 
   function handleAdvance() {
     if (!nextState) return
+
+    if (shouldGate && completeness.missing.length > 0) {
+      setGateOpen(true)
+      return
+    }
+
     dispatch({
       type: 'ADVANCE_WORKFLOW',
       claimId: claim.id,
       toState: nextState,
     })
+  }
+
+  function handleOverride(reason: string) {
+    if (!nextState) return
+
+    // Log a document_override audit entry per missing doc
+    const now = new Date().toISOString()
+    completeness.missing.forEach((docType, i) => {
+      dispatch({
+        type: 'ADD_AUDIT_ENTRY',
+        claimId: claim.id,
+        entry: {
+          id: `AUD-OVERRIDE-${Date.now()}-${i}`,
+          timestamp: now,
+          user: claim.assignedTo,
+          actionType: 'document_override',
+          description: `Document override: ${docType} — Reason: ${reason}`,
+        },
+      })
+    })
+
+    // Now advance
+    dispatch({
+      type: 'ADVANCE_WORKFLOW',
+      claimId: claim.id,
+      toState: nextState,
+    })
+
+    setGateOpen(false)
   }
 
   return (
@@ -67,6 +109,16 @@ export function ProgressStatus({ claim }: { claim: Claim }) {
             {actionLabels[claim.status] ?? 'Proceed'}
           </Button>
         </div>
+      )}
+
+      {shouldGate && (
+        <SettlementGateDialog
+          open={gateOpen}
+          onOpenChange={setGateOpen}
+          missingDocs={completeness.missing}
+          total={completeness.required}
+          onOverride={handleOverride}
+        />
       )}
     </div>
   )
