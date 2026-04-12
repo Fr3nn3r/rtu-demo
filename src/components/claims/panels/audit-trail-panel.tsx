@@ -3,7 +3,7 @@ import { format } from 'date-fns'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import {
-  PlusCircle, ArrowRightLeft, Edit, FileText, UserPlus, Send, Mail, AlertTriangle, AlertCircle, MessageSquare, Download, Inbox,
+  PlusCircle, ArrowRightLeft, Edit, FileText, UserPlus, Send, Mail, AlertTriangle, AlertCircle, MessageSquare, Download, Inbox, ShieldAlert,
 } from 'lucide-react'
 
 const iconMap: Record<AuditActionType, typeof PlusCircle> = {
@@ -11,7 +11,7 @@ const iconMap: Record<AuditActionType, typeof PlusCircle> = {
   status_changed: ArrowRightLeft,
   field_updated: Edit,
   document_updated: FileText,
-  document_override: Download,
+  document_override: ShieldAlert,
   contact_assigned: UserPlus,
   message_generated: Mail,
   message_sent: Send,
