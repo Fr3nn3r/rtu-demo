@@ -56,6 +56,7 @@ export type AuditActionType =
   | 'status_changed'
   | 'field_updated'
   | 'document_updated'
+  | 'document_override'
   | 'contact_assigned'
   | 'message_generated'
   | 'message_sent'
@@ -313,6 +314,12 @@ export interface DashboardStats {
   newThisMonth: number
   closedThisMonth: number
   avgDaysToClose: number
+}
+
+// ── Document Completeness Snapshot ──────────────────────────
+export interface DailyDocCompletenessSnapshot {
+  date: string
+  claimsWithIncomplete: number
 }
 
 // ── Historical Claim (for trend charts) ─────────────────────

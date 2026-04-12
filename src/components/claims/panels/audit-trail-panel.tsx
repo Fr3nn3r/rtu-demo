@@ -11,6 +11,7 @@ const iconMap: Record<AuditActionType, typeof PlusCircle> = {
   status_changed: ArrowRightLeft,
   field_updated: Edit,
   document_updated: FileText,
+  document_override: Download,
   contact_assigned: UserPlus,
   message_generated: Mail,
   message_sent: Send,
