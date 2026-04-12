@@ -1265,6 +1265,7 @@ These decisions were made during scoping. Workshop resolutions from 2026-04-10 a
 | 23 | **Dashboard export = PDF + CSV, synchronous for small ranges, async for large** | If Matthew wants scheduled/recurring or white-labelled exports | ✅ Confirmed for MVP on 2026-04-10; extensions deferred to §14 |
 | 24 | **Draft generation triggers and the reminder cadence model will be defined in the Reuben-owned comms follow-up session** | This is a known gap; no assumption locked in | Open — follow-up session scheduled |
 | 25 | **BCC discipline (or Send-As delegate) is a hard prerequisite for the conversation view to work** — if the consultant forgets to BCC `claims@`, the ingestion worker will not see the outbound message and the draft will remain visually pending. ClaimPilot does not enforce this at MVP. | Consultants' sent messages would not appear in the conversation view, breaking the audit trail for that specific message | Open — mitigation is the Gmail compose URL pre-populating the BCC field; confirm with Mike this is sufficient |
+| 26 | **Prototype is single-tenant with hardcoded values; multi-tenancy comes from the platform backend** | The R50k mandate threshold, SLA timings, mailbox address, and required-documents lists are hardcoded constants in the prototype. Multi-tenant configuration is a production concern owned by the platform backend, not the prototype. | ✅ Confirmed on 2026-04-12 by Fred |
 
 ---
 
