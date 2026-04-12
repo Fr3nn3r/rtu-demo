@@ -1,5 +1,6 @@
-import type { Claim, ClaimDocument, ClaimMessage, InboundMessage, OutboundMessage, SLARecord, WorkflowState } from '@/types'
+import type { Claim, ClaimDocument, ClaimMessage, DocumentType, InboundMessage, OutboundMessage, SLARecord, WorkflowState } from '@/types'
 import { addHours, subHours } from 'date-fns'
+import { REQUIRED_DOCUMENTS, DOCUMENT_LABELS } from '@/data/document-requirements'
 
 const operators = ['Nikki Pearmain', 'Nombuso Ncube', 'Shanaaz Smith']
 
@@ -18,23 +19,37 @@ function makeSLA(state: WorkflowState, slaHours: number, hoursAgo: number, compl
   }
 }
 
-function makeDocs(type: 'accident' | 'theft' | 'glass'): ClaimDocument[] {
+/**
+ * Generate a documents array with the first `receivedCount` required docs
+ * marked as received and the rest as pending.
+ * Optional `extras` adds non-required docs (e.g. vehicle_registration).
+ */
+function makeRequiredDocs(
+  type: 'accident' | 'theft' | 'glass',
+  receivedCount: number,
+  extras?: { type: DocumentType; label: string; status: 'received' | 'pending' }[],
+): ClaimDocument[] {
   const now = new Date().toISOString()
-  if (type === 'glass') {
-    return [
-      { id: 'DOC-1', type: 'claim_form', label: 'Glass Claim Form', status: 'received', updatedAt: now },
-      { id: 'DOC-2', type: 'drivers_license', label: "Driver's License", status: 'received', updatedAt: now },
-      { id: 'DOC-3', type: 'damage_photos', label: 'Damage Photos', status: 'received', updatedAt: now },
-    ]
+  const required = REQUIRED_DOCUMENTS[type]
+  const docs: ClaimDocument[] = required.map((docType, i) => ({
+    id: `DOC-${i + 1}`,
+    type: docType,
+    label: DOCUMENT_LABELS[docType],
+    status: i < receivedCount ? 'received' as const : 'pending' as const,
+    updatedAt: now,
+  }))
+  if (extras) {
+    extras.forEach((extra, i) => {
+      docs.push({
+        id: `DOC-X-${i + 1}`,
+        type: extra.type,
+        label: extra.label,
+        status: extra.status,
+        updatedAt: now,
+      })
+    })
   }
-  return [
-    { id: 'DOC-1', type: 'claim_form', label: 'Claim Form', status: 'received', updatedAt: now },
-    { id: 'DOC-2', type: 'police_report', label: 'Police Report', status: 'received', updatedAt: now },
-    { id: 'DOC-3', type: 'id_copy', label: "Owner's ID Copy", status: 'received', updatedAt: now },
-    { id: 'DOC-4', type: 'license_disk', label: 'License Disk', status: 'received', updatedAt: now },
-    { id: 'DOC-5', type: 'vehicle_registration', label: 'Vehicle Registration', status: 'pending', updatedAt: now },
-    { id: 'DOC-6', type: 'drivers_license', label: "Driver's License", status: 'received', updatedAt: now },
-  ]
+  return docs
 }
 
 let msgCounter = 1000
@@ -140,7 +155,7 @@ export const seedClaims: Claim[] = [
     },
     workflow: {},
     slaHistory: [],
-    documents: makeDocs('accident'),
+    documents: makeRequiredDocs('accident', 2),
     messages: [],
     auditTrail: [
       {
@@ -195,7 +210,7 @@ export const seedClaims: Claim[] = [
       makeSLA('NEW', 12, 14, true),
       makeSLA('POLICY_VALIDATION', 12, 10), // 10h into 12h = approaching
     ],
-    documents: makeDocs('accident'),
+    documents: makeRequiredDocs('accident', 3),
     messages: [
       makeOutbound({
         claimId: 'CLM-10002',
@@ -276,7 +291,7 @@ export const seedClaims: Claim[] = [
       makeSLA('ASSESSOR_APPOINTED', 12, 60, true),  // appointment SLA
       makeSLA('ASSESSOR_APPOINTED', 48, 54),         // 54h into 48h report SLA = breached
     ],
-    documents: makeDocs('accident'),
+    documents: makeRequiredDocs('accident', 4),
     messages: [
       makeOutbound({
         claimId: 'CLM-10003',
@@ -378,10 +393,7 @@ export const seedClaims: Claim[] = [
       makeSLA('ASSESSOR_APPOINTED', 48, 92, true),
       makeSLA('ASSESSMENT_RECEIVED', 48, 10), // 10h into 48h = within
     ],
-    documents: [
-      ...makeDocs('accident'),
-      { id: 'DOC-7', type: 'assessment_report', label: 'Assessment Report — Brandon Stein', status: 'received', updatedAt: new Date(Date.now() - hours(10)).toISOString() },
-    ],
+    documents: makeRequiredDocs('accident', 5),
     messages: [
       makeOutbound({
         claimId: 'CLM-10004',
@@ -487,10 +499,7 @@ export const seedClaims: Claim[] = [
       makeSLA('ASSESSMENT_RECEIVED', 48, 30, true),
       makeSLA('INTERNAL_APPROVAL', 4, 3.5), // 3.5h into 4h = approaching
     ],
-    documents: [
-      ...makeDocs('accident'),
-      { id: 'DOC-7', type: 'assessment_report', label: 'Assessment Report — Thandiwe Nkosi', status: 'received', updatedAt: new Date(Date.now() - hours(30)).toISOString() },
-    ],
+    documents: makeRequiredDocs('accident', 5),
     messages: [
       makeOutbound({
         claimId: 'CLM-10005',
@@ -600,7 +609,7 @@ export const seedClaims: Claim[] = [
       makeSLA('AOL', 12, 20, true),
       makeSLA('INSPECTION_FINAL_COSTING', 12, 6), // 6h into 12h = within
     ],
-    documents: makeDocs('accident'),
+    documents: makeRequiredDocs('accident', 5),
     messages: [
       makeOutbound({
         claimId: 'CLM-10006',
@@ -713,7 +722,7 @@ export const seedClaims: Claim[] = [
       makeSLA('INSPECTION_FINAL_COSTING', 12, 250, true),
       makeSLA('REPAIR_IN_PROGRESS', 168, 200, true),
     ],
-    documents: makeDocs('accident'),
+    documents: makeRequiredDocs('accident', 7),
     messages: [
       makeOutbound({
         claimId: 'CLM-10007',
@@ -794,7 +803,7 @@ export const seedClaims: Claim[] = [
       makeSLA('INVESTIGATOR_APPOINTED', 12, 96, true),
       makeSLA('INVESTIGATOR_APPOINTED', 336, 72), // 72h into 336h = within (~21%)
     ],
-    documents: makeDocs('theft'),
+    documents: makeRequiredDocs('theft', 4),
     messages: [
       makeOutbound({
         claimId: 'CLM-10008',
@@ -875,7 +884,7 @@ export const seedClaims: Claim[] = [
     },
     workflow: {},
     slaHistory: [],
-    documents: makeDocs('glass'),
+    documents: makeRequiredDocs('glass', 1),
     messages: [],
     auditTrail: [
       {
@@ -928,7 +937,7 @@ export const seedClaims: Claim[] = [
       makeSLA('NEW', 12, 16, true),
       makeSLA('POLICY_VALIDATION', 12, 6), // 6h into 12h = within
     ],
-    documents: makeDocs('glass'),
+    documents: makeRequiredDocs('glass', 2),
     messages: [
       makeOutbound({
         claimId: 'CLM-10010',
@@ -996,7 +1005,7 @@ export const seedClaims: Claim[] = [
       makeSLA('POLICY_VALIDATION', 12, 28, true),
       makeSLA('REGISTERED', 4, 2), // 2h into 4h = within
     ],
-    documents: makeDocs('glass'),
+    documents: makeRequiredDocs('glass', 2),
     messages: [
       makeOutbound({
         claimId: 'CLM-10011',
@@ -1077,7 +1086,7 @@ export const seedClaims: Claim[] = [
       makeSLA('REGISTERED', 4, 40, true),
       makeSLA('GLASS_REPAIRER_APPOINTED', 12, 18), // 18h into 12h = breached
     ],
-    documents: makeDocs('glass'),
+    documents: makeRequiredDocs('glass', 3),
     messages: [
       makeOutbound({
         claimId: 'CLM-10012',
@@ -1164,7 +1173,7 @@ export const seedClaims: Claim[] = [
       makeSLA('REGISTERED', 4, 24, true),
       makeSLA('GLASS_REPAIRER_APPOINTED', 12, 4), // 4h into 12h = within
     ],
-    documents: makeDocs('glass'),
+    documents: makeRequiredDocs('glass', 4),
     messages: [
       makeOutbound({
         claimId: 'CLM-10013',
@@ -1251,7 +1260,7 @@ export const seedClaims: Claim[] = [
       makeSLA('REGISTERED', 4, 56, true),
       makeSLA('GLASS_REPAIRER_APPOINTED', 12, 20, true),
     ],
-    documents: makeDocs('glass'),
+    documents: makeRequiredDocs('glass', 3),
     messages: [
       makeOutbound({
         claimId: 'CLM-10014',
@@ -1351,7 +1360,7 @@ export const seedClaims: Claim[] = [
       makeSLA('REGISTERED', 4, 224, true),
       makeSLA('GLASS_REPAIRER_APPOINTED', 12, 200, true),
     ],
-    documents: makeDocs('glass'),
+    documents: makeRequiredDocs('glass', 4),
     messages: [
       makeOutbound({
         claimId: 'CLM-10015',
@@ -1430,7 +1439,7 @@ export const seedClaims: Claim[] = [
       makeSLA('REGISTERED', 4, 320, true),
       makeSLA('GLASS_REPAIRER_APPOINTED', 12, 290, true),
     ],
-    documents: makeDocs('glass'),
+    documents: makeRequiredDocs('glass', 4),
     messages: [
       makeOutbound({
         claimId: 'CLM-10016',
